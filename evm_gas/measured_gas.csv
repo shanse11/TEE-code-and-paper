@@ -1,0 +1,4 @@
+sample_index,payload_size,register_da_gas,submit_rollup_gas,challenge_open_gas,challenge_respond_gas,challenge_step_round1_gas,challenge_recover_gas,challenge_step_round2_gas,challenge_step_round3_gas,challenge_replay_gas,challenge_resolve_gas,finalize_gas
+1,128,113530,299051,283769,65886,93807,156891,59754,102009,135632,113402,33477
+2,512,113530,299019,283769,65886,93807,156891,59754,102009,135632,113402,33477
+3,2048,113518,299031,283769,65886,93807,156891,59754,102009,135632,113402,33477

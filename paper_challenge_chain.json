@@ -1,0 +1,225 @@
+{
+  "transactions": [
+    {
+      "id": "challenge-t128-to2-r16-s100",
+      "mrenclave": "4514c6cad036f30374375fc228cf13619d6ab87c92c58cdd6a9834682b2a245d",
+      "model_backend": "mock",
+      "model_name": "paper-model",
+      "created_at": "2026-04-28T10:59:00+00:00",
+      "challenge_deadline": "2026-04-28T11:00:00+00:00",
+      "commit": {
+        "state_root": "f3eadba5c4fb40f1d9fee384c7385a103005040777bc11c60f9c9003023e3406",
+        "output_hash": "d72a3e683919eaf58a84f260da3e2e7fe5095a31c5c7daae5a640b0e8442d059",
+        "proof_hash": "b16583ba7fca56a601cbe34d9e09187e7b77bdab83d92b4aa08ec2b2d1d5d806",
+        "da_pointer": "c4cbee15a27ed085b042014bec776da3ad35f175441fdda84574bc511c16f67a",
+        "da_merkle_root": "03c7174915415b9bcf73e7aeb92ab0740d44e58fb5862508f538d90a66680324"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-28T10:59:09+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "da_payload_hash_mismatch",
+          "da_proof_invalid",
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "step=0;state=554081bd625c72a6099aaa39;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=1;state=cf403f31ce80c21f45c86bc1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=2;state=02a59fdefc5bc1b0b0471de5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=3;state=903f3251420b93110baa3053;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=4;state=cefe24d6acd393244e5208d1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=5;state=2c7a608a5b63bf3f85e31aea;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=6;state=327775add62c20fd6e422871;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=7;state=8136159a01828b9990bca487;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=8;state=da15eb8f2f918f126870720c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=9;state=a9ae0779df67b5f3833e4056;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=10;state=983f40096c0fbd82145c982b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=11;state=9824c460f653f83bd7185cbb;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=12;state=59bb7498e11dbd402529e7bf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=13;state=6a1f73afee324e6667cd4609;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=14;state=c15b90cdb05e1ab58a354ddf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=15;state=e32812c594af0ed8236b44e8;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=16;state=589f55e4c78de4f5d4ce06cc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=17;state=01fa084bb075ae0d0569b075;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=18;state=b285a86a9728c54d34b65038;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=19;state=4def687aa5d345bb45099c5b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=20;state=b5ad886b25353852ba7d0b95;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=21;state=eb98b25172ba7e87ac02e734;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=22;state=1bce32e7e7ba481766ff0373;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=23;state=a66b50db34cafb08b66f5225;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=24;state=f75dc9ead91bf85cd6bf91bb;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=25;state=1599c30083be2ee76be190c5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=26;state=f1e3e14bb863c3f9d4e368e3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=27;state=cbe7cf2e847086cd9d8d76a9;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=28;state=33f8292193f38cae359b1d0c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=29;state=11c66f56a8bb3f9c5c2e8984;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=30;state=8f5327b642d5799be2c37dee;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=31;state=cb086e8d54aadbb64f217b97;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=32;state=f4ef2a9f07ba2157f56e4c8b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=33;state=8b15b85e4cb13aeee5d24fff;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=34;state=a1e2aca913211be0872e504b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=35;state=0b94278ab71394107849a18e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=36;state=a8c6e5f0f8cf81320ba2c6a6;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=37;state=fafbc41582d5c6bcc203735f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=38;state=0af3eb0699c64458b0c5fc49;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=39;state=568e8358092c1f7d63a8676f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=40;state=ee5c8a15138cac84bca66e52;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=41;state=237638775b5987a7aa33a624;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=42;state=d832dfc75c5bb3abeff87696;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=43;state=51cd5455afedb162fd6e6a1c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=44;state=fe3be613b447141ede6f6b1a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=45;state=fa02d26be85fec8e1f834ea7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=46;state=827ffdf9b6190e2d47abbc21;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=47;state=e5ca837b6118437860ce350d;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=48;state=656ac4925f2237ec51001c1a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=49;state=f4f3fad00849d040032f5842;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=50;state=59dbaa50d09862260556ec3a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=51;state=ad9618861a2ba3088521c430;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=52;state=f1e68f4d4e6ad6cd1f640415;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=53;state=e9d75981da6994c86fffbb79;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=54;state=5cb4e64fc6c64daaf3386b14;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=55;state=58ba77b9614994a302b5d5ff;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=56;state=3957aae1c0c3c3ac6248f14a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=57;state=101375e96bab00a55d71de92;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=58;state=c661bb4a5682e0adb08b80dc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=59;state=2f8770e1c91590ec8a3a4a55;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=60;state=782ed1c37ea9dcf8788d7623;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=61;state=dd1b95a60618223bc42922de;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=62;state=afc296f8f8408c12c17e0cc6;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=63;state=454f647397489bf16728ef2f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=64;state=406e20b9e1b76a4fc9d7d86f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=65;state=c4ab07dfa092bfbfa2b9650c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=66;state=89095e1b22de9e3abea55ee1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=67;state=296b03e786cbb70215db0140;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=68;state=ce14eca9d259aa9268cfde3e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=69;state=37fe1c0af574fa6c492ecb99;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=70;state=8589d06e864e7aea06ec7416;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=71;state=bf29bc96bffa835d675e2e8d;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=72;state=9509bde6397c56d302751b4b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=73;state=1415453a31885ea722047edc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=74;state=ac182b6da6f1714a45b0e64c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=75;state=8618973fdc642d97dd6a2d73;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=76;state=445cbc781851985c690ffae3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=77;state=b5328a2091bfa0572578042c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=78;state=d19648ec14d90bdb1ce863e9;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=79;state=f5dcb14044aded976157b1b3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=80;state=584696526236ae6784f1d8d4;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=81;state=534c55d5cdbeb495fe8fd15e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=82;state=dbc09aaaca2999f0d4925ad1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=83;state=018c3a07ae39845e9c703259;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=84;state=691d2a5b93fcf28721474e4a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=85;state=6cb4b37de80045eeca3c9baf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=86;state=42cfc308788d021f8bad4cb1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=87;state=67d8ce3d1a885268cb32b3cc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=88;state=21256c0777652a708a13c378;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=89;state=70cafdf9570d6fd0da306521;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=90;state=50a1e9cd82fd5fa23f879930;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=91;state=f38e0a209ccc262387139558;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=92;state=537a5bae87ae5ee21cfdad3f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=93;state=6d53d173199107d5d50faace;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=94;state=5470beac5852bc125ede80e4;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=95;state=b6fae36cf2164a1425b5a9df;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=96;state=22869f8b42eb27ed45ef1091;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=97;state=b4b19d2a1dcec325ed9f4915;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=98;state=8d8474d739613331be973a4e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=99;state=8444ce31e0bf0df07583ed73;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=100;state=f87801b06b0c99e555132e0a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=101;state=a0eeb787ee15c2f0d16d193c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=102;state=a168db023c82e4af76c28778;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=103;state=38d5aa9074c524e02fffc107;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=104;state=f0fbe006cd27fb181bc2df50;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=105;state=d36f2498bdfcf04b1a9cf1db;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=106;state=be21e210e154685052ec908f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=107;state=edae156e0063e8e8f01c99fc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=108;state=220628c1623fc8f4f562482b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=109;state=1fc5e66f69b4c4981cc15190;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=110;state=f912fea562d06481819417e2;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=111;state=8bb9b464ca5045271a4a2a62;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=112;state=989d157cbb21657a890e1cea;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=113;state=9af007aa6d7ee887cc7f00f5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=114;state=c3c31775ed023c509c428e82;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=115;state=dc365a9f47f4b068dc55e915;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=116;state=917c7e28744ecf455a7c7a57;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=117;state=9522dfcd2cce5737726dffc7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=118;state=af3e1c4833d345eb33a562e7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=119;state=68a9da18dc3be7dc167d81fc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=120;state=5a8e3eea8d0c0acca38f49db;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=121;state=aa10af5c753f7c81d0096710;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=122;state=fe24a8e7e6925cc84067667a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=123;state=ad55460cfdf1f98c8c190e0b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=124;state=a8dc733979636b863a41123e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=125;state=9906231050df0ace6de5600a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=126;state=b35e4f7f8a9d9a4f890e0c28;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=127;state=f220d4005eab5520df75a590;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "replay_result": {
+          "checked_at": "2026-04-28T10:59:08+00:00",
+          "step_index": 64,
+          "passed": false,
+          "reason": "step_state_mismatch",
+          "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+          "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+        },
+        "evidence": {
+          "da_status": {
+            "available": true,
+            "valid": false,
+            "reason": "da_proof_invalid",
+            "field": "response",
+            "root": "03c7174915415b9bcf73e7aeb92ab0740d44e58fb5862508f538d90a66680324"
+          },
+          "mismatch_types": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "target_step": 64,
+          "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+          "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+        }
+      },
+      "challenge_session": {
+        "challenger": "fisherman",
+        "opened_at": "2026-04-28T10:59:01+00:00",
+        "last_updated_at": "2026-04-28T10:59:09+00:00",
+        "timeout_at": "2026-04-28T10:59:11+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer",
+          "responded_at": "2026-04-28T10:59:01+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "da_payload_hash_mismatch",
+              "da_proof_invalid",
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "dispute": {
+          "left": 64,
+          "right": 64,
+          "round": 7,
+          "trace_length": 128,
+          "length_mismatch": false,
+          "narrowing_complete": true,
+          "target_step": 64,
+          "history": [
+            {
+              "round": 1,
+              "checked_at": "2026-04-28T10:59:02+00:00",
+              "decision": "right_half",
+              "mismatch_index": 64,
+              "left": 0,
+              "right": 127
+            },
+            {
+              "round": 2,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 127
+            },
+            {
+              "round": 3,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 95
+            },
+            {
+              "round": 4,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 79
+            },
+            {
+              "round": 5,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 71
+            },
+            {
+              "round": 6,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 67
+            },
+            {
+              "round": 7,
+              "checked_at": "2026-04-28T10:59:07+00:00",
+              "decision": "left_half",
+              "mismatch_index": 64,
+              "left": 64,
+              "right": 65
+            }
+          ],
+          "replay_result": {
+            "checked_at": "2026-04-28T10:59:08+00:00",
+            "step_index": 64,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+            "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+          }
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-28T10:59:09+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "step=0;state=554081bd625c72a6099aaa39;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=1;state=cf403f31ce80c21f45c86bc1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=2;state=02a59fdefc5bc1b0b0471de5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=3;state=903f3251420b93110baa3053;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=4;state=cefe24d6acd393244e5208d1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=5;state=2c7a608a5b63bf3f85e31aea;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=6;state=327775add62c20fd6e422871;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=7;state=8136159a01828b9990bca487;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=8;state=da15eb8f2f918f126870720c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=9;state=a9ae0779df67b5f3833e4056;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=10;state=983f40096c0fbd82145c982b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=11;state=9824c460f653f83bd7185cbb;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=12;state=59bb7498e11dbd402529e7bf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=13;state=6a1f73afee324e6667cd4609;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=14;state=c15b90cdb05e1ab58a354ddf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=15;state=e32812c594af0ed8236b44e8;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=16;state=589f55e4c78de4f5d4ce06cc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=17;state=01fa084bb075ae0d0569b075;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=18;state=b285a86a9728c54d34b65038;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=19;state=4def687aa5d345bb45099c5b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=20;state=b5ad886b25353852ba7d0b95;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=21;state=eb98b25172ba7e87ac02e734;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=22;state=1bce32e7e7ba481766ff0373;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=23;state=a66b50db34cafb08b66f5225;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=24;state=f75dc9ead91bf85cd6bf91bb;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=25;state=1599c30083be2ee76be190c5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=26;state=f1e3e14bb863c3f9d4e368e3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=27;state=cbe7cf2e847086cd9d8d76a9;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=28;state=33f8292193f38cae359b1d0c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=29;state=11c66f56a8bb3f9c5c2e8984;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=30;state=8f5327b642d5799be2c37dee;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=31;state=cb086e8d54aadbb64f217b97;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=32;state=f4ef2a9f07ba2157f56e4c8b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=33;state=8b15b85e4cb13aeee5d24fff;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=34;state=a1e2aca913211be0872e504b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=35;state=0b94278ab71394107849a18e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=36;state=a8c6e5f0f8cf81320ba2c6a6;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=37;state=fafbc41582d5c6bcc203735f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=38;state=0af3eb0699c64458b0c5fc49;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=39;state=568e8358092c1f7d63a8676f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=40;state=ee5c8a15138cac84bca66e52;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=41;state=237638775b5987a7aa33a624;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=42;state=d832dfc75c5bb3abeff87696;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=43;state=51cd5455afedb162fd6e6a1c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=44;state=fe3be613b447141ede6f6b1a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=45;state=fa02d26be85fec8e1f834ea7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=46;state=827ffdf9b6190e2d47abbc21;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=47;state=e5ca837b6118437860ce350d;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=48;state=656ac4925f2237ec51001c1a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=49;state=f4f3fad00849d040032f5842;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=50;state=59dbaa50d09862260556ec3a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=51;state=ad9618861a2ba3088521c430;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=52;state=f1e68f4d4e6ad6cd1f640415;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=53;state=e9d75981da6994c86fffbb79;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=54;state=5cb4e64fc6c64daaf3386b14;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=55;state=58ba77b9614994a302b5d5ff;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=56;state=3957aae1c0c3c3ac6248f14a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=57;state=101375e96bab00a55d71de92;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=58;state=c661bb4a5682e0adb08b80dc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=59;state=2f8770e1c91590ec8a3a4a55;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=60;state=782ed1c37ea9dcf8788d7623;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=61;state=dd1b95a60618223bc42922de;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=62;state=afc296f8f8408c12c17e0cc6;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=63;state=454f647397489bf16728ef2f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=64;state=406e20b9e1b76a4fc9d7d86f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=65;state=c4ab07dfa092bfbfa2b9650c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=66;state=89095e1b22de9e3abea55ee1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=67;state=296b03e786cbb70215db0140;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=68;state=ce14eca9d259aa9268cfde3e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=69;state=37fe1c0af574fa6c492ecb99;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=70;state=8589d06e864e7aea06ec7416;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=71;state=bf29bc96bffa835d675e2e8d;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=72;state=9509bde6397c56d302751b4b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=73;state=1415453a31885ea722047edc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=74;state=ac182b6da6f1714a45b0e64c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=75;state=8618973fdc642d97dd6a2d73;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=76;state=445cbc781851985c690ffae3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=77;state=b5328a2091bfa0572578042c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=78;state=d19648ec14d90bdb1ce863e9;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=79;state=f5dcb14044aded976157b1b3;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=80;state=584696526236ae6784f1d8d4;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=81;state=534c55d5cdbeb495fe8fd15e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=82;state=dbc09aaaca2999f0d4925ad1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=83;state=018c3a07ae39845e9c703259;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=84;state=691d2a5b93fcf28721474e4a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=85;state=6cb4b37de80045eeca3c9baf;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=86;state=42cfc308788d021f8bad4cb1;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=87;state=67d8ce3d1a885268cb32b3cc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=88;state=21256c0777652a708a13c378;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=89;state=70cafdf9570d6fd0da306521;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=90;state=50a1e9cd82fd5fa23f879930;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=91;state=f38e0a209ccc262387139558;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=92;state=537a5bae87ae5ee21cfdad3f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=93;state=6d53d173199107d5d50faace;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=94;state=5470beac5852bc125ede80e4;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=95;state=b6fae36cf2164a1425b5a9df;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=96;state=22869f8b42eb27ed45ef1091;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=97;state=b4b19d2a1dcec325ed9f4915;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=98;state=8d8474d739613331be973a4e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=99;state=8444ce31e0bf0df07583ed73;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=100;state=f87801b06b0c99e555132e0a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=101;state=a0eeb787ee15c2f0d16d193c;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=102;state=a168db023c82e4af76c28778;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=103;state=38d5aa9074c524e02fffc107;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=104;state=f0fbe006cd27fb181bc2df50;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=105;state=d36f2498bdfcf04b1a9cf1db;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=106;state=be21e210e154685052ec908f;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=107;state=edae156e0063e8e8f01c99fc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=108;state=220628c1623fc8f4f562482b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=109;state=1fc5e66f69b4c4981cc15190;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=110;state=f912fea562d06481819417e2;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=111;state=8bb9b464ca5045271a4a2a62;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=112;state=989d157cbb21657a890e1cea;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=113;state=9af007aa6d7ee887cc7f00f5;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=114;state=c3c31775ed023c509c428e82;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=115;state=dc365a9f47f4b068dc55e915;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=116;state=917c7e28744ecf455a7c7a57;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=117;state=9522dfcd2cce5737726dffc7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=118;state=af3e1c4833d345eb33a562e7;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=119;state=68a9da18dc3be7dc167d81fc;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=120;state=5a8e3eea8d0c0acca38f49db;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=121;state=aa10af5c753f7c81d0096710;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=122;state=fe24a8e7e6925cc84067667a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=123;state=ad55460cfdf1f98c8c190e0b;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=124;state=a8dc733979636b863a41123e;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=125;state=9906231050df0ace6de5600a;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=126;state=b35e4f7f8a9d9a4f890e0c28;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nstep=127;state=f220d4005eab5520df75a590;payload=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "replay_result": {
+            "checked_at": "2026-04-28T10:59:08+00:00",
+            "step_index": 64,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+            "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+          },
+          "evidence": {
+            "da_status": {
+              "available": true,
+              "valid": false,
+              "reason": "da_proof_invalid",
+              "field": "response",
+              "root": "03c7174915415b9bcf73e7aeb92ab0740d44e58fb5862508f538d90a66680324"
+            },
+            "mismatch_types": [
+              "da_payload_hash_mismatch",
+              "da_proof_invalid",
+              "attestation_invalid",
+              "state_root_mismatch"
+            ],
+            "target_step": 64,
+            "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+            "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+          }
+        },
+        "evidence": {
+          "da_status": {
+            "available": true,
+            "valid": false,
+            "reason": "da_proof_invalid",
+            "field": "response",
+            "root": "03c7174915415b9bcf73e7aeb92ab0740d44e58fb5862508f538d90a66680324"
+          },
+          "mismatch_types": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "target_step": 64,
+          "expected_hash": "119465d61bc48c4b54e1a7625e68daa5cba13b39aba1e16558e2057a19172e5f",
+          "claimed_hash": "1ff53c71b8bbf6d54472eaeef31ee4f3684058ce5dfecfee0dc26d73677c1ccf"
+        },
+        "recovery": {
+          "count": 1,
+          "history": [
+            {
+              "operator": "watchdog",
+              "recovered_at": "2026-04-28T10:59:06+00:00",
+              "prior_status": "NARROWING",
+              "prior_round": 1
+            }
+          ]
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    }
+  ]
+}

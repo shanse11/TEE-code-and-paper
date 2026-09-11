@@ -1,0 +1,437 @@
+# Localization Revision Log
+
+Source file preserved: `conference_refined_paper.docx`
+
+Generated files:
+
+- `chinese_academic_version.docx`
+- `localization_revision_log.md`
+
+## 英文段落中文化记录
+
+- 段落 7: `1 Introduction`
+  - 改写为：`1 引言（Introduction）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 12: `1.1 Contributions（本文贡献）`
+  - 改写为：`1.1 本文贡献（Contributions）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 21: `2 Background and Threat Model`
+  - 改写为：`2 背景与威胁模型（Background and Threat Model）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 22: `2.1 Rollups, TEE, and Data Availability`
+  - 改写为：`2.1 Rollup、TEE 与数据可用性（Data Availability）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 27: `2.2 Problem Scope and Adversarial Assumptions`
+  - 改写为：`2.2 问题范围与对抗假设（Problem Scope and Adversarial Assumptions）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 31: `3 System Overview`
+  - 改写为：`3 系统概览（System Overview）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 36: `3.1 Execution Layer and Normal Path`
+  - 改写为：`3.1 执行层与正常路径（Execution Layer and Normal Path）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 39: `3.2 Data Availability Interface`
+  - 改写为：`3.2 数据可用性接口（Data Availability Interface）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 42: `3.3 Verification Layer and Recovery Trigger`
+  - 改写为：`3.3 验证层与恢复触发（Verification Layer and Recovery Trigger）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 46: `4 Recoverable Challenge Protocol`
+  - 改写为：`4 可恢复挑战协议（Recoverable Challenge Protocol）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 47: `4.1 Protocol Model and Definitions`
+  - 改写为：`4.1 协议模型与形式化定义（Protocol Model and Definitions）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 49: `Definition 1 (Challenge Session)`
+  - 改写为：`定义 1（Challenge Session，挑战会话）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 52: `Definition 2 (Challenge State Machine)`
+  - 改写为：`定义 2（Challenge State Machine，挑战状态机）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 55: `Definition 3 (Recovery Function)`
+  - 改写为：`定义 3（Recovery Function，恢复函数）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 58: `Protocol Property`
+  - 改写为：`协议性质（Protocol Property）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 60: `4.2 Timeout, Recovery, Replay, and Resolution`
+  - 改写为：`4.2 超时、恢复、重放与仲裁结算（Timeout, Recovery, Replay, and Resolution）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 68: `4.3 Correctness Boundary and Protocol Properties`
+  - 改写为：`4.3 正确性边界与协议性质（Correctness Boundary and Protocol Properties）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 72: `5 Evidence-Carrying Compact Commit and DA Binding`
+  - 改写为：`5 携带证据的紧凑提交与 DA 绑定（Evidence-Carrying Compact Commit and DA Binding）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 76: `6 DA-aware Cost Model`
+  - 改写为：`6 DA 感知成本模型（DA-aware Cost Model）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 81: `7 Evaluation`
+  - 改写为：`7 实验评估（Evaluation）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 87: `7.1 RQ1: Does compact commit reduce on-chain submission size?`
+  - 改写为：`7.1 RQ1：紧凑提交能否降低链上提交规模`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 95: `7.2 RQ2: How does batch size affect DA-aware amortized cost?`
+  - 改写为：`7.2 RQ2：批大小如何影响 DA 感知摊销成本`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 103: `7.3 RQ3: Can recovery improve challenge liveness under timeout?`
+  - 改写为：`7.3 RQ3：恢复机制能否改善 timeout 场景下的挑战活性`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 109: `7.3.1 Recovery Overhead Analysis（恢复开销分析）`
+  - 改写为：`7.3.1 恢复开销分析（Recovery Overhead Analysis）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 117: `7.4 RQ4: Which failure scenarios lead to detection, recovery, or slashing?`
+  - 改写为：`7.4 RQ4：不同故障场景能否被检测、恢复或惩罚`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 127: `7.5 RQ5: Do Solidity, local EVM, and Sepolia evidence support an on-chain counterpart?`
+  - 改写为：`7.5 RQ5：Solidity、本地 EVM 与 Sepolia 证据能否支撑链上对应物`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 138: `7.6 Reproducibility and Evidence Types`
+  - 改写为：`7.6 可复现性与证据类型（Reproducibility and Evidence Types）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 141: `7.7 Comparison-Oriented Evaluation`
+  - 改写为：`7.7 对比型实验评估（Comparison-Oriented Evaluation）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 143: `7.7.1 Recover vs No-Recover: Liveness Ablation`
+  - 改写为：`7.7.1 recover 与 no-recover 的活性对比`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 153: `7.7.2 Compact Commit vs Full Payload: Evidence-Preserving Cost Comparison`
+  - 改写为：`7.7.2 紧凑提交与完整负载的证据保留成本对比`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 159: `7.7.3 Fault-Oriented Comparison`
+  - 改写为：`7.7.3 面向故障分类的对比分析`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 165: `7.7.4 DA Route Tradeoff Comparison`
+  - 改写为：`7.7.4 DA 路径权衡对比`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 171: `7.7.5 Scalability Boundary`
+  - 改写为：`7.7.5 可扩展性边界`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 173: `8 Discussion and Limitations`
+  - 改写为：`8 讨论与局限性（Discussion and Limitations）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 175: `8.1 Internal Validity（内部效度）`
+  - 改写为：`8.1 内部效度（Internal Validity）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 177: `8.2 External Validity（外部效度）`
+  - 改写为：`8.2 外部效度（External Validity）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 179: `8.3 Construct Validity and Deployment Boundary（构念效度与部署边界）`
+  - 改写为：`8.3 构念效度与部署边界（Construct Validity and Deployment Boundary）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 189: `8.4 Relationship to Prior Work`
+  - 改写为：`8.4 与相关工作的关系（Relationship to Prior Work）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 200: `8.5 Takeaways and Future Direction`
+  - 改写为：`8.5 小结与未来方向（Takeaways and Future Direction）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 204: `8.5.1 Theoretical Implication（理论启示）`
+  - 改写为：`8.5.1 理论启示（Theoretical Implication）`
+  - 原因：章节标题由英文改为中文为主、中英对照。
+- 段落 1: `Recoverable Challenge Protocol and Evidence-Carrying DA Commitments for Hybrid T`
+  - 改写为：`面向高频 DApp 的 Hybrid TEE-Rollup 可恢复挑战协议与携带证据的 DA 提交机制`
+  - 原因：英文题名改为中文学术题名，保留核心英文术语。
+- 段落 4: `高频 DApp，如元宇宙状态同步、去中心化社交交互和链上 AI 推理服务，把扩容问题转化为一个 systems/security tradeoff：系统既要保持`
+  - 改写为：`高频 DApp（Decentralized Application）如元宇宙状态同步、去中心化社交交互和链上 AI 推理服务，使区块链扩容问题呈现出典型的安全系`
+  - 原因：摘要中文化，统一引入核心术语的中英对照并消除英文 narrative。
+- 段落 8: `高频 DApp 的困难不只是吞吐量。单次交互通常价值不高，却要求持续状态更新、低延迟反馈、低链上负担和异常时的公开可验证仲裁。以链上 AI 推理服务为例，用户连`
+  - 改写为：`高频 DApp 的困难并不只是吞吐量不足。此类应用的单次交互价值通常不高，却要求持续状态更新、低延迟反馈、低链上负担，以及异常场景下的公开可验证仲裁。以链上 A`
+  - 原因：引言开头本地化，保留场景但改为中文论文表述。
+- 段落 9: `现有路线各自解决了 tension 的一部分，却没有同时消除四个约束。Fully on-chain execution 保留公开验证，但把高频 payload、`
+  - 改写为：`现有路线分别缓解了上述矛盾的一部分，但难以同时满足低成本、低延迟、公开可验证和挑战活性四项要求。全链上执行保留了公开验证能力，却将高频 payload、存储和执`
+  - 原因：现有方案分析去除英文 conference phrasing。
+- 段落 10: `timeout 后 challenge 卡死不是普通工程异常，而是 protocol liveness 和 arbitration continuity 问题。`
+  - 改写为：`timeout 后挑战流程卡死并非普通工程异常，而是协议活性与仲裁连续性（arbitration continuity）问题。传统挑战机制可以关注错误是否能够被`
+  - 原因：将 protocol liveness/arbitration continuity 中文化，并统一主线表达。
+- 段落 11: `轻量提交也有安全语义边界。compact commit 如果只是普通 hash，确实能压缩链上字节，却不能告诉验证者如何取回 payload、验证字段级 mem`
+  - 改写为：`轻量提交同样存在安全语义边界。若 compact commit 只是普通 hash，虽然能够压缩链上字节，却无法指明验证者如何取回 payload、验证字段级 `
+  - 原因：compact commit 叙事中文化，同时保留必要术语。
+- 段落 13: `Recoverable Challenge. The first contribution is a liveness-preserving challenge`
+  - 改写为：`本文的第一个贡献在于提出可恢复挑战机制（Recoverable Challenge）。在传统挑战流程中，timeout 可能使争议停留在未解决状态，即使系统已经`
+  - 原因：Contributions 第一项中文化，强调 detection != resolution。
+- 段落 14: `Evidence-Carrying Compact Commit. The second contribution is a compact commitmen`
+  - 改写为：`本文的第二个贡献在于设计携带证据的紧凑提交（Evidence-Carrying Compact Commit）。该提交不是普通哈希摘要，而是将 state ro`
+  - 原因：Contributions 第二项中文化，突出不是 compression。
+- 段落 15: `DA-aware Cost Model. The third contribution is a lightweight model for reasoning`
+  - 改写为：`本文的第三个贡献在于构建 DA 感知成本模型（DA-aware Cost Model）。该模型不是价格预测器，而是用于分析 payload scaling、ba`
+  - 原因：Contributions 第三项中文化，突出 tradeoff 与设计意义。
+- 段落 19: `表 2 helps the reviewer place the mechanism rather than read it as a capability c`
+  - 改写为：`表 2 的作用并非给出能力清单，而是界定本文机制与既有系统的关系：已有系统通常已经具备挑战机制或 TEE 快速路径，本文关注的增量在于 timeout 后的挑战`
+  - 原因：去除 reviewer-facing phrasing。
+- 段落 26: `Data Availability 关注链下或链外数据是否可被需要的验证者获得。模块化区块链和 LazyLedger 等路线强调将数据可用性从执行验证中解耦，使`
+  - 改写为：`数据可用性（Data Availability, DA）关注链下或链外数据是否能够被需要的验证者获取。模块化区块链和 LazyLedger 等路线强调将数据可用`
+  - 原因：Background 中 DA 术语首次中英对照。
+- 段落 28: `This section narrows the problem after the background: the paper asks how a Hybr`
+  - 改写为：`在上述背景下，本文进一步限定研究问题：Hybrid TEE-Rollup 如何在保持正常路径低成本的同时，保留公开、可恢复且有证据支撑的异常路径。成本维度要求链`
+  - 原因：问题范围段落中文化。
+- 段落 30: `Scope. The threat model deliberately excludes real hardware side channels, remot`
+  - 改写为：`范围说明。本文的威胁模型不覆盖真实硬件侧信道、远程证明供应链故障、真实 DA 网络的经济安全、主网 MEV 以及拥堵导致的费用波动。该范围限定并不构成生产级声明`
+  - 原因：Scope 段落中文化为中文论文边界说明。
+- 段落 32: `This section explains how the mechanisms compose end to end. The system has thre`
+  - 改写为：`本节说明上述机制如何组成端到端系统。系统包含三个角色：执行层负责产生正常路径下的 response 与 attestation；DA 层负责保存 replay `
+  - 原因：System Overview 开头中文化。
+- 段落 38: `在系统叙事中，simulated TEE 的角色是建立“链下执行摘要 - 链上提交 - 异常挑战”的接口关系。真实 TEE 安全性不在本节展开，而在 Discu`
+  - 改写为：`在本文原型中，simulated TEE 的作用是建立“链下执行摘要—链上提交—异常挑战”的接口关系。真实 TEE 安全性不在本节展开，而在“讨论与局限性”中集`
+  - 原因：章节引用本地化。
+- 段落 40: `The DA interface is where compactness becomes security-relevant. The data layer `
+  - 改写为：`DA 接口是 compact commit 具有安全意义的关键位置。数据层保存完整 payload 及其可验证结构，包括 prompt、response、att`
+  - 原因：DA interface 英文段落中文化。
+- 段落 41: `在运行示例中，如果执行者提交的 response 被替换，验证者可从 DA entry 取回 response 字段和对应 Merkle proof，并与链上 `
+  - 改写为：`在运行示例中，如果执行者提交的 response 被替换，验证者可以从 DA entry 中取回 response 字段及其 Merkle proof，并与链上`
+  - 原因：术语统一：DA entry/Merkle proof/payload。
+- 段落 44: `验证层同时承担 fault taxonomy 的职责。本文将故障细分为 attestation fault、DA fault、timeout fault、rep`
+  - 改写为：`验证层同时承担故障分类（fault taxonomy）职责。本文将故障划分为 attestation fault、DA fault、timeout fault、`
+  - 原因：fault taxonomy 段落中文化并统一术语。
+- 段落 48: `This section defines the protocol boundary that makes recovery safe to discuss. `
+  - 改写为：`本节给出恢复机制成立所需的协议边界。recover 操作只有在恢复流程推进而不修改争议事实时才具有安全意义。下面的定义将会话状态与 Challenge Fact`
+  - 原因：Protocol definitions 开头中文化。
+- 段落 59: `基于上述定义，recover 是活性层变换而非正确性裁决：Recover 允许会话从 TIMED_OUT 等停滞状态回到可推进状态，但不重写 commit、DA`
+  - 改写为：`基于上述定义，recover 是活性层变换，而非正确性裁决。Recover 允许会话从 TIMED_OUT 等停滞状态回到可推进状态，但不重写 commit、D`
+  - 原因：术语统一并增强中文表达。
+- 段落 61: `Recoverable Challenge Protocol 的目标，是将 challenge 从一次性错误检测流程扩展为异常场景下可恢复推进的协议状态机。其基`
+  - 改写为：`可恢复挑战协议（Recoverable Challenge Protocol）的目标，是将 challenge 从一次性错误检测流程扩展为异常场景下可恢复推进的`
+  - 原因：协议名称首次中英对照。
+- 段落 63: `图 2  Recoverable Challenge 协议流程`
+  - 改写为：`图 2  可恢复挑战协议流程（Recoverable Challenge Protocol）`
+  - 原因：图题中文化。
+- 段落 65: `当争议区间被缩小到单步时，协议进入 single-step replay。replay 阶段比较 expected hash 与 claimed hash，判断`
+  - 改写为：`当争议区间被缩小到单步时，协议进入单步重放（single-step replay）。replay 阶段比较 expected hash 与 claimed ha`
+  - 原因：replay/resolve 术语统一。
+- 段落 66: `recover is the key transition because it repairs protocol progress without chang`
+  - 改写为：`recover 是协议中的关键状态转移，因为它在不改变证据内容的前提下修复流程推进。在不可恢复的 challenge 中，timeout 可能使会话停留在“争议`
+  - 原因：recover 协议直觉中文化。
+- 段落 67: `协议流程可分为三条路径。第一是正常路径：若挑战期内没有有效争议，交易最终进入 FINALIZED。第二是可仲裁异常路径：若 response tampered `
+  - 改写为：`协议流程可分为三条路径。第一是正常路径：若挑战期内没有有效争议，交易最终进入 FINALIZED。第二是可仲裁异常路径：若 response tampering`
+  - 原因：术语统一：response tampering/timeout/replay/resolve。
+- 段落 73: `This section answers why the compact commitment is not merely a compression arti`
+  - 改写为：`本节说明 compact commit 为什么不是单纯压缩结构。其研究价值在于携带异常路径所需的最小证据关联。该提交绑定 state_root、output_h`
+  - 原因：Evidence-Carrying section 开头中文化。
+- 段落 75: `Adversarially, a submitter may replace payload fields, hide a DA entry, submit a`
+  - 改写为：`从对抗角度看，提交者可能替换 payload 字段、隐藏 DA entry、提交与 attestation 不一致的 output，或在争议过程中延迟响应。co`
+  - 原因：Adversarial discussion 中文化。
+- 段落 78: `The model compares four DA routes - full-onchain calldata, compact external DA, `
+  - 改写为：`模型比较四类 DA 路径：full-onchain calldata、compact external DA、compact EIP-4844-like 和 c`
+  - 原因：Cost model 英文段落中文化，统一配置化估算边界。
+- 段落 80: `在系统解释上，batch size 越大，固定提交成本越容易被摊薄；payload 越大，full-onchain calldata 的线性成本越突出；DA r`
+  - 改写为：`从系统角度看，batch size 越大，固定提交成本越容易被摊薄；payload 越大，full-onchain calldata 的线性成本越突出；DA r`
+  - 原因：术语与章节引用本地化。
+- 段落 82: `Evaluation is organized around implication-driven comparisons rather than protot`
+  - 改写为：`实验评估不仅验证原型能否运行，还围绕结果含义组织对比分析。RQ1 关注 compact commit 是否在保留证据关联的同时隔离 payload 增长；RQ2`
+  - 原因：Evaluation 开头整体中文化。
+- 段落 86: `Here C_commit captures the configured chain-facing submission cost, C_DA capture`
+  - 改写为：`其中，C_commit 表示配置中的链上提交成本，C_DA 表示配置化数据发布成本，C_challenge 表示 challenge、recover、repla`
+  - 原因：公式解释中文化，统一成本边界。
+- 段落 88: `RQ1 isolates the submission structure. The Python prototype generates synthetic `
+  - 改写为：`RQ1 隔离考察提交结构。Python 原型在 simulated TEE 下生成 synthetic ledger entries，并比较 full payl`
+  - 原因：RQ1 开头中文化。
+- 段落 90: `The comparison shows the separation clearly: compact commit stays near 406 bytes`
+  - 改写为：`对比结果清楚显示了这种隔离关系：compact commit 基本保持在 406 bytes 左右，而 full payload bytes 随 payload`
+  - 原因：RQ1 结果中文化。
+- 段落 91: `The implication is limited but central. Compact commit is useful because it sepa`
+  - 改写为：`这一结果的意义是有限但关键的：compact commit 将 payload scaling 与链上提交规模分离，同时不丢失 replay readiness`
+  - 原因：The implication is 改为中文学术表达。
+- 段落 94: `图 3  full payload 与 compact commit 的字节规模对比：payload growth 被隔离到 DA 侧，而 compact co`
+  - 改写为：`图 3  full payload 与 compact commit 的字节规模对比：payload 增长被隔离到 DA 侧，而 compact commit `
+  - 原因：图题解释中文化。
+- 段落 96: `RQ2 asks when the submission strategy changes system feasibility under high-freq`
+  - 改写为：`RQ2 关注提交策略在何种条件下会改变高频 synthetic workload 的系统可行性。实验比较 full_onchain_calldata、compa`
+  - 原因：RQ2 开头中文化。
+- 段落 98: `The trend suggests that batch amortization becomes increasingly important once p`
+  - 改写为：`趋势表明，当 payload publication 成为主要开销时，batch amortization 的作用会更加明显。以 payload=8192、pr`
+  - 原因：RQ2 trend 中文化。
+- 段落 99: `The system insight is that payload scaling and batch size interact. Full calldat`
+  - 改写为：`系统层面的观察是，payload scaling 与 batch size 共同影响成本边界。当 payload 成为主要部分时，full calldata 会`
+  - 原因：系统 insight 中文化。
+- 段落 104: `RQ3 tests the central liveness claim. The Python prototype uses the same synthet`
+  - 改写为：`RQ3 检验本文的核心活性主张。Python 原型在 no-recover 与 recoverable 两条路径中使用相同的 synthetic challen`
+  - 原因：RQ3 开头中文化。
+- 段落 106: `The bisection behavior matches the expected logarithmic trend, but the more impo`
+  - 改写为：`二分定位行为与理论对数趋势一致，但更关键的是 no-recover 与 recover 的对比。在 challenge_timeout_no_recover 中`
+  - 原因：RQ3 结果中文化。
+- 段落 107: `The implication is that recover changes progress continuity, not correctness. It`
+  - 改写为：`这一结果说明，recover 改变的是流程推进连续性，而非争议正确性本身。它不重写 expected trace、claimed trace 或 replay `
+  - 原因：RQ3 implication 中文化。
+- 段落 111: `Recover costs more than one challenge step in the local EVM baseline, but it is `
+  - 改写为：`在本地 EVM 基线中，recover 的 gasUsed 高于单轮 challenge step，但该成本发生在异常路径。真正相关的对比不是正常路径吞吐与 r`
+  - 原因：Recovery overhead 中文化。
+- 段落 116: `图 6  timeout recover 对挑战完成率的影响：no-recover 能检测 timeout，但 recoverable challenge 才能`
+  - 改写为：`图 6  timeout recover 对挑战完成率的影响：no-recover 可以检测 timeout，但 recoverable challenge 才`
+  - 原因：图题中文化。
+- 段落 118: `RQ4 makes the security evaluation fault-oriented. The experiment injects eight s`
+  - 改写为：`RQ4 采用面向故障分类的安全评估方式。实验注入八类 synthetic scenario，并区分其在当前原型中是否可检测、可恢复、可重放或可惩罚。这样可以避免`
+  - 原因：RQ4 开头中文化。
+- 段落 120: `The comparison separates four outcomes. Normal path samples do not trigger false`
+  - 改写为：`对比结果区分了四类结果。Normal path 样本不会触发误惩罚；attestation invalid、DA unavailable 和 DA proof `
+  - 原因：RQ4 结果中文化。
+- 段落 124: `图 7  失败场景检测与仲裁结果：fault-oriented view 区分 detectable、recoverable、replayable 与 slas`
+  - 改写为：`图 7  失败场景检测与仲裁结果：面向故障分类的视角区分 detectable、recoverable、replayable 与 slashable，而不是将所`
+  - 原因：图题中文化。
+- 段落 128: `RQ5 asks whether the protocol design has a concrete contract-level counterpart. `
+  - 改写为：`RQ5 关注协议设计是否具有具体的合约层对应物。Solidity 原型和 Hardhat 本地链测量了 register DA、submit rollup、ch`
+  - 原因：RQ5 开头中文化。
+- 段落 131: `The implication is a chain correspondence claim. Python state-machine operations`
+  - 改写为：`这一结果支持的是链上对应关系主张。Python 状态机中的操作并非仅停留在伪代码层面，而是被映射为 Solidity 函数，并通过本地 EVM gasUsed `
+  - 原因：RQ5 implication 中文化。
+- 段落 133: `表 4  本地 EVM 关键路径平均 gasUsed：这些数值是 local EVM contract-path baselines，不代表 productio`
+  - 改写为：`表 4  本地 EVM 关键路径平均 gasUsed：这些数值是 local EVM 合约路径基线，不代表生产网络费用`
+  - 原因：表题中文化。
+- 段落 136: `表 5  Sepolia 部署信息：该证据支持 deployability 和 protocol-to-contract mapping，不支持生产性能主张`
+  - 改写为：`表 5  Sepolia 部署信息：该证据支持可部署性与协议到合约的映射关系，不支持生产性能主张`
+  - 原因：表题中文化。
+- 段落 142: `The preceding RQs validate the mechanisms; this subsection explains why the comp`
+  - 改写为：`前述 RQ 验证了机制本身，本小节进一步说明对比实验的意义。对于本文而言，仅证明原型能够运行并不足够，还需要说明某一机制相对于合理 baseline 改变了什么`
+  - 原因：Comparison evaluation 开头中文化。
+- 段落 144: `Baseline. The no-recover baseline uses the same timeout workload but does not in`
+  - 改写为：`基线设置如下。no-recover baseline 使用相同的 timeout workload，但在挑战会话超时后不调用 watchdog recovery`
+  - 原因：Baseline/Treatment 叙述中文化。
+- 段落 145: `表 6  Recover vs no-recover comparison under the synthetic timeout workload`
+  - 改写为：`表 6  synthetic timeout workload 下 recover 与 no-recover 的对比`
+  - 原因：表题中文化。
+- 段落 147: `图 8  Recover vs no-recover across detection, replay, resolution, slashing, and t`
+  - 改写为：`图 8  recover 与 no-recover 在检测、重放、结算、slashing 和终止状态上的对比`
+  - 原因：图题中文化。
+- 段落 149: `图 9  Timeout sessions remain stalled without recovery but reach recovered termin`
+  - 改写为：`图 9  timeout 会话在无恢复与有恢复条件下的停滞/恢复结果对比`
+  - 原因：图题中文化。
+- 段落 151: `图 10  Replay/recovery timeline: recover changes liveness, while correctness fact`
+  - 改写为：`图 10  恢复与重放流程时间线：recover 改变协议活性，而不改变争议事实`
+  - 原因：图题中文化。
+- 段落 152: `Observation. Both paths detect timeout, but only the recoverable path reaches re`
+  - 改写为：`可以观察到，两条路径都能够检测 timeout，但只有 recoverable 路径能够继续进入 replay 与 resolve。对比结果表明，detecti`
+  - 原因：Observation 英文化段落本地化。
+- 段落 154: `The compact commit baseline comparison uses the same synthetic workload as RQ1. `
+  - 改写为：`compact commit 与 full payload 的对比使用与 RQ1 相同的 synthetic workload。full payload 方案将`
+  - 原因：Compact vs full baseline 段落中文化。
+- 段落 155: `表 7  Full payload and compact commit comparison`
+  - 改写为：`表 7  full payload 与 compact commit 的对比`
+  - 原因：表题中文化。
+- 段落 157: `图 11  Full payload grows with synthetic payload size, while compact commit remai`
+  - 改写为：`图 11  full payload 随 synthetic payload size 增长，而 compact commit 在原型编码中保持固定规模`
+  - 原因：图题中文化。
+- 段落 158: `Observation. The result reflects more than compression. A plain hash would reduc`
+  - 改写为：`结果说明，该对比关注的不只是压缩。普通 hash 也可以降低字节数，但无法说明如何取回争议 response、验证字段级 membership 或重放相关证据。`
+  - 原因：Compact observation 中文化。
+- 段落 160: `Security evaluation should not collapse all failures into a single success/failu`
+  - 改写为：`安全评估不应将所有故障压缩为单一的成功/失败结果。下表区分每类注入故障在当前原型中是否可检测、可恢复、可重放和可惩罚。该表反映的是原型能力边界，而不是生产系统的`
+  - 原因：Fault comparison 开头中文化。
+- 段落 161: `表 8  Fault-oriented comparison of detection, recovery, replay, and slashing`
+  - 改写为：`表 8  面向故障分类的检测、恢复、重放与惩罚对比`
+  - 原因：表题中文化。
+- 段落 163: `图 12  Fault-oriented comparison heatmap`
+  - 改写为：`图 12  面向故障分类的对比热力图`
+  - 原因：图题中文化。
+- 段落 164: `Observation. Response tampering and trace mismatch can reach replay and slashing`
+  - 改写为：`对比结果表明，response tampering 和 trace mismatch 可以进入 replay 与 slashing，因为原型能够构造可比较的 e`
+  - 原因：Fault observation 中文化。
+- 段落 166: `The DA route comparison uses the existing configuration profiles: full_onchain_c`
+  - 改写为：`DA 路径对比使用现有配置化 profile：full_onchain_calldata、compact_external_da、compact_eip4844`
+  - 原因：DA route comparison 段落中文化。
+- 段落 167: `表 9  DA route tradeoff comparison`
+  - 改写为：`表 9  DA 路径权衡对比`
+  - 原因：表题中文化。
+- 段落 169: `图 13  DA route tradeoff under a high-batch synthetic workload`
+  - 改写为：`图 13  高 batch synthetic workload 下的 DA 路径权衡`
+  - 原因：图题中文化。
+- 段落 170: `Observation. Full calldata deteriorates as payload grows because full payload by`
+  - 改写为：`可以观察到，full calldata 在 payload 增长时劣化明显，因为完整 payload bytes 始终面向链上提交。compact 路线将链上提`
+  - 原因：DA observation 中文化。
+- 段落 172: `The current prototype does not produce a measured concurrent challenge benchmark`
+  - 改写为：`当前原型尚未产生并发挑战 benchmark。实验输出中没有 multiple concurrent challenge sessions、recovery q`
+  - 原因：Scalability boundary 中文化。
+- 段落 174: `This discussion integrates limitations with the paper's claims. The value of the`
+  - 改写为：`本节将局限性与论文主张一并讨论。本文的价值不在于给出生产就绪的 Rollup，而在于在限定假设下形成一个安全系统论证：recoverable challenge`
+  - 原因：Discussion 开头中文化。
+- 段落 188: `Taken together, these boundaries define the next research steps rather than weak`
+  - 改写为：`综合来看，这些边界限定了后续研究方向，而不是削弱本文的核心机制主张。后续工作需要用真实 TEE evidence 替代 simulated attestatio`
+  - 原因：Future work 段落中文化。
+- 段落 190: `本文与现有工作的关系属于 mechanism enhancement，而非 system replacement。本文并不试图替代 TEERollup、OTR `
+  - 改写为：`本文属于对现有机制的增强，而非重新设计完整系统。本文并不试图替代 TEERollup、OTR 或 opML 等系统路线，而是在其异常路径上补充 Recovera`
+  - 原因：Related Work 开头中文化。
+- 段落 197: `表 10  Related Work 与本文工作的对照`
+  - 改写为：`表 10  相关工作与本文工作的对照`
+  - 原因：表题中文化。
+- 段落 199: `从对照可以看出，已有工作已经提供 TEE-Rollup、optimistic fraud proof 和 modular DA 的主要路线；本文的课程论文工作把`
+  - 改写为：`从对照可以看出，已有工作已经提供 TEE-Rollup、optimistic fraud proof 和 modular DA 等主要路线；本文将 recove`
+  - 原因：Related Work 总结中文化。
+- 段落 202: `The evidence gives a cautious but useful answer. The Python prototype exercises `
+  - 改写为：`现有证据给出了谨慎但有意义的回答。Python 原型跑通了 commit、DA proof、challenge、recovery、replay 与 resolu`
+  - 原因：Takeaways 段落中文化。
+- 段落 205: `从理论层面看，本文更有价值的部分不是提出新的 Rollup 系统，而是把 Challenge Recovery 从工程补丁提升为具有协议语义的独立机制。Reco`
+  - 改写为：`从理论层面看，本文更有价值的部分不是提出新的 Rollup 系统，而是将 Challenge Recovery 从工程补丁提升为具有协议语义的独立机制。Reco`
+  - 原因：理论启示段落术语统一。
+- 段落 17: `表 2  Mechanism-Oriented Comparison（机制语义对比）`
+  - 改写为：`表 2  机制语义对比（Mechanism-Oriented Comparison）`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 44: `验证层同时承担故障分类（fault taxonomy）职责。本文将故障划分为 attestation fault、DA fault、timeout fault、`
+  - 改写为：`验证层同时承担故障分类（fault taxonomy）职责。本文将故障划分为证明故障（attestation fault）、DA 故障、timeout 故障、r`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 61: `可恢复挑战协议（Recoverable Challenge Protocol）的目标，是将 challenge 从一次性错误检测流程扩展为异常场景下可恢复推进的`
+  - 改写为：`可恢复挑战协议（Recoverable Challenge Protocol）的目标，是将挑战从一次性错误检测流程扩展为异常场景下可恢复推进的协议状态机。其基本`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 88: `RQ1 隔离考察提交结构。Python 原型在 simulated TEE 下生成 synthetic ledger entries，并比较 full payl`
+  - 改写为：`RQ1 隔离考察提交结构。Python 原型在模拟 TEE 下生成合成账本条目（synthetic ledger entries），并比较 full paylo`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 96: `RQ2 关注提交策略在何种条件下会改变高频 synthetic workload 的系统可行性。实验比较 full_onchain_calldata、compa`
+  - 改写为：`RQ2 关注提交策略在何种条件下会改变高频合成负载的系统可行性。实验比较 full_onchain_calldata、compact_external_da、c`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 104: `RQ3 检验本文的核心活性主张。Python 原型在 no-recover 与 recoverable 两条路径中使用相同的 synthetic challen`
+  - 改写为：`RQ3 检验本文的核心活性主张。Python 原型在 no-recover 与 recoverable 两条路径中使用相同的合成挑战状态机，trace step`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 154: `compact commit 与 full payload 的对比使用与 RQ1 相同的 synthetic workload。full payload 方案将`
+  - 改写为：`compact commit 与 full payload 的对比使用与 RQ1 相同的合成负载。full payload 方案将 prompt、respons`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 157: `图 11  full payload 随 synthetic payload size 增长，而 compact commit 在原型编码中保持固定规模`
+  - 改写为：`图 11  full payload 随合成 payload size 增长，而 compact commit 在原型编码中保持固定规模`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+- 段落 169: `图 13  高 batch synthetic workload 下的 DA 路径权衡`
+  - 改写为：`图 13  高 batch 合成负载下的 DA 路径权衡`
+  - 原因：二次本地化：进一步减少英文叙事残留，保留必要术语。
+
+## 被重写的表达类型
+
+- 将 `The implication is...` 改为“这一结果说明……”。
+- 将 `The comparison indicates...` 改为“对比结果表明……”。
+- 将 `Observation.` 改为“可以观察到……”或“结果说明……”。
+- 将 `Baseline / Treatment` 改为“基线设置 / 对比路径”。
+- 将 `reviewer` 相关表达改为中文论文中更自然的“界定机制关系”“说明对比意义”。
+
+## 保留英文术语
+
+- Hybrid TEE-Rollup
+- DA / Data Availability
+- Merkle proof
+- replay
+- timeout
+- slashing
+- Optimistic Rollup / ZK-Rollup
+- calldata、blob、gasUsed、Sepolia、Hardhat、Solidity
+- state_root、output_hash、proof_hash、da_pointer、da_merkle_root 等结构字段
+
+## 本地化后的 narrative
+
+- 将 `failure -> recovery -> replay -> resolution` 本地化为“故障发生—恢复—重放—仲裁结算”。
+- 将 `protocol liveness` 首次写为“协议活性（protocol liveness）”，后续以“协议活性”为主。
+- 将 `arbitration continuity` 首次写为“仲裁连续性（arbitration continuity）”，后续以“仲裁连续性”为主。
+- 将 compact commit 的叙事从 compression 改为“最小可验证证据入口”。
+- 将 evaluation 的英文 systems paper 口吻改为中文“对比结果表明 / 趋势表明 / 该结果说明”。
+
+## systems-style phrasing 改写
+
+- `mechanism enhancement rather than system replacement` 改为“对现有机制的增强，而非重新设计完整系统”。
+- `configuration-based estimates` 改为“配置化估算”。
+- `chain correspondence claim` 改为“链上对应关系主张”。
+- `route-selection tradeoff` 改为“路径选择中的权衡判断”。
+- `production benchmark / production performance` 改为“生产级 benchmark / 生产性能”，并明确不作此类主张。
+
+## 图表叙述中文化
+
+- 图 2、图 3、图 4、图 6、图 7、图 8 至图 13 的图题和解释改为中文为主。
+- 表 2、表 6、表 7、表 8、表 9 的表头与表述改为中文为主。
+- 保留必要英文技术项，避免术语被过度翻译造成歧义。
+
+## 未删除内容
+
+- 保留 protocol、evaluation、figure/table、comparison、threat model 和 limitation。
+- 未加入真实 SGX、Celestia、主网或生产 benchmark 数据。
+- 未弱化 systems/security 逻辑，仅将表达本地化为中文学术论文风格。
