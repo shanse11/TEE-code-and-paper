@@ -1,0 +1,81 @@
+{
+  "transactions": [
+    {
+      "id": "04f3a93af636",
+      "mrenclave": "2ee15a260bc8d4ca39fbeec9c5a979ae047c9e3b9cd2532d9be8c7ba26c0c0a5",
+      "model_backend": "mock",
+      "model_name": "demo-deterministic-v1",
+      "created_at": "2026-04-10T14:57:22.300332+00:00",
+      "challenge_deadline": "2026-04-10T14:58:22.300332+00:00",
+      "commit": {
+        "state_root": "675ed87a023bfc9c069b0ee4c64291c8f381e5ba728f6560462a34d63a144e58",
+        "output_hash": "44d150bf7db3b8d640d14321e29a188b411b6898ef06338ddf11abdc05921f38",
+        "proof_hash": "c09f83d7a944a4b55cd1d54b4629e24ed3134296d23a2cb7d5741357aadd4a00",
+        "da_pointer": "11f853ebc3e1f66dc716e13cd84d280f39ccb4029b0da2367c6f1ff7aa74d837"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-10T14:57:22.859135+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "DEMO_INFERENCE\nanswer_id=9794698b1d2c\nfocus=week7, smoke\nconfidence_seed=863",
+        "replay_result": null
+      },
+      "challenge_session": {
+        "challenger": "fisherman",
+        "opened_at": "2026-04-10T14:57:22.526715+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer",
+          "responded_at": "2026-04-10T14:57:22.612081+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "dispute": {
+          "left": 0,
+          "right": 1,
+          "round": 1,
+          "trace_length": 4,
+          "length_mismatch": false,
+          "narrowing_complete": false,
+          "target_step": null,
+          "history": [
+            {
+              "round": 1,
+              "checked_at": "2026-04-10T14:57:22.692506+00:00",
+              "decision": "left_half",
+              "mismatch_index": 0,
+              "left": 0,
+              "right": 3
+            }
+          ]
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-10T14:57:22.859135+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "DEMO_INFERENCE\nanswer_id=9794698b1d2c\nfocus=week7, smoke\nconfidence_seed=863",
+          "replay_result": null
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.9967716241470439
+      }
+    }
+  ]
+}

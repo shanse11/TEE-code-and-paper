@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {
+      "da_pointer": "5e73cfea134f53ebe3a20854039fd25b1d3e856015efecddd063b30fc0854076",
+      "payload": {
+        "tx_id": "exp-1",
+        "prompt": "Explain hybrid rollup in one sentence",
+        "response": "DEMO_INFERENCE\nanswer_id=03de28fb4903\nfocus=Explain, hybrid, rollup, in, one, sentence\nconfidence_seed=967",
+        "attestation": {
+          "input_hash": "03de28fb490330134bd728121bc73e8823e85293bdb948c679caf051f7bb8981",
+          "output_hash": "12473449dfd9a058eaecee9c78cdcb0c8eb5cab51abfb1cb340117277b0834ee",
+          "nonce": "nonce-1",
+          "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+          "signature": "6c402f4131eacd066532ba0d16ad5922ed40020b3334f2fc81bc91bf5f76e4c6",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+        "created_at": "2026-04-07T00:00:01+00:00"
+      }
+    },
+    {
+      "da_pointer": "cf397f16d49f00f56f82597fe3aa7af07964b38646c54b22d0aa48521454cedc",
+      "payload": {
+        "tx_id": "exp-2",
+        "prompt": "Why DA matters for optimistic challenge",
+        "response": "dishonest output for challenge demo",
+        "attestation": {
+          "input_hash": "baf9edd5f970655506efd300b844bf2b436d64f7726e02b7005080d7d3ecc703",
+          "output_hash": "fb549b4286ac73dad5952eba147403e1af9862e69b45f8cef51197bc8dd52e6a",
+          "nonce": "nonce-2",
+          "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+          "signature": "496838f4f988b8e6b9a49dfd3377b9c60920dad998469af9a6ee5576ec066da1",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+        "created_at": "2026-04-07T00:00:02+00:00"
+      }
+    },
+    {
+      "da_pointer": "542dedd9989862956e19b240dad33e0cb86775454d2d4ee17768239629a1cb76",
+      "payload": {
+        "tx_id": "exp-3",
+        "prompt": "How to design challenge respond resolve flow",
+        "response": "DEMO_INFERENCE\nanswer_id=d0e9cb6d0123\nfocus=How, to, design, challenge, respond, resolve, flow\nconfidence_seed=403",
+        "attestation": {
+          "input_hash": "d0e9cb6d0123a2dd888ba82d52f6742464f79218b0311be5d0072167f5067aa3",
+          "output_hash": "2fb548c96548fe37d636ea6a9995d52f254da3820abc49c82fe8c1446f0a6752",
+          "nonce": "nonce-3",
+          "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+          "signature": "e407c788c3c57516af2b0d22317cc0b201251ba926be7df5aea3d009583d61c4",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+        "created_at": "2026-04-07T00:00:03+00:00"
+      }
+    }
+  ]
+}

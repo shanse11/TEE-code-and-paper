@@ -1,0 +1,232 @@
+{
+  "entries": [
+    {
+      "da_pointer": "ac8a73545cb341d8746ead4590ece55eea2580ca0c1cdb1a3a52d56963736418",
+      "payload": {
+        "tx_id": "report-1",
+        "prompt": "Explain hybrid rollup for high-frequency DApp in one sentence.",
+        "response": "DEMO_INFERENCE\nanswer_id=a42c54a686ec\nfocus=Explain, hybrid, rollup, for, high-frequency, DApp, in, one\nconfidence_seed=813",
+        "attestation": {
+          "input_hash": "a42c54a686ec8a78683d6d533a4c91c9ef9c0bdb39bfca1ac7997442b37ed388",
+          "output_hash": "dfc7af734e3c36265f1cfc6340d1f0c9760f3262ec3ab902cf783e5d090745d7",
+          "nonce": "report-nonce-1",
+          "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+          "signature": "147cba6f74ec7f0a8ce06cab23a547c5087079b5e7105596c5e8f51f106be23e",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+        "created_at": "2026-04-07T00:00:01+00:00"
+      },
+      "payload_hash": "ac8a73545cb341d8746ead4590ece55eea2580ca0c1cdb1a3a52d56963736418",
+      "leaf_hashes": {
+        "attestation": "77b55fdc89351b80fde322df5ff12b76b88c7f38f222c2fbb51bdaca09a632c1",
+        "created_at": "1def6a17ac6eeee8e30310e1a5a0d4a5cbe3458e22fadd627cd573390b0b4223",
+        "mrenclave": "285cfb9a7d6f8dfc7f5e021c82dba2c271d08292170460476a0f4ebecc49c338",
+        "prompt": "a44bd75e164b26a0bd5f92cfc9ff5742f0d85717af80298b254662f78d9c528b",
+        "response": "150c59b78faf669d2a646f61d015a5b5869b98bb2e64f63d00c9ee20ed26cae5",
+        "tx_id": "14683858aa3742dd1ed7e36c227f139bc2c76898ddd598abf89825b647e656a3"
+      },
+      "merkle_root": "f5529820abd6835ae7581c2b33d2cfb5d6280b1ac2d86496a5a0780fab4ee0e6",
+      "merkle_proofs": {
+        "attestation": [
+          {
+            "position": "right",
+            "hash": "1def6a17ac6eeee8e30310e1a5a0d4a5cbe3458e22fadd627cd573390b0b4223"
+          },
+          {
+            "position": "right",
+            "hash": "438e5e1f5c741dbcaa64ed118a577807d050451e9343919514a8fe9fab164292"
+          },
+          {
+            "position": "right",
+            "hash": "b3f98dc92124d25764e7f616b45eaf22bd0812e1dd7edd3b2c0c3a968085b42e"
+          }
+        ],
+        "created_at": [
+          {
+            "position": "left",
+            "hash": "77b55fdc89351b80fde322df5ff12b76b88c7f38f222c2fbb51bdaca09a632c1"
+          },
+          {
+            "position": "right",
+            "hash": "438e5e1f5c741dbcaa64ed118a577807d050451e9343919514a8fe9fab164292"
+          },
+          {
+            "position": "right",
+            "hash": "b3f98dc92124d25764e7f616b45eaf22bd0812e1dd7edd3b2c0c3a968085b42e"
+          }
+        ],
+        "mrenclave": [
+          {
+            "position": "right",
+            "hash": "a44bd75e164b26a0bd5f92cfc9ff5742f0d85717af80298b254662f78d9c528b"
+          },
+          {
+            "position": "left",
+            "hash": "2fa543e4a57a0a20e7bb766c94f561fb7c733607972a94a6137c369e97471615"
+          },
+          {
+            "position": "right",
+            "hash": "b3f98dc92124d25764e7f616b45eaf22bd0812e1dd7edd3b2c0c3a968085b42e"
+          }
+        ],
+        "prompt": [
+          {
+            "position": "left",
+            "hash": "285cfb9a7d6f8dfc7f5e021c82dba2c271d08292170460476a0f4ebecc49c338"
+          },
+          {
+            "position": "left",
+            "hash": "2fa543e4a57a0a20e7bb766c94f561fb7c733607972a94a6137c369e97471615"
+          },
+          {
+            "position": "right",
+            "hash": "b3f98dc92124d25764e7f616b45eaf22bd0812e1dd7edd3b2c0c3a968085b42e"
+          }
+        ],
+        "response": [
+          {
+            "position": "right",
+            "hash": "14683858aa3742dd1ed7e36c227f139bc2c76898ddd598abf89825b647e656a3"
+          },
+          {
+            "position": "right",
+            "hash": "aa60126c0a0284c04d3f1658efd188fae78ce72f6234ea5a495b539b64074a0f"
+          },
+          {
+            "position": "left",
+            "hash": "a89e7ec006db3e3666c4dd9110ba68a4dd3863aba9ba0f20fc1251c24630ab3b"
+          }
+        ],
+        "tx_id": [
+          {
+            "position": "left",
+            "hash": "150c59b78faf669d2a646f61d015a5b5869b98bb2e64f63d00c9ee20ed26cae5"
+          },
+          {
+            "position": "right",
+            "hash": "aa60126c0a0284c04d3f1658efd188fae78ce72f6234ea5a495b539b64074a0f"
+          },
+          {
+            "position": "left",
+            "hash": "a89e7ec006db3e3666c4dd9110ba68a4dd3863aba9ba0f20fc1251c24630ab3b"
+          }
+        ]
+      }
+    },
+    {
+      "da_pointer": "7493fd7d5c6724fad369f8428461d6195a8d3749b9c90fd7675474fe1a98eb7f",
+      "payload": {
+        "tx_id": "report-2",
+        "prompt": "Why does data availability matter in optimistic challenge workflows?",
+        "response": "DEMO_INFERENCE\nanswer_id=54ad26ad24e1\nfocus=Why, does, data, availability, matter, in, optimistic, challenge-tampered\nconfidence_seed=860",
+        "attestation": {
+          "input_hash": "54ad26ad24e1e04e411cbf664c2109f59b35179d4d8e8885cd9da2055f736a66",
+          "output_hash": "467d2407da929929b21cb96578dd7c9da43fe02df32de59b939aa6c495aff3e0",
+          "nonce": "report-nonce-2",
+          "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+          "signature": "1a7aed8d5705a71ed0ddf6e28a0b7b0603e74ab1186ba738d18026c6668cc1d1",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+        "created_at": "2026-04-07T00:00:02+00:00"
+      },
+      "payload_hash": "7493fd7d5c6724fad369f8428461d6195a8d3749b9c90fd7675474fe1a98eb7f",
+      "leaf_hashes": {
+        "attestation": "18c9da50f58cddd62593047bd36af4597336f23026b9754e9d37db1918f9a312",
+        "created_at": "869d1131eec70914737c6ad56ebbf854270353714acf3f0cb79d2d6f2b31f92f",
+        "mrenclave": "285cfb9a7d6f8dfc7f5e021c82dba2c271d08292170460476a0f4ebecc49c338",
+        "prompt": "cce25e612cb6d70989f65a33a29dd9ed6fb630d50dfbbd36675d991260e047f3",
+        "response": "d7ce946bb63ffcb3e4532c92ca69960b79aca558821735213b6714c52e317cc8",
+        "tx_id": "1116a7bb397f69b5772802d1e588c37f7f8ccef306f9826a774b6180276fa016"
+      },
+      "merkle_root": "7c3863022b106465976f1789fdf496499a6881c010aaadbc6374721646185adc",
+      "merkle_proofs": {
+        "attestation": [
+          {
+            "position": "right",
+            "hash": "869d1131eec70914737c6ad56ebbf854270353714acf3f0cb79d2d6f2b31f92f"
+          },
+          {
+            "position": "right",
+            "hash": "7730a89f0187ad9e21fa80e7efbed47e19cef426f9a4c0a53a3e62570e2365bd"
+          },
+          {
+            "position": "right",
+            "hash": "ad56e2ca8a5505ee4f6e1a8ee7ff0278402fb81fbaf62065c7948520a168ce61"
+          }
+        ],
+        "created_at": [
+          {
+            "position": "left",
+            "hash": "18c9da50f58cddd62593047bd36af4597336f23026b9754e9d37db1918f9a312"
+          },
+          {
+            "position": "right",
+            "hash": "7730a89f0187ad9e21fa80e7efbed47e19cef426f9a4c0a53a3e62570e2365bd"
+          },
+          {
+            "position": "right",
+            "hash": "ad56e2ca8a5505ee4f6e1a8ee7ff0278402fb81fbaf62065c7948520a168ce61"
+          }
+        ],
+        "mrenclave": [
+          {
+            "position": "right",
+            "hash": "cce25e612cb6d70989f65a33a29dd9ed6fb630d50dfbbd36675d991260e047f3"
+          },
+          {
+            "position": "left",
+            "hash": "331341951af7534ca02c36d1392fbfdbe2a78ad97a09a931d2a598b1893fb595"
+          },
+          {
+            "position": "right",
+            "hash": "ad56e2ca8a5505ee4f6e1a8ee7ff0278402fb81fbaf62065c7948520a168ce61"
+          }
+        ],
+        "prompt": [
+          {
+            "position": "left",
+            "hash": "285cfb9a7d6f8dfc7f5e021c82dba2c271d08292170460476a0f4ebecc49c338"
+          },
+          {
+            "position": "left",
+            "hash": "331341951af7534ca02c36d1392fbfdbe2a78ad97a09a931d2a598b1893fb595"
+          },
+          {
+            "position": "right",
+            "hash": "ad56e2ca8a5505ee4f6e1a8ee7ff0278402fb81fbaf62065c7948520a168ce61"
+          }
+        ],
+        "response": [
+          {
+            "position": "right",
+            "hash": "1116a7bb397f69b5772802d1e588c37f7f8ccef306f9826a774b6180276fa016"
+          },
+          {
+            "position": "right",
+            "hash": "df8d2ee32b1112a3a557f4afc45e25c0535cb1bc44ec683f3ee8567c5abf3813"
+          },
+          {
+            "position": "left",
+            "hash": "c139b3e4018664d220e44eb648e12792f64b535ae70ef8e2d77865231e0e33fa"
+          }
+        ],
+        "tx_id": [
+          {
+            "position": "left",
+            "hash": "d7ce946bb63ffcb3e4532c92ca69960b79aca558821735213b6714c52e317cc8"
+          },
+          {
+            "position": "right",
+            "hash": "df8d2ee32b1112a3a557f4afc45e25c0535cb1bc44ec683f3ee8567c5abf3813"
+          },
+          {
+            "position": "left",
+            "hash": "c139b3e4018664d220e44eb648e12792f64b535ae70ef8e2d77865231e0e33fa"
+          }
+        ]
+      }
+    }
+  ]
+}

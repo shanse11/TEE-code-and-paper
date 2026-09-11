@@ -1,0 +1,153 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "E:\\项目\\project_code\\evm\\contracts\\HybridTEERollup.sol": {
+      "lastModificationDate": 1778317519451,
+      "contentHash": "3e55b5f01191c7ff8fb63dd7a5fa9dba",
+      "sourceName": "contracts/HybridTEERollup.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./MerkleVerifier.sol",
+        "./MockDARegistry.sol",
+        "./MockTEEVerifier.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "HybridTEERollup"
+      ]
+    },
+    "E:\\项目\\project_code\\evm\\contracts\\MockDARegistry.sol": {
+      "lastModificationDate": 1778317519451,
+      "contentHash": "124ef1fae07a219c2dc6fbaf92a2b601",
+      "sourceName": "contracts/MockDARegistry.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "MockDARegistry"
+      ]
+    },
+    "E:\\项目\\project_code\\evm\\contracts\\MerkleVerifier.sol": {
+      "lastModificationDate": 1778317519451,
+      "contentHash": "513568947a166f1b7328026cbbb961dd",
+      "sourceName": "contracts/MerkleVerifier.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "MerkleVerifier"
+      ]
+    },
+    "E:\\项目\\project_code\\evm\\contracts\\MockTEEVerifier.sol": {
+      "lastModificationDate": 1778317519451,
+      "contentHash": "f4475849cff51ea16b7ee8855eae4791",
+      "sourceName": "contracts/MockTEEVerifier.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "MockTEEVerifier"
+      ]
+    }
+  }
+}

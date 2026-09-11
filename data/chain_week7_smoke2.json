@@ -1,0 +1,111 @@
+{
+  "transactions": [
+    {
+      "id": "9c36efec63e3",
+      "mrenclave": "2ee15a260bc8d4ca39fbeec9c5a979ae047c9e3b9cd2532d9be8c7ba26c0c0a5",
+      "model_backend": "mock",
+      "model_name": "demo-deterministic-v1",
+      "created_at": "2026-04-10T14:57:50.472277+00:00",
+      "challenge_deadline": "2026-04-10T14:58:50.472277+00:00",
+      "commit": {
+        "state_root": "72f690a76783ee9f4633c3b427b0ea189ad6bdc76bdd15d0f6ba919567bd73a3",
+        "output_hash": "6e72db73e437a8be5b36667003abad63fa3b527e3ee5b78778716e2b66d716e8",
+        "proof_hash": "0b663d312fd7f55099be0ff5a31eed0acbcd51800f280e23d6d1fd6ad0b6a40f",
+        "da_pointer": "5b54926595910f709a649d1428223a2c66bc52e763fc08d67e63bdcfbfbcb167"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-10T14:57:51.161306+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "DEMO_INFERENCE\nanswer_id=7d523e674add\nfocus=week7, smoke, second\nconfidence_seed=30",
+        "replay_result": {
+          "checked_at": "2026-04-10T14:57:51.078179+00:00",
+          "step_index": 2,
+          "passed": false,
+          "reason": "step_state_mismatch",
+          "expected_hash": "46741ae70a059288894d3ab2478c2505117dfe5df6d67cf4d6b97f5bc6ff8734",
+          "claimed_hash": "99f4d889efebe062dc8495bd6bff93eb3cd3bd576fa84c359aac449bac26aa9c"
+        }
+      },
+      "challenge_session": {
+        "challenger": "fisherman",
+        "opened_at": "2026-04-10T14:57:50.760482+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer",
+          "responded_at": "2026-04-10T14:57:50.837952+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "dispute": {
+          "left": 2,
+          "right": 2,
+          "round": 2,
+          "trace_length": 4,
+          "length_mismatch": false,
+          "narrowing_complete": true,
+          "target_step": 2,
+          "history": [
+            {
+              "round": 1,
+              "checked_at": "2026-04-10T14:57:50.915695+00:00",
+              "decision": "right_half",
+              "mismatch_index": 2,
+              "left": 0,
+              "right": 3
+            },
+            {
+              "round": 2,
+              "checked_at": "2026-04-10T14:57:50.997931+00:00",
+              "decision": "left_half",
+              "mismatch_index": 2,
+              "left": 2,
+              "right": 3
+            }
+          ],
+          "replay_result": {
+            "checked_at": "2026-04-10T14:57:51.078179+00:00",
+            "step_index": 2,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "46741ae70a059288894d3ab2478c2505117dfe5df6d67cf4d6b97f5bc6ff8734",
+            "claimed_hash": "99f4d889efebe062dc8495bd6bff93eb3cd3bd576fa84c359aac449bac26aa9c"
+          }
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-10T14:57:51.161306+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "DEMO_INFERENCE\nanswer_id=7d523e674add\nfocus=week7, smoke, second\nconfidence_seed=30",
+          "replay_result": {
+            "checked_at": "2026-04-10T14:57:51.078179+00:00",
+            "step_index": 2,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "46741ae70a059288894d3ab2478c2505117dfe5df6d67cf4d6b97f5bc6ff8734",
+            "claimed_hash": "99f4d889efebe062dc8495bd6bff93eb3cd3bd576fa84c359aac449bac26aa9c"
+          }
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.20165977197457507
+      }
+    }
+  ]
+}

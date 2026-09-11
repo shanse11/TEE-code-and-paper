@@ -1,0 +1,60 @@
+{
+  "transactions": [
+    {
+      "id": "6ade2b13298a",
+      "mrenclave": "2ee15a260bc8d4ca39fbeec9c5a979ae047c9e3b9cd2532d9be8c7ba26c0c0a5",
+      "model_backend": "mock",
+      "model_name": "demo-deterministic-v1",
+      "created_at": "2026-04-07T05:56:19.398432+00:00",
+      "challenge_deadline": "2026-04-07T05:57:19.398432+00:00",
+      "commit": {
+        "state_root": "ee37353b7e65e1251fe1df240418c68d5ee7628e5b27f547a99be08293423056",
+        "output_hash": "717d73fdd76103b3c3194d1e5aef997dba23d4f6342c62a20cdf081586fef081",
+        "proof_hash": "6dd4c709315d8d313aac76980ea186af24a240ebd8f58ee19fc94f6eef5dfadf",
+        "da_pointer": "af22b47228d3c8adb42844940af4ce90817f3da47518f1d0396e796c5f58d7d1"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-07T05:56:19.929429+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "DEMO_INFERENCE\nanswer_id=fad84edacaec\nfocus=cli, smoke, prompt\nconfidence_seed=323"
+      },
+      "challenge_session": {
+        "challenger": "fisherman",
+        "opened_at": "2026-04-07T05:56:19.798920+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer",
+          "responded_at": "2026-04-07T05:56:19.864920+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-07T05:56:19.929429+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "DEMO_INFERENCE\nanswer_id=fad84edacaec\nfocus=cli, smoke, prompt\nconfidence_seed=323"
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.7962509557927315
+      }
+    }
+  ]
+}

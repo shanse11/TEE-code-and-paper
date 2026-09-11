@@ -1,0 +1,207 @@
+{
+  "transactions": [
+    {
+      "id": "report-1",
+      "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+      "model_backend": "mock",
+      "model_name": "report-model",
+      "created_at": "2026-04-07T00:00:01+00:00",
+      "challenge_deadline": "2026-04-07T00:00:31+00:00",
+      "commit": {
+        "state_root": "80962d5ef98735b7cf194a06054fb61b3ffd737175ddc0ea311be1551a932aa8",
+        "output_hash": "dfc7af734e3c36265f1cfc6340d1f0c9760f3262ec3ab902cf783e5d090745d7",
+        "proof_hash": "594d8a06b2c9bd8436e27c3a828153f68218cbbdac126f49f5ec151e29b32e7b",
+        "da_pointer": "ac8a73545cb341d8746ead4590ece55eea2580ca0c1cdb1a3a52d56963736418",
+        "da_merkle_root": "f5529820abd6835ae7581c2b33d2cfb5d6280b1ac2d86496a5a0780fab4ee0e6"
+      },
+      "status": "PENDING",
+      "challenge_result": null,
+      "challenge_session": null,
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    },
+    {
+      "id": "report-2",
+      "mrenclave": "06d90d31c785c221223fa37256a76abf0e8c6c14b284c7eb78d2db2256bdd1c0",
+      "model_backend": "mock",
+      "model_name": "report-model",
+      "created_at": "2026-04-07T00:00:02+00:00",
+      "challenge_deadline": "2026-04-07T00:00:32+00:00",
+      "commit": {
+        "state_root": "831c8cf03c5c197d2df5a355a94d58bd45234ff9ee3dcfd9b1ec2fd92bb7a057",
+        "output_hash": "467d2407da929929b21cb96578dd7c9da43fe02df32de59b939aa6c495aff3e0",
+        "proof_hash": "1fac1f972e041c2bab355a24623300ad8a938a7276cf1c672e20d095286955af",
+        "da_pointer": "7493fd7d5c6724fad369f8428461d6195a8d3749b9c90fd7675474fe1a98eb7f",
+        "da_merkle_root": "7c3863022b106465976f1789fdf496499a6881c010aaadbc6374721646185adc"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-07T00:00:17+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "da_payload_hash_mismatch",
+          "da_proof_invalid",
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "DEMO_INFERENCE\nanswer_id=54ad26ad24e1\nfocus=Why, does, data, availability, matter, in, optimistic, challenge\nconfidence_seed=860",
+        "replay_result": {
+          "checked_at": "2026-04-07T00:00:16+00:00",
+          "step_index": 2,
+          "passed": false,
+          "reason": "step_state_mismatch",
+          "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+          "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+        },
+        "evidence": {
+          "da_status": {
+            "available": true,
+            "valid": false,
+            "reason": "da_proof_invalid",
+            "field": "response",
+            "root": "7c3863022b106465976f1789fdf496499a6881c010aaadbc6374721646185adc"
+          },
+          "mismatch_types": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "target_step": 2,
+          "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+          "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+        }
+      },
+      "challenge_session": {
+        "challenger": "fisherman-report",
+        "opened_at": "2026-04-07T00:00:10+00:00",
+        "last_updated_at": "2026-04-07T00:00:17+00:00",
+        "timeout_at": "2026-04-07T00:00:19+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer-report",
+          "responded_at": "2026-04-07T00:00:11+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "da_payload_hash_mismatch",
+              "da_proof_invalid",
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "dispute": {
+          "left": 2,
+          "right": 2,
+          "round": 2,
+          "trace_length": 4,
+          "length_mismatch": false,
+          "narrowing_complete": true,
+          "target_step": 2,
+          "history": [
+            {
+              "round": 1,
+              "checked_at": "2026-04-07T00:00:11+00:00",
+              "decision": "right_half",
+              "mismatch_index": 2,
+              "left": 0,
+              "right": 3
+            },
+            {
+              "round": 2,
+              "checked_at": "2026-04-07T00:00:15+00:00",
+              "decision": "left_half",
+              "mismatch_index": 2,
+              "left": 2,
+              "right": 3
+            }
+          ],
+          "replay_result": {
+            "checked_at": "2026-04-07T00:00:16+00:00",
+            "step_index": 2,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+            "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+          }
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-07T00:00:17+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "DEMO_INFERENCE\nanswer_id=54ad26ad24e1\nfocus=Why, does, data, availability, matter, in, optimistic, challenge\nconfidence_seed=860",
+          "replay_result": {
+            "checked_at": "2026-04-07T00:00:16+00:00",
+            "step_index": 2,
+            "passed": false,
+            "reason": "step_state_mismatch",
+            "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+            "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+          },
+          "evidence": {
+            "da_status": {
+              "available": true,
+              "valid": false,
+              "reason": "da_proof_invalid",
+              "field": "response",
+              "root": "7c3863022b106465976f1789fdf496499a6881c010aaadbc6374721646185adc"
+            },
+            "mismatch_types": [
+              "da_payload_hash_mismatch",
+              "da_proof_invalid",
+              "attestation_invalid",
+              "state_root_mismatch"
+            ],
+            "target_step": 2,
+            "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+            "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+          }
+        },
+        "evidence": {
+          "da_status": {
+            "available": true,
+            "valid": false,
+            "reason": "da_proof_invalid",
+            "field": "response",
+            "root": "7c3863022b106465976f1789fdf496499a6881c010aaadbc6374721646185adc"
+          },
+          "mismatch_types": [
+            "da_payload_hash_mismatch",
+            "da_proof_invalid",
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "target_step": 2,
+          "expected_hash": "340b1e49e3976582bdff3f1392a189b552e34320390505a04036204a2c178602",
+          "claimed_hash": "e54db45ce356f25faaca501e75d8630d9f4a5c2829086e89264f4194ab2d85e9"
+        },
+        "recovery": {
+          "count": 1,
+          "history": [
+            {
+              "operator": "watchdog-report",
+              "recovered_at": "2026-04-07T00:00:14+00:00",
+              "prior_status": "NARROWING",
+              "prior_round": 1
+            }
+          ]
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    }
+  ]
+}

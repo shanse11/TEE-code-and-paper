@@ -1,0 +1,28 @@
+{
+  "network": "hardhat",
+  "chainId": 31337,
+  "exportedAtBlock": 3,
+  "contracts": {
+    "MockTEEVerifier": {
+      "alias": "verifier",
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\hardhat_abis\\MockTEEVerifier.abi.json",
+      "sourceName": "contracts/MockTEEVerifier.sol",
+      "contractName": "MockTEEVerifier"
+    },
+    "MockDARegistry": {
+      "alias": "daRegistry",
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\hardhat_abis\\MockDARegistry.abi.json",
+      "sourceName": "contracts/MockDARegistry.sol",
+      "contractName": "MockDARegistry"
+    },
+    "HybridTEERollup": {
+      "alias": "rollup",
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\hardhat_abis\\HybridTEERollup.abi.json",
+      "sourceName": "contracts/HybridTEERollup.sol",
+      "contractName": "HybridTEERollup"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "da_pointer": "af22b47228d3c8adb42844940af4ce90817f3da47518f1d0396e796c5f58d7d1",
+      "payload": {
+        "tx_id": "6ade2b13298a",
+        "prompt": "cli smoke prompt",
+        "response": "tampered from cli",
+        "attestation": {
+          "input_hash": "fad84edacaec735a08c3239ff5354e54dee8cf98097ec843f77855f681bb3594",
+          "output_hash": "717d73fdd76103b3c3194d1e5aef997dba23d4f6342c62a20cdf081586fef081",
+          "nonce": "7fcee96885a568c90267ce8de9f1336c",
+          "mrenclave": "2ee15a260bc8d4ca39fbeec9c5a979ae047c9e3b9cd2532d9be8c7ba26c0c0a5",
+          "signature": "49c3701de87dcc2536678200c400c7f98ae7349bcb8da6ae2fc83ae04621239a",
+          "scheme": "simulated-hmac-sha256"
+        },
+        "mrenclave": "2ee15a260bc8d4ca39fbeec9c5a979ae047c9e3b9cd2532d9be8c7ba26c0c0a5",
+        "created_at": "2026-04-07T05:56:19.398432+00:00"
+      }
+    }
+  ]
+}

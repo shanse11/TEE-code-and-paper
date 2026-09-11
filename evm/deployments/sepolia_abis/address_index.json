@@ -1,0 +1,28 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "exportedAtBlock": 10825904,
+  "contracts": {
+    "MockTEEVerifier": {
+      "alias": "verifier",
+      "address": "0xC42CB0Cf0D112Bd59E0f212F2DB2002ca50a8b6A",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\sepolia_abis\\MockTEEVerifier.abi.json",
+      "sourceName": "contracts/MockTEEVerifier.sol",
+      "contractName": "MockTEEVerifier"
+    },
+    "MockDARegistry": {
+      "alias": "daRegistry",
+      "address": "0xc42C64a7De05bf3ad4f1c75CbD8E0506F7De99Ff",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\sepolia_abis\\MockDARegistry.abi.json",
+      "sourceName": "contracts/MockDARegistry.sol",
+      "contractName": "MockDARegistry"
+    },
+    "HybridTEERollup": {
+      "alias": "rollup",
+      "address": "0xB9B72f10bB8aBC1ed090f1B0443Fe57189c497Fd",
+      "abiFile": "E:\\项目\\project_code\\evm\\deployments\\sepolia_abis\\HybridTEERollup.abi.json",
+      "sourceName": "contracts/HybridTEERollup.sol",
+      "contractName": "HybridTEERollup"
+    }
+  }
+}

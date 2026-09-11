@@ -1,0 +1,102 @@
+{
+  "transactions": [
+    {
+      "id": "exp-1",
+      "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+      "model_backend": "mock",
+      "model_name": "experiment-model",
+      "created_at": "2026-04-07T00:00:01+00:00",
+      "challenge_deadline": "2026-04-07T00:00:31+00:00",
+      "commit": {
+        "state_root": "7e434c2977dc7247e4fc4ba9922d97f1408b946c8dfa5aece5aed996cacd9c59",
+        "output_hash": "12473449dfd9a058eaecee9c78cdcb0c8eb5cab51abfb1cb340117277b0834ee",
+        "proof_hash": "80c264a9f71e159c1c1e6cee6528f91918ad946c69767aa4dce0886d27f1f0e8",
+        "da_pointer": "5e73cfea134f53ebe3a20854039fd25b1d3e856015efecddd063b30fc0854076"
+      },
+      "status": "PENDING",
+      "challenge_result": null,
+      "challenge_session": null,
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    },
+    {
+      "id": "exp-2",
+      "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+      "model_backend": "mock",
+      "model_name": "experiment-model",
+      "created_at": "2026-04-07T00:00:02+00:00",
+      "challenge_deadline": "2026-04-07T00:00:32+00:00",
+      "commit": {
+        "state_root": "68741293bed41d167bc75ef220124c34f667ef8eaa651190dd9680d2125d3a7f",
+        "output_hash": "fb549b4286ac73dad5952eba147403e1af9862e69b45f8cef51197bc8dd52e6a",
+        "proof_hash": "f0918570fe5953d91c6f61ddee01dbba66a664decf4d473b43d87e0ed83615c7",
+        "da_pointer": "cf397f16d49f00f56f82597fe3aa7af07964b38646c54b22d0aa48521454cedc"
+      },
+      "status": "SLASHED",
+      "challenge_result": {
+        "arbitrator": "onchain-replay",
+        "resolved_at": "2026-04-07T00:00:12+00:00",
+        "challenge_success": true,
+        "reasons": [
+          "attestation_invalid",
+          "state_root_mismatch"
+        ],
+        "expected_response": "DEMO_INFERENCE\nanswer_id=baf9edd5f970\nfocus=Why, DA, matters, for, optimistic, challenge\nconfidence_seed=151"
+      },
+      "challenge_session": {
+        "challenger": "fisherman-A",
+        "opened_at": "2026-04-07T00:00:10+00:00",
+        "reason": "state_transition_dispute",
+        "status": "RESOLVED",
+        "response": {
+          "responder": "sequencer-A",
+          "responded_at": "2026-04-07T00:00:11+00:00",
+          "validation_preview": {
+            "valid": false,
+            "mismatches": [
+              "attestation_invalid",
+              "state_root_mismatch"
+            ]
+          }
+        },
+        "resolution": {
+          "arbitrator": "onchain-replay",
+          "resolved_at": "2026-04-07T00:00:12+00:00",
+          "challenge_success": true,
+          "reasons": [
+            "attestation_invalid",
+            "state_root_mismatch"
+          ],
+          "expected_response": "DEMO_INFERENCE\nanswer_id=baf9edd5f970\nfocus=Why, DA, matters, for, optimistic, challenge\nconfidence_seed=151"
+        }
+      },
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    },
+    {
+      "id": "exp-3",
+      "mrenclave": "de5c0d2906686f48f864894511dc87eac995cd05c9d6f27377fce9b766965eef",
+      "model_backend": "mock",
+      "model_name": "experiment-model",
+      "created_at": "2026-04-07T00:00:03+00:00",
+      "challenge_deadline": "2026-04-07T00:00:33+00:00",
+      "commit": {
+        "state_root": "7818368ee6e978b3e284579a3cbe8a358c1a83e868824bdec34cf7f4a6922ad2",
+        "output_hash": "2fb548c96548fe37d636ea6a9995d52f254da3820abc49c82fe8c1446f0a6752",
+        "proof_hash": "d2c3ce894ed9ebae5102624a21336fad6ebf9d4035a95748bf0a2d1ba88fe1dc",
+        "da_pointer": "542dedd9989862956e19b240dad33e0cb86775454d2d4ee17768239629a1cb76"
+      },
+      "status": "PENDING",
+      "challenge_result": null,
+      "challenge_session": null,
+      "spot_check": {
+        "triggered": false,
+        "roll": 0.99
+      }
+    }
+  ]
+}
