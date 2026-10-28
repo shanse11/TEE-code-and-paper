@@ -1,0 +1,13 @@
+{
+  "paper_outputs/draft/论文终版/Hybrid_TEE_Rollup.pdf": "faa2297cccae57596bf11e46fa6b0af33e2eb6107f0b8a91cc9fec230c4a38d0",
+  "output/pdf/ndbc2026_poster/P00145_NDBC2026_海报_3mm出血印刷版.pdf": "92f7c8d701afc032fd0cb74628c4d761cd3d7568ee11b75c96fc3b128017d5cf",
+  "output/pdf/ndbc2026_poster/build_poster.py": "74718d2d1a8d807ea185e150d80d10a63ffc1b4b7a63f0ce280987ec9e92e563",
+  "paper_outputs/summary.json": "eb22e08d5925c42b06c0a1aa9d733c7441033d61817bcfd3de3039653072f38d",
+  "paper_outputs/cost_grid.csv": "9a5db2ff0a64aee9e9006940f3e1d6d987977dbb5a2827c9cff1795d489a44a9",
+  "paper_outputs/challenge_grid.csv": "ada495982062e3e388d5887fa95e1699fa8363e85ca9d880c004ddccd181192f",
+  "paper_outputs/failure_scenarios.csv": "7022ba8fbf4d867df995734be17d70cb2df3a26a8ab75f305e850454f1825b9e",
+  "paper_outputs/evm_gas/measured_gas_summary.json": "a61d13c15562fd47bd2b29bd8e02c0e0b244814f2b3d326450d83832ec26cb3a",
+  "evm/deployments/sepolia.json": "3649448559e6126762bdb91680e1c57ecb8996f9977a5ab6593081ad4e441fc8",
+  "paper_outputs/evm_gas/measured_gas.csv": "ebc32f6849466c1d6c3020af461d285beffb03d74028209824380aba248f830d",
+  "evm/deployments/sepolia_abis/address_index.json": "6902ce88353772b2818479081dd21d53843216b4a00c23c16985d9859040dc64"
+}

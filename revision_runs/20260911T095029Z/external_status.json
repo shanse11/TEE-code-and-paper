@@ -1,0 +1,163 @@
+{
+  "run_id": "20260911T095029Z",
+  "generated_at_utc": "2026-09-11T12:24:36Z",
+  "scope": "External execution status and evidence boundary for the Hybrid TEE-Rollup revision run.",
+  "public_testnet_completed": false,
+  "real_tee_completed": false,
+  "public_testnet": {
+    "status": "blocked",
+    "completed": false,
+    "network": "Ethereum Sepolia",
+    "transaction_broadcast": false,
+    "on_chain_anchor_deployed": false,
+    "on_chain_anchor_verified": false,
+    "reason": "No SEPOLIA_RPC_URL, SEPOLIA_PRIVATE_KEY, or deployed BLOB_BATCH_ANCHOR_ADDRESS was available. The publish script is fail-closed and was not allowed to broadcast.",
+    "required_to_resume": [
+      "SEPOLIA_RPC_URL",
+      "SEPOLIA_PRIVATE_KEY",
+      "BLOB_BATCH_ANCHOR_ADDRESS",
+      "A funded Sepolia signer",
+      "A deployment receipt for BlobBatchAnchor.sol"
+    ],
+    "scripts": {
+      "publish": "evm/revision/blob_publish.js",
+      "fetch": "evm/revision/blob_fetch.js",
+      "verify": "evm/revision/blob_verify.js"
+    }
+  },
+  "offline_kzg": {
+    "status": "completed",
+    "completed": true,
+    "all_pass": true,
+    "matrix_batches": 9,
+    "negative_example": true,
+    "matrix_shape": {
+      "task_count": [1, 8, 32],
+      "payload_kib": [1, 8, 32]
+    },
+    "blob_bytes": 131072,
+    "commitment_bytes": 48,
+    "proof_bytes": 48,
+    "trusted_setup": "evm/revision/trusted_setup.txt",
+    "trusted_setup_description": "Real Ethereum mainnet EIP-4844 KZG trusted setup; no mock cryptography.",
+    "checks": [
+      "Positive KZG proof verification",
+      "Content tampering rejected against the original commitment and proof",
+      "Recomputed commitment and proof validate the tampered blob itself",
+      "Payload hash changes after content tampering",
+      "Serialized blob tampering rejected against the original commitment and proof",
+      "Frame decoding and task-count semantics preserved for the original blob"
+    ],
+    "artifact_root": "audit/blob_offline",
+    "source_artifact_root": "artifacts/blob_offline"
+  },
+  "independent_blob_fetch": {
+    "status": "not_run",
+    "completed": false,
+    "live_beacon_fetch": false,
+    "reason": "No BEACON_API_URL and no recorded publish state were available. No local artifact was substituted for a live fetch.",
+    "peer_das_constraint": "After Fusaka/PeerDAS, a regular beacon node may not custody the full blob; use a supernode or a public endpoint that serves full sidecars.",
+    "required_to_resume": [
+      "A confirmed publish state containing block number and blob versioned hash",
+      "BEACON_API_URL pointing to a full-blob beacon endpoint or Pinax-compatible endpoint",
+      "Run blob_fetch.js followed by blob_verify.js"
+    ]
+  },
+  "binding_gap": {
+    "status": "open",
+    "description": "Offline KZG artifacts prove genuine blob encoding, commitments, proofs, decoding, and tamper detection, but do not prove that a public-chain transaction carried the blob or that BlobBatchAnchor recorded the corresponding versioned hash.",
+    "missing_evidence": [
+      "Sepolia type-3 transaction hash",
+      "BlobBatchAnchor deployment address and receipt",
+      "BlobBatchAnchored event and anchor id",
+      "Beacon-side live blob retrieval",
+      "On-chain versioned-hash, payload-hash, and task-count comparison"
+    ]
+  },
+  "fee_independence": {
+    "status": "not_measured",
+    "real_blob_fee_measured": false,
+    "calldata_benchmark_available": true,
+    "conclusion": "The local performance run contains a calldata benchmark only. It must not be used to claim real EIP-4844 blob fee savings. A real blob fee comparison requires a confirmed type-3 Sepolia receipt and blob-gas fee fields.",
+    "performance_scope": "Local Cancun Hardhat automining on chainId 31337; not public-chain throughput, consensus finality, or real blob pricing."
+  },
+  "real_tee": {
+    "status": "blocked",
+    "completed": false,
+    "public_documentation_verified": true,
+    "cloud_credentials_present": false,
+    "real_tdx_instance": false,
+    "real_quote_collected": false,
+    "quote_verified": false,
+    "quote_evidence_file": null,
+    "reason": "No cloud credentials or running TDX instance was available. No quote was fabricated and no cloud purchase or login was performed.",
+    "documentary_scope": [
+      "TDX provider and supported instance family documented by official sources",
+      "Supported availability zones documented by official sources",
+      "Quote generation and DCAP/PCCS flow documented by official sources",
+      "Realtime price, inventory, quota, and minimum billing interval remain unverified"
+    ],
+    "required_to_resume": [
+      "User-provisioned TDX instance in a supported availability zone",
+      "Real TD Report/Quote with PCK certificate chain",
+      "Collateral: TCB Info, QE Identity, and PCK CRL",
+      "Independent DCAP verification result",
+      "Measurement comparison against the deployed sequencer software"
+    ],
+    "continuation_notes": "See audit/external_research/tee_precheck_quote.md for the official Quote collection and verification procedure."
+  },
+  "local_security_and_performance": {
+    "security_regression": {
+      "passed": 23,
+      "failed": 0,
+      "random_sequences_completed": 1000,
+      "random_operations": 27401,
+      "random_reverts_state_checked": 22686
+    },
+    "performance": {
+      "pass": true,
+      "main_matrix_cells": 27,
+      "calldata_cells": 9,
+      "recovery_cells": 48,
+      "samples_per_cell": 5,
+      "chain_id": 31337,
+      "hardfork": "cancun"
+    },
+    "legacy_counterexamples": {
+      "total": 10,
+      "reproduced": 10,
+      "not_reproduced_or_safe": 0
+    }
+  },
+  "external_research": {
+    "status": "documentary_complete",
+    "comparison_report": "audit/external_research/comparison_report_zh.md",
+    "tee_precheck": "audit/external_research/tee_precheck_quote.md",
+    "sources": "audit/external_research/sources.json",
+    "limitations": [
+      "Cross-protocol latency and cost numbers use different threat models and denominators and are not directly convertible into a single lead percentage.",
+      "Cloud price, inventory, quota, and minimum billing claims are not realtime-verified.",
+      "Sepolia/PeerDAS retrieval behavior requires a full-blob-capable beacon endpoint for live evidence."
+    ]
+  },
+  "audit_copy": {
+    "status": "completed",
+    "root": "audit",
+    "preserves_original_artifacts": true,
+    "copied_components": [
+      "audit/blob_offline",
+      "audit/performance",
+      "audit/security",
+      "audit/legacy",
+      "audit/external_research",
+      "audit/*_run.log"
+    ],
+    "integrity_check": {
+      "blob_directories_with_meta": 10,
+      "blob_meta_passes": 10,
+      "blob_length_set": [131072],
+      "commitment_length_set": [48],
+      "proof_length_set": [48]
+    }
+  }
+}

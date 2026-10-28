@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.claim_evidence_matrix.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "rule": "每条结论必须给出 方案/版本、指标、来源行、raw 或文献定位、可比级别、限制。数据不支持优势时写出负面或相当结果；所有『优于/降低/首创/无需信任』类措辞必须有证据。",
+
+  "claims": [
+    {
+      "id": "G-CE-01",
+      "claim": "在有界 hash 链计算模型内，去掉兜底重算（adjudicate）的机制基线在提交方超时离线时正确终局率为 0/30，本方案为 30/30",
+      "polarity": "positive",
+      "systems": ["本项目 BoundedTaskRollup v1(stageF-freeze)", "MechanismBaseline v1(stageG-freeze)"],
+      "metric": "correctFinalityRate（正确终局批次 / 稳态批次）",
+      "evidence": {
+        "raw": "outputs/stageG_20260916T185200Z/hardhat_run/stageG/raw/mechanism/mechanism_records.jsonl",
+        "summary": "outputs/stageG_20260916T185200Z/hardhat_run/stageG/summary/mechanism_summary.json",
+        "value": "baseline fault-no-recovery: 0/30 correct, 30/30 incorrect; baseline direct-no-response: 0/30 correct; ours: 30/30 correct in all 4 arms"
+      },
+      "comparability": "comparable",
+      "comparabilityReason": "同一计算模型、同一输入、同一步数（64）、同一 runner、同一进程内配对测量",
+      "limits": [
+        "基线是本项目自建的 mechanism baseline，**不是** Arbitrum/Optimism/TeeRollup 官方实现",
+        "故障模型为『提交方在 respond 后离线 11 链秒』，不代表所有故障分布",
+        "3 个独立 run，无 CI"
+      ]
+    },
+    {
+      "id": "G-CE-02",
+      "claim": "恢复（recover）**不改善**正确终局时间：在故障场景下 recover 后续推为 12.6 ms，不走恢复直接兜底为 8.7 ms，且恢复路径 gas 与本地费用更高",
+      "polarity": "negative",
+      "systems": ["本项目 BoundedTaskRollup"],
+      "metric": "批总延迟均值(ms) / adjudicate 类 gas / 本地费用合计 wei",
+      "evidence": {
+        "raw": "outputs/stageF_20260916T184017Z/hardhat_run/stageF/raw/batch_records.jsonl",
+        "summary": "outputs/stageF_20260916T184017Z/hardhat_run/stageF/summary/ablation_summary.json",
+        "value": "recovery-under-fault 12.6 ms / adj gas 15,211,236 + recover 970,644 / 26.52e15 wei；no-recovery-with-fault-fallback 8.7 ms / adj gas 8,150,328 / 18.49e15 wei"
+      },
+      "comparability": "comparable",
+      "comparabilityReason": "同格、同输入、同 runner 的消融臂；独立 run 配对",
+      "limits": [
+        "MAX_STEPS=128 使全量重算极廉价；**不能外推**到步数无界或重算昂贵的模型",
+        "3 个独立 run，仅描述性差异，无 CI",
+        "结论限定为『恢复不改善本有界模型的正确终局时间』，不代表恢复在其他模型无用"
+      ],
+      "action": "论文/回复中不得使用『恢复降低结算延迟』的表述"
+    },
+    {
+      "id": "G-CE-03",
+      "claim": "本方案**不能**宣称『第三方接续争议/动态参与』为首创：Optimism FDG 已具备时钟继承与 CLOCK_EXTENSION 机制，专门用于让继承他人时钟的诚实方仍能行动",
+      "polarity": "negative_correction",
+      "systems": ["Optimism FDG"],
+      "metric": "机制是否存在（非数值）",
+      "evidence": {
+        "source": "specs.optimism.io FDG §Game Clock（访问 2026-09-16）",
+        "code": "FaultDisputeGame.sol @ ethereum-optimism/optimism c4a68ab：move() 内 getChallengerDuration 时钟继承 + 三档 CLOCK_EXTENSION 分支",
+        "quote": "spec: 'This is to combat the situation where a challenger must inherit a malicious party's clock when countering a freeloader claim, in order to preserve incentive compatibility for the honest party.'"
+      },
+      "comparability": "not_applicable（机制存在性判断，非性能比较）",
+      "limits": ["本轮未运行 FDG，仅源码与 spec 级核实"],
+      "action": "论文相关表述应改为『在有界重算模型内提供不依赖交互的终止路径』，而非『首创第三方接续』"
+    },
+    {
+      "id": "G-CE-04",
+      "claim": "TeeRollup 的『降低约 86%』基线是 StarkNet（ZK-rollup），不是 Optimism 或 Arbitrum",
+      "polarity": "negative_correction",
+      "systems": ["TeeRollup v3"],
+      "metric": "on-chain verification cost reduction (%)",
+      "evidence": {
+        "source": "arXiv:2409.14647v3 Sec. VI-D",
+        "quote": "representing an 86% reduction compared to StarkNet",
+        "value": "0.043 USD → 0.006 USD @ batch=2000"
+      },
+      "comparability": "not_directly_comparable",
+      "comparabilityReason": "分母与基线不同（StarkNet vs OP/Arbitrum）；环境、任务模型、计价时点均不同",
+      "action": "不得转述为『比 OP/Arbitrum 省 X%』"
+    },
+    {
+      "id": "G-CE-05",
+      "claim": "BoLD 的『10×』是腐败方/诚实方聚合成本比，不是跨协议领先百分比",
+      "polarity": "negative_correction",
+      "systems": ["BoLD v1"],
+      "metric": "cost ratio (corrupt/honest)",
+      "evidence": { "source": "arXiv:2404.10491v1 Sec. 2.2.3", "quote": "the corrupt parties must (in aggregate) expend 10 times as much in staking and L1 gas costs than the honest parties (in aggregate)" },
+      "comparability": "not_directly_comparable",
+      "action": "不得与本方案任何实测百分比并列或相减"
+    },
+    {
+      "id": "G-CE-06",
+      "claim": "本方案的 gas 为本地 Hardhat 实测值，不能与第三方生产美元账单直接计算领先比例",
+      "polarity": "negative_correction",
+      "systems": ["本项目 BoundedTaskRollup"],
+      "metric": "gas / fee",
+      "evidence": {
+        "raw": "outputs/stageF_20260916T184017Z/hardhat_run/stageF/raw/batch_records.jsonl",
+        "note": "feeSource=local-gas-only；无 blobGas、无法币"
+      },
+      "comparability": "partially_comparable",
+      "comparabilityReason": "gas 数量级可对照，但编译器/优化器/状态布局/网络计价均不同",
+      "action": "只能给『同阶段 gas 数量级』分表，禁止统一百分比"
+    },
+    {
+      "id": "G-CE-07",
+      "claim": "payloadKiBPerTask 在本有界模型中是名义参数：1 KiB 与 32 KiB 的吞吐分别为 137.38 与 138.54 tasks/s，无实质差异",
+      "polarity": "negative",
+      "systems": ["本项目 BoundedTaskRollup"],
+      "metric": "finalized tasks/s",
+      "evidence": { "raw": "F cell_summary.json: b8-p1-c4-s64 vs b8-p32-c4-s64" },
+      "comparability": "comparable",
+      "limits": ["dataHash 固定 32 字节，计算只处理 hash 链；大 payload 属 DA 填充"],
+      "action": "不得把本方案吞吐称为高频 DApp 通用业务 TPS"
+    },
+    {
+      "id": "G-CE-08",
+      "claim": "在 batchSize=1 时 concurrency 1/4/16 的实测吞吐为 121.79 / 144.63 / 117.19 tasks/s，无单调增益",
+      "polarity": "negative",
+      "systems": ["本项目 BoundedTaskRollup"],
+      "metric": "finalized tasks/s",
+      "evidence": { "raw": "F cell_summary.json: b1-p8-c1-s64 / b1-p8-c4-s64 / b1-p8-c16-s64" },
+      "comparability": "comparable",
+      "limits": ["Hardhat automining 串行出块；峰值在途 1/4/16 已达配置值，说明并发未被折叠，但吞吐受出块串行限制"],
+      "action": "不得据此得出生产环境并发扩展结论"
+    },
+    {
+      "id": "G-CE-09",
+      "claim": "Blob 填充阶梯（单 Blob 上限 126,976 数据字节；taskCount=1 时 64 KiB → 1 blob/0.5168 填充，128 KiB → 2 blobs）",
+      "polarity": "neutral_modelled",
+      "systems": ["本项目 E 阶段 codec"],
+      "metric": "frame bytes / blobs / fill ratio",
+      "evidence": { "raw": "outputs/stageF_20260916T184017Z/hardhat_run/stageF/summary/blob_fill_ladder.json", "note": "容量内各行用真实 codec 逐点核对（codecVerified=true）；跨 Blob 部分为预测" },
+      "comparability": "modelled",
+      "limits": ["非链上实测、非公网发布；不含 blobGas 与真实货币费用"],
+      "action": "引用时须标 modelled"
+    },
+    {
+      "id": "G-CE-10",
+      "claim": "本轮未复现任何官方实现：TeeRollup 无公开仓库；BoLD 需 Go 1.24.5（本机无）；Optimism FDG 需 foundry（本机无，且安装需执行远程脚本）",
+      "polarity": "negative_blocked",
+      "systems": ["TEEROLLUP", "BOLD", "OPTIMISM_FDG"],
+      "metric": "official reproducibility",
+      "evidence": { "raw": "outputs/stageG_20260916T185200Z/feasibility.json", "note": "BoLD 已浅克隆至 official/bold@30e78f67（未执行）；FDG 源码已下载 c4a68ab（未运行）" },
+      "comparability": "not_applicable",
+      "limits": ["G-official = blocked；本层不产出定量对照"],
+      "action": "对外表述为『已给出源码级与可行性证据，未做官方运行复现』，不得写『已复现』"
+    },
+    {
+      "id": "G-CE-11",
+      "claim": "TeeRollup 早期版本与 v3 在实验平台与容挫表述上不一致（早期版本称实验用 AMD SEV、可容忍至多半数 TEE；v3 为 SGX:TDX:CSV=1:2:2、f 由服务商设定）",
+      "polarity": "neutral_caution",
+      "systems": ["TeeRollup"],
+      "metric": "version consistency",
+      "evidence": { "source": "v3 HTML Sec. VI-A/Table III vs 早期版本文本（检索片段）" },
+      "comparability": "not_applicable",
+      "action": "比较必须固定版本；本轮固定 v3，且不得把两版优点拼成一个对手"
+    }
+  ],
+
+  "unsupportedClaimsFlagged": [
+    "『本方案比 Optimism/Arbitrum 快 N 倍』—— 端点语义与窗口参数不同，禁止",
+    "『本方案比 TeeRollup 省 X%』—— 对方基线是 StarkNet，禁止",
+    "『首创第三方争议接续』—— OP FDG 已有时钟继承与延期（G-CE-03），禁止",
+    "『恢复降低结算延迟』—— 实测相反（G-CE-02），禁止"
+  ]
+}

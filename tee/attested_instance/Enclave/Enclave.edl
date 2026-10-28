@@ -1,0 +1,39 @@
+enclave {
+    include "sgx_report.h"
+
+    trusted {
+        /* Generates the instance key inside the enclave and returns a report whose
+           report_data[0:20] is the instance address. */
+        public sgx_status_t ecall_init_instance([in] const sgx_target_info_t *qe_target,
+                                                [out] sgx_report_t *report,
+                                                [out, size=20] uint8_t *address);
+
+        /* Computes the bounded hash chain and signs the task digest with the instance key. */
+        public sgx_status_t ecall_run_task([in, size=32] const uint8_t *task_id,
+                                           [in, size=32] const uint8_t *initial,
+                                           uint16_t steps,
+                                           [in, size=32] const uint8_t *data_hash,
+                                           [in, size=32] const uint8_t *domain,
+                                           uint64_t chain_id,
+                                           [in, size=20] const uint8_t *contract,
+                                           [out, size=32] uint8_t *output,
+                                           [out, size=32] uint8_t *trace_root,
+                                           [out, size=65] uint8_t *signature);
+
+        /* Fault injection: signs a caller-chosen output. Returns SGX_ERROR_FEATURE_NOT_SUPPORTED
+           unless the enclave was built with HYBRID_FAULT_INJECTION, which changes MRENCLAVE. */
+        public sgx_status_t ecall_sign_forged([in, size=32] const uint8_t *task_id,
+                                              [in, size=32] const uint8_t *initial,
+                                              uint16_t steps,
+                                              [in, size=32] const uint8_t *data_hash,
+                                              [in, size=32] const uint8_t *domain,
+                                              uint64_t chain_id,
+                                              [in, size=20] const uint8_t *contract,
+                                              [in, size=32] const uint8_t *forged_output,
+                                              [out, size=32] uint8_t *trace_root,
+                                              [out, size=65] uint8_t *signature);
+    };
+
+    untrusted {
+    };
+};

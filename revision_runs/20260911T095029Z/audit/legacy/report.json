@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-09-11T10:31:03.437Z",
+  "contract": "HybridTEERollup (当前提交版本 / 旧合约)",
+  "outDir": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z/legacy",
+  "total": 10,
+  "reproduced": 10,
+  "notReproducedOrSafe": 0,
+  "verdict": "观察到 10 个旧合约不安全行为反例(明确存在列出的安全缺陷), 非安全通过",
+  "items": [
+    {
+      "id": "CE-01",
+      "title": "respondChallenge 任意人可劫持 responder 角色",
+      "category": "R1-respondChallenge-任意人",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-02",
+      "title": "无效第三方证据可误罚诚实 prover",
+      "category": "R1+R3-第三方证据误罚",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-03",
+      "title": "replayChallenge 接受调用者自填 hash, 重执行结果完全可控",
+      "category": "R2-replayChallenge-调用者hash",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-04",
+      "title": "resolveChallenge 任意第三方直接以 resolutionBits 误罚",
+      "category": "R3-resolveChallenge-resolutionBits",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-05",
+      "title": "replay 已 pass 仍可被 resolutionBits 覆盖误罚",
+      "category": "R2+R3-replay被resolutionBits覆盖",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-06",
+      "title": "recoverChallenge 不限次数重复恢复",
+      "category": "R4-recoverChallenge-不限次数",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-07",
+      "title": "recoverChallenge 可将已 REPLAYED 状态回退",
+      "category": "R4-recoverChallenge-回退REPLAYED",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-08",
+      "title": "recoverChallenge 刷新超时实现无限延期",
+      "category": "R4-recoverChallenge-延时延期",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-09",
+      "title": "SLASHED 不扣任何资金/质押",
+      "category": "R5-SLASHED-不扣资金",
+      "reproduced": true,
+      "error": null
+    },
+    {
+      "id": "CE-10",
+      "title": "MockDA 任意修改(无访问控制)",
+      "category": "DA-任意篡改",
+      "reproduced": true,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "purpose": "F3 要求：batchSize=1 时 concurrency=1/4/16 三组必须保留差异；若实际低于目标需解释而非改配置数字",
+  "rows": [],
+  "explanation": "Hardhat in-process automining 将交易串行写入区块，因此客户端在途批次可重叠但区块产出不并行；若 peak 低于 configured，常见原因为批生命周期过短（任务瞬时完成）或串行挖矿，而非配置被折叠。",
+  "minFoldedCheck": "runPool 使用 limit=configuredConcurrency（未使用 min(batchSize, concurrency)）"
+}

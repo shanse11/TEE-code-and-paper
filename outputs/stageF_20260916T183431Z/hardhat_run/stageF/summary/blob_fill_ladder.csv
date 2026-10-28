@@ -1,0 +1,31 @@
+taskCount,payloadKiB,predictedFrameBytes,frameBytes,blobsRequired,fillRatio,physicalBlobBytes,status,codecVerified
+1,1,1115,1115,1,0.008781186995967742,131072,computed,true
+1,2,2139,2139,1,0.016845703125,131072,computed,true
+1,4,4187,4187,1,0.032974735383064516,131072,computed,true
+1,8,8283,8283,1,0.06523279989919355,131072,computed,true
+1,16,16475,16475,1,0.12974892893145162,131072,computed,true
+1,32,32859,32859,1,0.25878118699596775,131072,computed,true
+1,64,65627,65627,1,0.516845703125,131072,computed,true
+1,128,131163,,2,0.5164873676915323,262144,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+1,256,262235,,3,0.6884109332997311,393216,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+1,512,524379,,5,0.8259497857862903,655360,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,1,8367,1199,1,0.00944272933467742,131072,computed,false
+8,2,16559,2223,1,0.017507245463709676,131072,computed,false
+8,4,32943,4271,1,0.033636277721774195,131072,computed,false
+8,8,65711,8367,1,0.06589434223790322,131072,computed,false
+8,16,131247,,2,0.5168181388608871,262144,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,32,262319,,3,0.6886314474126344,393216,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,64,524463,,5,0.8260820942540322,655360,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,128,1048751,,9,0.9177158588149642,1179648,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,256,2097327,,17,0.9716180732625711,2228224,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+8,512,4194479,,34,0.9715775375800522,4456448,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,1,33231,1487,1,0.011710874495967742,131072,computed,false
+32,2,65999,2511,1,0.019775390625,131072,computed,false
+32,4,131535,,2,0.5179522114415323,262144,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,8,262607,,3,0.6893874957997311,393216,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,16,524751,,5,0.8265357232862903,655360,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,32,1049039,,9,0.9179678749439965,1179648,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,64,2097615,,17,0.9717514935661765,2228224,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,128,4194767,,34,0.9716442477318549,4456448,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,256,8389071,,67,0.9860919774238686,8781824,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false
+32,512,16777679,,133,0.9934787865897101,17432576,blocked: single-blob capacity exceeded (不缩小 payload、不截断),false

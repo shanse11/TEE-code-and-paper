@@ -1,0 +1,17 @@
+{
+  "title_line_1": "面向高频 DApp 的 Hybrid TEE-Rollup",
+  "title_line_2": "可恢复挑战协议与轻量 DA 成本评估",
+  "author": "杨帆（第一作者、通讯作者）",
+  "affiliation": "华东师范大学",
+  "poster_id": "P00145",
+  "conference": "NDBC 2026  /  第43届 CCF 中国数据库学术会议",
+  "date_location": "2026.10.16-18  |  上海",
+  "fonts": {
+    "CN": "/System/Library/Fonts/STHeiti Light.ttc",
+    "CNB": "/System/Library/Fonts/STHeiti Medium.ttc",
+    "EN": "/System/Library/Fonts/Supplemental/Arial.ttf",
+    "ENB": "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "MATH": "/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf"
+  },
+  "chinese_subfont_index": 1
+}

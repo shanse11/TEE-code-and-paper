@@ -1,0 +1,42 @@
+# 阶段 C 实际复现命令（均已在本机执行验证）
+
+# 工作区：/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup
+# 说明：hardhat 二进制在本机 permission denied，统一用 node 调用 CLI 入口。
+
+# 1) C 阶段对抗与恢复测试（C01–C17）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageC_20260916T174457Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/stageC_recovery.test.js
+# 结果：17 passing / 0 failing
+# 产物：hardhat_run/stageC/{case_matrix.json, state_transition_table.json, invariants.json}
+
+# 2) C 闸门：在 C 的 run 下重跑 B 全套回归（security.test.js + stageB_closure.test.js）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageC_20260916T174457Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js \
+  revision/security.test.js revision/stageB_closure.test.js
+# 结果：32 passing / 0 failing（B 回归在 C 阶段通过）
+
+# 3) 随机序列：保留原固定基线 seed，并额外配置多个 seed（各 1000 序列）
+#    3a) 原始基线（默认 seed，不传 RANDOM_SEED）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageC_20260916T174457Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js run --config revision/hardhat.config.js revision/random_security.js
+# 结果：seed=0x5eed2026, 1000 sequences, 27401 calls, 22686 revert-state checks, pass=true
+
+#    3b) 额外 seed
+for S in 0xA11CE 0xB0B 0xC0FFEE; do
+  REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageC_20260916T174457Z/hardhat_run" \
+  RANDOM_SEED=$S RANDOM_SEQUENCES=1000 \
+  node ./node_modules/hardhat/internal/cli/cli.js run --config revision/hardhat.config.js revision/random_security.js
+done
+# 结果：0xa11ce=27296 calls / 0xb0b=27431 calls / 0xc0ffee=27385 calls，均 pass=true
+# 产物：hardhat_run/security/random_report_0x<seed>.json、random_sequences_0x<seed>.jsonl
+
+# 4) 冻结 C 阶段测量版本
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageC_20260916T174457Z/stageC_freeze" \
+  --run-id stageC-freeze-20260916T174457Z
+# 结果：ready

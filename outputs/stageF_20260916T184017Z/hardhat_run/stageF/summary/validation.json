@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "batchRecords": 1509,
+    "measuredBatchRecords": 1290,
+    "warmupBatchRecords": 219,
+    "windowRecords": 51,
+    "matrixWindows": 39,
+    "ablationWindows": 12
+  },
+  "sampleIdentity": {
+    "taskRecords": 13164,
+    "distinctTaskIds": 13164,
+    "duplicateTaskIds": 0,
+    "distinctMeasuredTaskIds": 11280,
+    "windowFinalizedTaskSum": 5253,
+    "note": "窗口 finalized 求和与去重 taskId 计数分别给出；去重后不得重复计入吞吐"
+  },
+  "feeConsistency": {
+    "windowFeeSumWei": "2280444527876761988",
+    "measuredBatchFeeSumWei": "3496028633601434756",
+    "cellFeeSumWei": "2280444527876761988",
+    "windowEqualsCell": true,
+    "note": "window 求和应等于 cell 求和；与 measured batch 求和可能因 warmup 归属不同而有差异（已分别列出）"
+  },
+  "gasFeeCrossCheck": {
+    "totalEqualsSumOfParts": true,
+    "mismatchedWindows": []
+  },
+  "exclusions": {
+    "policy": "预设：warmup 批次记录但不参与稳态统计；无按均值筛选剔除；失败/重试/删失全部保留",
+    "excludedCount": 0,
+    "flagged": []
+  },
+  "chartsMatchTables": true
+}

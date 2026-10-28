@@ -1,0 +1,118 @@
+{
+  "stage": "G",
+  "stageName": "TeeRollup、Arbitrum、Optimism 的公平比较",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "status": {
+    "G-source": "completed",
+    "G-feasibility": "completed",
+    "G-mechanism": "completed",
+    "G-official": "blocked",
+    "G-literature": "completed",
+    "overall": "partial",
+    "overallReason": "G-completed 不能以仅完成文献检索定义；本轮无官方实现复测，故 G-official=blocked，针对专家定量对照的诉求至少为 partial；已交付机制对照与可靠文献表，未捏造结果"
+  },
+
+  "upstream": {
+    "stageA": "outputs/stageA_20260916T162724Z/stageA_freeze/manifest/run_manifest.json",
+    "stageF": "outputs/stageF_20260916T184017Z/handoff.json（F-local completed；F-TEE/F-Blob/F-full blocked）",
+    "stageFContract": "outputs/stageF_20260916T184017Z/comparability_contract.json",
+    "stageD": "outputs/stageD_20260916T180557Z/handoff.json（partial）",
+    "stageE": "outputs/stageE_20260916T181622Z/handoff.json（partial）"
+  },
+
+  "frozenVersion": {
+    "runId": "stageG-freeze-20260916T185200Z",
+    "sourceTreeSha256": "d1aeba5e04c17bb9d03d05a4e764073a19f0227f807f8dd49a6128ae94be8703",
+    "configSha256": "a0fdc46f7cb6b15d967c1d519c3b5bcb5e9257ee93a53341925c8a1f5b9a8f12"
+  },
+
+  "artifacts": {
+    "sources": "sources.json",
+    "mechanismMatrix": "mechanism_matrix.json",
+    "feasibility": "feasibility.json",
+    "metricMapping": "metric_mapping.json",
+    "comparabilityContract": "comparability_contract.json",
+    "claimEvidenceMatrix": "claim_evidence_matrix.json",
+    "literature": "literature.json",
+    "rawMechanism": "hardhat_run/stageG/raw/mechanism/mechanism_records.jsonl",
+    "summary": "hardhat_run/stageG/summary/{mechanism_summary.json|csv, mechanism_validation.json}",
+    "figures": "hardhat_run/stageG/figures/{fig_g_correct_finality.svg, fig_g_gas.svg}",
+    "officialSources": "official/{bold@30e78f67, optimism_src/FaultDisputeGame.sol@c4a68ab}",
+    "report": "report_zh.md",
+    "commands": "commands.txt",
+    "citationLocator": "citation_locator.md"
+  },
+
+  "sourcePins": [
+    { "target": "TEEROLLUP", "pin": "arXiv:2409.14647v3 (2025-11-30)", "artifact": "not_found", "access": "fetched" },
+    { "target": "BOLD", "pin": "arXiv:2404.10491v1 (2024-04-16) + OffchainLabs/bold@30e78f67f40eacaab13577e507bab6025df843d6 (BSL 1.1, Go 1.24.5)", "artifact": "cloned_not_executed", "access": "fetched + cloned" },
+    { "target": "OPTIMISM_FDG", "pin": "specs.optimism.io FDG (访问 2026-09-16) + FaultDisputeGame.sol @ ethereum-optimism/optimism c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af (MIT, solidity 0.8.15)", "artifact": "source_downloaded_not_executed", "access": "fetched" }
+  ],
+
+  "l1MechanismResult": {
+    "design": "同一有界 hash 链模型（steps=64, batchSize=1, 同部署参数 challengeWindow=100000/stepTimeout=10/bond=1e15 wei），3 独立 run × (2 预热 + 10 稳态)",
+    "systems": {
+      "bounded-task-rollup": "本方案（有界重算兜底 + recover）",
+      "mechanism-baseline": "机制基线（二分 + 单步证明 + 无兜底重算）"
+    },
+    "rows": [
+      { "system": "本方案", "arm": "interactive", "correct": "30/30", "incorrect": "0/30", "gas": "25918326", "l1Tx": 360 },
+      { "system": "本方案", "arm": "fault-no-recovery", "correct": "30/30", "incorrect": "0/30", "gas": "18857820", "l1Tx": 150 },
+      { "system": "本方案", "arm": "fault-with-recovery", "correct": "30/30", "incorrect": "0/30", "gas": "26889540", "l1Tx": 390 },
+      { "system": "本方案", "arm": "direct-no-response", "correct": "30/30", "incorrect": "0/30", "gas": "14668132", "l1Tx": 120 },
+      { "system": "机制基线", "arm": "interactive", "correct": "30/30", "incorrect": "0/30", "gas": "20404304", "l1Tx": 330 },
+      { "system": "机制基线", "arm": "fault-no-recovery", "correct": "0/30", "incorrect": "30/30", "gas": "13781198", "l1Tx": 150 },
+      { "system": "机制基线", "arm": "direct-no-response", "correct": "0/30", "incorrect": "30/30", "gas": "10490070", "l1Tx": 120 }
+    ],
+    "pairedLatencyDiffMs": [
+      { "arm": "interactive", "meanDiff(baseline-ours)": -1.2, "ci": null, "reason": "only_3_independent_runs" },
+      { "arm": "fault-no-recovery", "meanDiff(baseline-ours)": -0.47, "ci": null, "reason": "only_3_independent_runs" },
+      { "arm": "fault-with-recovery", "meanDiff": null, "reason": "arm_not_available_on_both_systems（基线无恢复机制）" }
+    ],
+    "validation": { "records": 252, "measured": 210, "duplicateSampleIds": 0, "gasTotalsMatchPerRunSum": true }
+  },
+
+  "regressionAfterAddingMechanismBaseline": {
+    "command": "hardhat test stageF_stats.test.js stageB_closure.test.js stageC_recovery.test.js stageD_attestation.test.js stageE_local.test.js",
+    "result": "53 passing / 0 failing（F 统计 12 + B 9 + C 17 + D 8 + E 7）",
+    "note": "新增 MechanismBaseline.sol 未破坏 B/C/D/E 与 F 统计模块"
+  },
+
+  "keyFindings": [
+    "兜底重算的价值被量化：同一模型下去掉兜底，提交方离线时正确终局率从 30/30 降到 0/30（正确提交方被罚没）",
+    "本方案交互路径比基线的二分+单步更贵（25.92M vs 20.40M gas），换来的是故障下的正确终局 —— 是明确的成本/可用性权衡，不是单方面优势",
+    "recover 不改善正确终局时间（F 消融：12.6 ms vs 8.7 ms），只让第三方继续交互路径",
+    "『第三方接续』不是本方案首创：OP FDG 已有时钟继承 + CLOCK_EXTENSION（源码核实 move() 三档延期分支）",
+    "TeeRollup 的 86% 基线是 StarkNet；BoLD 的 10× 是腐/诚成本比 —— 两者都不可折算为跨协议领先百分比",
+    "TeeRollup v3 与早期版本在实验平台（SGX:TDX:CSV 1:2:2 vs AMD SEV）与容挫表述（f 可配 vs 半数）上不一致，比较必须固定版本"
+  ],
+
+  "downstream": {
+    "usableForPaper": [
+      "L1 机制微基准表与图（同模型、可复现、含分母与失败率）",
+      "四类主比较指标的定义冻结与字段映射（metric_mapping.json）",
+      "文献定量表（含原始环境与单位，标 literature_reported）",
+      "反面/不可比清单（claim_evidence_matrix.unsupportedClaimsFlagged）"
+    ],
+    "mustNotUse": [
+      "任何『比 OP/Arbitrum 快 N 倍』『比 TeeRollup 省 X%』的表述",
+      "『首创第三方接续』",
+      "『恢复降低结算延迟』",
+      "把机制基线称为官方实现"
+    ],
+    "nextGaps": [
+      "在获得 Go 1.24.5 工具链后跑 BoLD 官方组件 fixture（runbook 见 feasibility.json）",
+      "在获得 foundry 后跑 Optimism FDG 官方 FaultDisputeGame.t.sol（需先单独授权安装）",
+      "补 TeeRollup 官方 artifact（若作者后续公开仓库）",
+      "真实 TEE（D）与真实 Blob（E）验收后，才能做含 TEE/DA 的定量对照"
+    ]
+  },
+
+  "notDone": [
+    "未 commit / push",
+    "未修改论文正文（仅提供引文定位建议）",
+    "未执行远程安装脚本、未安装重量级工具链",
+    "未做公网交易、未请求付费资源",
+    "未以简化自写程序冒充官方实现"
+  ]
+}

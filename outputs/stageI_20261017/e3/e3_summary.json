@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageI.e3.v1",
+  "environment": "local Hardhat in-process chain, solc 0.8.26, cancun, blockGasLimit 60000000",
+  "partA_shortWindowCatch": {
+    "seed": 20261017,
+    "delayModel": "exponential(mean) + one 12 s slot",
+    "rows": [
+      {
+        "shortWindowSeconds": 60,
+        "meanDelaySeconds": 30,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 23,
+        "missed": 7,
+        "medianDelaySeconds": 36,
+        "analyticCatchProbability": 0.7981
+      },
+      {
+        "shortWindowSeconds": 60,
+        "meanDelaySeconds": 120,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 6,
+        "missed": 24,
+        "medianDelaySeconds": 103,
+        "analyticCatchProbability": 0.3297
+      },
+      {
+        "shortWindowSeconds": 60,
+        "meanDelaySeconds": 600,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 1,
+        "missed": 29,
+        "medianDelaySeconds": 569,
+        "analyticCatchProbability": 0.0769
+      },
+      {
+        "shortWindowSeconds": 60,
+        "meanDelaySeconds": 1800,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 0,
+        "missed": 30,
+        "medianDelaySeconds": 1046,
+        "analyticCatchProbability": 0.0263
+      },
+      {
+        "shortWindowSeconds": 300,
+        "meanDelaySeconds": 30,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 38,
+        "analyticCatchProbability": 0.9999
+      },
+      {
+        "shortWindowSeconds": 300,
+        "meanDelaySeconds": 120,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 24,
+        "missed": 6,
+        "medianDelaySeconds": 142,
+        "analyticCatchProbability": 0.9093
+      },
+      {
+        "shortWindowSeconds": 300,
+        "meanDelaySeconds": 600,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 9,
+        "missed": 21,
+        "medianDelaySeconds": 512,
+        "analyticCatchProbability": 0.3812
+      },
+      {
+        "shortWindowSeconds": 300,
+        "meanDelaySeconds": 1800,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 5,
+        "missed": 25,
+        "medianDelaySeconds": 1894,
+        "analyticCatchProbability": 0.1479
+      },
+      {
+        "shortWindowSeconds": 600,
+        "meanDelaySeconds": 30,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 36,
+        "analyticCatchProbability": 1
+      },
+      {
+        "shortWindowSeconds": 600,
+        "meanDelaySeconds": 120,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 83,
+        "analyticCatchProbability": 0.9926
+      },
+      {
+        "shortWindowSeconds": 600,
+        "meanDelaySeconds": 600,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 20,
+        "missed": 10,
+        "medianDelaySeconds": 364,
+        "analyticCatchProbability": 0.6247
+      },
+      {
+        "shortWindowSeconds": 600,
+        "meanDelaySeconds": 1800,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 3,
+        "missed": 27,
+        "medianDelaySeconds": 1733,
+        "analyticCatchProbability": 0.2787
+      },
+      {
+        "shortWindowSeconds": 3600,
+        "meanDelaySeconds": 30,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 36,
+        "analyticCatchProbability": 1
+      },
+      {
+        "shortWindowSeconds": 3600,
+        "meanDelaySeconds": 120,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 137,
+        "analyticCatchProbability": 1
+      },
+      {
+        "shortWindowSeconds": 3600,
+        "meanDelaySeconds": 600,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 30,
+        "missed": 0,
+        "medianDelaySeconds": 366,
+        "analyticCatchProbability": 0.9975
+      },
+      {
+        "shortWindowSeconds": 3600,
+        "meanDelaySeconds": 1800,
+        "slotSeconds": 12,
+        "trials": 30,
+        "caught": 24,
+        "missed": 6,
+        "medianDelaySeconds": 1726,
+        "analyticCatchProbability": 0.8638
+      }
+    ]
+  },
+  "partB_recomputeCost": {
+    "rows": [
+      {
+        "steps": 128,
+        "gasUsed": "114690",
+        "fits60M": true
+      },
+      {
+        "steps": 1024,
+        "gasUsed": "631144",
+        "fits60M": true
+      },
+      {
+        "steps": 4096,
+        "gasUsed": "3055672",
+        "fits60M": true
+      },
+      {
+        "steps": 8192,
+        "gasUsed": "7721976",
+        "fits60M": true
+      },
+      {
+        "steps": 16384,
+        "gasUsed": "21969784",
+        "fits60M": true
+      },
+      {
+        "steps": 20480,
+        "gasUsed": "31551288",
+        "fits60M": true
+      },
+      {
+        "steps": 24576,
+        "gasUsed": "42771192",
+        "fits60M": true
+      },
+      {
+        "steps": 28672,
+        "gasUsed": "55629496",
+        "fits60M": true
+      },
+      {
+        "steps": 32768,
+        "gasUsed": null,
+        "fits60M": false,
+        "reason": "Transaction ran out of gas"
+      }
+    ],
+    "perStepGasBetweenEnds": 1944.9
+  },
+  "notes": [
+    "Part A delays are a synthetic watcher model, not measured network latencies.",
+    "Part B measures gas only; quadratic memory cost makes per-step gas grow with steps."
+  ]
+}

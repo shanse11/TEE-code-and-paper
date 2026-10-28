@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-09-11T11:38:52.454Z",
+  "contract": "BoundedTaskRollup.sol",
+  "node": "v22.22.2",
+  "config": "revision/hardhat.config.js",
+  "stepsMatrix": [
+    4,
+    16,
+    64,
+    128
+  ],
+  "maxRecoveriesMatrix": [
+    0,
+    1,
+    2
+  ],
+  "total": 23,
+  "passed": 23,
+  "failed": 0,
+  "pass": true,
+  "items": [
+    {
+      "name": "非 submitter 调用 respond 必须 revert",
+      "fullName": "1 未授权response 非 submitter 调用 respond 必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "矩阵 steps×maxRecoveries: 诚实 submitter 胜出且 challenger 被罚没",
+      "fullName": "2 恶意challenge不罚诚实submitter 矩阵 steps×maxRecoveries: 诚实 submitter 胜出且 challenger 被罚没",
+      "state": "passed"
+    },
+    {
+      "name": "JS trace 实现与合约 compute 一致(自检 oracle)",
+      "fullName": "3 篡改output/root/trace JS trace 实现与合约 compute 一致(自检 oracle)",
+      "state": "passed"
+    },
+    {
+      "name": "篡改 output -> verdict 含 bit0, challenger 胜出",
+      "fullName": "3 篡改output/root/trace 篡改 output -> verdict 含 bit0, challenger 胜出",
+      "state": "passed"
+    },
+    {
+      "name": "篡改 traceRoot -> verdict 含 bit1, challenger 胜出",
+      "fullName": "3 篡改output/root/trace 篡改 traceRoot -> verdict 含 bit1, challenger 胜出",
+      "state": "passed"
+    },
+    {
+      "name": "未挑战且篡改 output -> finalize 销毁 bond，调用者不能取回罚没",
+      "fullName": "3 篡改output/root/trace 未挑战且篡改 output -> finalize 销毁 bond，调用者不能取回罚没",
+      "state": "passed"
+    },
+    {
+      "name": "离线 JS digest 与合约一致, 且绑定 chainid/address(可离线验证 domain)",
+      "fullName": "4 跨task/deployment域重放 离线 JS digest 与合约一致, 且绑定 chainid/address(可离线验证 domain)",
+      "state": "passed"
+    },
+    {
+      "name": "跨 deployment 重放同一签名必须 revert (digest 绑定 address)",
+      "fullName": "4 跨task/deployment域重放 跨 deployment 重放同一签名必须 revert (digest 绑定 address)",
+      "state": "passed"
+    },
+    {
+      "name": "同 deployment 同 taskId 在已结算后重复提交必须 revert",
+      "fullName": "4 跨task/deployment域重放 同 deployment 同 taskId 在已结算后重复提交必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "steps=0 / steps>MAX / version!=TASK_VERSION 提交必须 revert",
+      "fullName": "5 非法steps/version steps=0 / steps>MAX / version!=TASK_VERSION 提交必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "compute 越界 steps 必须 revert",
+      "fullName": "5 非法steps/version compute 越界 steps 必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "矩阵 maxRecoveries={0,1,2}: 提前/重复/超限 recover 均 revert",
+      "fullName": "6 提前/重复/超限recover 矩阵 maxRecoveries={0,1,2}: 提前/重复/超限 recover 均 revert",
+      "state": "passed"
+    },
+    {
+      "name": "recover 不改变 absoluteDeadline, 且到 absoluteDeadline 可 terminate",
+      "fullName": "7 固定absoluteDeadline recover 不改变 absoluteDeadline, 且到 absoluteDeadline 可 terminate",
+      "state": "passed"
+    },
+    {
+      "name": "SETTLED 后所有结算/响应调用必须 revert",
+      "fullName": "8 VERIFIED/SETTLED不能回退 SETTLED 后所有结算/响应调用必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "VERIFIED 后无法回退到更早阶段",
+      "fullName": "8 VERIFIED/SETTLED不能回退 VERIFIED 后无法回退到更早阶段",
+      "state": "passed"
+    },
+    {
+      "name": "矩阵 steps×maxRecoveries: 超时后第三方广告裁决仍可结算",
+      "fullName": "9 timeout/双方offline仍公开裁决 矩阵 steps×maxRecoveries: 超时后第三方广告裁决仍可结算",
+      "state": "passed"
+    },
+    {
+      "name": "重复 settle 必须 revert",
+      "fullName": "10 重复settle/finalize/withdraw 重复 settle 必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "重复 finalize 必须 revert, 且窗口内 finalize 也 revert",
+      "fullName": "10 重复settle/finalize/withdraw 重复 finalize 必须 revert, 且窗口内 finalize 也 revert",
+      "state": "passed"
+    },
+    {
+      "name": "重复 withdraw 必须 revert",
+      "fullName": "10 重复settle/finalize/withdraw 重复 withdraw 必须 revert",
+      "state": "passed"
+    },
+    {
+      "name": "守恒不变量在各阶段成立",
+      "fullName": "11 真实余额(扣gas后)与守恒 守恒不变量在各阶段成立",
+      "state": "passed"
+    },
+    {
+      "name": "提现后赢家真实余额 = amount - 扣gas",
+      "fullName": "11 真实余额(扣gas后)与守恒 提现后赢家真实余额 = amount - 扣gas",
+      "state": "passed"
+    },
+    {
+      "name": "拒收 recipient 导致 withdraw revert 且 claimable 不变",
+      "fullName": "12 拒收与重入提现 拒收 recipient 导致 withdraw revert 且 claimable 不变",
+      "state": "passed"
+    },
+    {
+      "name": "重入 recipient 仅获得一次 amount 且守恒",
+      "fullName": "12 拒收与重入提现 重入 recipient 仅获得一次 amount 且守恒",
+      "state": "passed"
+    }
+  ],
+  "note": "JS 独立实现 trace/digest 作为 ground truth; 合约 compute 仅用于自检一致性, 不作为判定 oracle。"
+}

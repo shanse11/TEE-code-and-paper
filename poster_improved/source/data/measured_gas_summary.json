@@ -1,0 +1,19 @@
+{
+  "samples": 3,
+  "payload_sizes": [
+    128,
+    512,
+    2048
+  ],
+  "averages": {
+    "register_da_gas": 113526,
+    "submit_rollup_gas": 299033.6666666667,
+    "challenge_open_gas": 283769,
+    "challenge_respond_gas": 65886,
+    "challenge_step_round1_gas": 93807,
+    "challenge_recover_gas": 156891,
+    "challenge_replay_gas": 135632,
+    "challenge_resolve_gas": 113402,
+    "finalize_gas": 33477
+  }
+}

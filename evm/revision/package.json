@@ -1,0 +1,10 @@
+{
+  "name": "revision-blob",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Independent real-blob branch for Hybrid TEE-Rollup revision. Offline KZG + beacon blob retrieval helpers.",
+  "dependencies": {
+    "c-kzg": "^4.1.0"
+  }
+}

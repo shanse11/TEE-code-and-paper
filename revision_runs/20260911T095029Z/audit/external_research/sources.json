@@ -1,0 +1,196 @@
+{
+  "run_id": "20260911T095029Z",
+  "generated_utc": "2026-09-11",
+  "researcher_role": "independent_external_research_only",
+  "scope_note": "本文件仅做公开资料核实与证据写入，不修改任何合约/测试代码。所有摘录为原文短引（fair-use），版权归原作者/发布方。",
+  "credential_check": {
+    "method": "仅检测环境变量名的布尔存在性，不读取/不输出凭据值，不访问个人文件",
+    "result": "AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN, GCP_PROJECT, GOOGLE_APPLICATION_CREDENTIALS, AZURE_SUBSCRIPTION_ID, AZURE_CLIENT_ID, ALIBABA_CLOUD_ACCESS_KEY_ID, ALICLOUD_ACCESS_KEY, ALIYUN_ACCESS_KEY_ID, TENCENTCLOUD_SECRET_ID, TENCENT_SECRET_ID, DO_TOKEN, DIGITALOCEAN_TOKEN, LINODE_TOKEN, AKAMAI_API_TOKEN, HCLOUD_TOKEN, SCW_SECRET_KEY 全部为 unset（布尔=false）",
+    "implication": "无云凭据，无法以编程方式核对 TDXX 实例实时价格/库存；账户相关事实一律标记为「未核实（需云凭据/登录控制台）」"
+  },
+  "sources": [
+    {
+      "id": "teerollup_2409.14647",
+      "title": "TeeRollup: Efficient Rollup Design Using Heterogeneous TEE",
+      "authors": "Xiaoqing Wen, Quanbi Feng, Hanzheng Lyu, Jianyu Niu, Yinqian Zhang, Chen Feng",
+      "type": "preprint",
+      "urls": {
+        "abstract": "https://arxiv.org/abs/2409.14647",
+        "html": "https://arxiv.org/html/2409.14647v3",
+        "pdf": "https://arxiv.org/pdf/2409.14647"
+      },
+      "version": "v3 (latest)",
+      "dates": { "v1": "2024-09-23", "v2": "2025-01-04", "v3": "2025-11-30" },
+      "doi": "https://doi.org/10.48550/arXiv.2409.14647",
+      "key_mechanisms": [
+        "异构 TEE（Intel SGX / Intel TDX / Hygon CSV，比例 1:2:2）组成的分布式 sequencer 集合，状态转换需 f+1 个 TEE 签名（Quorum Certificate, QC）以容忍至多 f 个受损 TEE。",
+        "威胁模型允许 sequencer 宿主任意启停/崩溃 TEE 并延迟/重放/丢弃 I/O；采用静态腐败假设（static corruption），DAP 为理性（rational）。",
+        "挑战机制解决 TEE 不可用导致的赎回（redeemability）问题：系统不可用时等待窗口 τ（数小时）后合约冻结，客户端凭 Merkle proof + TEE 签名赎回存款。",
+        "DAP（Data Availability Provider）+ 懒惰惩罚（laziness penalty）降低链上存储开销；惩罚函数对未响应 DAP 罚没抵押 C 或对响应者罚 W+ε。"
+      ],
+      "experimental_numbers": [
+        "链上验证成本相对 StarkNet 降低约 86%（原文：'reducing on-chain verification costs by approximately 86%'）。",
+        "batch=2000 时单笔交易成本约 0.006 USD（对照 StarkNet 0.043 USD）；摊销后约 78 gas / 0.005 USD。",
+        "正常提款延迟为 'a few minutes'（数分钟）。",
+        "5 sequencer + batch 2000 时 LAN 吞吐约 28 KTPS，延迟峰值 119 ms；离线处理 >5000 TPS。",
+        "20 sequencer WAN 下吞吐降 15.74%、延迟升 20.17%。",
+        "原型 Golang + Solidity 0.8.0，部署于 Ethereum 测试网 Sepolia；硬件为阿里云 ECS g7t.2xlarge(SGX)/8i.2xlarge(TDX)/g7h.2xlarge(CSV)。",
+        "Table IV gas：Deposit 48,551；UpdateState 156,263；StartChallenge 47,118；ResolveChallenge 146,618；SettleRollup 29,078；SettleWithdraw 124,511。"
+      ],
+      "limitations": [
+        "挑战抵押 Pledge_C 与 DAP 抵押 C、响应时限 l 等经济参数仅以符号出现，未给出实验数值。",
+        "采用静态腐败假设（非自适应腐败）；DAP 理性假设沿用 [45]。",
+        "TToken 与主链货币汇率简化为 1；当前用标准 Merkle Tree 而非 MPT（作者自承为未来工作）。",
+        "实验为测试网原型，未给出主网/对抗环境下的端到端基准。"
+      ]
+    },
+    {
+      "id": "bold_2404.10491",
+      "title": "BoLD: Fast and Cheap Dispute Resolution",
+      "authors": "M. Alvarez, H. Arneson, B. Berger, L. Bousfield, C. Buckland, Y. Edelman, E. Felten, D. Goldman, R. Jordan, M. Kelkar, A. Mamageishvili, H. Ng, A. Sanghi, V. Shoup, T. Tsao",
+      "type": "preprint",
+      "urls": {
+        "abstract": "https://arxiv.org/abs/2404.10491",
+        "html": "https://arxiv.org/html/2404.10491v1",
+        "pdf": "https://arxiv.org/pdf/2404.10491"
+      },
+      "version": "v1",
+      "dates": { "v1": "2024-04-16" },
+      "doi": "https://doi.org/10.48550/arXiv.2404.10491",
+      "key_mechanisms": [
+        "替换原 Arbitrum 争议协议，抗延迟攻击（delay attacks），且不显著增加链上计算成本、降低质押成本。",
+        "允许任意数量（N_A）腐败方互相协调，只要现实中存在至少一个诚实方聚合参与（'at least one honest party'）。",
+        "以动态协议图 + 节点本地计时器（local timer）取代原 'chess clock'；诚实方信任无关合作（trustless cooperation），正确断言只需质押一次。",
+        "终止时间为 2 个 challenge period = 2·(C_max + D)；C_max 保守取约 1 周，D 为诚实方走完一次挑战子协议的无审查名义延迟（数小时）。"
+      ],
+      "experimental_numbers": [
+        "最坏终止时间约 2 周（有审查）/ 约 1 周（无审查）。",
+        "参数可设到腐败方总成本（质押 + L1 gas）为诚实方的 10 倍（'10 times as much'）。",
+        "原部分并发 Arbitrum Classic 延迟攻击可达约 2·N 个 challenge periods，成本 N 份顶层质押。"
+      ],
+      "limitations": [
+        "全文未给出具体保证金的 ETH/USD 面额，仅有相对成本比例。",
+        "'Bounded Liquidity Delay' 无独立毫秒/小时常数，依赖外部经验参数 C_max（约 1 周）。",
+        "抽取页面截断于 4.7.2 Main results，安全证明的严格不等式边界未获完整原文。"
+      ]
+    },
+    {
+      "id": "eip_4844",
+      "title": "EIP-4844: Shard Blob Transactions",
+      "type": "standard",
+      "url": "https://eips.ethereum.org/EIPS/eip-4844",
+      "status": "Final (Standards Track: Core)",
+      "version": "Final",
+      "key_spec": [
+        "新交易类型 BLOB_TX_TYPE = 0x03；字段含 max_fee_per_blob_gas、blob_versioned_hashes。",
+        "每区块 blob gas 上限：TARGET_BLOB_GAS_PER_BLOCK=393216、MAX_BLOB_GAS_PER_BLOCK=786432、GAS_PER_BLOB=131072 → 目标 3 blob / 上限 6 blob（每区块）。",
+        "blob gas 价格近似指数规则：base_fee_per_blob_gas = MIN_BASE_FEE_PER_BLOB_GAS · e^(excess_blob_gas / BLOB_BASE_FEE_UPDATE_FRACTION)，更新分数 3338477（每块最大变化率 ≈1.125×）。",
+        "KZG：VERSIONED_HASH_VERSION_KZG=0x01；承诺验证依赖共识层 verify_kzg_proof / verify_blob_kzg_proof_batch 与 Point-evaluation 预编译。",
+        "共识层 blob 以 sidecar 单独传播（'blobs are propagated separately, as sidecars'）；执行层不持久化。",
+        "可用性保留：MIN_EPOCHS_FOR_BLOB_SIDECARS_REQUESTS = 4096（约 18 天），远短于此前提议的 1 年执行层历史轮转。"
+      ],
+      "limitations": [
+        "blob 非永久存储，仅短期 DA 可用；18 天后需依赖外部归档/超级节点。",
+        "本页为执行层 EIP，共识层具体接口（blob_sidecars）定义于 consensus-specs 仓库。"
+      ]
+    },
+    {
+      "id": "optimism_fault_dispute_game",
+      "title": "OP Stack Fault Proof — Fault Dispute Game (spec)",
+      "type": "official_spec",
+      "urls": {
+        "dispute_game": "https://specs.optimism.io/fault-proof/stage-one/fault-dispute-game.html",
+        "cannon": "https://docs.optimism.io/op-stack/fault-proofs/cannon"
+      },
+      "version": "stage-one spec; accessed 2026-09-11",
+      "key_spec": [
+        "游戏树含 SPLIT_DEPTH 与 MAX_GAME_DEPTH（均为按 FDG 实现预设的不可变参数）；SPLIT_DEPTH 以上为 output bisection，以下为 execution trace bisection。",
+        "完整树含 2^(d+1)-1 个位置（d=MAX_GAME_DEPTH）；最深位置对应执行轨迹索引。",
+        "计时：MAX_CLOCK_DURATION（单队累计最大时长，不可变）+ CLOCK_EXTENSION（剩余不足时给予的平铺信用，不可变）。扩展规则：标准 CLOCK_EXTENSION；预执行轨迹根 CLOCK_EXTENSION×2；预单步执行 CLOCK_EXTENSION + oracle.challengePeriod()。",
+        "Cannon 为默认 FPVM：kona-client 编译为 big-endian MIPS64 ELF，当前为 cannon-kona（game type 8）；历史 CANNON=0、PERMISSIONED_CANNON=1（op-program 已停止支持）。",
+        "无许可（permissionless）挑战；bond 随深度指数增长以抑制深层虚假声明。"
+      ],
+      "limitations": [
+        "spec 页将 CLOCK_EXTENSION / MAX_CLOCK_DURATION / SPLIT_DEPTH / MAX_GAME_DEPTH / challengePeriod 定义为『按部署预设的不可变参数』，字面数值需核对具体部署配置（如 OP Mainnet）。",
+        "第三方分析（如 deepwiki/celo 快照、Hacken 博客）给出 CLOCK_EXTENSION≈3h、challengePeriod≈7天，属部署侧常见值，非 spec 原文常量，引用时须标注来源。",
+        "game type 编号在不同仓库快照不一致（celo 快照列 0/1/4/5/255；官方 optimism docs 列 cannon-kona=8），以官方 docs 为准。"
+      ]
+    },
+    {
+      "id": "sepolia_peerdas_2026",
+      "title": "2026 Sepolia blob 取回接口与 PeerDAS（Fusaka/EIP-7594）升级注意",
+      "type": "mixed_official",
+      "urls": {
+        "arbitrum_fusaka_notice": "https://docs.arbitrum.io/notices/fusaka-upgrade-notice",
+        "teku_peerdas": "https://docs.teku.consensys.io/development/concepts/peer-das",
+        "viem_eip7594": "https://gitmemories.com/wevm/viem/issues/4022",
+        "pinax_blobs": "https://app.pinax.network/docs/blobs"
+      },
+      "version": "Fusaka / PeerDAS(EIP-7594)，accessed 2026-09-11",
+      "key_facts": [
+        "Fusaka 硬分叉时间线（Arbitrum 公告）：Ethereum Sepolia Fusaka 于 2025-10-14 07:36 UTC 激活；Ethereum Mainnet 于 2025-12-03 21:49 UTC 激活。",
+        "PeerDAS（EIP-7594）为 Fusaka 主特性：对 blob 做 1D 擦除码扩展（大小翻倍，128 列），节点通常只需 custody 部分列即可证明 DA。",
+        "blob 目标数：Teku 文档称 14 blob 目标自 2026-01-07 起（Fusaka 后约 1 个月）；未来可经 EIP-7892（BPO）无硬分叉调整。",
+        "viem PR 备注：Sepolia 链 ID 自动判定使用 EIP-7594（PeerDAS）blob 版本；EIP-7594 交易封装使用 wrapper version byte 0x01，proof 结构为每 blob 128 个 cell proof。",
+        "取回接口变更：Fusaka 后完整 blob 数据需超级节点（supernode）模式，或启用按需下载（Teku：--rest-api-getblobs-sidecars-download-enabled；Lighthouse --prune-blobs false；Prysm --semi-supernode + --enable-backfill）。",
+        "公开取回端点（无需 API key）：Pinax GET /eth/v1/beacon/blobs/{block_id}（支持 Sepolia/Hoodi/Ethereum/Gnosis），可按 versioned_hashes 过滤。"
+      ],
+      "limitations": [
+        "Sepolia 当前为 Fusaka/PeerDAS 后状态，blob 版本与预 Fusaka 不同；L2 节点须连接订阅全部子网的信标节点或归档 blob 数据，否则超出保留期无法回放。",
+        "保留期仍受 MIN_EPOCHS_FOR_BLOB_SIDECARS_REQUESTS（~18 天）约束，但 Fusaka 后完整历史 blob 取回强烈依赖超级节点/归档，普通节点只 custody 部分列。",
+        "viem 链接为 GitHub issue/PR 讨论（第三方仓库镜像），非规范标准文本。"
+      ]
+    },
+    {
+      "id": "alibaba_tdx_official",
+      "title": "阿里云构建 TDX 机密计算环境及远程证明服务（官方帮助文档）",
+      "type": "official_doc",
+      "url": "https://help.aliyun.com/zh/ecs/user-guide/build-a-tdx-confidential-computing-environment",
+      "updated": "2026-09-01 14:18:04",
+      "key_facts": [
+        "支持 TDX 的实例规格族：ecs.g8i.xlarge 及以上（北京可用区 I/L、杭州可用区 J、中国香港可用区 B/C/D、新加坡可用区 B 等特定 AZ 开放）。",
+        "创建参数：SecurityOptions.ConfidentialComputingMode=TDX；需 UEFI 镜像（Alibaba Cloud Linux 3/4、Ubuntu 24.04、Debian 13.1+、Rocky 9.5+）。",
+        "Quote 生成：用户态经 /dev/tdx_guest（ACL3 内核 5.10.134-16.al8+）或 ConfigFS TSM /sys/kernel/config/tsm/report（上游 6.7+ 镜像）；TD Report 固定 1024 字节，可绑定 64 字节 REPORTDATA。",
+        "DCAP 支持：实例内 PCCS 地址为 sgx-dcap-server-vpc.<region_id>.aliyuncs.com（阿里云 DCAP 缓存服务）；Quote 验证需拉取 collateral（TCB Info、QE Identity、PCK CRL）校验平台 TCB 与吊销状态。",
+        "限制：不支持内部 reboot、暂不支持 VNC/Windows/老内核/eRDMA；SWIOTLB 默认占可用内存 6%（≤1GiB）。"
+      ],
+      "limitations": [
+        "本页未含实时价格与库存；具体单价、最低计费增量（按秒/按分钟）需登录 ECS 控制台或使用按量计费 API 核对 → 标记「未核实（需云凭据）」。",
+        "第三方社区数据（gist）给出 ecs.g8i.xlarge ≈ ¥1.0885/小时，为二手数据，非官方挂牌价，引用时须标注且不可作为采购依据。",
+        "TDX 仅在部分地域特定 AZ 开放，实际现货（库存）须经控制台/RunInstances 确认，未经核实。"
+      ]
+    },
+    {
+      "id": "intel_tdx_official",
+      "title": "Intel® TDX 官方产品页（云服务商列表）",
+      "type": "official_doc",
+      "url": "https://www.intel.cn/content/www/cn/zh/products/details/processors/xeon/features/trust-domain-extensions.html",
+      "key_facts": [
+        "Intel 官方列出提供 TDX 的云服务商：阿里巴巴（Alibaba）、Google Cloud、Microsoft Azure（另列蚂蚁集团、Thales）。",
+        "TDX 基于第四代/第五代英特尔® 至强® 处理器；依赖虚拟机隔离，多数既有应用无需改代码即可迁移。"
+      ],
+      "limitations": [
+        "产品页不提供单价/区域/库存；仅作『可用提供商』佐证。"
+      ]
+    },
+    {
+      "id": "tdx_pricing_thirdparty_unverified",
+      "title": "TDX 短租价格第三方快照（未核实）",
+      "type": "third_party_unverified",
+      "urls": {
+        "gist": "https://gist.github.com/zed-wong/cd4a4f41b83e8a3aa9b3a2a31e0b0f7d",
+        "voltagegpu": "https://voltagegpu.com/compare/azure-confidential-computing-alternative"
+      },
+      "note": "以下价格均为第三方/社区快照，未经本环境云凭据核实，绝不作为采购依据：",
+      "numbers": [
+        "阿里云 ecs.g8i.xlarge（4vCPU/16GB TDX）第三方价 ≈ ¥1.0885/小时（gist）。",
+        "Azure DCesv5（DC4es_v5 4vCPU/16GB TDX）≈ $0.208/小时（预览价）。",
+        "GCP n2d-standard-4 TDX ≈ $0.214/小时（含约 23% 机密溢价）。",
+        "VoltageGPU（EU/FR，第三方）Intel TDX H200 ≈ $4.935/小时，按秒计费（需核实其资质/SOC2 缺位）。"
+      ],
+      "limitations": [
+        "全部为二手数据，可能过期或区域/规格特定；本环境无云凭据，无法核实实时价格、最低计费、库存。标记为「未核实」。"
+      ]
+    }
+  ]
+}

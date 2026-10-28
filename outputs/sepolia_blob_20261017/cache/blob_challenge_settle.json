@@ -1,0 +1,30 @@
+{
+  "status": "verified_anchor_matches",
+  "checkedAt": "2026-10-17T08:15:07.536Z",
+  "anchorId": 1,
+  "onChain": {
+    "anchorId": 1,
+    "blobVersionedHash": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+    "payloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+    "taskCount": 8,
+    "blockNumber": 11932953,
+    "submitter": "0xdcC6310Ab8D4621626b945119c2784a1Ae582F10"
+  },
+  "derived": {
+    "kzgOk": true,
+    "versionedHash": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+    "payloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+    "taskCount": 8
+  },
+  "onChainMatchesDerived": true,
+  "challengeSettle": "NOT_IMPLEMENTED",
+  "bindingGap": {
+    "blobBatchAnchorHasChallengeEntrypoint": false,
+    "blobBatchAnchorHasSettleEntrypoint": false,
+    "boundedTaskRollupAwareOfAnchor": false,
+    "mandatoryBinding": false,
+    "note": "BlobBatchAnchor.sol and core BoundedTaskRollup.sol have NO cross-reference or mandatory binding. BlobBatchAnchor does not call BoundedTaskRollup, and BoundedTaskRollup is unaware of BlobBatchAnchor. A real on-chain challenge+settlement against BoundedTaskRollup via a blob anchor is NOT implemented. This script verifies the anchor only and does NOT claim a closed loop."
+  },
+  "closedLoopClaimed": false,
+  "note": "Anchor verified read-only. Real on-chain challenge+settlement against BoundedTaskRollup is NOT wired (no contract entrypoint, no binding). Do not treat this as a closed dispute-resolution loop."
+}

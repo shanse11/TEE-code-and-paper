@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageA.v1",
+  "runId": "20260912T000000Z-stageA-local",
+  "protocolVersion": "hybrid-tee-rollup-revision-1",
+  "source": {
+    "include": [
+      "evm/contracts/**/*.sol",
+      "evm/revision/**/*.js",
+      "evm/revision/**/*.json",
+      "evm/revision/**/*.txt",
+      "tee_rollup_demo/**/*.py",
+      "scripts/**/*.py",
+      "tests/**/*.py"
+    ],
+    "exclude": [
+      ".git/**",
+      "node_modules/**",
+      "artifacts/**",
+      "cache/**",
+      "revision_runs/**",
+      "outputs/**",
+      "__pycache__/**",
+      "*.pyc"
+    ]
+  },
+  "chain": {
+    "backend": "hardhat",
+    "network": "hardhat-local",
+    "chainId": 31337,
+    "hardfork": "cancun",
+    "rpcMode": "in-process",
+    "finalityDefinition": "local-automining-no-consensus-finality"
+  },
+  "build": {
+    "configPath": "evm/revision/hardhat.config.js",
+    "artifactRoot": "artifacts",
+    "cacheRoot": "cache",
+    "solidity": "0.8.26",
+    "viaIR": true,
+    "optimizer": { "enabled": true, "runs": 200 },
+    "evmVersion": "cancun",
+    "hardhatAccounts": { "count": 40 },
+    "nodeVersion": null,
+    "pythonVersion": null
+  },
+  "workload": {
+    "batchSize": [1, 8, 32],
+    "payloadKiBPerTask": [1, 8, 32],
+    "concurrency": [1, 4, 16],
+    "taskCount": null,
+    "dispatchGroupSize": null,
+    "concurrencyUnit": "inflight_batches",
+    "encodingVersion": "blobcodec-field31-v1"
+  },
+  "backends": {
+    "tee": "simulated-only",
+    "da": "local-mock-or-offline-only",
+    "blobMode": "offline-only"
+  },
+  "metrics": {
+    "throughputUnit": "finalized_tasks_per_second",
+    "throughputNumerator": "finalizedTasks",
+    "throughputDenominator": "measurementWindowSeconds",
+    "recoveryStart": "faultInjectedAt",
+    "recoveryEndpoints": ["firstValidProgressAt", "resolvedAt", "withdrawableAt"],
+    "costPrimaryDenominator": "finalizedTask",
+    "costSecondaryDenominators": ["acceptedTask", "submittedBatch"],
+    "includeFailedAttempts": true,
+    "l1FeeDefinition": "gasUsed_times_effectiveGasPrice",
+    "blobFeeDefinition": "blobGasUsed_times_blobGasPrice"
+  },
+  "output": {
+    "writeManifest": true,
+    "writeSourceHashes": true,
+    "writeEnvironmentSnapshot": true,
+    "writeConfigResolved": true,
+    "writeJsonl": true,
+    "validateEveryRecord": true
+  }
+}

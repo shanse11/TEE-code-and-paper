@@ -1,0 +1,21 @@
+[legacy_counterexamples] startedAt=2026-09-11T10:31:03.437Z
+[legacy_counterexamples] OUT_DIR=/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z/legacy
+[legacy_counterexamples] config=HARDHAT_CONFIG=/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm/hardhat.config.js
+
+CE-01 [复现成功] respondChallenge 任意人可劫持 responder 角色 | category=R1-respondChallenge-任意人 | gasUsed=65886 gasCost=92234473290756 | note=无关第三方 attacker 以任意人身份调用 respondChallenge, 成功将 session.responder 设为自身并改写 mismatchBits
+CE-02 [复现成功] 无效第三方证据可误罚诚实 prover | category=R1+R3-第三方证据误罚 | gasUsed=113291 gasCost=129154556867424 | note=无关第三方单独完成 respond+resolve, 仅凭自填 resolutionBits 把诚实 prover 的交易罚为 SLASHED
+CE-03 [复现成功] replayChallenge 接受调用者自填 hash, 重执行结果完全可控 | category=R2-replayChallenge-调用者hash | gasUsed=115720 gasCost=122202287008560 | note=攻击者传入任意 expectedHash==claimedHash, replayPassed 即被置为 true, 合约未对任何真实执行做校验
+CE-04 [复现成功] resolveChallenge 任意第三方直接以 resolutionBits 误罚 | category=R3-resolveChallenge-resolutionBits | gasUsed=110454 gasCost=112929727553670 | note=第三方在挑战进行中直接调用 resolveChallenge 并自填 resolutionBits, 把交易罚为 SLASHED
+CE-05 [复现成功] replay 已 pass 仍可被 resolutionBits 覆盖误罚 | category=R2+R3-replay被resolutionBits覆盖 | gasUsed=130502 gasCost=131526459622790 | note=replay 报告 pass=true(证明 prover 正确)后, 第三方仍以 resolutionBits 强判交易为 SLASHED
+CE-06 [复现成功] recoverChallenge 不限次数重复恢复 | category=R4-recoverChallenge-不限次数 | gasUsed=- gasCost=- | note=对同一会话连续 5 次 recoverChallenge 全部成功, recovery.count 增至 5, 合约未设任何上限
+CE-07 [复现成功] recoverChallenge 可将已 REPLAYED 状态回退 | category=R4-recoverChallenge-回退REPLAYED | gasUsed=136830 gasCost=136864709529270 | note=已在 REPLAYED 的会话经 recover 后回退为 READY_FOR_REPLAY, 挑战流程可被重置并重放
+CE-08 [复现成功] recoverChallenge 刷新超时实现无限延期 | category=R4-recoverChallenge-延时延期 | gasUsed=- gasCost=- | note=连续 4 轮超时后 recover, 每轮均把 timeoutAt 后移并重置计时器, 挑战可被无限期拖延
+CE-09 [复现成功] SLASHED 不扣任何资金/质押 | category=R5-SLASHED-不扣资金 | gasUsed=130465 gasCost=130466823378840 | note=交易被置为 SLASHED, 但合约余额始终为 0 且诚实 prover 在罚没前后余额不变(未发起交易): 罚没为零经济成本
+CE-10 [复现成功] MockDA 任意修改(无访问控制) | category=DA-任意篡改 | gasUsed=36115 gasCost=36115201810620 | note=第三方在交易提交后调用 setAvailability(false) 与 updateMerkleRoot(伪造根) 均成功, DA 层可被任意篡改
+
+==== 汇总 ====
+反例总数: 10
+复现成功(旧不安全行为明确出现): 10
+未复现/行为安全: 0
+结论: 观察到 10 个旧合约不安全行为反例(明确存在列出的安全缺陷), 非安全通过
+报告路径: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z/legacy/report.json

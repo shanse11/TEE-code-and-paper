@@ -1,0 +1,40 @@
+{
+  "batch_records_jsonl": {
+    "schema": "hybrid-tee-rollup.stageF.batch.v1",
+    "sampleId": "一逻辑批一个样本（runId-cellId-r{runIndex}-b{batchIndex}）",
+    "workload_taskCount": "该样本的逻辑任务数（= batchSize），吞吐 numerator 不超过此值",
+    "warmup": "true 表示预热批，记录但按预先规则不参与稳态统计",
+    "segments_encodeMs": "客户端构造并哈希任务输入的耗时（ms）",
+    "segments_signMs": "提交方签名的耗时（ms）",
+    "segments_submitMs": "submit 交易发送+确认（ms）",
+    "segments_challengeMs": "openChallenge 交易（ms）",
+    "segments_adjudicateMs": "裁决路径（adjudicate 或 respond/advance/replay/settle）耗时（ms）",
+    "segments_withdrawMs": "实际 withdraw 耗时（ms）",
+    "endpoints": "提交确认/乐观可用/协议终局/可提现/实际提现 五个端点分别记录（UTC + monotonic ns）",
+    "gas_submitGas": "submit 阶段 gasUsed 合计（BigInt 十进制字符串）",
+    "fee_submitFeeWei": "submit 阶段 gasUsed × receipt.gasPrice（BigInt 十进制字符串，本地 measured）",
+    "fee_feeSource": "local-gas-only：本地 Hardhat，不是真实公网货币费用",
+    "valueTransfer": "押金/退款/罚没/销毁（wei，十进制字符串），价值转移单列，不计入 gas 费用总额",
+    "counts_attempts": "submit 级尝试次数（含重试）",
+    "counts_retries": "submit 重试次数（固定 maxAttempts=3，退避 20ms）",
+    "counts_censored": "右删失计数（超时未完成），不删除、不只对成功求平均",
+    "recovery": "armId / faultInjected / recoverCalled / recoverSucceeded / interactiveContinuationSucceeded / fallbackUsed",
+    "throughput": "numerator=该样本 finalizedTasks；denominator=本地耗时秒（非共识最终性）"
+  },
+  "window_records_jsonl": {
+    "schema": "hybrid-tee-rollup.stageF.window.v1",
+    "purpose": "跨批次窗口聚合；与 A experiment_record 相互独立，不冒充 A 单样本",
+    "counts_distinctTaskCount": "窗口内 executed 任务数（去重在聚合层按 taskId 进行）",
+    "queue_observedInflightPeak": "在途批次数峰值（批次级观测，非 Promise 数量）",
+    "queue_configuredConcurrency": "配置并发（inflight_batches），未使用 min(batchSize, concurrency) 折叠",
+    "fee_totalFeeWei": "五项费用之和（BigInt 十进制字符串）",
+    "latencyMs": "批级均值；并行阶段不可直接相加"
+  },
+  "units": {
+    "gas": "gas 单位（整数，十进制字符串）",
+    "wei": "wei（BigInt 十进制字符串，禁止 JS Number 中转）",
+    "ms": "毫秒（Number(process.hrtime.bigint()/1e6)）",
+    "monotonicNs": "process.hrtime.bigint() 字符串，用于跨进程关联",
+    "utc": "ISO8601 UTC，用于跨进程关联"
+  }
+}

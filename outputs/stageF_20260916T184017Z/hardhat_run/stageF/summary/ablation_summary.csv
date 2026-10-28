@@ -1,0 +1,5 @@
+armId,nRuns,batches,finalizedTasks,meanTotalLatencyMs,adjudicateGas,recoverGas,totalFeeWei,interactiveContinuationSucceeded,fallbackUsed,recoverSucceeded,successRate,censoredCount
+recovery-interactive,3,30,30,13.466666666666667,15211080,0,25550213204401704,30,0,0,1,0
+no-recovery-with-fault-fallback,3,30,30,8.666666666666666,8150328,0,18489251129424757,0,30,0,1,0
+direct-fallback,3,30,30,7.333333333333333,3960444,0,14299321100095247,0,30,0,1,0
+recovery-under-fault,3,30,30,12.633333333333335,15211236,970644,26520665185644655,30,0,30,1,0

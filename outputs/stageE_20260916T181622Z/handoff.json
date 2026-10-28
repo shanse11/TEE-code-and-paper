@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageE.handoff.v1",
+  "stage": "E",
+  "stageName": "真实 Blob、独立取回、任务绑定与 DA 结算",
+  "status": "partial",
+  "statusReason": "仅 E-local 完成（真实 c-kzg 离线编码、容量与填充度量、规范 manifest 与单向无循环承诺、M1 链下验证、篡改与畸形拒绝）。E-public-transport / E-binding / E-DA-settlement / E-integrated 需要公网 RPC、测试币与广播授权，或需要核心合约新增 DA 引用字段与罚没闭环——当前均不具备，一律 blocked。按提示词『仅 E-local 完成写 partial 并列出差异』。",
+
+  "parent": {
+    "parentRunId": "stageD-freeze-20260916T180557Z",
+    "parentManifestPath": "outputs/stageD_20260916T180557Z/stageD_freeze/manifest/run_manifest.json",
+    "parentSourceTreeSha256": "e8467bd4c35cfec9491dc57460f869167c660e54d99d3de9a63d95d01b105cfe",
+    "parentConfigSha256": "1eb42cf0a8d4bf640398559186da56a2a6be1d3274f4dbe228db473f6e1b0616"
+  },
+
+  "thisRun": {
+    "runId": "stageE-freeze-20260916T181622Z",
+    "manifestPath": "outputs/stageE_20260916T181622Z/stageE_freeze/manifest/run_manifest.json",
+    "hardhatRunDir": "outputs/stageE_20260916T181622Z/hardhat_run",
+    "sourceTreeSha256": "9da9f3783cc46db763ce2d299acbad2cadfc2cb942c1befe2459b36d175253e4",
+    "configSha256": "9d1399132ddf880bb561dcf11a58fe1e3cd982ed84be3e8189b10396b6d6ec4b",
+    "gitHead": "615bb3e9f1ae3b88b87f488decc61854cd555e16",
+    "gitBranch": "main",
+    "gitDirty": true
+  },
+
+  "newFiles": [
+    { "path": "evm/revision/stageE_binding.js", "purpose": "E1：规范 batch manifest 版本、单向承诺构造(无循环)、容量/填充度量、M1 链下验证、真实 KZG 封装" },
+    { "path": "evm/revision/stageE_local.test.js", "purpose": "E-local 测试：容量下界/刚好上界/超一字节、可逆性、真实 KZG、篡改与畸形拒绝、trusted setup 与库版本" },
+    { "path": "outputs/stageE_20260916T181622Z/handoff.json", "purpose": "本阶段交接契约" },
+    { "path": "outputs/stageE_20260916T181622Z/report_zh.md", "purpose": "本阶段中文报告" },
+    { "path": "outputs/stageE_20260916T181622Z/commands.txt", "purpose": "实际验证过的复现命令" }
+  ],
+
+  "contractChanges": [],
+  "contractChangesNote": "本阶段未修改任何合约。核心合约 BoundedTaskRollup 当前没有 DA 引用/指针字段，因此 E-binding 与 E-DA-settlement 无法在本阶段完成（需显式协议变更并重跑 B/C）。",
+
+  "levelStatus": {
+    "E-local": "completed",
+    "E-public-transport": "blocked",
+    "E-binding": "blocked",
+    "E-DA-settlement": "blocked",
+    "E-integrated": "blocked"
+  },
+
+  "caseStatusSummary": {
+    "total": 19,
+    "verified": 5,
+    "blocked": 14,
+    "byLevel": { "E-local": 6, "E-public-transport": 3, "E-binding": 4, "E-DA-settlement": 5, "E-integrated": 1 }
+  },
+
+  "realCryptoEvidence": {
+    "library": "c-kzg",
+    "installedVersion": "4.1.0",
+    "trustedSetupPath": "evm/revision/trusted_setup.txt",
+    "trustedSetupSha256": "d39b9f2d047cc9dca2de58f264b6a094（完整值见 stageE/trusted_setup.json）",
+    "verified": "真实 blobToKzgCommitment / computeBlobKzgProof / verifyBlobKzgProof，非模拟",
+    "versionedHashFormat": "0x01 || sha256(commitment)[1:]（EIP-4844）"
+  },
+
+  "capacityAndEncoding": {
+    "blobBytes": 131072,
+    "fieldElements": 4096,
+    "dataBytesPerFieldElement": 31,
+    "maxFrameLen": 126976,
+    "frameOverheadBytes": 79,
+    "maxContentLen": 126897,
+    "note": "frame 开销 = MAGIC(4) + 1 + domainLen + 8 + 8 + 32；本轮用 domain='hybrid-tee-rollup/batch/v1'(26 字节) 实测",
+    "atCapacity": { "frameBytes": 126976, "blobCount": 1, "kzgVerified": true },
+    "overOneByte": { "frameBytes": 126977, "outcome": "blocked", "errorCode": "SINGLE_BLOB_CAPACITY_EXCEEDED" },
+    "aCaliberFormulas": {
+      "encodedBytes": "ceil(frameBytes/31)*32",
+      "blobCount": "ceil(encodedBytes/131072)",
+      "paddingBytes": "blobCount*131072 - encodedBytes",
+      "fieldPaddingBytes": "ceil(frameBytes/31)*31 - frameBytes",
+      "fieldPrefixBytes": "ceil(frameBytes/31)"
+    }
+  },
+
+  "bindingDesign": {
+    "manifestVersion": "hybrid-tee-rollup.batch-manifest.v1",
+    "encodingVersion": "blobcodec-field31-v1",
+    "oneWayConstruction": [
+      "原始任务数据（不含任务摘要/manifest） -> inputDataHash",
+      "taskCoreDigest（域、task/nonce、程序、input/output/trace；不含 DA 引用）",
+      "manifest（含各 task 的 coreDigest）与帧",
+      "KZG commitment / versionedHash",
+      "最终签名 envelope(coreDigests, manifestHash, daRef, epoch/expiry)"
+    ],
+    "noCycleEvidence": "同一 task 置于不同 manifest（不同 batchId）时 coreDigest 保持不变，证明 coreDigest 不依赖 manifestHash/versionedHash，无循环承诺与自引用倒灌",
+    "M1": {
+      "status": "verified（仅链下）",
+      "definition": "核心 task 摘要确实出现在该 versionedHash 对应 Blob 的规范 manifest 中",
+      "evidence": "篡改 blob 数据后 payloadHash 自洽检查失败，且真实 KZG 验证失败"
+    },
+    "M2": {
+      "status": "blocked",
+      "definition": "manifest 承诺的 payload/input/trace 与 Blob 中实际数据一致，且足以裁决计算",
+      "reason": "需要 KZG point-evaluation 证明（roots-of-unity/evaluation 索引、field packing、字节序、域分离）与合约可验证路径；核心合约无 DA 字段，无客观裁决路径"
+    }
+  },
+
+  "blockedCases": {
+    "E02": "E-public-transport：实际 type-3 发布与链上确认（需 Sepolia RPC、测试币、广播授权）",
+    "E03": "E-public-transport：独立取回（需不同于发布者的 endpoint 与进程，不挂载发布者本地 Blob 目录）",
+    "E04": "E-binding：Blob A 配 task/manifest B（核心合约无 DA 字段，无法链上裁决）",
+    "E05": "E-binding：错索引/无关 anchor/旧 batch 复用（需合约侧约束）",
+    "E06": "E-binding：内容改动重算 KZG（需 KZG 求值证明与链上验证）",
+    "E07": "E-binding：只改 payload 保持 manifest，即 M2（point-evaluation 与合约裁决，当前 blocked）",
+    "E08": "E-local/blocked：多 Blob 分片——当前 encoderMaxBlobs=1，选择『只选可容纳矩阵、超容量 explicit blocked』策略",
+    "E09": "E-DA-settlement：责任方按时补发（核心合约无 DA 披露义务与窗口）",
+    "E10": "E-DA-settlement：责任方超时/重复 DA 挑战（无罚没闭环）",
+    "E11": "E-DA-settlement：RPC 失败/保留期过期（需公网观测；且不能罚没无责任外部方）",
+    "E12": "E-DA-settlement：观察者崩溃恢复（需公网取回链路）",
+    "E13": "E-public-transport：广播后崩溃/reorg/nonce 冲突",
+    "E14": "E-integrated：E 与 B/C/D 联调（D 真实 TEE 已 blocked）",
+    "E15": "E-DA-settlement：DA 待决时直接 adjudicate/finalize/withdraw（需合约 DA 互锁，当前不存在）"
+  },
+
+  "resourcesNeededFromUser": {
+    "note": "以下均为资源名称与最小权限说明，不含任何秘密值；私钥/助记词/RPC token 永不进入实验包。",
+    "items": [
+      { "resource": "Sepolia（或等价测试网）RPC endpoint", "permission": "可发送 type-3 交易与查询 receipt；不需要任何私钥入库" },
+      { "resource": "持有测试币的钱包（仅需公开地址）", "permission": "用于支付有限的发布交易；私钥由用户自行保管，不进入实验包" },
+      { "resource": "Beacon/Consensus endpoint 或等价完整 Blob 取回端点", "permission": "用于独立取回验证；需与发布者不同的进程/存储" },
+      { "resource": "广播授权与预算上限", "permission": "需明确：目标网络与 chainId、交易与 Blob 数量、费用上限、最大重试数、测试币余额" }
+    ],
+    "explicitlyNotRequested": [
+      "不随机创建钱包",
+      "不绕过链身份检查",
+      "不在主网广播",
+      "不对公网实施 DoS、真实数据破坏或恶意审查"
+    ]
+  },
+
+  "nextStageConditions": {
+    "F": {
+      "ready": true,
+      "note": "F-local 不依赖 E 公网资源，可先行；F-Blob 需 E-public-transport 验收，当前 blocked。E01 的容量/填充度量可直接供 F 的 Blob 填充阶梯使用。"
+    },
+    "G": { "ready": true, "note": "G-source / G-mechanism 不依赖 E 公网资源。" }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "maxSteps": 128,
+  "cases": [
+    {
+      "steps": 0,
+      "maxSteps": 128,
+      "rejected": true,
+      "reason": "VM Exception while processing transaction: reverted with reason string 'task bounds'",
+      "expected": "reject"
+    },
+    {
+      "steps": 129,
+      "maxSteps": 128,
+      "rejected": true,
+      "reason": "VM Exception while processing transaction: reverted with reason string 'task bounds'",
+      "expected": "reject"
+    }
+  ],
+  "allRejected": true,
+  "note": "steps=0 与 steps=129 均被 submit 拒绝（不缩小 payload、不截断后重测）"
+}

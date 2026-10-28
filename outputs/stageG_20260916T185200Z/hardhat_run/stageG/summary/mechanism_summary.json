@@ -1,0 +1,1068 @@
+{
+  "design": "hybrid-tee-rollup.stageG.mechanism-design.v1",
+  "rows": [
+    {
+      "system": "bounded-task-rollup",
+      "arm": "interactive",
+      "systemRole": "本方案（有界重算兜底 + recover）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 30,
+      "incorrectFinality": 0,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 1,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 0,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 10.266666666666666,
+        "min": 9.7,
+        "max": 11.1,
+        "quantiles": {
+          "0.5": 10,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "7167558",
+        "challenge": "2049180",
+        "resolve": "15066576",
+        "withdraw": "1635012"
+      },
+      "totalGas": "25918326",
+      "l1TxCount": 360,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 6,
+        "min": 6,
+        "max": 6,
+        "quantiles": {
+          "0.5": 6,
+          "0.95": 6
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 30,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 30,
+          "inputCount": 30,
+          "droppedNonFinite": 0,
+          "mean": 10.266666666666667,
+          "min": 9,
+          "max": 12,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": 12
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {}
+        },
+        "warning": null
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 11.1,
+          "gas": {
+            "submit": "2389186",
+            "challenge": "683056",
+            "resolve": "5022132",
+            "withdraw": "545010"
+          },
+          "txCount": 120,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 10,
+          "gas": {
+            "submit": "2389138",
+            "challenge": "683056",
+            "resolve": "5022216",
+            "withdraw": "545001"
+          },
+          "txCount": 120,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 9.7,
+          "gas": {
+            "submit": "2389234",
+            "challenge": "683068",
+            "resolve": "5022228",
+            "withdraw": "545001"
+          },
+          "txCount": 120,
+          "interactiveMoves": 60
+        }
+      ]
+    },
+    {
+      "system": "bounded-task-rollup",
+      "arm": "fault-no-recovery",
+      "systemRole": "本方案（有界重算兜底 + recover）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 30,
+      "incorrectFinality": 0,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 1,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 0,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 6.8,
+        "min": 6.5,
+        "max": 7.2,
+        "quantiles": {
+          "0.5": 6.7,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "7167540",
+        "challenge": "2049144",
+        "resolve": "8006124",
+        "withdraw": "1635012"
+      },
+      "totalGas": "18857820",
+      "l1TxCount": 150,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "quantiles": {
+          "0.5": 0,
+          "0.95": 0
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 30,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 30,
+          "inputCount": 30,
+          "droppedNonFinite": 0,
+          "mean": 6.8,
+          "min": 6,
+          "max": 8,
+          "quantiles": {
+            "0.5": 7,
+            "0.95": 8
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {}
+        },
+        "warning": null
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 7.2,
+          "gas": {
+            "submit": "2389202",
+            "challenge": "683044",
+            "resolve": "2668768",
+            "withdraw": "545010"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 6.5,
+          "gas": {
+            "submit": "2389274",
+            "challenge": "683080",
+            "resolve": "2668720",
+            "withdraw": "545001"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 6.7,
+          "gas": {
+            "submit": "2389064",
+            "challenge": "683020",
+            "resolve": "2668636",
+            "withdraw": "545001"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        }
+      ]
+    },
+    {
+      "system": "bounded-task-rollup",
+      "arm": "fault-with-recovery",
+      "systemRole": "本方案（有界重算兜底 + recover）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 30,
+      "incorrectFinality": 0,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 1,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 0,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 10.233333333333333,
+        "min": 10.1,
+        "max": 10.4,
+        "quantiles": {
+          "0.5": 10.2,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "7167672",
+        "challenge": "2049216",
+        "resolve": "16037640",
+        "withdraw": "1635012"
+      },
+      "totalGas": "26889540",
+      "l1TxCount": 390,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 6,
+        "min": 6,
+        "max": 6,
+        "quantiles": {
+          "0.5": 6,
+          "0.95": 6
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 30,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 30,
+          "inputCount": 30,
+          "droppedNonFinite": 0,
+          "mean": 10.233333333333333,
+          "min": 10,
+          "max": 12,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": 11
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {}
+        },
+        "warning": null
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 10.4,
+          "gas": {
+            "submit": "2389198",
+            "challenge": "683068",
+            "resolve": "5345812",
+            "withdraw": "545010"
+          },
+          "txCount": 130,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 10.1,
+          "gas": {
+            "submit": "2389210",
+            "challenge": "683068",
+            "resolve": "5345800",
+            "withdraw": "545001"
+          },
+          "txCount": 130,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 10.2,
+          "gas": {
+            "submit": "2389264",
+            "challenge": "683080",
+            "resolve": "5346028",
+            "withdraw": "545001"
+          },
+          "txCount": 130,
+          "interactiveMoves": 60
+        }
+      ]
+    },
+    {
+      "system": "bounded-task-rollup",
+      "arm": "direct-no-response",
+      "systemRole": "本方案（有界重算兜底 + recover）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 30,
+      "incorrectFinality": 0,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 1,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 0,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 5.166666666666667,
+        "min": 5.1,
+        "max": 5.2,
+        "quantiles": {
+          "0.5": 5.2,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "7167472",
+        "challenge": "2049204",
+        "resolve": "3816444",
+        "withdraw": "1635012"
+      },
+      "totalGas": "14668132",
+      "l1TxCount": 120,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "quantiles": {
+          "0.5": 0,
+          "0.95": 0
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 30,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 30,
+          "inputCount": 30,
+          "droppedNonFinite": 0,
+          "mean": 5.166666666666667,
+          "min": 5,
+          "max": 6,
+          "quantiles": {
+            "0.5": 5,
+            "0.95": 6
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {}
+        },
+        "warning": null
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 5.2,
+          "gas": {
+            "submit": "2389208",
+            "challenge": "683080",
+            "resolve": "1272160",
+            "withdraw": "545010"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 5.1,
+          "gas": {
+            "submit": "2389078",
+            "challenge": "683056",
+            "resolve": "1272136",
+            "withdraw": "545001"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 5.2,
+          "gas": {
+            "submit": "2389186",
+            "challenge": "683068",
+            "resolve": "1272148",
+            "withdraw": "545001"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        }
+      ]
+    },
+    {
+      "system": "mechanism-baseline",
+      "arm": "interactive",
+      "systemRole": "机制基线（二分 + 单步证明 + 无兜底重算）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 30,
+      "incorrectFinality": 0,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 1,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 0,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 9.066666666666668,
+        "min": 9,
+        "max": 9.1,
+        "quantiles": {
+          "0.5": 9.1,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "6290330",
+        "challenge": "1730664",
+        "resolve": "11517024",
+        "withdraw": "866286"
+      },
+      "totalGas": "20404304",
+      "l1TxCount": 330,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 6,
+        "min": 6,
+        "max": 6,
+        "quantiles": {
+          "0.5": 6,
+          "0.95": 6
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 30,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 30,
+          "inputCount": 30,
+          "droppedNonFinite": 0,
+          "mean": 9.066666666666666,
+          "min": 9,
+          "max": 10,
+          "quantiles": {
+            "0.5": 9,
+            "0.95": 10
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {}
+        },
+        "warning": null
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 9.1,
+          "gas": {
+            "submit": "2096804",
+            "challenge": "576888",
+            "resolve": "3839136",
+            "withdraw": "288770"
+          },
+          "txCount": 110,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 9.1,
+          "gas": {
+            "submit": "2096792",
+            "challenge": "576900",
+            "resolve": "3839052",
+            "withdraw": "288758"
+          },
+          "txCount": 110,
+          "interactiveMoves": 60
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 10,
+          "incorrect": 0,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 9,
+          "gas": {
+            "submit": "2096734",
+            "challenge": "576876",
+            "resolve": "3838836",
+            "withdraw": "288758"
+          },
+          "txCount": 110,
+          "interactiveMoves": 60
+        }
+      ]
+    },
+    {
+      "system": "mechanism-baseline",
+      "arm": "fault-no-recovery",
+      "systemRole": "机制基线（二分 + 单步证明 + 无兜底重算）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 0,
+      "incorrectFinality": 30,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 0,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 1,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 6.333333333333333,
+        "min": 6.3,
+        "max": 6.4,
+        "quantiles": {
+          "0.5": 6.3,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "6290516",
+        "challenge": "1730652",
+        "resolve": "4893744",
+        "withdraw": "866286"
+      },
+      "totalGas": "13781198",
+      "l1TxCount": 150,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "quantiles": {
+          "0.5": 0,
+          "0.95": 0
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 0,
+        "failureCount": 30,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 0,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 0,
+          "inputCount": 0,
+          "droppedNonFinite": 0,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "quantiles": {
+            "0.5": null,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {},
+          "reason": "no_finite_samples"
+        },
+        "warning": "conditional_on_success_latency_excludes_failures_and_censored; not comparable across cells with different failure rates"
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 6.3,
+          "gas": {
+            "submit": "2096806",
+            "challenge": "576852",
+            "resolve": "1631324",
+            "withdraw": "288758"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 6.3,
+          "gas": {
+            "submit": "2096802",
+            "challenge": "576900",
+            "resolve": "1631156",
+            "withdraw": "288758"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 6.4,
+          "gas": {
+            "submit": "2096908",
+            "challenge": "576900",
+            "resolve": "1631264",
+            "withdraw": "288770"
+          },
+          "txCount": 50,
+          "interactiveMoves": 0
+        }
+      ]
+    },
+    {
+      "system": "mechanism-baseline",
+      "arm": "direct-no-response",
+      "systemRole": "机制基线（二分 + 单步证明 + 无兜底重算）",
+      "nIndependentRuns": 3,
+      "batches": 30,
+      "correctFinality": 0,
+      "incorrectFinality": 30,
+      "unresolved": 0,
+      "notApplicable": 0,
+      "correctFinalityRate": {
+        "value": 0,
+        "unit": "correct_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "incorrectFinalityRate": {
+        "value": 1,
+        "unit": "incorrect_finality_per_attempt",
+        "denominator": 30,
+        "reason": null
+      },
+      "latencyMs": {
+        "n": 3,
+        "inputCount": 3,
+        "droppedNonFinite": 0,
+        "mean": 4.933333333333334,
+        "min": 4.8,
+        "max": 5,
+        "quantiles": {
+          "0.5": 5,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=3 < 20"
+        }
+      },
+      "gas": {
+        "submit": "6290280",
+        "challenge": "1730652",
+        "resolve": "1602852",
+        "withdraw": "866286"
+      },
+      "totalGas": "10490070",
+      "l1TxCount": 120,
+      "interactiveMovesPerBatch": {
+        "n": 30,
+        "inputCount": 30,
+        "droppedNonFinite": 0,
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "quantiles": {
+          "0.5": 0,
+          "0.95": 0
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {}
+      },
+      "censorAware": {
+        "attemptCount": 30,
+        "successCount": 0,
+        "failureCount": 30,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 0,
+          "unit": "success_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 30,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 0,
+          "inputCount": 0,
+          "droppedNonFinite": 0,
+          "mean": null,
+          "min": null,
+          "max": null,
+          "quantiles": {
+            "0.5": null,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {},
+          "reason": "no_finite_samples"
+        },
+        "warning": "conditional_on_success_latency_excludes_failures_and_censored; not comparable across cells with different failure rates"
+      },
+      "perRun": [
+        {
+          "runIndex": 0,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 4.8,
+          "gas": {
+            "submit": "2096770",
+            "challenge": "576876",
+            "resolve": "534276",
+            "withdraw": "288758"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 1,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 5,
+          "gas": {
+            "submit": "2096770",
+            "challenge": "576876",
+            "resolve": "534276",
+            "withdraw": "288758"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        },
+        {
+          "runIndex": 2,
+          "batches": 10,
+          "correct": 0,
+          "incorrect": 10,
+          "unresolved": 0,
+          "notApplicable": 0,
+          "meanTotalLatencyMs": 5,
+          "gas": {
+            "submit": "2096740",
+            "challenge": "576900",
+            "resolve": "534300",
+            "withdraw": "288770"
+          },
+          "txCount": 40,
+          "interactiveMoves": 0
+        }
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "arm": "interactive",
+      "metric": "meanTotalLatencyMs(baseline - ours)",
+      "nClusters": 3,
+      "meanDiff": -1.2,
+      "ci": null,
+      "reason": "only_3_independent_runs: CI unstable, reported as descriptive only"
+    },
+    {
+      "arm": "fault-no-recovery",
+      "metric": "meanTotalLatencyMs(baseline - ours)",
+      "nClusters": 3,
+      "meanDiff": -0.4666666666666668,
+      "ci": null,
+      "reason": "only_3_independent_runs: CI unstable, reported as descriptive only"
+    },
+    {
+      "arm": "fault-with-recovery",
+      "metric": "meanTotalLatencyMs",
+      "value": null,
+      "reason": "arm_not_available_on_both_systems"
+    },
+    {
+      "arm": "direct-no-response",
+      "metric": "meanTotalLatencyMs(baseline - ours)",
+      "nClusters": 3,
+      "meanDiff": -0.2333333333333334,
+      "ci": null,
+      "reason": "only_3_independent_runs: CI unstable, reported as descriptive only"
+    }
+  ]
+}

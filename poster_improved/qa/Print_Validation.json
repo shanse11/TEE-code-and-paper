@@ -1,0 +1,100 @@
+{
+  "page_count": 1,
+  "pdf_size_bytes": 299059,
+  "sha256": "30b283c9679b1e0243c28bfc6d620b58a414d1909fc8b02344c26dd62ac2fdb5",
+  "boxes_mm": {
+    "MediaBox": [
+      0.0,
+      0.0,
+      847.0,
+      1195.0001
+    ],
+    "BleedBox": [
+      0.0,
+      0.0,
+      847.0,
+      1195.0
+    ],
+    "TrimBox": [
+      3.0,
+      3.0,
+      844.0,
+      1192.0
+    ]
+  },
+  "embedded_fonts": {
+    "/F1+0": {
+      "base_font": "/AAAAAA+STHeitiSC-Medium-1",
+      "embedded": true
+    },
+    "/F1+1": {
+      "base_font": "/AAAAAB+STHeitiSC-Medium-1",
+      "embedded": true
+    },
+    "/F2+0": {
+      "base_font": "/AAAAAA+Arial-BoldMT",
+      "embedded": true
+    },
+    "/F3+0": {
+      "base_font": "/AAAAAA+STHeitiSC-Light-1",
+      "embedded": true
+    },
+    "/F3+1": {
+      "base_font": "/AAAAAB+STHeitiSC-Light-1",
+      "embedded": true
+    },
+    "/F4+0": {
+      "base_font": "/AAAAAA+ArialMT",
+      "embedded": true
+    },
+    "/F5+0": {
+      "base_font": "/AAAAAA+TimesNewRomanPS-ItalicMT",
+      "embedded": true
+    }
+  },
+  "text_safe_margins_mm": [
+    24.0,
+    15.202,
+    24.0,
+    16.716
+  ],
+  "min_text_font_pt": 21.0,
+  "cmyk_vector": true,
+  "raster_objects": 0,
+  "icc_output_intent": false,
+  "pdfx_certified": false,
+  "preview_pixels": [
+    5002,
+    7058
+  ],
+  "preview_dpi": [
+    149.987,
+    149.987
+  ],
+  "source_data_rows": {
+    "cost": 3200,
+    "challenge": 600,
+    "failure": 800,
+    "gas": 3
+  },
+  "all_source_numbers_recomputed": true,
+  "originals_unchanged": {
+    "paper_outputs/draft/论文终版/Hybrid_TEE_Rollup.pdf": true,
+    "output/pdf/ndbc2026_poster/P00145_NDBC2026_海报_3mm出血印刷版.pdf": true,
+    "output/pdf/ndbc2026_poster/build_poster.py": true,
+    "paper_outputs/summary.json": true,
+    "paper_outputs/cost_grid.csv": true,
+    "paper_outputs/challenge_grid.csv": true,
+    "paper_outputs/failure_scenarios.csv": true,
+    "paper_outputs/evm_gas/measured_gas_summary.json": true,
+    "evm/deployments/sepolia.json": true,
+    "paper_outputs/evm_gas/measured_gas.csv": true,
+    "evm/deployments/sepolia_abis/address_index.json": true
+  },
+  "text_block_collision_count": 0,
+  "limitations": [
+    "No printer-specific ICC profile or contract proof.",
+    "No physical 1-2 metre viewing test.",
+    "Sepolia checked against local records and address index; no independent chain receipt validation."
+  ]
+}

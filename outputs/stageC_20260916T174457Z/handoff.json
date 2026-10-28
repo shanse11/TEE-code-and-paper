@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageC.handoff.v1",
+  "stage": "C",
+  "stageName": "恢复、活性、串谋与有界 DoS",
+  "status": "completed",
+  "statusReason": "满足 C-completed 四项闸门：B 回归通过(32/32)；C 适用 case 无未解决的事实篡改/无限延期/资金漏洞(17/17，不变量 0 违反)；每种失联角色均有明确 outcome 与终止条件；随机及边界序列可复跑(4 seed × 1000 序列)。经济接管属协议能力缺口，已显式标注为 limited 并说明需用户授权，不冒充已完成。",
+
+  "parent": {
+    "parentRunId": "stageB-freeze-20260916T171758Z",
+    "parentManifestPath": "outputs/stageB_20260916T171758Z/stageB_freeze/manifest/run_manifest.json",
+    "parentSourceTreeSha256": "fb2eb8e5e79ab1fa621a447e9989c95dbf48130bc0ee26cade7bfc5269d2e213",
+    "parentConfigSha256": "0d5d86dd89f8b5e38346cc2feb3104c25721a0bc69a7932b7da3969d9566b381",
+    "parentSelectionBasis": "读取阶段 B 实际 handoff（本工作区 outputs/stageB_20260916T171758Z/handoff.json），不使用 A 旧哈希作为 B 后版本身份。"
+  },
+
+  "thisRun": {
+    "runId": "stageC-freeze-20260916T174457Z",
+    "manifestPath": "outputs/stageC_20260916T174457Z/stageC_freeze/manifest/run_manifest.json",
+    "hardhatRunDir": "outputs/stageC_20260916T174457Z/hardhat_run",
+    "sourceTreeSha256": "ead8b96a915afa53ca94e3bb99208d6621b970be8d261033540c3ad6b227a298",
+    "configSha256": "044f0feabdfea2f4cf47f8bd29931aee2724b7a17b223796c3617841f764befc",
+    "gitHead": "615bb3e9f1ae3b88b87f488decc61854cd555e16",
+    "gitBranch": "main",
+    "gitDirty": true
+  },
+
+  "contractChanges": [],
+  "newFiles": [
+    { "path": "evm/revision/stageC_recovery.test.js", "purpose": "C 阶段对抗与恢复测试(C01–C17)，产出 case_matrix/state_transition_table/invariants" },
+    { "path": "evm/revision/random_security.js", "purpose": "扩展（非重写）：seed 可经 RANDOM_SEED 配置，默认保持原固定基线 0x5eed2026；输出按 seed 命名避免覆盖原始证据" },
+    { "path": "outputs/stageC_20260916T174457Z/handoff.json", "purpose": "本阶段交接契约" },
+    { "path": "outputs/stageC_20260916T174457Z/report_zh.md", "purpose": "本阶段中文报告" },
+    { "path": "outputs/stageC_20260916T174457Z/commands.txt", "purpose": "实际验证过的复现命令" }
+  ],
+
+  "testResults": {
+    "bRegressionInStageC": {
+      "description": "C-completed 闸门要求：在 C 的 run 下重跑 B 全套回归",
+      "command": "hardhat test revision/security.test.js revision/stageB_closure.test.js",
+      "total": 32,
+      "passed": 32,
+      "failed": 0,
+      "evidence": "outputs/stageC_20260916T174457Z/hardhat_run/security/security_report.json"
+    },
+    "stageCCases": {
+      "suite": "evm/revision/stageC_recovery.test.js",
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "evidence": "outputs/stageC_20260916T174457Z/hardhat_run/stageC/case_matrix.json"
+    },
+    "invariants": {
+      "checks": 5,
+      "violated": 0,
+      "definitions": ["INV1 absoluteDeadline 固定", "INV2 recoveries 单调有界", "INV3 终局不回滚", "INV4 资金守恒", "INV5 recover 不改 phase", "INV6 争议事实不可变", "INV7 不双支付"],
+      "evidence": "outputs/stageC_20260916T174457Z/hardhat_run/stageC/invariants.json"
+    },
+    "randomSequences": {
+      "note": "保留原固定基线 seed 并额外配置多个 seed；数字来自本轮实际运行。",
+      "runs": [
+        { "seed": "0x5eed2026", "sequences": 1000, "operations": 27401, "revertStateChecks": 22686, "pass": true, "isOriginalBaseline": true },
+        { "seed": "0xa11ce", "sequences": 1000, "operations": 27296, "revertStateChecks": 22706, "pass": true },
+        { "seed": "0xb0b", "sequences": 1000, "operations": 27431, "revertStateChecks": 22736, "pass": true },
+        { "seed": "0xc0ffee", "sequences": 1000, "operations": 27385, "revertStateChecks": 22715, "pass": true }
+      ],
+      "totals": { "sequences": 4000, "operations": 109513, "revertStateChecks": 90843 },
+      "evidence": "outputs/stageC_20260916T174457Z/hardhat_run/security/random_report_0x*.json"
+    }
+  },
+
+  "capabilityStatusSummary": {
+    "verified": 12,
+    "limited": 3,
+    "deferred_to_E": 1,
+    "not_applicable": 1,
+    "note": "limited 表示能力在当前实现中仅部分可用（关键在于 recover 不更换角色）；deferred/not_applicable 如实标注，未冒充完成。"
+  },
+
+  "capabilityGaps": [
+    {
+      "item": "第三方经济接管（更换挑战者角色与收益权）",
+      "status": "limited",
+      "evidence": "C02/C03/C04",
+      "detail": "recover 仅 ++recoveries 与 _touch(timeoutAt)，不更换 challenger、不改变收益权、不迁移 phase。任何地址可调用 recover 不等于存在经济接管机制。",
+      "resolution": "属显式协议变更：需先说明新增假设与信任影响、取得用户授权，再回归 B，不能在测试中仅换 msg.sender 后声称完成。"
+    },
+    {
+      "item": "提交者失联且无可转发证据时的重新执行",
+      "status": "limited",
+      "evidence": "C03",
+      "detail": "respond 需 submitter 签名；第三方无有效证据时只能走 terminate 超时结算，不能记为『重新执行成功』。"
+    }
+  ],
+
+  "blockedAndDeferred": [
+    { "item": "C12 提交者+DA 观察者隐瞒", "status": "deferred_to_E", "reason": "核心合约当前无 DA 义务与罚没路径，不能标为『本方案抗 DA 串谋』" },
+    { "item": "C15 真实硬件快照回滚/密钥双签", "status": "deferred_to_D", "reason": "本轮仅本地 EVM 快照仿真，证明协议层重放防护；不宣称硬件防回滚能力" },
+    { "item": "C16 L1 重组/陈旧链头", "status": "not_applicable", "reason": "本地 in-process automining 无真实共识重组；evm_revert 仿真不等同于共识层重组" }
+  ],
+
+  "recoveryVsTimeoutSettlement": {
+    "continuation": {
+      "cases": ["C02", "C13", "C14"],
+      "mechanism": "同一争议事实得以延续；当前实现的真实续跑路径是 adjudicate（任何人可调用、无时间门槛、确定性重算）",
+      "note": "recover 本身只延长 timeoutAt 并计数，不推进事实"
+    },
+    "timeoutSettlement": {
+      "cases": ["C03", "C04", "C07", "C08"],
+      "mechanism": "terminate 在 ts>timeoutAt 或 ts>=absoluteDeadline 时按计算结果判责（不是仅因离线惩罚）"
+    },
+    "keyDistinction": "recover 交易成功 ≠ 恢复完成。本阶段未把『调用 recover 成功』记为恢复完成；C02/C13/C14 的 firstValidProgressAt 均取自实际推进（adjudicate/respond），而非 recover 触发时刻。"
+  },
+
+  "nextStageConditions": {
+    "D": {
+      "ready": false,
+      "reason": "需要真实 SGX/TDX 硬件或已授权远端。当前 TEE 仍为 simulated-only；C15 的硬件回滚部分已 deferred 到 D。"
+    },
+    "E": {
+      "ready": false,
+      "reason": "需要公网 RPC/测试币/广播授权。C12 的 DA 隐瞒已 deferred 到 E；核心合约当前无 DA 引用字段。"
+    },
+    "F": {
+      "ready": true,
+      "note": "F-local 可在 D/E 真实资源缺失时先行；本阶段已提供恢复/超时结算的可复用指标定义与 case 分母。"
+    }
+  }
+}

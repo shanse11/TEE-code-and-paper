@@ -1,0 +1,3454 @@
+{
+  "design": "hybrid-tee-rollup.stageF.design.v1",
+  "cells": {
+    "b1-p8-c4-s64": {
+      "cellId": "b1-p8-c4-s64",
+      "kind": "screening",
+      "axis": "batchSize",
+      "input": {
+        "batchSize": 1,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b1-p8-c4-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.028,
+          "batches": 2,
+          "txCount": 8,
+          "executedTasks": 2,
+          "acceptedTasks": 2,
+          "finalizedTasks": 2,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 71.42857142857143,
+          "acceptedTasksPerSecond": 71.42857142857143,
+          "batchesPerSecond": 71.42857142857143,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 6,
+          "latencyTotalMs": 19,
+          "latencySubmitMs": 5,
+          "latencyAdjudicateMs": 2,
+          "latencyWithdrawMs": 2,
+          "submitGas": "443616",
+          "challengeGas": "136616",
+          "adjudicateGas": "225032",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 71.42857142857143,
+          "min": 71.42857142857143,
+          "max": 71.42857142857143,
+          "quantiles": {
+            "0.5": 71.42857142857143,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 71.42857142857143,
+          "min": 71.42857142857143,
+          "max": 71.42857142857143,
+          "quantiles": {
+            "0.5": 71.42857142857143,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 71.42857142857143,
+          "min": 71.42857142857143,
+          "max": 71.42857142857143,
+          "quantiles": {
+            "0.5": 71.42857142857143,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 19,
+          "min": 19,
+          "max": 19,
+          "quantiles": {
+            "0.5": 19,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 5,
+          "min": 5,
+          "max": 5,
+          "quantiles": {
+            "0.5": 5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 6,
+          "min": 6,
+          "max": 6,
+          "quantiles": {
+            "0.5": 6,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 2,
+        "acceptedTasks": 2,
+        "batches": 2,
+        "txCount": 8,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "443616",
+        "challengeGas": "136616",
+        "adjudicateGas": "225032",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p8-c4-s64": {
+      "cellId": "b8-p8-c4-s64",
+      "kind": "screening",
+      "axis": "batchSize",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p8-c4-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.138,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 115.94202898550724,
+          "acceptedTasksPerSecond": 115.94202898550724,
+          "batchesPerSecond": 14.492753623188404,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 31.666666666666668,
+          "latencyTotalMs": 90,
+          "latencySubmitMs": 16,
+          "latencyAdjudicateMs": 16.5,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549190",
+          "challengeGas": "1092892",
+          "adjudicateGas": "1594420",
+          "withdrawGas": "108993",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 115.94202898550724,
+          "min": 115.94202898550724,
+          "max": 115.94202898550724,
+          "quantiles": {
+            "0.5": 115.94202898550724,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 115.94202898550724,
+          "min": 115.94202898550724,
+          "max": 115.94202898550724,
+          "quantiles": {
+            "0.5": 115.94202898550724,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 14.492753623188404,
+          "min": 14.492753623188404,
+          "max": 14.492753623188404,
+          "quantiles": {
+            "0.5": 14.492753623188404,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 90,
+          "min": 90,
+          "max": 90,
+          "quantiles": {
+            "0.5": 90,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 16,
+          "min": 16,
+          "max": 16,
+          "quantiles": {
+            "0.5": 16,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 16.5,
+          "min": 16.5,
+          "max": 16.5,
+          "quantiles": {
+            "0.5": 16.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 31.666666666666668,
+          "min": 31.666666666666668,
+          "max": 31.666666666666668,
+          "quantiles": {
+            "0.5": 31.666666666666668,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549190",
+        "challengeGas": "1092892",
+        "adjudicateGas": "1594420",
+        "recoverGas": "0",
+        "withdrawGas": "108993"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b32-p8-c4-s64": {
+      "cellId": "b32-p8-c4-s64",
+      "kind": "screening",
+      "axis": "batchSize",
+      "input": {
+        "batchSize": 32,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b32-p8-c4-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.506,
+          "batches": 2,
+          "txCount": 194,
+          "executedTasks": 64,
+          "acceptedTasks": 64,
+          "finalizedTasks": 64,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 126.48221343873517,
+          "acceptedTasksPerSecond": 126.48221343873517,
+          "batchesPerSecond": 3.952569169960474,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 121,
+          "latencyTotalMs": 316,
+          "latencySubmitMs": 40,
+          "latencyAdjudicateMs": 47.5,
+          "latencyWithdrawMs": 7.5,
+          "submitGas": "14196512",
+          "challengeGas": "4371592",
+          "adjudicateGas": "6289504",
+          "withdrawGas": "108993",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 126.48221343873517,
+          "min": 126.48221343873517,
+          "max": 126.48221343873517,
+          "quantiles": {
+            "0.5": 126.48221343873517,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 126.48221343873517,
+          "min": 126.48221343873517,
+          "max": 126.48221343873517,
+          "quantiles": {
+            "0.5": 126.48221343873517,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3.952569169960474,
+          "min": 3.952569169960474,
+          "max": 3.952569169960474,
+          "quantiles": {
+            "0.5": 3.952569169960474,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 316,
+          "min": 316,
+          "max": 316,
+          "quantiles": {
+            "0.5": 316,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 40,
+          "min": 40,
+          "max": 40,
+          "quantiles": {
+            "0.5": 40,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 47.5,
+          "min": 47.5,
+          "max": 47.5,
+          "quantiles": {
+            "0.5": 47.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 7.5,
+          "min": 7.5,
+          "max": 7.5,
+          "quantiles": {
+            "0.5": 7.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 121,
+          "min": 121,
+          "max": 121,
+          "quantiles": {
+            "0.5": 121,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 64,
+        "acceptedTasks": 64,
+        "batches": 2,
+        "txCount": 194,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "14196512",
+        "challengeGas": "4371592",
+        "adjudicateGas": "6289504",
+        "recoverGas": "0",
+        "withdrawGas": "108993"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p8-c1-s64": {
+      "cellId": "b8-p8-c1-s64",
+      "kind": "screening",
+      "axis": "configuredConcurrency",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 1,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p8-c1-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.132,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 121.2121212121212,
+          "acceptedTasksPerSecond": 121.2121212121212,
+          "batchesPerSecond": 15.15151515151515,
+          "inflightPeak": 1,
+          "inflightMean": 1,
+          "meanQueueWaitMs": 44.333333333333336,
+          "latencyTotalMs": 44,
+          "latencySubmitMs": 4.5,
+          "latencyAdjudicateMs": 4.5,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3583370",
+          "challengeGas": "1092892",
+          "adjudicateGas": "1623820",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 121.2121212121212,
+          "min": 121.2121212121212,
+          "max": 121.2121212121212,
+          "quantiles": {
+            "0.5": 121.2121212121212,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 121.2121212121212,
+          "min": 121.2121212121212,
+          "max": 121.2121212121212,
+          "quantiles": {
+            "0.5": 121.2121212121212,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 15.15151515151515,
+          "min": 15.15151515151515,
+          "max": 15.15151515151515,
+          "quantiles": {
+            "0.5": 15.15151515151515,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 44,
+          "min": 44,
+          "max": 44,
+          "quantiles": {
+            "0.5": 44,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 4.5,
+          "min": 4.5,
+          "max": 4.5,
+          "quantiles": {
+            "0.5": 4.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 4.5,
+          "min": 4.5,
+          "max": 4.5,
+          "quantiles": {
+            "0.5": 4.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 44.333333333333336,
+          "min": 44.333333333333336,
+          "max": 44.333333333333336,
+          "quantiles": {
+            "0.5": 44.333333333333336,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 1,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3583370",
+        "challengeGas": "1092892",
+        "adjudicateGas": "1623820",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p8-c16-s64": {
+      "cellId": "b8-p8-c16-s64",
+      "kind": "screening",
+      "axis": "configuredConcurrency",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 16,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p8-c16-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.123,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 130.08130081300814,
+          "acceptedTasksPerSecond": 130.08130081300814,
+          "batchesPerSecond": 16.260162601626018,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 29.666666666666668,
+          "latencyTotalMs": 78.5,
+          "latencySubmitMs": 10,
+          "latencyAdjudicateMs": 13,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549166",
+          "challengeGas": "1092904",
+          "adjudicateGas": "1594432",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 130.08130081300814,
+          "min": 130.08130081300814,
+          "max": 130.08130081300814,
+          "quantiles": {
+            "0.5": 130.08130081300814,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 130.08130081300814,
+          "min": 130.08130081300814,
+          "max": 130.08130081300814,
+          "quantiles": {
+            "0.5": 130.08130081300814,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 16.260162601626018,
+          "min": 16.260162601626018,
+          "max": 16.260162601626018,
+          "quantiles": {
+            "0.5": 16.260162601626018,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 78.5,
+          "min": 78.5,
+          "max": 78.5,
+          "quantiles": {
+            "0.5": 78.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 13,
+          "min": 13,
+          "max": 13,
+          "quantiles": {
+            "0.5": 13,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 29.666666666666668,
+          "min": 29.666666666666668,
+          "max": 29.666666666666668,
+          "quantiles": {
+            "0.5": 29.666666666666668,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 16,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549166",
+        "challengeGas": "1092904",
+        "adjudicateGas": "1594432",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p1-c4-s64": {
+      "cellId": "b8-p1-c4-s64",
+      "kind": "screening",
+      "axis": "payloadKiBPerTask",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 1,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p1-c4-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.124,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 129.03225806451613,
+          "acceptedTasksPerSecond": 129.03225806451613,
+          "batchesPerSecond": 16.129032258064516,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 30,
+          "latencyTotalMs": 79,
+          "latencySubmitMs": 10,
+          "latencyAdjudicateMs": 12.5,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549182",
+          "challengeGas": "1092916",
+          "adjudicateGas": "1594444",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 129.03225806451613,
+          "min": 129.03225806451613,
+          "max": 129.03225806451613,
+          "quantiles": {
+            "0.5": 129.03225806451613,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 129.03225806451613,
+          "min": 129.03225806451613,
+          "max": 129.03225806451613,
+          "quantiles": {
+            "0.5": 129.03225806451613,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 16.129032258064516,
+          "min": 16.129032258064516,
+          "max": 16.129032258064516,
+          "quantiles": {
+            "0.5": 16.129032258064516,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 79,
+          "min": 79,
+          "max": 79,
+          "quantiles": {
+            "0.5": 79,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 12.5,
+          "min": 12.5,
+          "max": 12.5,
+          "quantiles": {
+            "0.5": 12.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "quantiles": {
+            "0.5": 30,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549182",
+        "challengeGas": "1092916",
+        "adjudicateGas": "1594444",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p32-c4-s64": {
+      "cellId": "b8-p32-c4-s64",
+      "kind": "screening",
+      "axis": "payloadKiBPerTask",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 32,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p32-c4-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.124,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 129.03225806451613,
+          "acceptedTasksPerSecond": 129.03225806451613,
+          "batchesPerSecond": 16.129032258064516,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 30,
+          "latencyTotalMs": 78,
+          "latencySubmitMs": 10,
+          "latencyAdjudicateMs": 11,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549134",
+          "challengeGas": "1092904",
+          "adjudicateGas": "1594432",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 129.03225806451613,
+          "min": 129.03225806451613,
+          "max": 129.03225806451613,
+          "quantiles": {
+            "0.5": 129.03225806451613,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 129.03225806451613,
+          "min": 129.03225806451613,
+          "max": 129.03225806451613,
+          "quantiles": {
+            "0.5": 129.03225806451613,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 16.129032258064516,
+          "min": 16.129032258064516,
+          "max": 16.129032258064516,
+          "quantiles": {
+            "0.5": 16.129032258064516,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 78,
+          "min": 78,
+          "max": 78,
+          "quantiles": {
+            "0.5": 78,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 11,
+          "min": 11,
+          "max": 11,
+          "quantiles": {
+            "0.5": 11,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 30,
+          "min": 30,
+          "max": 30,
+          "quantiles": {
+            "0.5": 30,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549134",
+        "challengeGas": "1092904",
+        "adjudicateGas": "1594432",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p8-c4-s1": {
+      "cellId": "b8-p8-c4-s1",
+      "kind": "screening",
+      "axis": "steps",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 1,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p8-c4-s1-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.035,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 457.1428571428571,
+          "acceptedTasksPerSecond": 457.1428571428571,
+          "batchesPerSecond": 57.14285714285714,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 1.6666666666666667,
+          "latencyTotalMs": 32,
+          "latencySubmitMs": 10,
+          "latencyAdjudicateMs": 7,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549116",
+          "challengeGas": "1074940",
+          "adjudicateGas": "1012388",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 457.1428571428571,
+          "min": 457.1428571428571,
+          "max": 457.1428571428571,
+          "quantiles": {
+            "0.5": 457.1428571428571,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 457.1428571428571,
+          "min": 457.1428571428571,
+          "max": 457.1428571428571,
+          "quantiles": {
+            "0.5": 457.1428571428571,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 57.14285714285714,
+          "min": 57.14285714285714,
+          "max": 57.14285714285714,
+          "quantiles": {
+            "0.5": 57.14285714285714,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 32,
+          "min": 32,
+          "max": 32,
+          "quantiles": {
+            "0.5": 32,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 10,
+          "min": 10,
+          "max": 10,
+          "quantiles": {
+            "0.5": 10,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 7,
+          "min": 7,
+          "max": 7,
+          "quantiles": {
+            "0.5": 7,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1.6666666666666667,
+          "min": 1.6666666666666667,
+          "max": 1.6666666666666667,
+          "quantiles": {
+            "0.5": 1.6666666666666667,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549116",
+        "challengeGas": "1074940",
+        "adjudicateGas": "1012388",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b8-p8-c4-s128": {
+      "cellId": "b8-p8-c4-s128",
+      "kind": "screening",
+      "axis": "steps",
+      "input": {
+        "batchSize": 8,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 4,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 128,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b8-p8-c4-s128-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.219,
+          "batches": 2,
+          "txCount": 50,
+          "executedTasks": 16,
+          "acceptedTasks": 16,
+          "finalizedTasks": 16,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 73.05936073059361,
+          "acceptedTasksPerSecond": 73.05936073059361,
+          "batchesPerSecond": 9.132420091324201,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 58.333333333333336,
+          "latencyTotalMs": 131.5,
+          "latencySubmitMs": 10.5,
+          "latencyAdjudicateMs": 20,
+          "latencyWithdrawMs": 1,
+          "submitGas": "3549148",
+          "challengeGas": "1095896",
+          "adjudicateGas": "2192048",
+          "withdrawGas": "108993",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 73.05936073059361,
+          "min": 73.05936073059361,
+          "max": 73.05936073059361,
+          "quantiles": {
+            "0.5": 73.05936073059361,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 73.05936073059361,
+          "min": 73.05936073059361,
+          "max": 73.05936073059361,
+          "quantiles": {
+            "0.5": 73.05936073059361,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 9.132420091324201,
+          "min": 9.132420091324201,
+          "max": 9.132420091324201,
+          "quantiles": {
+            "0.5": 9.132420091324201,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 131.5,
+          "min": 131.5,
+          "max": 131.5,
+          "quantiles": {
+            "0.5": 131.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 10.5,
+          "min": 10.5,
+          "max": 10.5,
+          "quantiles": {
+            "0.5": 10.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 20,
+          "min": 20,
+          "max": 20,
+          "quantiles": {
+            "0.5": 20,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 58.333333333333336,
+          "min": 58.333333333333336,
+          "max": 58.333333333333336,
+          "quantiles": {
+            "0.5": 58.333333333333336,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 4,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 16,
+        "acceptedTasks": 16,
+        "batches": 2,
+        "txCount": 50,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "3549148",
+        "challengeGas": "1095896",
+        "adjudicateGas": "2192048",
+        "recoverGas": "0",
+        "withdrawGas": "108993"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b1-p8-c1-s64": {
+      "cellId": "b1-p8-c1-s64",
+      "kind": "forced",
+      "axis": "batchSize=1×concurrency",
+      "input": {
+        "batchSize": 1,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 1,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b1-p8-c1-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.019,
+          "batches": 2,
+          "txCount": 8,
+          "executedTasks": 2,
+          "acceptedTasks": 2,
+          "finalizedTasks": 2,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 105.26315789473685,
+          "acceptedTasksPerSecond": 105.26315789473685,
+          "batchesPerSecond": 105.26315789473685,
+          "inflightPeak": 1,
+          "inflightMean": 1,
+          "meanQueueWaitMs": 6.666666666666667,
+          "latencyTotalMs": 6,
+          "latencySubmitMs": 0,
+          "latencyAdjudicateMs": 0,
+          "latencyWithdrawMs": 1,
+          "submitGas": "477890",
+          "challengeGas": "136616",
+          "adjudicateGas": "254432",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 105.26315789473685,
+          "min": 105.26315789473685,
+          "max": 105.26315789473685,
+          "quantiles": {
+            "0.5": 105.26315789473685,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 105.26315789473685,
+          "min": 105.26315789473685,
+          "max": 105.26315789473685,
+          "quantiles": {
+            "0.5": 105.26315789473685,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 105.26315789473685,
+          "min": 105.26315789473685,
+          "max": 105.26315789473685,
+          "quantiles": {
+            "0.5": 105.26315789473685,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 6,
+          "min": 6,
+          "max": 6,
+          "quantiles": {
+            "0.5": 6,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "quantiles": {
+            "0.5": 0,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "quantiles": {
+            "0.5": 0,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 6.666666666666667,
+          "min": 6.666666666666667,
+          "max": 6.666666666666667,
+          "quantiles": {
+            "0.5": 6.666666666666667,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 1,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 2,
+        "acceptedTasks": 2,
+        "batches": 2,
+        "txCount": 8,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "477890",
+        "challengeGas": "136616",
+        "adjudicateGas": "254432",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b1-p8-c16-s64": {
+      "cellId": "b1-p8-c16-s64",
+      "kind": "forced",
+      "axis": "batchSize=1×concurrency",
+      "input": {
+        "batchSize": 1,
+        "payloadKiBPerTask": 8,
+        "configuredConcurrency": 16,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 64,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b1-p8-c16-s64-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.018,
+          "batches": 2,
+          "txCount": 8,
+          "executedTasks": 2,
+          "acceptedTasks": 2,
+          "finalizedTasks": 2,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 111.11111111111111,
+          "acceptedTasksPerSecond": 111.11111111111111,
+          "batchesPerSecond": 111.11111111111111,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 4,
+          "latencyTotalMs": 12,
+          "latencySubmitMs": 2,
+          "latencyAdjudicateMs": 1,
+          "latencyWithdrawMs": 2,
+          "submitGas": "460690",
+          "challengeGas": "136616",
+          "adjudicateGas": "246932",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 111.11111111111111,
+          "min": 111.11111111111111,
+          "max": 111.11111111111111,
+          "quantiles": {
+            "0.5": 111.11111111111111,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 111.11111111111111,
+          "min": 111.11111111111111,
+          "max": 111.11111111111111,
+          "quantiles": {
+            "0.5": 111.11111111111111,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 111.11111111111111,
+          "min": 111.11111111111111,
+          "max": 111.11111111111111,
+          "quantiles": {
+            "0.5": 111.11111111111111,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 12,
+          "min": 12,
+          "max": 12,
+          "quantiles": {
+            "0.5": 12,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 4,
+          "min": 4,
+          "max": 4,
+          "quantiles": {
+            "0.5": 4,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 16,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 2,
+        "acceptedTasks": 2,
+        "batches": 2,
+        "txCount": 8,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "460690",
+        "challengeGas": "136616",
+        "adjudicateGas": "246932",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b32-p32-c16-s128": {
+      "cellId": "b32-p32-c16-s128",
+      "kind": "cross",
+      "axis": "heavy-corner",
+      "input": {
+        "batchSize": 32,
+        "payloadKiBPerTask": 32,
+        "configuredConcurrency": 16,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 128,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b32-p32-c16-s128-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.914,
+          "batches": 2,
+          "txCount": 194,
+          "executedTasks": 64,
+          "acceptedTasks": 64,
+          "finalizedTasks": 64,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 70.02188183807439,
+          "acceptedTasksPerSecond": 70.02188183807439,
+          "batchesPerSecond": 2.1881838074398248,
+          "inflightPeak": 3,
+          "inflightMean": 2,
+          "meanQueueWaitMs": 245,
+          "latencyTotalMs": 533,
+          "latencySubmitMs": 39,
+          "latencyAdjudicateMs": 79.5,
+          "latencyWithdrawMs": 1,
+          "submitGas": "14196658",
+          "challengeGas": "4383608",
+          "adjudicateGas": "8680016",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 70.02188183807439,
+          "min": 70.02188183807439,
+          "max": 70.02188183807439,
+          "quantiles": {
+            "0.5": 70.02188183807439,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 70.02188183807439,
+          "min": 70.02188183807439,
+          "max": 70.02188183807439,
+          "quantiles": {
+            "0.5": 70.02188183807439,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2.1881838074398248,
+          "min": 2.1881838074398248,
+          "max": 2.1881838074398248,
+          "quantiles": {
+            "0.5": 2.1881838074398248,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 533,
+          "min": 533,
+          "max": 533,
+          "quantiles": {
+            "0.5": 533,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 39,
+          "min": 39,
+          "max": 39,
+          "quantiles": {
+            "0.5": 39,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 79.5,
+          "min": 79.5,
+          "max": 79.5,
+          "quantiles": {
+            "0.5": 79.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 245,
+          "min": 245,
+          "max": 245,
+          "quantiles": {
+            "0.5": 245,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 16,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 3,
+          "min": 3,
+          "max": 3,
+          "quantiles": {
+            "0.5": 3,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2,
+          "min": 2,
+          "max": 2,
+          "quantiles": {
+            "0.5": 2,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 64,
+        "acceptedTasks": 64,
+        "batches": 2,
+        "txCount": 194,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "14196658",
+        "challengeGas": "4383608",
+        "adjudicateGas": "8680016",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    },
+    "b1-p1-c1-s1": {
+      "cellId": "b1-p1-c1-s1",
+      "kind": "cross",
+      "axis": "light-corner",
+      "input": {
+        "batchSize": 1,
+        "payloadKiBPerTask": 1,
+        "configuredConcurrency": 1,
+        "concurrencyUnit": "inflight_batches",
+        "steps": 1,
+        "warmupBatches": 1,
+        "measureBatches": 2,
+        "strategy": "direct-fallback"
+      },
+      "nIndependentRuns": 1,
+      "clusterUnit": "independent run / window",
+      "perRun": [
+        {
+          "windowId": "b1-p1-c1-s1-r0",
+          "runIndex": 0,
+          "wallSeconds": 0.007,
+          "batches": 2,
+          "txCount": 8,
+          "executedTasks": 2,
+          "acceptedTasks": 2,
+          "finalizedTasks": 2,
+          "failureCount": 0,
+          "retryCount": 0,
+          "censoredBatches": 0,
+          "failedBatches": 0,
+          "finalizedTasksPerSecond": 285.7142857142857,
+          "acceptedTasksPerSecond": 285.7142857142857,
+          "batchesPerSecond": 285.7142857142857,
+          "inflightPeak": 1,
+          "inflightMean": 1,
+          "meanQueueWaitMs": 2.3333333333333335,
+          "latencyTotalMs": 2.5,
+          "latencySubmitMs": 0.5,
+          "latencyAdjudicateMs": 0,
+          "latencyWithdrawMs": 1,
+          "submitGas": "477852",
+          "challengeGas": "134372",
+          "adjudicateGas": "181678",
+          "withdrawGas": "109002",
+          "totalFeeWei": "0"
+        }
+      ],
+      "throughput": {
+        "finalizedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 285.7142857142857,
+          "min": 285.7142857142857,
+          "max": 285.7142857142857,
+          "quantiles": {
+            "0.5": 285.7142857142857,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "acceptedTasksPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 285.7142857142857,
+          "min": 285.7142857142857,
+          "max": 285.7142857142857,
+          "quantiles": {
+            "0.5": 285.7142857142857,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "batchesPerSecond": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 285.7142857142857,
+          "min": 285.7142857142857,
+          "max": 285.7142857142857,
+          "quantiles": {
+            "0.5": 285.7142857142857,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "caveat": "分母为本地窗口墙钟秒；Hardhat automining，不代表共识最终性吞吐"
+      },
+      "latency": {
+        "totalMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2.5,
+          "min": 2.5,
+          "max": 2.5,
+          "quantiles": {
+            "0.5": 2.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "submitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5,
+          "quantiles": {
+            "0.5": 0.5,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "adjudicateMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 0,
+          "min": 0,
+          "max": 0,
+          "quantiles": {
+            "0.5": 0,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "withdrawMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "queueWaitMs": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 2.3333333333333335,
+          "min": 2.3333333333333335,
+          "max": 2.3333333333333335,
+          "quantiles": {
+            "0.5": 2.3333333333333335,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "queue": {
+        "configuredConcurrency": 1,
+        "inflightPeak": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        },
+        "inflightMean": {
+          "n": 1,
+          "inputCount": 1,
+          "droppedNonFinite": 0,
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "quantiles": {
+            "0.5": 1,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=1 < 20"
+          }
+        }
+      },
+      "totals": {
+        "finalizedTasks": 2,
+        "acceptedTasks": 2,
+        "batches": 2,
+        "txCount": 8,
+        "totalFeeWei": "0"
+      },
+      "gasTotals": {
+        "submitGas": "477852",
+        "challengeGas": "134372",
+        "adjudicateGas": "181678",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "feeTotals": {
+        "feeSource": "local-gas-only",
+        "submitFeeWei": "0",
+        "challengeFeeWei": "0",
+        "adjudicateFeeWei": "0",
+        "recoverFeeWei": "0",
+        "withdrawFeeWei": "0",
+        "totalFeeWei": "0"
+      },
+      "costPerDenominator": {
+        "perFinalizedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perAcceptedTask": {
+          "valueWei": "0",
+          "reason": null
+        },
+        "perBatch": {
+          "valueWei": "0",
+          "reason": null
+        }
+      },
+      "reliability": {
+        "failedBatches": 0,
+        "censoredBatches": 0,
+        "retryCount": 0,
+        "failureCount": 0
+      }
+    }
+  },
+  "screening": {
+    "batchSize": [
+      {
+        "value": 1,
+        "cellId": "b1-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 71.42857142857143
+      },
+      {
+        "value": 8,
+        "cellId": "b8-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 115.94202898550724
+      },
+      {
+        "value": 32,
+        "cellId": "b32-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 126.48221343873517
+      }
+    ],
+    "configuredConcurrency": [
+      {
+        "value": 1,
+        "cellId": "b8-p8-c1-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 121.2121212121212
+      },
+      {
+        "value": 4,
+        "cellId": "b8-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 115.94202898550724
+      },
+      {
+        "value": 16,
+        "cellId": "b8-p8-c16-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 130.08130081300814
+      }
+    ],
+    "payloadKiBPerTask": [
+      {
+        "value": 1,
+        "cellId": "b8-p1-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 129.03225806451613
+      },
+      {
+        "value": 8,
+        "cellId": "b8-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 115.94202898550724
+      },
+      {
+        "value": 32,
+        "cellId": "b8-p32-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 129.03225806451613
+      }
+    ],
+    "steps": [
+      {
+        "value": 1,
+        "cellId": "b8-p8-c4-s1",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 457.1428571428571
+      },
+      {
+        "value": 64,
+        "cellId": "b8-p8-c4-s64",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 115.94202898550724
+      },
+      {
+        "value": 128,
+        "cellId": "b8-p8-c4-s128",
+        "available": true,
+        "meanFinalizedTasksPerSecond": 73.05936073059361
+      }
+    ]
+  }
+}

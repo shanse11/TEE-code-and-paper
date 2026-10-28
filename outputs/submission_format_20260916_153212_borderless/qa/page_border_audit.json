@@ -1,0 +1,9 @@
+{
+  "source": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/submission_format_20260916_100628/Hybrid_TEE_Rollup_计算机应用_投稿待确认版.docx",
+  "output": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/submission_format_20260916_153212_borderless/Hybrid_TEE_Rollup_计算机应用_投稿待确认版_无页面边框.docx",
+  "source_sha256": "37e8b84d618411f479652845682325857f71469498391054dc2f556c0baa5a31",
+  "output_sha256": "a1485b80be67c971a6539a16a5b484fd1a6e967fc239d0bf28fda5894fddf5c2",
+  "page_borders_removed": 15,
+  "page_borders_remaining": 0,
+  "scope": "word/document.xml section page borders only; table and paragraph borders unchanged"
+}

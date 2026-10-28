@@ -1,0 +1,49 @@
+{
+  "id": "CE-06",
+  "title": "recoverChallenge 不限次数重复恢复",
+  "category": "R4-recoverChallenge-不限次数",
+  "vulnerability": "recoverChallenge 仅要求 status!=RESOLVED 且已超时, 无次数上限; 可无限循环调用使 recovery.count 持续增长",
+  "reproduced": true,
+  "note": "对同一会话连续 5 次 recoverChallenge 全部成功, recovery.count 增至 5, 合约未设任何上限",
+  "error": null,
+  "statusBefore": {
+    "recoveryCount": "0"
+  },
+  "statusAfter": {
+    "exists": true,
+    "status": "RESPONDED",
+    "challenger": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "responder": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+    "operator": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "arbitrator": "0x0000000000000000000000000000000000000000",
+    "challengeSuccess": false,
+    "resolutionBits": "0",
+    "recoveryCount": "5",
+    "replayExecuted": false,
+    "replayPassed": false,
+    "timeoutAt": "1789122729"
+  },
+  "receipt": null,
+  "gas": null,
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999975103960373510232",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999998336934974946983",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999335526170456222",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999974689649304295851",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999998052148601220341",
+      "responder": "9999999933907031978770",
+      "attacker": "9999998949201292223642",
+      "submitter": "10000000000000000000000"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

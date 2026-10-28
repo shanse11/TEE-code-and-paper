@@ -1,0 +1,32 @@
+[
+  {
+    "file": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/output/pdf/ndbc2026_poster/P00145_NDBC2026_海报_A0成品版.pdf",
+    "bytes": 257825,
+    "sha256": "ff6fb9292e3363423f29ea1f1d133f4737bb409bcd151eaeecc11eb00de3ff75",
+    "canvas_mm": [
+      841,
+      1189
+    ],
+    "trim_mm": [
+      841,
+      1189
+    ],
+    "font_min_pt": 18,
+    "unsafe_text": []
+  },
+  {
+    "file": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/output/pdf/ndbc2026_poster/P00145_NDBC2026_海报_3mm出血印刷版.pdf",
+    "bytes": 257825,
+    "sha256": "92f7c8d701afc032fd0cb74628c4d761cd3d7568ee11b75c96fc3b128017d5cf",
+    "canvas_mm": [
+      847,
+      1195
+    ],
+    "trim_mm": [
+      841,
+      1189
+    ],
+    "font_min_pt": 18,
+    "unsafe_text": []
+  }
+]

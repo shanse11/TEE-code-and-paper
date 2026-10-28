@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:hybrid-tee-rollup:event:v1",
+  "$comment": "与 sample schema 一起注册到 Ajv。真实时间、安全和样本关联由 experiment_record.js 补充校验。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "runId", "experimentId", "caseId", "sampleId", "eventId", "eventType", "timestampUtc", "status", "gitHead", "configSha256", "chain", "failure", "message", "evidence"],
+  "properties": {
+    "schemaVersion": {"const": "hybrid-tee-rollup.event.v1"},
+    "runId": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/id"},
+    "experimentId": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/id"},
+    "caseId": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/id"},
+    "sampleId": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/id"},
+    "eventId": {"type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"},
+    "eventType": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/id"},
+    "timestampUtc": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/utc"},
+    "status": {"enum": ["pass", "fail", "blocked", "skipped"]},
+    "gitHead": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/properties/gitHead"},
+    "configSha256": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/properties/configSha256"},
+    "chain": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/properties/chain"},
+    "failure": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/properties/failure"},
+    "message": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/reason"},
+    "evidence": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/properties/evidence"}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"enum": ["fail", "blocked"]}}}, "then": {"properties": {"failure": {"$ref": "urn:hybrid-tee-rollup:sample:v1#/definitions/failure"}}}, "else": {"properties": {"failure": {"type": "null"}}}}
+  ]
+}

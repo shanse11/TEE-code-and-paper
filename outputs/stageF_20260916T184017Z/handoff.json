@@ -1,0 +1,147 @@
+{
+  "stage": "F",
+  "stageName": "性能、费用、统计与消融",
+  "createdAtUtc": "2026-09-16T18:40:17Z",
+  "status": {
+    "F-local": "completed",
+    "F-TEE": "blocked",
+    "F-Blob": "blocked",
+    "F-full": "blocked",
+    "overall": "partial",
+    "blockedReason": {
+      "F-TEE": "D 阶段真实 TEE 应用执行为 blocked（本机无 SGX/TDX 设备，无远程 Quote），故不能测量受保护执行路径的性能",
+      "F-Blob": "E 阶段公网 Blob 发布与独立取回为 blocked（缺 RPC/测试币/广播授权），故无真实 blobGas 与取回耗时；本阶段仅给出 codec 计算的 Blob 填充阶梯（modelled，非实测）",
+      "F-full": "需同一任务真实后端联调，前置 D/E 均未验收"
+    }
+  },
+
+  "upstream": {
+    "stageA": "outputs/stageA_20260916T162724Z/stageA_freeze/manifest/run_manifest.json",
+    "stageB": "outputs/stageB_20260916T171758Z/handoff.json",
+    "stageC": "outputs/stageC_20260916T174457Z/handoff.json",
+    "stageD": "outputs/stageD_20260916T180557Z/handoff.json (partial)",
+    "stageE": "outputs/stageE_20260916T181622Z/handoff.json (partial)"
+  },
+
+  "frozenVersion": {
+    "runId": "stageF-freeze-20260916T184017Z",
+    "sourceTreeSha256": "ab26edb78bb1a6be50ceb6261e69de523eeda0b725bd66f02be477273480377b",
+    "configSha256": "d12d58ce77d720ebc352f9e72a0fa0d2654f37d28456615a34aa43d6e1c297e7",
+    "note": "不沿用 A 的 sourceTreeSha256；配置哈希随 run 目录解析而变，各阶段各自冻结"
+  },
+
+  "artifacts": {
+    "design": "hardhat_run/stageF/design.frozen.json",
+    "raw": "hardhat_run/stageF/raw/{batch_records.jsonl, window_records.jsonl, boundary_records.json}",
+    "summary": "hardhat_run/stageF/summary/{cell_summary.json,cell_summary.csv,ablation_summary.json,ablation_summary.csv,concurrency_check.json,boundary_summary.json,blob_fill_ladder.json,blob_fill_ladder.csv,cost_allocation(见cell_summary),data_dictionary.json,validation.json}",
+    "figures": "hardhat_run/stageF/figures/*.svg（6 张，纯 SVG，无外部依赖）",
+    "attribution": "attribution/{design.frozen.json, freeze_manifest.json, summary/, raw/}",
+    "comparabilityContract": "comparability_contract.json",
+    "report": "report_zh.md",
+    "commands": "commands.txt"
+  },
+
+  "measured": {
+    "matrixCells": 13,
+    "independentRunsPerCell": 3,
+    "warmupBatches": 5,
+    "measureBatches": 30,
+    "windowRecords": 51,
+    "matrixWindows": 39,
+    "ablationWindows": 12,
+    "batchRecords": 1509,
+    "measuredBatchRecords": 1290,
+    "warmupBatchRecords": 219,
+    "taskRecords": 13164,
+    "duplicateTaskIds": 0,
+    "boundary": {
+      "stepsRejected": [0, 129],
+      "maxSteps": 128,
+      "allRejected": true
+    },
+    "concurrencyPreserved": {
+      "b1-p8-c1-s64": { "configured": 1, "observedInflightPeak": 1 },
+      "b1-p8-c4-s64": { "configured": 4, "observedInflightPeak": 4 },
+      "b1-p8-c16-s64": { "configured": 16, "observedInflightPeak": 16, "observedInflightMean": 12.57 }
+    },
+    "keyCells": {
+      "b8-p8-c4-s64": { "meanFinalizedTasksPerSecond": 162.78, "meanTotalLatencyMs": 161.77, "finalizedTasks": 720, "totalFeeWei": "286264196290113552", "feePerFinalizedTaskWei": "397589161514046" },
+      "b8-p8-c4-s1": { "meanFinalizedTasksPerSecond": 518.75 },
+      "b8-p8-c4-s128": { "meanFinalizedTasksPerSecond": 83.51 },
+      "b1-p8-c4-s64": { "meanFinalizedTasksPerSecond": 144.63 },
+      "b1-p8-c1-s64": { "meanFinalizedTasksPerSecond": 121.79 },
+      "b1-p8-c16-s64": { "meanFinalizedTasksPerSecond": 117.19 }
+    },
+    "challengeWindowArtifact": {
+      "affectedCells": ["b32-p8-c4-s64", "b8-p8-c16-s64", "b32-p32-c16-s128"],
+      "failureReason": "revert 'window'（openChallenge 时 block.timestamp > challengeDeadline）",
+      "primaryRunTaskFinalizationRate": { "b32-p8-c4-s64": 0.032, "b8-p8-c16-s64": 0.100, "b32-p32-c16-s128": 0.100 },
+      "attributionRun": {
+        "challengeWindow": 100000,
+        "protocol": { "warmupBatches": 2, "measureBatches": 10, "independentRuns": 3 },
+        "taskFinalizationRate": { "b32-p8-c4-s64": 1.0, "b8-p8-c16-s64": 1.0, "b32-p32-c16-s128": 1.0 },
+        "meanFinalizedTasksPerSecond": { "b32-p8-c4-s64": 156.93, "b8-p8-c16-s64": 154.04, "b32-p32-c16-s128": 87.07 },
+        "conclusion": "失败完全由固定 100 链秒挑战窗口 + Hardhat 每块 +1 秒链钟 + automining 串行导致，属仪器/部署参数假象，不是协议吞吐上限"
+      }
+    },
+    "ablation": {
+      "arms": 4,
+      "allArmsFinalizedRate": 1.0,
+      "results": [
+        { "arm": "direct-fallback", "meanTotalLatencyMs": 7.3, "adjudicateGas": "3960444", "totalFeeWei": "14299321100095247", "interactiveContinuation": "0/30", "fallbackUsed": "30/30" },
+        { "arm": "no-recovery-with-fault-fallback", "meanTotalLatencyMs": 8.7, "adjudicateGas": "8150328", "totalFeeWei": "18489251129424757", "interactiveContinuation": "0/30", "fallbackUsed": "30/30" },
+        { "arm": "recovery-under-fault", "meanTotalLatencyMs": 12.6, "adjudicateGas": "15211236", "recoverGas": "970644", "totalFeeWei": "26520665185644655", "interactiveContinuation": "30/30", "fallbackUsed": "0/30" },
+        { "arm": "recovery-interactive", "meanTotalLatencyMs": 13.5, "adjudicateGas": "15211080", "totalFeeWei": "25550213204401704", "interactiveContinuation": "30/30", "fallbackUsed": "0/30" }
+      ],
+      "honestFinding": "在有界模型（MAX_STEPS=128）中，adjudicate 直接重算兜底既最快又最省；recover 不改善正确终局时间（12.6 ms vs 8.7 ms），其唯一作用是让第三方在提交方超时离线后仍能继续**交互**路径（30/30 vs 0/30）。不得宣称恢复降低了结算延迟。"
+    },
+    "payloadDimension": {
+      "b8-p1-c4-s64": 137.38,
+      "b8-p32-c4-s64": 138.54,
+      "conclusion": "payloadKiBPerTask 不产生链上负载差异（名义参数），符合预期；不据此声称大 payload 吞吐"
+    },
+    "blobFillLadder": {
+      "provenance": "E 阶段真实 codec 计算 + 预测跨 Blob 阶梯（modelled，非链上实测）",
+      "maxFrameLen": 126976,
+      "rows": 30,
+      "blockedRows": 17,
+      "example": { "taskCount": 1, "payloadKiB": 64, "frameBytes": 65627, "blobs": 1, "fillRatio": 0.5168 },
+      "stepAt": { "taskCount": 1, "payloadKiB": 128, "predictedFrameBytes": 131163, "blobs": 2, "status": "blocked: single-blob capacity exceeded" }
+    }
+  },
+
+  "statisticsFixtureTests": {
+    "file": "evm/revision/stageF_stats.test.js",
+    "passed": 12,
+    "failed": 0,
+    "coverage": ["已知分位数", "样本量不足省略高分位", "分母0/未测", "全失败", "右删失", "重复task/tx", "超大wei", "缺费用字段", "跨窗口任务", "批内相关", "nonce重试", "固定seed可复现"]
+  },
+
+  "regression": {
+    "A_schema": "stageA_config.test.js + stageA_record.test.js：21 个 node:test 子测试全部 ok，未因 F 扩展失效",
+    "B": "stageB_closure.test.js：9/9 passing（F 输出目录中复跑）",
+    "C": "stageC_recovery.test.js：17/17 passing（F 输出目录中复跑）"
+  },
+
+  "downstreamForG": {
+    "usable": [
+      "F-local 各格 gas / 本地费用 / 延迟 / 吞吐（含失败率与分母）",
+      "交互轮数映射（advance 次数、L1 交易数，见 batch_records.txCount 与 recovery 字段）",
+      "恢复能力四臂对照（可直接映射到 G4 恢复指标）",
+      "comparability_contract.json 的端点定义与可比性标签"
+    ],
+    "blockedForG": [
+      "真实货币费用比较（无实测）",
+      "Blob DA 实付成本比较（E blocked）",
+      "TEE 执行时间比较（D blocked）"
+    ],
+    "gMechanismGate": "F-local 与 comparability_contract 已验收，G-mechanism 可放行；G-official 的量化优势比较须等对应 F 子组验收，本轮标 blocked"
+  },
+
+  "notDone": [
+    "未部署主网、未广播、未付费",
+    "未 commit / push",
+    "未修改论文正文",
+    "未把本地 gas 换算为真实法币或宣称领先百分比"
+  ]
+}

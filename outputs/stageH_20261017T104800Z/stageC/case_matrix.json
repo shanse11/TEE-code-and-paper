@@ -1,0 +1,602 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+  "stage": "C",
+  "generatedAtUtc": "2026-10-17T02:49:43.680Z",
+  "contract": "BoundedTaskRollup.sol",
+  "node": "v20.20.2",
+  "total": 17,
+  "passed": 17,
+  "failed": 0,
+  "note": "capabilityStatus=verified 表示该能力在本实现中真实可用; limited 表示仅部分可用(如 recover 不更换角色); not_applicable/deferred 如实标注。",
+  "cases": [
+    {
+      "caseId": "C01",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "无故障, 挑战已开启",
+      "injectedAction": "在 timeoutAt 之前调用 recover",
+      "expectedOutcome": "rejected",
+      "capabilityStatus": "verified",
+      "outcome": "rejected",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792205879,
+        "failureDetectedAt": null,
+        "recoveryTriggeredAt": null,
+        "firstValidProgressAt": 1792205881,
+        "resolvedAt": null,
+        "finalizedAt": null,
+        "withdrawableAt": null,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583201393375",
+        "monotonicEndNs": "425583204505666",
+        "blockStart": 77,
+        "blockEnd": 79,
+        "utcStart": "2026-10-17T02:49:43.458Z",
+        "utcEnd": "2026-10-17T02:49:43.461Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 77,
+            "blockTimestamp": 1792205879,
+            "utc": "2026-10-17T02:49:43.459Z",
+            "monotonicNs": "425583201615666",
+            "note": "无真实故障, 仅尝试过早 recover"
+          },
+          {
+            "field": "firstValidProgressAt",
+            "blockNumber": 79,
+            "blockTimestamp": 1792205881,
+            "utc": "2026-10-17T02:49:43.460Z",
+            "monotonicNs": "425583203439458"
+          }
+        ]
+      },
+      "notes": "过早 recover 被拒(require block.timestamp > timeoutAt); 不重置期限、不改 phase、不改争议事实",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C02",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "挑战者失联, 第三方观察者介入",
+      "injectedAction": "observer 调用 recover, 再调用 adjudicate 推进同一事实",
+      "expectedOutcome": "continued(路径=adjudicate 兜底, 非角色接管)",
+      "capabilityStatus": "limited",
+      "outcome": "continued",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792205884,
+        "failureDetectedAt": 1792205895,
+        "recoveryTriggeredAt": 1792205896,
+        "firstValidProgressAt": null,
+        "resolvedAt": 1792205897,
+        "finalizedAt": 1792205897,
+        "withdrawableAt": 1792205897,
+        "withdrawnAt": 1792205898,
+        "monotonicStartNs": "425583212998333",
+        "monotonicEndNs": "425583216377083",
+        "blockStart": 82,
+        "blockEnd": 86,
+        "utcStart": "2026-10-17T02:49:43.470Z",
+        "utcEnd": "2026-10-17T02:49:43.473Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 82,
+            "blockTimestamp": 1792205884,
+            "utc": "2026-10-17T02:49:43.470Z",
+            "monotonicNs": "425583213114458",
+            "note": "挑战者失联"
+          },
+          {
+            "field": "failureDetectedAt",
+            "blockNumber": 83,
+            "blockTimestamp": 1792205895,
+            "utc": "2026-10-17T02:49:43.470Z",
+            "monotonicNs": "425583213323541"
+          },
+          {
+            "field": "recoveryTriggeredAt",
+            "blockNumber": 84,
+            "blockTimestamp": 1792205896,
+            "utc": "2026-10-17T02:49:43.471Z",
+            "monotonicNs": "425583213766083",
+            "caller": "observer(3rd party)"
+          },
+          {
+            "field": "resolvedAt",
+            "blockNumber": 85,
+            "blockTimestamp": 1792205897,
+            "utc": "2026-10-17T02:49:43.472Z",
+            "monotonicNs": "425583214588625",
+            "path": "adjudicate 兜底"
+          },
+          {
+            "field": "finalizedAt",
+            "blockNumber": 85,
+            "blockTimestamp": 1792205897,
+            "utc": "2026-10-17T02:49:43.472Z",
+            "monotonicNs": "425583215007083"
+          },
+          {
+            "field": "withdrawableAt",
+            "blockNumber": 85,
+            "blockTimestamp": 1792205897,
+            "utc": "2026-10-17T02:49:43.472Z",
+            "monotonicNs": "425583215112250"
+          },
+          {
+            "field": "withdrawnAt",
+            "blockNumber": 86,
+            "blockTimestamp": 1792205898,
+            "utc": "2026-10-17T02:49:43.473Z",
+            "monotonicNs": "425583215652541"
+          }
+        ]
+      },
+      "notes": "重要: recover 不更换 challenger/收益权, 因此本实现没有真正的『经济接管』。事实延续依赖 adjudicate 确定性兜底(任何人可调用, 无时间门槛)。本测试未关闭 adjudicate 以制造恢复必要性。若需真正改换挑战权与收益权属显式协议变更, 需用户授权后再回归 B。",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C03",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "提交者失联",
+      "injectedAction": "第三方尝试 respond; 超时后 terminate",
+      "expectedOutcome": "timeout_settled",
+      "capabilityStatus": "limited",
+      "outcome": "timeout_settled",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792205901,
+        "failureDetectedAt": 1792205912,
+        "recoveryTriggeredAt": 1792206113,
+        "firstValidProgressAt": null,
+        "resolvedAt": 1792206114,
+        "finalizedAt": 1792206114,
+        "withdrawableAt": 1792206114,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583224603458",
+        "monotonicEndNs": "425583227167875",
+        "blockStart": 89,
+        "blockEnd": 93,
+        "utcStart": "2026-10-17T02:49:43.482Z",
+        "utcEnd": "2026-10-17T02:49:43.484Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 89,
+            "blockTimestamp": 1792205901,
+            "utc": "2026-10-17T02:49:43.482Z",
+            "monotonicNs": "425583224715416",
+            "note": "提交者失联, 无法 respond"
+          },
+          {
+            "field": "failureDetectedAt",
+            "blockNumber": 90,
+            "blockTimestamp": 1792205912,
+            "utc": "2026-10-17T02:49:43.482Z",
+            "monotonicNs": "425583224942750"
+          },
+          {
+            "field": "recoveryTriggeredAt",
+            "blockNumber": 92,
+            "blockTimestamp": 1792206113,
+            "utc": "2026-10-17T02:49:43.483Z",
+            "monotonicNs": "425583225588708",
+            "note": "terminate 而非 recover"
+          },
+          {
+            "field": "resolvedAt",
+            "blockNumber": 93,
+            "blockTimestamp": 1792206114,
+            "utc": "2026-10-17T02:49:43.483Z",
+            "monotonicNs": "425583226005291"
+          },
+          {
+            "field": "finalizedAt",
+            "blockNumber": 93,
+            "blockTimestamp": 1792206114,
+            "utc": "2026-10-17T02:49:43.483Z",
+            "monotonicNs": "425583226349708"
+          },
+          {
+            "field": "withdrawableAt",
+            "blockNumber": 93,
+            "blockTimestamp": 1792206114,
+            "utc": "2026-10-17T02:49:43.483Z",
+            "monotonicNs": "425583226424833"
+          }
+        ]
+      },
+      "notes": "第三方无 submitter 签名则不能 respond。结果按确定性重算判责(verdict=0 -> submitter 胜), 而非『重新执行成功』。提交者失联且无可转发有效证据时, 只能超时结算——如实记录, 不假称恢复成功。",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C04",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "多个观察者抢先 recover 占位后失联",
+      "injectedAction": "o1/o2 各 recover 一次, o3 第三次",
+      "expectedOutcome": "bounded+timeout_settled",
+      "capabilityStatus": "verified",
+      "outcome": "timeout_settled",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792206117,
+        "failureDetectedAt": null,
+        "recoveryTriggeredAt": 1792206141,
+        "firstValidProgressAt": null,
+        "resolvedAt": 1792206454,
+        "finalizedAt": 1792206454,
+        "withdrawableAt": null,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583234925083",
+        "monotonicEndNs": "425583238260416",
+        "blockStart": 96,
+        "blockEnd": 104,
+        "utcStart": "2026-10-17T02:49:43.492Z",
+        "utcEnd": "2026-10-17T02:49:43.495Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 96,
+            "blockTimestamp": 1792206117,
+            "utc": "2026-10-17T02:49:43.492Z",
+            "monotonicNs": "425583235020708",
+            "note": "占位者抢先 recover 后失联"
+          },
+          {
+            "field": "recoveryTriggeredAt",
+            "blockNumber": 98,
+            "blockTimestamp": 1792206129,
+            "utc": "2026-10-17T02:49:43.492Z",
+            "monotonicNs": "425583235457166",
+            "by": "o1"
+          },
+          {
+            "field": "recoveryTriggeredAt",
+            "blockNumber": 100,
+            "blockTimestamp": 1792206141,
+            "utc": "2026-10-17T02:49:43.493Z",
+            "monotonicNs": "425583235907625",
+            "by": "o2"
+          },
+          {
+            "field": "resolvedAt",
+            "blockNumber": 104,
+            "blockTimestamp": 1792206454,
+            "utc": "2026-10-17T02:49:43.494Z",
+            "monotonicNs": "425583237190500"
+          },
+          {
+            "field": "finalizedAt",
+            "blockNumber": 104,
+            "blockTimestamp": 1792206454,
+            "utc": "2026-10-17T02:49:43.494Z",
+            "monotonicNs": "425583237495375"
+          }
+        ]
+      },
+      "notes": "recoveries 上限=2, 第三次被拒(recovery limit), 不无限刷新; 之后 terminate 仍可收口 -> 出口可用",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C05",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "8 个 Sybil 地址依次尝试 recover",
+      "injectedAction": "多地址重复 recover",
+      "expectedOutcome": "bounded",
+      "capabilityStatus": "verified",
+      "outcome": "rejected",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792206457,
+        "failureDetectedAt": null,
+        "recoveryTriggeredAt": null,
+        "firstValidProgressAt": null,
+        "resolvedAt": null,
+        "finalizedAt": null,
+        "withdrawableAt": null,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583245945500",
+        "monotonicEndNs": "425583250037333",
+        "blockStart": 107,
+        "blockEnd": 123,
+        "utcStart": "2026-10-17T02:49:43.503Z",
+        "utcEnd": "2026-10-17T02:49:43.507Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 107,
+            "blockTimestamp": 1792206457,
+            "utc": "2026-10-17T02:49:43.503Z",
+            "monotonicNs": "425583246021916",
+            "note": "Sybil 多地址重复 recover"
+          }
+        ]
+      },
+      "notes": "身份数量不能突破恢复次数上限(2)或总期限; 实际成功 2 次, absoluteDeadline 未变",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C06",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "recover 在 timeoutAt / absoluteDeadline 边界",
+      "injectedAction": "==timeoutAt, timeoutAt+1, ==absoluteDeadline 三种时刻调用 recover",
+      "expectedOutcome": "rejected+accepted",
+      "capabilityStatus": "verified",
+      "outcome": "rejected+accepted",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "require(timeoutAt < ts < absoluteDeadline), 两端均为严格不等; 用 evm_setNextBlockTimestamp 精确控制, 避免自动出块 +1s 漂移。off-by-one 与规范一致",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C07",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "recover 与 terminate 竞争, 两种交易顺序",
+      "injectedAction": "顺序A(recover->terminate) 与顺序B(terminate->recover)",
+      "expectedOutcome": "accepted+rejected",
+      "capabilityStatus": "verified",
+      "outcome": "timeout_settled",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "两种顺序均只产生 1 个 Settled 事件, 无双赢家/双支付; terminate 后 phase=SETTLED, recover 被拒(phase); 争议事实未被重写",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C08",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "剩余时间不足以完成最低规定应答",
+      "injectedAction": "在 absoluteDeadline-1 尝试 recover; 在 absoluteDeadline 调用 terminate",
+      "expectedOutcome": "bounded+timeout_settled",
+      "capabilityStatus": "verified",
+      "outcome": "timeout_settled",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792207274,
+        "failureDetectedAt": 1792207353,
+        "recoveryTriggeredAt": null,
+        "firstValidProgressAt": null,
+        "resolvedAt": 1792207354,
+        "finalizedAt": 1792207354,
+        "withdrawableAt": null,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583292062458",
+        "monotonicEndNs": "425583293841583",
+        "blockStart": 148,
+        "blockEnd": 150,
+        "utcStart": "2026-10-17T02:49:43.549Z",
+        "utcEnd": "2026-10-17T02:49:43.551Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 148,
+            "blockTimestamp": 1792207274,
+            "utc": "2026-10-17T02:49:43.549Z",
+            "monotonicNs": "425583292144458"
+          },
+          {
+            "field": "failureDetectedAt",
+            "blockNumber": 149,
+            "blockTimestamp": 1792207353,
+            "utc": "2026-10-17T02:49:43.550Z",
+            "monotonicNs": "425583292538875",
+            "note": "剩余预算不足; recover 后 timeoutAt 被截断"
+          },
+          {
+            "field": "resolvedAt",
+            "blockNumber": 150,
+            "blockTimestamp": 1792207354,
+            "utc": "2026-10-17T02:49:43.550Z",
+            "monotonicNs": "425583293423875"
+          },
+          {
+            "field": "finalizedAt",
+            "blockNumber": 150,
+            "blockTimestamp": 1792207354,
+            "utc": "2026-10-17T02:49:43.551Z",
+            "monotonicNs": "425583293763916"
+          }
+        ]
+      },
+      "notes": "recover 在 ts<absoluteDeadline 时仍允许, 但 _touch 会把 timeoutAt 截断到 absoluteDeadline, 因此不创建超出总期限的不可能义务; 到达 absoluteDeadline 后由 terminate 按固定 timeout 规则裁决, 出口可用。『==absoluteDeadline 时 recover 被拒』见 C06",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C09",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "maxRecoveries ∈ {0,1,2}",
+      "injectedAction": "每种上限尝试 mr+1 次 recover",
+      "expectedOutcome": "bounded",
+      "capabilityStatus": "verified",
+      "outcome": "rejected",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "各上限精确生效; 超上限 revert 且不丢原任务(之后仍可 adjudicate 收口)",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C10",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "已终局任务旧证据重放 / 跨任务证据复用 / 同 taskId 重复提交",
+      "injectedAction": "对 SETTLED 任务重放 respond/recover/adjudicate; 用 A 任务 trace 操作 B 任务",
+      "expectedOutcome": "rejected",
+      "capabilityStatus": "verified",
+      "outcome": "rejected",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "拒绝恶意重放; 合法检查点证据仍可复用(respond 的 trace 绑定校验通过即可)。不跨任务重放",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C11",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "提交者与同伙挑战者串谋; 第三方抢先裁决",
+      "injectedAction": "串谋开启挑战后由第三方 adjudicate",
+      "expectedOutcome": "accepted(客观裁决)",
+      "capabilityStatus": "verified",
+      "outcome": "accepted",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "诚实反证不被永久排除(任何人可 adjudicate, 无时间门槛); 裁决结果仅由 verdict 决定, 第三方调用者不能窃取收益。但注意: 错误任务下『友好挑战』确实可使同伙获利——这是协议经济设计问题, 未在 C 修复(属 B 经济政策范畴)",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C12",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "提交者绑定 DA 引用后拒绝披露原像",
+      "injectedAction": "bindDa 后越过披露窗口，第三方 slashDa，再 adjudicate",
+      "expectedOutcome": "accepted",
+      "capabilityStatus": "verified",
+      "outcome": "timeout_settled",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "披露义务是可选 bindDa，罚没的是 DA 押金（burn 1000000000000000000 wei，slash gas 66136）。校验的是 dataHash 原像，不是链上 EIP-4844 point evaluation。未调用 bindDa 的任务没有这项义务。",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C13",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "短时阻断调用 / 延迟消息",
+      "injectedAction": "延迟 stepTimeout+1 后由观察者 recover+adjudicate",
+      "expectedOutcome": "continued",
+      "capabilityStatus": "verified",
+      "outcome": "continued",
+      "evidenceKind": "assertion",
+      "timeline": {
+        "faultInjectedAt": 1792207683,
+        "failureDetectedAt": null,
+        "recoveryTriggeredAt": 1792207695,
+        "firstValidProgressAt": 1792207696,
+        "resolvedAt": null,
+        "finalizedAt": null,
+        "withdrawableAt": null,
+        "withdrawnAt": null,
+        "monotonicStartNs": "425583367708208",
+        "monotonicEndNs": "425583368962333",
+        "blockStart": 211,
+        "blockEnd": 214,
+        "utcStart": "2026-10-17T02:49:43.625Z",
+        "utcEnd": "2026-10-17T02:49:43.626Z",
+        "clockSource": "evm_blockTimestamp(protocol time); monotonic=host; utc=wall clock",
+        "events": [
+          {
+            "field": "faultInjectedAt",
+            "blockNumber": 211,
+            "blockTimestamp": 1792207683,
+            "utc": "2026-10-17T02:49:43.625Z",
+            "monotonicNs": "425583367805458",
+            "note": "短时阻断调用"
+          },
+          {
+            "field": "recoveryTriggeredAt",
+            "blockNumber": 213,
+            "blockTimestamp": 1792207695,
+            "utc": "2026-10-17T02:49:43.625Z",
+            "monotonicNs": "425583368241750"
+          },
+          {
+            "field": "firstValidProgressAt",
+            "blockNumber": 214,
+            "blockTimestamp": 1792207696,
+            "utc": "2026-10-17T02:49:43.626Z",
+            "monotonicNs": "425583368624708"
+          }
+        ]
+      },
+      "notes": "在模型假设内(有诚实参与者、能上链、有数据)可恢复。永久阻断/无限分区不承诺活性——若超过 absoluteDeadline 且无人调用, 只能由任一方在之后 terminate, 属 not_guaranteed",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C14",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "观察者进程崩溃, 由新进程/新观察者恢复",
+      "injectedAction": "丢弃本地状态, 仅用 getTask 链上快照由新合约实例 adjudicate",
+      "expectedOutcome": "continued",
+      "capabilityStatus": "verified",
+      "outcome": "continued",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "所有必要状态(taskId/事实/期限/recoveries)均在链上持久化, 恢复不依赖原进程内存",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C15",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "本地快照回滚 / 密钥双签情景(仿真)",
+      "injectedAction": "evm_snapshot -> 提交并终局 -> evm_revert -> 再次提交",
+      "expectedOutcome": "rejected(重放)",
+      "capabilityStatus": "limited",
+      "outcome": "rejected",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "仅证明协议层 taskId 唯一性防重放。这是本地 EVM 快照仿真, 不是真实硬件防回滚/防双签能力; 不宣称任何 TEE 硬件攻防结论(移交 D)",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C16",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "正常 L1 重组 / 陈旧链头",
+      "injectedAction": "无(本地 Hardhat automining 无共识重组)",
+      "expectedOutcome": "not_applicable",
+      "capabilityStatus": "not_applicable",
+      "outcome": "not_applicable",
+      "evidenceKind": "assertion",
+      "timeline": null,
+      "notes": "本地 in-process automining 不产生真实重组。可用 evm_revert 仿真(见 C15), 但那不等于共识层重组。结论: 正常重组不应被直接视为 TEE 作恶; 本阶段不给出重组相关结论",
+      "assertionPass": true,
+      "mochaState": "passed"
+    },
+    {
+      "caseId": "C17",
+      "stage": "C",
+      "schemaVersion": "hybrid-tee-rollup.stageC.case.v1",
+      "scenario": "最大任务(steps=128)与最大证据(trace=129); 20 次无效 recover 风暴",
+      "injectedAction": "提交最大步数任务并终局; 之后连续 20 次无效 recover",
+      "expectedOutcome": "accepted+rejected",
+      "capabilityStatus": "verified",
+      "outcome": "accepted",
+      "evidenceKind": "gas",
+      "timeline": null,
+      "notes": "最大任务可正常处理并结算(respond gas=204808, adjudicate gas=166840); 无效交易风暴全部 revert(20/20), 状态无污染, 累计作废 gas=0 wei(由攻击者承担)",
+      "assertionPass": true,
+      "mochaState": "passed"
+    }
+  ]
+}

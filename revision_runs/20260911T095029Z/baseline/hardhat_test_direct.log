@@ -1,0 +1,13 @@
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+
+
+  HybridTEERollup
+    ✔ submits a valid compact commit anchored to DA and attestation (309ms)
+    ✔ runs recoverable challenge flow and slashes after replay mismatch
+    ✔ finalizes pending transactions after the dispute window
+    ✔ rejects invalid attestation signatures
+    ✔ verifies DA field witnesses against the stored Merkle root
+
+
+  5 passing (371ms)
+

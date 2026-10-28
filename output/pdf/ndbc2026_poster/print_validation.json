@@ -1,0 +1,82 @@
+{
+  "pdf_checks": [
+    {
+      "file": "P00145_NDBC2026_海报_A0成品版.pdf",
+      "pages": 1,
+      "size_bytes": 257825,
+      "media_mm": [
+        841.0,
+        1189.0
+      ],
+      "trim_mm": [
+        841.0,
+        1189.0
+      ],
+      "text_safe_margins_mm": [
+        26.0,
+        16.2,
+        26.0,
+        16.67
+      ],
+      "font_embedded": {
+        "/F1+0": true,
+        "/F1+1": true,
+        "/F2+0": true,
+        "/F3+0": true,
+        "/F3+1": true,
+        "/F4+0": true
+      },
+      "contains_raster_image": false,
+      "cmyk_fill_operations": 224,
+      "rgb_fill_operations": 0,
+      "contains_author": true,
+      "contains_submission_id": true,
+      "missing_glyph_marker": false,
+      "sha256": "ff6fb9292e3363423f29ea1f1d133f4737bb409bcd151eaeecc11eb00de3ff75"
+    },
+    {
+      "file": "P00145_NDBC2026_海报_3mm出血印刷版.pdf",
+      "pages": 1,
+      "size_bytes": 257825,
+      "media_mm": [
+        847.0,
+        1195.0
+      ],
+      "trim_mm": [
+        841.0,
+        1189.0
+      ],
+      "text_safe_margins_mm": [
+        26.0,
+        16.2,
+        26.0,
+        16.67
+      ],
+      "font_embedded": {
+        "/F1+0": true,
+        "/F1+1": true,
+        "/F2+0": true,
+        "/F3+0": true,
+        "/F3+1": true,
+        "/F4+0": true
+      },
+      "contains_raster_image": false,
+      "cmyk_fill_operations": 224,
+      "rgb_fill_operations": 0,
+      "contains_author": true,
+      "contains_submission_id": true,
+      "missing_glyph_marker": false,
+      "sha256": "92f7c8d701afc032fd0cb74628c4d761cd3d7568ee11b75c96fc3b128017d5cf"
+    }
+  ],
+  "source_metrics": {
+    "response_length": 8192,
+    "prompt_length": 64,
+    "sample_count": 100,
+    "compact_bytes": 406.0,
+    "model_mean_reduction_percent": 96.32817843128012,
+    "full_model_mean_cost": 801101.44,
+    "modular_model_mean_cost": 29026.978
+  },
+  "final_visual_review": "Final A0 and bleed PDFs rendered; full-page and chart-area inspections complete."
+}

@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MerkleVerifier",
+  "sourceName": "contracts/MerkleVerifier.sol",
+  "abi": [],
+  "bytecode": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea26469706673582212204e27fa66549cbfe842367458165c09b25804356bec2dcbf284bc4d8e4319991564736f6c634300081a0033",
+  "deployedBytecode": "0x5f80fdfea26469706673582212204e27fa66549cbfe842367458165c09b25804356bec2dcbf284bc4d8e4319991564736f6c634300081a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid TEE-Rollup 本地性能与证据边界概览</title>
+  <desc id="desc">展示本地 Hardhat 性能矩阵、测试通过情况以及公网 Blob 与真实 TEE 尚未完成的状态。</desc>
+  <rect width="1100" height="700" fill="#f7f8fa"/>
+  <rect x="28" y="24" width="1044" height="74" rx="8" fill="#17324d"/>
+  <text x="52" y="56" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Hybrid TEE-Rollup 审计概览</text>
+  <text x="52" y="82" font-family="Arial, sans-serif" font-size="14" fill="#dce8f2">run 20260911T095029Z · 所有性能数字来自本地 Hardhat Cancun，不代表公网吞吐或真实 Blob 费用</text>
+
+  <rect x="28" y="122" width="325" height="178" rx="8" fill="#ffffff" stroke="#cfd7df"/>
+  <text x="52" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#17324d">本地安全证据</text>
+  <text x="52" y="190" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#1f7a4d">23 / 23</text>
+  <text x="52" y="216" font-family="Arial, sans-serif" font-size="14" fill="#44515c">定向安全回归通过</text>
+  <text x="52" y="252" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1f7a4d">1000</text>
+  <text x="136" y="252" font-family="Arial, sans-serif" font-size="14" fill="#44515c">条随机序列完成</text>
+  <text x="52" y="278" font-family="Arial, sans-serif" font-size="14" fill="#44515c">27401 次操作 · 22686 次回退状态检查</text>
+
+  <rect x="377" y="122" width="325" height="178" rx="8" fill="#ffffff" stroke="#cfd7df"/>
+  <text x="401" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#17324d">离线 Blob / KZG</text>
+  <text x="401" y="190" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#1f7a4d">10 / 10</text>
+  <text x="401" y="216" font-family="Arial, sans-serif" font-size="14" fill="#44515c">9 个矩阵批次 + 1 个负例</text>
+  <text x="401" y="252" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#17324d">131072 B</text>
+  <text x="401" y="278" font-family="Arial, sans-serif" font-size="14" fill="#44515c">Blob · commitment/proof 各 48 B</text>
+
+  <rect x="726" y="122" width="346" height="178" rx="8" fill="#fffaf0" stroke="#dfc58a"/>
+  <text x="750" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#6d4b0e">外部证据边界</text>
+  <text x="750" y="190" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a56700">Sepolia：未完成</text>
+  <text x="750" y="220" font-family="Arial, sans-serif" font-size="14" fill="#5f4a26">无 RPC / signer / anchor address</text>
+  <text x="750" y="252" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a56700">真实 TEE：未完成</text>
+  <text x="750" y="282" font-family="Arial, sans-serif" font-size="14" fill="#5f4a26">无云凭据 / TDX 实例 / Quote</text>
+
+  <rect x="28" y="328" width="674" height="330" rx="8" fill="#ffffff" stroke="#cfd7df"/>
+  <text x="52" y="360" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#17324d">batchSize=1 时的本地 p50 任务吞吐</text>
+  <text x="52" y="384" font-family="Arial, sans-serif" font-size="12" fill="#687681">单位：tasks/s；每组 5 个样本。横轴为 payload KiB，颜色为并发度。</text>
+  <line x1="88" y1="588" x2="660" y2="588" stroke="#91a0ad"/>
+  <line x1="88" y1="420" x2="88" y2="588" stroke="#91a0ad"/>
+  <line x1="88" y1="546" x2="660" y2="546" stroke="#e6eaee"/>
+  <line x1="88" y1="504" x2="660" y2="504" stroke="#e6eaee"/>
+  <line x1="88" y1="462" x2="660" y2="462" stroke="#e6eaee"/>
+  <line x1="88" y1="420" x2="660" y2="420" stroke="#e6eaee"/>
+  <text x="54" y="592" font-family="Arial, sans-serif" font-size="11" fill="#687681">0</text>
+  <text x="42" y="550" font-family="Arial, sans-serif" font-size="11" fill="#687681">150</text>
+  <text x="42" y="508" font-family="Arial, sans-serif" font-size="11" fill="#687681">300</text>
+  <text x="42" y="466" font-family="Arial, sans-serif" font-size="11" fill="#687681">450</text>
+  <text x="42" y="424" font-family="Arial, sans-serif" font-size="11" fill="#687681">600</text>
+  <text x="164" y="612" font-family="Arial, sans-serif" font-size="12" fill="#44515c">1 KiB</text>
+  <text x="350" y="612" font-family="Arial, sans-serif" font-size="12" fill="#44515c">8 KiB</text>
+  <text x="532" y="612" font-family="Arial, sans-serif" font-size="12" fill="#44515c">32 KiB</text>
+  <polyline points="176,531 365,495 547,505" fill="none" stroke="#2878b5" stroke-width="3"/>
+  <circle cx="176" cy="531" r="5" fill="#2878b5"/><circle cx="365" cy="495" r="5" fill="#2878b5"/><circle cx="547" cy="505" r="5" fill="#2878b5"/>
+  <polyline points="176,497 365,489 547,509" fill="none" stroke="#1f9a72" stroke-width="3"/>
+  <circle cx="176" cy="497" r="5" fill="#1f9a72"/><circle cx="365" cy="489" r="5" fill="#1f9a72"/><circle cx="547" cy="509" r="5" fill="#1f9a72"/>
+  <polyline points="176,465 365,499 547,514" fill="none" stroke="#d17b2f" stroke-width="3"/>
+  <circle cx="176" cy="465" r="5" fill="#d17b2f"/><circle cx="365" cy="499" r="5" fill="#d17b2f"/><circle cx="547" cy="514" r="5" fill="#d17b2f"/>
+  <rect x="110" y="398" width="12" height="4" fill="#2878b5"/><text x="128" y="403" font-family="Arial, sans-serif" font-size="12" fill="#44515c">并发 1</text>
+  <rect x="186" y="398" width="12" height="4" fill="#1f9a72"/><text x="204" y="403" font-family="Arial, sans-serif" font-size="12" fill="#44515c">并发 4</text>
+  <rect x="262" y="398" width="12" height="4" fill="#d17b2f"/><text x="280" y="403" font-family="Arial, sans-serif" font-size="12" fill="#44515c">并发 16</text>
+
+  <rect x="726" y="328" width="346" height="330" rx="8" fill="#ffffff" stroke="#cfd7df"/>
+  <text x="750" y="360" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#17324d">实验覆盖</text>
+  <text x="750" y="400" font-family="Arial, sans-serif" font-size="14" fill="#44515c">主性能矩阵</text>
+  <rect x="750" y="412" width="258" height="22" rx="3" fill="#2878b5"/><text x="1020" y="428" font-family="Arial, sans-serif" font-size="14" fill="#17324d">27</text>
+  <text x="750" y="468" font-family="Arial, sans-serif" font-size="14" fill="#44515c">calldata 对照</text>
+  <rect x="750" y="480" width="86" height="22" rx="3" fill="#1f9a72"/><text x="848" y="496" font-family="Arial, sans-serif" font-size="14" fill="#17324d">9</text>
+  <text x="750" y="536" font-family="Arial, sans-serif" font-size="14" fill="#44515c">恢复矩阵</text>
+  <rect x="750" y="548" width="258" height="22" rx="3" fill="#d17b2f"/><text x="1020" y="564" font-family="Arial, sans-serif" font-size="14" fill="#17324d">48</text>
+  <text x="750" y="610" font-family="Arial, sans-serif" font-size="13" fill="#687681">恢复场景：direct / timeout / recover / diagnostics</text>
+</svg>

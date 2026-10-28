@@ -1,0 +1,18 @@
+system,arm,nIndependentRuns,batches,correctFinality,incorrectFinality,unresolved,notApplicable,totalGas,l1TxCount
+bounded-task-rollup,interactive,3,30,30,0,0,0,25918326,360
+bounded-task-rollup,fault-no-recovery,3,30,30,0,0,0,18857820,150
+bounded-task-rollup,fault-with-recovery,3,30,30,0,0,0,26889540,390
+bounded-task-rollup,direct-no-response,3,30,30,0,0,0,14668132,120
+mechanism-baseline,interactive,3,30,30,0,0,0,20404304,330
+mechanism-baseline,fault-no-recovery,3,30,0,30,0,0,13781198,150
+mechanism-baseline,direct-no-response,3,30,0,30,0,0,10490070,120
+
+# 派生列
+system,arm,correctRate,meanLatencyMs,meanInteractiveMoves
+bounded-task-rollup,interactive,1.000,10.27,6.00
+bounded-task-rollup,fault-no-recovery,1.000,6.80,0.00
+bounded-task-rollup,fault-with-recovery,1.000,10.23,6.00
+bounded-task-rollup,direct-no-response,1.000,5.17,0.00
+mechanism-baseline,interactive,1.000,9.07,6.00
+mechanism-baseline,fault-no-recovery,0.000,6.33,0.00
+mechanism-baseline,direct-no-response,0.000,4.93,0.00

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.sepolia-blob-followup.v1",
+  "anchor": "0x083e9280AC8b5933060C55Dd189A52A3981248c9",
+  "taskRollup": "0xbda16351d1c7F88f85Aa3FD398b9b6dd136C5eaf",
+  "published": {
+    "txHash": "0x3ad90ecfdf5930c1bf611223af76196e54fbc74af0f9c9924de9dc523681d340",
+    "anchorId": 1,
+    "versionedHash": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+    "payloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7"
+  },
+  "rejections": [
+    {
+      "label": "reuse-versioned-hash",
+      "callRevert": "BlobHashReused",
+      "mined": true,
+      "revert": "BlobHashReused",
+      "txHash": "0x1550b2348e4cb1137fb065fb694a6bfd5e92f48cef42f9a9683c20f7ba86ef30",
+      "status": 0,
+      "blockNumber": 11933019,
+      "gasUsed": "21400",
+      "blobGasUsed": "131072"
+    },
+    {
+      "label": "duplicate-payload-hash",
+      "callRevert": "PayloadAlreadyAnchored",
+      "mined": true,
+      "revert": "PayloadAlreadyAnchored",
+      "txHash": "0x68bcc0ab27713d96824839ad383550c114d44666912eb133ccd2f383e3adce5e",
+      "status": 0,
+      "blockNumber": 11933020,
+      "gasUsed": "21400",
+      "blobGasUsed": "131072"
+    }
+  ],
+  "link": {
+    "taskId": "0x0df33d783bfb6f353d73eb68d11a4001ae82730aa3b7926d76fdbd98a76c43c2",
+    "daRef": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+    "dataHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+    "fulfilled": true,
+    "disclosedHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+    "anchorVersionedHash": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+    "daRefEqualsVersionedHash": true,
+    "dataHashEqualsAnchoredPayloadHash": true,
+    "deployTx": "0xd89c2784f321c03cb5b22dc24e22991e3bf2a6a0a591296c425814ba082f49d1",
+    "submitTx": "0xa65f196f47c0f3293830641fe3988aae202f05158a5728c1391d450a74ac0577",
+    "bindTx": "0xdfdd3bf6aa19963f668b66ce43e117589899533ec17873f928b1682c2a052e24",
+    "fulfillTx": "0x350953b87cc2000c81eab395bde74786b21e33b82be5f0c392c989029d9f64ff",
+    "limitation": "daRef records the versioned hash. The task contract does not read blob bytes or run the point-evaluation precompile. Fulfilling the disclosure only proves the payloadHash preimage was posted. This is not a slash loop."
+  }
+}

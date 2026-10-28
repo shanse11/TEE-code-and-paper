@@ -1,0 +1,59 @@
+{
+  "id": "CE-10",
+  "title": "MockDA 任意修改(无访问控制)",
+  "category": "DA-任意篡改",
+  "vulnerability": "MockDARegistry.setAvailability / updateMerkleRoot 无任何访问控制, 任意人都可在提交后改写 DA 可用性与 Merkle 根, 破坏 DA 完整性假设",
+  "reproduced": true,
+  "note": "第三方在交易提交后调用 setAvailability(false) 与 updateMerkleRoot(伪造根) 均成功, DA 层可被任意篡改",
+  "error": null,
+  "statusBefore": {
+    "daAvailable": true,
+    "merkleRoot": "0x2a56db738a3c9e05ecd226778241c31cbb9f877892f80023a57794ef4356c40b"
+  },
+  "statusAfter": {
+    "daAvailable": false,
+    "merkleRoot": "0xca54a28ce9cd12a03095fcd4af80389f280e21cc986dcb9605bc6f79fef0c020"
+  },
+  "receipt": {
+    "status": 1,
+    "from": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "to": "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00",
+    "blockNumber": 92,
+    "gasUsed": "36115",
+    "effectiveGasPrice": "1000005588",
+    "cumulativeGasUsed": "36115",
+    "logs": 1
+  },
+  "gas": {
+    "gasUsed": "36115",
+    "effectiveGasPrice": "1000005588",
+    "gasCost": "36115201810620"
+  },
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999960885171739876630",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999997164216230986931",
+      "responder": "9999999868014343693252",
+      "attacker": "9999998358510425559092",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999960472623616469112",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999997164216230986931",
+      "responder": "9999999868014343693252",
+      "attacker": "9999998288551007654532",
+      "submitter": "10000000000000000000000"
+    },
+    "gasAdjustedActor": {
+      "role": "attacker",
+      "rawAfter": "9999998288551007654532",
+      "gasCost": "36115201810620",
+      "adjustedAfter": "9999998324666209465152"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

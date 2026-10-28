@@ -1,0 +1,21 @@
+{
+  "taskCount": 1,
+  "payloadKiB": 8,
+  "frameLen": 8283,
+  "blobLen": 131072,
+  "payloadHash": "0x7a13d68d81b9a5f5205377c4b0d68cb259cc4be26b01d66782d5d5f43d06087f",
+  "versionedHash": "0x013059a639e0126a19235ba3098cea372a2046f3aa3184062a75a7b640c067db",
+  "commitment": "0x992a5e50d9ec552467f365da8a1a12055fa754a474a3ffd831f76e8423d09df81161f8cf9590f21bebcab0f4460f8223",
+  "proof": "0x849d8b5cc83f371a475957e900e383838f848f384191284bfd373c3fa0c6cb344165375ee17f0c1d158061ee746baa70",
+  "positiveVerify": true,
+  "negative": {
+    "contentTamper_vsOriginalCommitment_valid": false,
+    "contentTamper_self_valid": true,
+    "contentTamper_payloadHashChanged": true,
+    "blobLevelTamper_valid": false,
+    "tamperedVersionedHash": "0x019e3ef1fdeeec1144ca9d15690a4d4f6ab3ce5cbfd9d2077931286bea33f09d",
+    "tamperedPayloadHash": "0xba0c6a33272337336bf46facbcaa2c78dd4e55b5e70bd7da690ac09e49949eb8"
+  },
+  "decodeOk": true,
+  "pass": true
+}

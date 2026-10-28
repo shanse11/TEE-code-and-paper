@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.mechanism-design.v1",
+  "createdAtUtc": "2026-09-16T18:58:27.814Z",
+  "purpose": "L1 同计算模型机制微基准：本项目 BoundedTaskRollup vs MechanismBaseline",
+  "systems": {
+    "bounded-task-rollup": {
+      "contract": "BoundedTaskRollup",
+      "role": "本方案（有界重算兜底 + recover）"
+    },
+    "mechanism-baseline": {
+      "contract": "MechanismBaseline",
+      "role": "机制基线（二分 + 单步证明 + 无兜底重算）"
+    }
+  },
+  "workload": {
+    "batchSize": 1,
+    "steps": 64,
+    "payloadKiBPerTask": 1,
+    "configuredConcurrency": 1
+  },
+  "deploy": {
+    "bondWei": "1000000000000000",
+    "challengeWindow": 100000,
+    "stepTimeout": 10,
+    "maxRecoveries": 2,
+    "note": "两套系统使用相同部署参数；challengeWindow 取 100000 以消除 F 已归因的链钟窗口假象"
+  },
+  "protocol": {
+    "warmupBatches": 2,
+    "measureBatches": 10,
+    "independentRuns": 3
+  },
+  "arms": [
+    {
+      "id": "interactive",
+      "faultInjected": false,
+      "note": "双方在线：本方案 respond→advance*→replay→settle；基线 respond→advance*→step"
+    },
+    {
+      "id": "fault-no-recovery",
+      "faultInjected": true,
+      "note": "提交方 respond 后超时离线；本方案走 adjudicate 兜底，基线只能 terminate"
+    },
+    {
+      "id": "fault-with-recovery",
+      "faultInjected": true,
+      "note": "提交方超时离线 + recover 后续推（基线无恢复机制，标 not_applicable）"
+    },
+    {
+      "id": "direct-no-response",
+      "faultInjected": false,
+      "note": "不 respond：本方案直接 adjudicate；基线只能 terminate"
+    }
+  ],
+  "correctnessDefinition": {
+    "correct": "任务已 SETTLED 且胜者为提交方（本微基准始终提交正确 trace，故提交方获胜=正确终局）",
+    "incorrect": "任务已 SETTLED 但胜者为挑战方（正确提交方被罚没）",
+    "unresolved": "批结束时未 SETTLED（右删失）"
+  },
+  "statistics": {
+    "clusterUnit": "independent run / batch",
+    "note": "3 个独立 run 不给 CI，只报描述性；成功率与分母同时报告，不只对成功求平均",
+    "seed": 20260917
+  }
+}

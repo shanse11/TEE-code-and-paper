@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageI.e1.v1",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "automata": "0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10",
+  "automataRelease": "v1.1.0 AutomataDcapAttestationFee",
+  "forkBlock": 11935048,
+  "rpcHost": "ethereum-sepolia-rpc.publicnode.com",
+  "partA_liveEthCall": [
+    {
+      "quote": "quote_steps4.dat",
+      "sha256": "75e84914d0946cf95a73afff44bbaf66761011a821525c486c792ab13b190752",
+      "bytes": 4734,
+      "ok": true,
+      "estimateGas": "5121432",
+      "quoteVersion": 3,
+      "quoteBodyType": 1,
+      "tcbStatus": 5,
+      "tcbStatusName": "OUT_OF_DATE_CONFIGURATION_NEEDED",
+      "fmspc": "0x00606a000000",
+      "mrEnclave": "0x1967faaa87ab6290f8a9955fc6808899c0be7047541ea4aab82209b3e40d6d37",
+      "reportData32": "0xd7ddfc6038ebeb13597cc2700d8d22e166e39ee40f1cb8f2fb4def600bb74eea",
+      "advisoryBytes": 0
+    },
+    {
+      "quote": "quote_steps128.dat",
+      "sha256": "bf78a99d5e227b5fe5941698172492c989829b39893d96257ca0528aeb849fa3",
+      "bytes": 4734,
+      "ok": true,
+      "estimateGas": "5121420",
+      "quoteVersion": 3,
+      "quoteBodyType": 1,
+      "tcbStatus": 5,
+      "tcbStatusName": "OUT_OF_DATE_CONFIGURATION_NEEDED",
+      "fmspc": "0x00606a000000",
+      "mrEnclave": "0x1967faaa87ab6290f8a9955fc6808899c0be7047541ea4aab82209b3e40d6d37",
+      "reportData32": "0xdd38eea6ecebcbf06e52a265792e3567acadbf98d5f9d00025d5740f64e796e5",
+      "advisoryBytes": 0
+    },
+    {
+      "quote": "quote_bound.dat",
+      "sha256": "9ab7ae99bf5353fde73aef2746bb8aad99f46562f2eab00333024795a2cfe2a2",
+      "bytes": 4734,
+      "ok": true,
+      "estimateGas": "5121432",
+      "quoteVersion": 3,
+      "quoteBodyType": 1,
+      "tcbStatus": 5,
+      "tcbStatusName": "OUT_OF_DATE_CONFIGURATION_NEEDED",
+      "fmspc": "0x00606a000000",
+      "mrEnclave": "0x76f38bb26e1902666c40b433ddb3de91ecf39495c058d75f1dca120127fc63ea",
+      "reportData32": "0x2172d84a5845fd468dd5af008b7aa92ad2b3c4c6fcefe40298c45e555554bcd3",
+      "advisoryBytes": 0
+    },
+    {
+      "quote": "quote_bad.dat",
+      "sha256": "a334b44436834b62547e641d39a06a10ff92b13ff4e6c208fb1f61dabd5f6650",
+      "bytes": 4734,
+      "ok": true,
+      "estimateGas": "5121408",
+      "quoteVersion": 3,
+      "quoteBodyType": 1,
+      "tcbStatus": 5,
+      "tcbStatusName": "OUT_OF_DATE_CONFIGURATION_NEEDED",
+      "fmspc": "0x00606a000000",
+      "mrEnclave": "0x76f38bb26e1902666c40b433ddb3de91ecf39495c058d75f1dca120127fc63ea",
+      "reportData32": "0x2072d84a5845fd468dd5af008b7aa92ad2b3c4c6fcefe40298c45e555554bcd3",
+      "advisoryBytes": 0
+    },
+    {
+      "quote": "quote_steps4_tampered.dat",
+      "sha256": "6558b62741f61dacdf51bc05b7cb102201a5abbf83096862bc9e833408b554b5",
+      "bytes": 4734,
+      "ok": false,
+      "reverted": true,
+      "reason": "execution reverted (no data present; likely require(false) occurred"
+    }
+  ],
+  "partB_forkRegisterInstance": [
+    {
+      "policy": "strict",
+      "mrEnclavePinned": "computeEnclave",
+      "quote": "quote_steps4.dat",
+      "outcome": "registered",
+      "instance": "0xd7DDFc6038EBEb13597cc2700D8d22E166E39Ee4",
+      "tcbStatus": 5,
+      "action": "LONG",
+      "gasUsed": "5057631"
+    },
+    {
+      "policy": "strict",
+      "mrEnclavePinned": "computeEnclave",
+      "quote": "quote_steps4_tampered.dat",
+      "outcome": "registered",
+      "instance": "0x0000000000000000000000000000000000000000",
+      "tcbStatus": 255,
+      "action": "LONG",
+      "gasUsed": "2817794"
+    },
+    {
+      "policy": "strict",
+      "mrEnclavePinned": "computeEnclave",
+      "quote": "quote_bound.dat",
+      "outcome": "registered",
+      "instance": "0x2172d84a5845FD468DD5Af008b7AA92AD2B3c4C6",
+      "tcbStatus": 5,
+      "action": "LONG",
+      "gasUsed": "5057555"
+    },
+    {
+      "policy": "rejectStale",
+      "mrEnclavePinned": "computeEnclave",
+      "quote": "quote_steps4.dat",
+      "outcome": "reverted",
+      "reason": "VM Exception while processing transaction: reverted with reason string 'quote rejected'"
+    }
+  ],
+  "partB_forkDirectAutomata": {
+    "quote": "quote_steps4.dat",
+    "gasUsed": "5022660",
+    "status": 1
+  },
+  "notes": [
+    "Part A is eth_call against the live Sepolia contract at forkBlock; nothing was broadcast.",
+    "Part B runs on a local fork of the same block. gasUsed includes the adapter and the rollup.",
+    "These quotes bind task digests, not instance keys, so the derived instance address is not a usable signing key.",
+    "MRENCLAVE pinned to the hash-chain enclave 1967faaa...; quote_bound/quote_bad come from the sample enclave and therefore fail the MRENCLAVE check."
+  ]
+}

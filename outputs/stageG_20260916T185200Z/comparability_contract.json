@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.comparability_contract.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "references": {
+    "fContract": "outputs/stageF_20260916T184017Z/comparability_contract.json",
+    "fHandoff": "outputs/stageF_20260916T184017Z/handoff.json"
+  },
+  "gate": {
+    "gMechanism": "released",
+    "releaseReason": "F-local 与其 comparability_contract 已验收（提示词：F 整体 partial 不阻塞此层）",
+    "gOfficial": "blocked",
+    "gOfficialReason": "对应 F 子组（F-TEE / F-Blob / F-full）均为 blocked，且本机缺 Go/foundry 工具链",
+    "gSource": "completed",
+    "gFeasibility": "completed",
+    "gLiterature": "completed"
+  },
+
+  "layers": {
+    "L1": {
+      "name": "同计算模型机制微基准",
+      "status": "completed",
+      "systems": ["本项目 BoundedTaskRollup", "MechanismBaseline（自建机制基线，非官方实现）"],
+      "alignment": "输入、计算步数（64）、字节、批大小（1）、并发（1）、编译器（solc 0.8.26 / viaIR / cancun）、硬件、链环境（Hardhat in-process）、故障位置全部一致",
+      "prohibition": "机制基线必须命名为 mechanism baseline，**不得**称为 Arbitrum / Optimism / TeeRollup；不得只给本方案独立 TEE/DA 保障而去掉对照必要工作后仍宣称同等安全"
+    },
+    "L2": {
+      "name": "官方实现或 artifact 复现",
+      "status": "blocked",
+      "achieved": ["BoLD 官方仓库浅克隆（未执行）", "Optimism FDG 官方合约源码下载并逐行定位（未运行）"],
+      "missing": ["Go 1.24.5 工具链", "foundry/forge", "TeeRollup 公开仓库"],
+      "rule": "仅跑单元 fixture 须标 component benchmark，不代表整条 Rollup TPS；修改官方代码须保留 patch/hash 与原因并标 modified-official"
+    },
+    "L3": {
+      "name": "文献定量表",
+      "status": "completed",
+      "rule": "全部标 literature_reported；保留原始环境/网络/任务模型/指标定义/样本量/单位/章节表号；不报字段为 null + not_reported"
+    }
+  },
+
+  "comparabilityLabels": {
+    "comparable": "同一计算模型、同一 runner、同一进程内配对测量（仅 L1）",
+    "partially_comparable": "指标相同但环境/编译器/计价不同，只能给数量级分表",
+    "not_directly_comparable": "端点语义、分母或安全假设不同，禁止生成统一百分比",
+    "modelled": "固定价格重价或 codec 计算，须明确标注，不得称为实付/实测",
+    "not_applicable": "该维度在某一方不存在"
+  },
+
+  "prohibitions": [
+    "禁止跨层（实测 / 文献 / modelled）生成统一百分比或统一排名表",
+    "禁止把不同 finality / round 单位的行自动合并",
+    "禁止把本方案『超时终止』与对方『无需接管自动继续』用单一 yes/no 排名",
+    "禁止用自定义短挑战窗口与对方生产挑战期比『快 N 倍』",
+    "A/Hardhat 只有 gas，禁止与生产美元账单直接计算领先比例"
+  ],
+
+  "statisticsRules": {
+    "clusterUnit": "independent run / batch（批内任务不是独立样本）",
+    "quantileMethod": "nearest-rank；n<20 不报 p95，n<100 不报 p99",
+    "ci": "3 个独立 run 不输出 bootstrap CI（stageF_stats.clusterBootstrapPairedDiff 返回 only_3_independent_runs）",
+    "seed": 20260917,
+    "censoring": "失败/右删失必须保留并同时报告成功率与分母（F 与 G 规则一致）",
+    "denominatorZero": "返回 null + reason，不填 0"
+  }
+}

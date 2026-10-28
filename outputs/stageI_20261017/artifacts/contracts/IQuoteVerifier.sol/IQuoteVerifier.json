@@ -1,0 +1,45 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IQuoteVerifier",
+  "sourceName": "contracts/IQuoteVerifier.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "quote",
+          "type": "bytes"
+        }
+      ],
+      "name": "verifyQuote",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "ok",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint8",
+          "name": "tcbStatus",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "mrEnclave",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "reportData",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

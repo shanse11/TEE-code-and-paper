@@ -1,0 +1,77 @@
+{
+  "id": "CE-02",
+  "title": "无效第三方证据可误罚诚实 prover",
+  "category": "R1+R3-第三方证据误罚",
+  "vulnerability": "respondChallenge / resolveChallenge 均可由任意第三方调用, 仅凭自填 resolutionBits 即可把诚实交易判为 SLASHED",
+  "reproduced": true,
+  "note": "无关第三方单独完成 respond+resolve, 仅凭自填 resolutionBits 把诚实 prover 的交易罚为 SLASHED",
+  "error": null,
+  "statusBefore": {
+    "txStatus": "PENDING",
+    "sessionStatus": "OPEN"
+  },
+  "statusAfter": {
+    "tx": {
+      "exists": true,
+      "status": "SLASHED",
+      "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "challengeDeadline": "1789122735"
+    },
+    "session": {
+      "exists": true,
+      "status": "RESOLVED",
+      "challenger": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "responder": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "operator": "0x0000000000000000000000000000000000000000",
+      "arbitrator": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+      "challengeSuccess": true,
+      "resolutionBits": "9",
+      "recoveryCount": "0",
+      "replayExecuted": false,
+      "replayPassed": false,
+      "timeoutAt": "1789122679"
+    }
+  },
+  "receipt": {
+    "status": 1,
+    "from": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "to": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+    "blockNumber": 15,
+    "gasUsed": "113291",
+    "effectiveGasPrice": "1140024864",
+    "cumulativeGasUsed": "113291",
+    "logs": 1
+  },
+  "gas": {
+    "gasUsed": "113291",
+    "effectiveGasPrice": "1140024864",
+    "gasCost": "129154556867424"
+  },
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999989961127669722338",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999999586712217717376",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999907765526709244",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999989459211263809415",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999999251131104454806",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999702184644641242",
+      "submitter": "10000000000000000000000"
+    },
+    "gasAdjustedActor": {
+      "role": "attacker",
+      "rawAfter": "9999999702184644641242",
+      "gasCost": "129154556867424",
+      "adjustedAfter": "9999999831339201508666"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

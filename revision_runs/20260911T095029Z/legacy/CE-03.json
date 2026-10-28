@@ -1,0 +1,68 @@
+{
+  "id": "CE-03",
+  "title": "replayChallenge 接受调用者自填 hash, 重执行结果完全可控",
+  "category": "R2-replayChallenge-调用者hash",
+  "vulnerability": "replayChallenge 的 expectedHash/claimedHash/lengthMismatch 直接来自调用者, 合约不做任何真实重执行校验, replayPassed 仅由调用者输入决定",
+  "reproduced": true,
+  "note": "攻击者传入任意 expectedHash==claimedHash, replayPassed 即被置为 true, 合约未对任何真实执行做校验",
+  "error": null,
+  "statusBefore": {
+    "sessionStatus": "READY_FOR_REPLAY"
+  },
+  "statusAfter": {
+    "exists": true,
+    "status": "REPLAYED",
+    "challenger": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "responder": "0x0000000000000000000000000000000000000000",
+    "operator": "0x0000000000000000000000000000000000000000",
+    "arbitrator": "0x0000000000000000000000000000000000000000",
+    "challengeSuccess": false,
+    "resolutionBits": "0",
+    "recoveryCount": "0",
+    "replayExecuted": true,
+    "replayPassed": true,
+    "timeoutAt": "1789122687"
+  },
+  "receipt": {
+    "status": 1,
+    "from": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "to": "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+    "blockNumber": 22,
+    "gasUsed": "115720",
+    "effectiveGasPrice": "1056016998",
+    "cumulativeGasUsed": "115720",
+    "logs": 1
+  },
+  "gas": {
+    "gasUsed": "115720",
+    "effectiveGasPrice": "1056016998",
+    "gasCost": "122202287008560"
+  },
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999986005898088983739",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999999251131104454806",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999702184644641242",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999985562042925757630",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999998991388062475322",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999579982357632682",
+      "submitter": "10000000000000000000000"
+    },
+    "gasAdjustedActor": {
+      "role": "attacker",
+      "rawAfter": "9999999579982357632682",
+      "gasCost": "122202287008560",
+      "adjustedAfter": "9999999702184644641242"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

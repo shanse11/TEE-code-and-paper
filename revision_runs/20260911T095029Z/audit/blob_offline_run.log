@@ -1,0 +1,18 @@
+[blob_offline] REVISION_RUN=/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z
+[blob_offline] trusted setup: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm/revision/trusted_setup.txt
+[blob_offline] KZG trusted setup loaded (real Ethereum mainnet EIP-4844 SRS).
+
+[new] tc=1 kb=1KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=1 kb=8KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=1 kb=32KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=8 kb=1KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=8 kb=8KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=8 kb=32KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=32 kb=1KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=32 kb=8KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+[new] tc=32 kb=32KiB  pos=true  tamperVsOrig=false(F)  tamperSelf=true  blobLevelTamper=false(F)  phChanged=true  decode=true  => PASS
+
+[neg] Negative-example artifacts saved to /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z/artifacts/blob_offline/NEGATIVE_EXAMPLE
+
+[summary] ALL PASS  (9 batches)
+[summary] artifacts root: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/revision_runs/20260911T095029Z/artifacts/blob_offline

@@ -1,0 +1,91 @@
+======================================================================
+模板对齐稿验证报告
+======================================================================
+原文: Hybrid_TEE_Rollup_计算机应用投稿版.docx  sha256=de3780d8ab67b26d
+对齐: Hybrid_TEE_Rollup_计算机应用模板对齐版.docx  sha256=028ddd75ccec561b
+
+[1] 结构计数（原文 -> 对齐稿）
+  段落: 167 -> 168
+  表格: 3 -> 3
+  图片: 4 -> 4
+  OMML 公式对象: 10 -> 10
+  sectPr（节数）: 1 -> 17
+
+[2] 公式对象对应（按 m:t 线性文本匹配）
+  完全一致的公式数: 10
+  结论: 公式对象集合未变，仅位置/编号归属调整（去重靠引用式号，不删对象）
+
+[3] 关键实验数字保留检查
+  801101.44: 原文 1 处 -> 对齐稿 1 处
+  29026.98: 原文 1 处 -> 对齐稿 1 处
+  50068.84: 原文 1 处 -> 对齐稿 1 处
+  200062: 原文 2 处 -> 对齐稿 2 处
+  TP311: 原文 1 处 -> 对齐稿 1 处
+  1001-9081: 原文 1 处 -> 对齐稿 1 处
+  原文中 >=3位整数两位小数的数值共 15 个，缺失 0 个
+
+[4] 标题实际生效字号 / 直接格式覆盖
+  文题: sz=36 (18.0pt) bold=是 outlineLvl=0
+  作者名: sz=24 (12.0pt) bold=否 outlineLvl=0
+  单位: sz=15 (7.5pt) bold=否 outlineLvl=0
+  摘要关键词: sz=18 (9.0pt) bold=否 outlineLvl=0
+  一级标题: sz=24 (12.0pt) bold=否 outlineLvl=0
+  二级标题: sz=18 (9.0pt) bold=否 outlineLvl=1
+  三级标题: sz=18 (9.0pt) bold=否 outlineLvl=2
+  正文: sz=18 (9.0pt) bold=否 outlineLvl=-
+  图表名称: sz=18 (9.0pt) bold=否 outlineLvl=-
+  文献列表: sz=18 (9.0pt) bold=否 outlineLvl=-
+  仍带 run 级直接 sz 覆盖的 run 数: 0 / 179
+  标题/文题无 run 级字号覆盖，继承样式字号
+
+[5] 自动编号
+  numbering.xml 存在: True
+  多级列表 abstractNumId: ['10', '20']
+  正文标题挂 numPr 的段数: 18
+  标题段共 27 个，其中 5 个挂 numPr
+  仍残留手工编号的标题: 0 []
+
+[6] 参考文献
+  文献条数: 13
+   [1] Wen Xiaoqing, Feng Quanbi, Lyu Hanzheng, et al. TeeRollup: efficient Rollup design using h
+   [2] Conway K D, So C, Yu X, et al. opML: optimistic machine learning on blockchain[PP/OL]. V2.
+   [3] Picco G, Fortugno A. Dynamic fraud proof[PP/OL]. arXiv (2025-02-14) [2026-09-12]. https://
+   [4] Al-Bassam M. LazyLedger: a distributed data availability ledger with client-side smart con
+   [5] Buterin V. An incomplete guide to Rollups[EB/OL]. (2021-01-05) [2026-09-12]. https://vital
+   [6] ETHEREUM FOUNDATION. Optimistic Rollups[EB/OL]. (2024) [2026-09-12]. https://ethereum.org/
+   [7] ARBITRUM FOUNDATION. Arbitrum Nitro technical documentation[EB/OL]. (2024) [2026-09-12]. h
+   [8] OP LABS. Optimism documentation: fault proofs and dispute games[EB/OL]. (2024) [2026-09-12
+   [9] Tas E N, Tse D, Yang L, et al. Light clients for lazy blockchains[PP/OL]. V3. arXiv (2024-
+   [10] EIGENLABS. EigenDA documentation[EB/OL]. (2024) [2026-09-12]. https://docs.eigenda.xyz/.
+   [11] CELESTIA. Celestia: modular blockchain network[EB/OL]. (2024) [2026-09-12]. https://docs.c
+   [12] INTEL CORPORATION. Intel Software Guard Extensions developer guide[EB/OL]. (2024) [2026-09
+   [13] ETHEREUM FOUNDATION. EIP-4844: shard blob transactions[EB/OL]. (2024) [2026-09-12]. https:
+  正文出现的引用序号: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  无对应文献的引用: 无
+
+[7] 模板示例内容残留检查
+  '三梦': 0 处
+  '示例': 2 处
+  'xxx': 0 处
+  'XXXX': 0 处
+
+[8] 图表与题注顺序（body 元素流）
+   35 P   style=         IMG 
+   36 P   style=图表名称         图 1  Hybrid TEE-Rollup 原型系统架构
+   37 P   style=图表名称         Fig. 1  Prototype architecture of Hybrid
+   64 P   style=         IMG 
+   65 P   style=图表名称         图 2  可恢复挑战协议流程
+   66 P   style=图表名称         Fig. 2  Workflow of the recoverable chal
+  112 P   style=         IMG 
+  113 P   style=图表名称         图 3  完整负载与紧凑提交的字节规模对比
+  114 P   style=图表名称         Fig. 3  Byte-size comparison between ful
+  118 P   style=         IMG 
+  119 P   style=图表名称         图 4  不同数据可用性配置下的摊销 gas 用量趋势
+  120 P   style=图表名称         Fig. 4  Amortized gas trends under diffe
+  129 P   style=图表名称         表 1  失败场景分类与当前证据边界
+  130 P   style=图表名称         Table 1  Failure scenarios and evidence 
+  131 TBL style=             
+  134 P   style=图表名称         表 2  本地 EVM 关键路径平均 gasUsed
+  135 P   style=图表名称         Table 2  Average gasUsed of local EVM ke
+  136 TBL style=             
+  168 TBL style=             

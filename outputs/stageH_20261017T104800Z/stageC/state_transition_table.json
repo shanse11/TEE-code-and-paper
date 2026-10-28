@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageC.state.v1",
+  "note": "从 BoundedTaskRollup.sol 实际源码整理；recover 不迁移 phase。",
+  "transitions": [
+    {
+      "state": "NONE",
+      "operation": "submit",
+      "caller": "signer==msg.sender",
+      "precondition": "taskId 未占用, steps∈[1,128], version==1, msg.value==bond",
+      "timeCondition": "-",
+      "nextState": "SUBMITTED",
+      "fundEffect": "locked+=bond",
+      "checkpointFields": "challengeDeadline"
+    },
+    {
+      "state": "SUBMITTED",
+      "operation": "openChallenge",
+      "caller": "!=submitter",
+      "precondition": "msg.value==bond",
+      "timeCondition": "ts<=challengeDeadline",
+      "nextState": "OPEN",
+      "fundEffect": "locked+=bond",
+      "checkpointFields": "absoluteDeadline, timeoutAt"
+    },
+    {
+      "state": "SUBMITTED",
+      "operation": "finalize",
+      "caller": "anyone",
+      "precondition": "-",
+      "timeCondition": "ts>challengeDeadline",
+      "nextState": "SETTLED",
+      "fundEffect": "verdict==0 ? settle : burn",
+      "checkpointFields": "verdict"
+    },
+    {
+      "state": "OPEN",
+      "operation": "respond",
+      "caller": "submitter only",
+      "precondition": "trace 长度与绑定正确",
+      "timeCondition": "_live",
+      "nextState": "RESPONDED",
+      "fundEffect": "-",
+      "checkpointFields": "firstMismatch, evidenceRoot"
+    },
+    {
+      "state": "OPEN..READY",
+      "operation": "recover",
+      "caller": "anyone",
+      "precondition": "recoveries<maxRecoveries",
+      "timeCondition": "timeoutAt<ts<absoluteDeadline",
+      "nextState": "不变(phase 不迁移)",
+      "fundEffect": "-",
+      "checkpointFields": "recoveries++, timeoutAt"
+    },
+    {
+      "state": "RESPONDED/LOCATING",
+      "operation": "advance",
+      "caller": "anyone",
+      "precondition": "left<right",
+      "timeCondition": "_live",
+      "nextState": "LOCATING 或 READY",
+      "fundEffect": "-",
+      "checkpointFields": "left,right,round"
+    },
+    {
+      "state": "READY",
+      "operation": "replay",
+      "caller": "anyone",
+      "precondition": "-",
+      "timeCondition": "_live",
+      "nextState": "VERIFIED",
+      "fundEffect": "-",
+      "checkpointFields": "verdict"
+    },
+    {
+      "state": "OPEN..(<SETTLED)",
+      "operation": "adjudicate",
+      "caller": "anyone",
+      "precondition": "-",
+      "timeCondition": "无时间门槛(兜底)",
+      "nextState": "VERIFIED→SETTLED",
+      "fundEffect": "settle",
+      "checkpointFields": "verdict"
+    },
+    {
+      "state": "VERIFIED",
+      "operation": "settle",
+      "caller": "anyone",
+      "precondition": "-",
+      "timeCondition": "-",
+      "nextState": "SETTLED",
+      "fundEffect": "claimable[winner]+=amount",
+      "checkpointFields": "-"
+    },
+    {
+      "state": "OPEN..(<SETTLED)",
+      "operation": "terminate",
+      "caller": "anyone",
+      "precondition": "-",
+      "timeCondition": "ts>timeoutAt 或 ts>=absoluteDeadline",
+      "nextState": "VERIFIED→SETTLED",
+      "fundEffect": "按计算结果 settle(非仅离线惩罚)",
+      "checkpointFields": "verdict"
+    },
+    {
+      "state": "SETTLED",
+      "operation": "withdraw",
+      "caller": "claimable 所有者",
+      "precondition": "amount>0",
+      "timeCondition": "-",
+      "nextState": "SETTLED",
+      "fundEffect": "claimable→0, 实际转账",
+      "checkpointFields": "-"
+    }
+  ]
+}

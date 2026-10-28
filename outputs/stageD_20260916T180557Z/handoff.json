@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageD.handoff.v1",
+  "stage": "D",
+  "stageName": "真实 TEE 远程证明与应用执行",
+  "status": "partial",
+  "statusReason": "D-local 已完成（后端契约、fail-closed、绑定规范编码、策略评估、负例）。D-quote / D-application / D-integrated 因本机无 SGX/TDX 硬件而 blocked——已实测 Apple M5(arm64) 无 /dev/sgx* 与 /dev/tdx* 设备节点。按提示词，D-completed 要求 D-application 与 D-integrated 证据齐全，故不记为完成，也不以 Mock/离线结果冒充真实 TEE 实测。",
+
+  "parent": {
+    "parentRunId": "stageC-freeze-20260916T174457Z",
+    "parentManifestPath": "outputs/stageC_20260916T174457Z/stageC_freeze/manifest/run_manifest.json",
+    "parentSourceTreeSha256": "ead8b96a915afa53ca94e3bb99208d6621b970be8d261033540c3ad6b227a298",
+    "parentConfigSha256": "044f0feabdfea2f4cf47f8bd29931aee2724b7a17b223796c3617841f764befc"
+  },
+
+  "thisRun": {
+    "runId": "stageD-freeze-20260916T180557Z",
+    "manifestPath": "outputs/stageD_20260916T180557Z/stageD_freeze/manifest/run_manifest.json",
+    "hardhatRunDir": "outputs/stageD_20260916T180557Z/hardhat_run",
+    "sourceTreeSha256": "e8467bd4c35cfec9491dc57460f869167c660e54d99d3de9a63d95d01b105cfe",
+    "configSha256": "1eb42cf0a8d4bf640398559186da56a2a6be1d3274f4dbe228db473f6e1b0616",
+    "gitHead": "615bb3e9f1ae3b88b87f488decc61854cd555e16",
+    "gitBranch": "main",
+    "gitDirty": true
+  },
+
+  "platformProbe": {
+    "arch": "arm64",
+    "platform": "darwin",
+    "cpu": "Apple M5",
+    "sgxDeviceNodes": "无（/dev/sgx_enclave、/dev/sgx_provision、/dev/sgx/enclave、/dev/sgx/provision 均不存在）",
+    "tdxDeviceNodes": "无（/dev/tdx_guest、/dev/tdx-guest 均不存在）",
+    "conclusion": "本机无法生成真实 Quote；D-quote 及以上等级 blocked"
+  },
+
+  "newFiles": [
+    { "path": "evm/revision/tee_attestation.js", "purpose": "D1/D2：统一后端契约(real/simulated 隔离、fail-closed)、reportData 与任务绑定规范编码、DCAP 策略评估" },
+    { "path": "evm/revision/stageD_attestation.test.js", "purpose": "D-local 测试与 D01–D12 状态登记，产出 case_matrix" },
+    { "path": "outputs/stageD_20260916T180557Z/REMOTE_QUOTE_RUNBOOK.md", "purpose": "远端真实 Quote 采集运行手册（流程框架 + 需核对的官方来源，未杜撰命令）" },
+    { "path": "outputs/stageD_20260916T180557Z/handoff.json", "purpose": "本阶段交接契约" },
+    { "path": "outputs/stageD_20260916T180557Z/report_zh.md", "purpose": "本阶段中文报告" },
+    { "path": "outputs/stageD_20260916T180557Z/commands.txt", "purpose": "实际验证过的复现命令" }
+  ],
+
+  "contractChanges": [],
+  "contractChangesNote": "本阶段未修改任何合约。",
+
+  "levelStatus": {
+    "D-local": "completed",
+    "D-quote": "blocked",
+    "D-application": "blocked",
+    "D-integrated": "blocked"
+  },
+
+  "caseStatusSummary": {
+    "total": 12,
+    "verified": 5,
+    "partial": 1,
+    "blocked": 6,
+    "fixtureCases": 4,
+    "fixtureNote": "fixture=true 的 case 用构造输入测策略分支，不含真实 Quote，不计入真实平台成功样本。"
+  },
+
+  "caseResults": {
+    "D01": { "status": "blocked", "level": "D-quote", "note": "真实硬件 Quote：无设备，real 后端创建 fail-closed，强制创建后 getQuote 返回 blocked 而非伪造" },
+    "D02": { "status": "verified", "fixture": true, "note": "nonce/reportData 不一致 -> INVALID（缺少新鲜性）" },
+    "D03": { "status": "verified", "fixture": true, "note": "签名有效但 measurement 不在策略 -> INVALID，明确是策略拒绝而非密码学损坏" },
+    "D04": { "status": "verified", "fixture": true, "note": "Revoked / OutOfDate(严格与宽松) / ConfigurationNeeded / collateral expired / TCB 缺失 分别归类；不把非致命码一律当 pass" },
+    "D05": { "status": "verified", "note": "绑定摘要对 chainId/verifyingContract/taskId/nonce/epoch/appDigest/承诺 均敏感；缺字段 fail-closed（纯规范编码，不需硬件，真实可执行）" },
+    "D06": { "status": "verified", "note": "模拟后端 realQuote=false；realQuote≠true 一律 blocked；backendId 不被偷换" },
+    "D07": { "status": "blocked", "level": "D-integrated", "note": "需真实受保护执行环境；链上 taskId 唯一性已由 C10 覆盖" },
+    "D08": { "status": "blocked", "level": "D-integrated", "note": "本机无 SGX/TDX 快照能力；仅能证明协议层抗重放（同 C15）" },
+    "D09": { "status": "blocked", "level": "D-application", "note": "需真实撤销与在途处理；泄钥期正确性依赖密钥未泄露假设" },
+    "D10": { "status": "blocked", "level": "D-application", "note": "需真实受保护执行与原生对照；本机无硬件" },
+    "D11": { "status": "partial", "fixture": true, "note": "编码层已验证 appDigest 变化会改变 reportData 摘要；但 evaluatePolicy 未实现 allowedAppDigests 强制——已知缺口，如实记为 partial" },
+    "D12": { "status": "blocked", "level": "D-integrated", "note": "需真实 Quote+密钥+签名与 B/C 同一 task 关联" }
+  },
+
+  "implementedCapabilities": {
+    "backendContract": "AttestationProvider/Verifier 契约：backendId 区分 simulated-hmac / sgx-dcap-real / tdx-dcap-real；real 与 simulated 分离入口与证据类别",
+    "failClosed": "real 后端无设备时抛 DEVICE_UNAVAILABLE；强制创建后 getQuote 抛 NOT_IMPLEMENTED_LOCAL，绝不回退模拟、绝不伪造 Quote",
+    "bindingEncoding": "buildReportDataDigest(execPubkey, domain, nonce, epoch, appDigest) 与 buildTaskBindingDigest(chainId, verifyingContract, taskId, nonce, input/output/trace 承诺, programVersion, daRef)，均用 canonical JSON + sha256，32 字节摘要",
+    "policyEvaluation": "evaluatePolicy 显式区分 OK / invalid / revoked / out-of-date / configuration-needed / unknown / blocked；realQuote≠true 一律 blocked；measurement 不匹配与签名损坏分开归类"
+  },
+
+  "knownGaps": [
+    {
+      "gap": "应用身份未在策略层强制",
+      "detail": "evaluatePolicy 目前不校验 allowedAppDigests；TDX 平台度量不能自动证明可变客户机里任意程序身份，需不可变镜像/可核验启动测量/可信加载策略",
+      "status": "partial（D11）"
+    },
+    {
+      "gap": "真实 Quote 采集与独立验证未执行",
+      "detail": "需具备 SGX/TDX 的平台 + 官方 DCAP/QVL 与 PCCS/Intel PCS 访问；本机不具备",
+      "status": "blocked"
+    },
+    {
+      "gap": "链上验证桥未实现",
+      "detail": "若采用『独立验证者验证后由认证服务签名证书，合约只验证书』的信任桥，需明确信任假设并取得用户确认；本阶段未实现，也未临时发明通用 ZK 系统",
+      "status": "blocked（需用户决策）"
+    }
+  ],
+
+  "resourcesNeededFromUser": {
+    "hardware": [
+      "一台具备 Intel SGX（支持 DCAP/远程证明）或 Intel TDX 的 Linux 机器，或已授权的远端实例",
+      "对应设备节点可见（如 /dev/sgx_enclave 与 /dev/sgx_provision，或 /dev/tdx_guest）"
+    ],
+    "software": [
+      "Intel SGX DCAP / TDX 官方 SDK 与 Quote 生成工具（版本需按官方文档核对）",
+      "Quote Verification Library(QVL) 或等价官方验证库",
+      "PCCS 缓存服务，或可访问 Intel PCS 的网络出口"
+    ],
+    "minimalAuthorization": [
+      "在该机器上执行官方 quote 生成工具与验证库的权限",
+      "运行本地 PCCS 或访问 Intel PCS 的网络权限（仅取公开 collateral，不涉及任何私钥/token 入库）"
+    ],
+    "explicitlyNotRequested": [
+      "不新建任何计费云实例（如需新建，将先列出资源、预算与数据范围并取得明确批准）",
+      "不需要、也不接受任何私钥、助记词、RPC token 进入实验包"
+    ]
+  },
+
+  "nextStageConditions": {
+    "E": {
+      "ready": false,
+      "reason": "需要公网 RPC / 测试币 / 广播授权。当前 Blob 仍为 offline-only；但 E-local（离线编码/KZG/绑定）可在无授权下先行，且不依赖 D 真实硬件。"
+    },
+    "F": {
+      "ready": true,
+      "note": "F-local 不依赖 D/E 真实资源，可先行；F-TEE 必须等待 D-application 验收，当前 blocked。"
+    },
+    "G": { "ready": true, "note": "G-source / G-mechanism 不依赖 D 真实硬件。" }
+  }
+}

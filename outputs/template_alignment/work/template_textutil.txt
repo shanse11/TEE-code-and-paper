@@ -1,0 +1,438 @@
+	doi:10.11772/j.issn.1001-9081.yyyymmnnnn
+文  题
+第1作者1,2，第2作者1*，第3作者2
+(1.一级单位全称 二级单位全称，省 城市(或直辖市，省会城市可不写省) 邮编；
+2.一级单位全称 二级单位全称，省 城市(或直辖市，省会城市可不写省) 邮编)
+(*通信作者电子邮箱**********@*****)
+摘要用于提示研究对象、目的、课题的基本观点、成果及意义，要求简明精当、忠于原文、突出特色，摘要应具有独立性，即不阅读论文全文，便能获得文中必要的信息。摘要中不要过多介绍项目背景等，直接写明目的、方法、结果与结论，对所提的方法、算法等要有简要的介绍，不能过于简单而反映不出文章内容，也不要与引言或是结语重复；要有能反映文章实验分析的结果描述以及由该结果而得出的结论，但不对文章内容作自我评价。中文摘要中不出现文献、公式、特殊字母等以方便数据库收录检索。通俗点说，就是目前研究中具体有哪些不足与欠缺，产生这些不足的主要原因是什么，基于何种考虑提出了文章的算法，该算法的原理、思路如何，概述具体包括哪些内容、步骤、技术重点与要点等，作了哪些理论或实验分析，实验得到了哪些定性及定量的分析结果，或是在何种实验条件下，具体对哪些指标、参数进行了分析，取得了怎样的结果，并从文章实验部分提炼出具体的数据加以说明，根据这些结果可以得出什么样的具体结论，即有哪些性能或指标上的提升、有什么样的优势与特点，尽量不要用“有效、性能更优”作笼统性概括。摘要不得少于250字， HYPERLINK  \l "附录1（摘要示例）：" 附录1为几个摘要示例以供参考。
+摘要的构成要素（摘录自GB/T6447—2025）
+1、目的：提供研究、研制、调查等的前提、目的和任务,所涉及的主题范围等信息。
+2、方法：提供所用的原理、理论、条件、对象、材料、工艺、结构、手段、装备、程序等信息。
+3、结果：提供实验或试验的、研究的结果,获取的数据,被确定的关系,观察的结果,得到的效果、性能参数等信息。
+4、结论：提供结果的分析、研究、比较、评价、应用,对目的进行回应,提出问题、今后的课题、假设、启发、建议、预测、展望等信息。
+5个中文关键词，用“；”间隔  (关键词是为了文献标引和检索的需要而从论文中选取的词或词组，一般从题名、摘要、正文中抽出若干个能表达全文内容主题的单词或术语，对论文的研究范围、方向、主要观点、内容作出标志，其作用主要是为文献检索提供方便。要求是与文章相关的专业领域术语，作者自己在文章提出的算法名等一般不列为关键词。)
+必须填写中图分类号【查询网址可参考https://www.clcindex.com/category/TP18/】　　文献标志码: A
+Title
+NAME Name1,2, NAME Name1*, NAME Name2
+(1.College of ****, University, City Province Zip Code, China;
+2.College of ****, University, City Province Zip Code, China)
+与中文的内容一致，中英文摘要不应有较大偏差或完全不相符，也不要因为拘泥于中英文内容一致而写成中式英语，导致缺少主语或语法有严重错误。注意时态，作者的工作等用过去时，最后的结论用现在时；具体可参考https://www.joca.cn/CN/column/column18.shtml。
+keyword; keyword; keyword; keyword; keyword (除TCP，IP等行业通用的专有名词外，均为小写形式，以分号（; ）相隔，有缩略语形式的词必须写明全称，如：Peer-to-Peer (P2P); Wireless Sensor Network (WSN)，不要使用复数形式)
+
+引言
+具体要求请参考以下网址：
+https://www.joca.cn/CN/column/column15.shtml
+有“引言”须从0开始编号，无“引言”从1开始编号。引言一般简略介绍一些问题的背景、相关的工作、问题和解决思路、本文的工作等，较长的引言也请注意分段。注意与“相关研究”的区别。
+一级标题
+正文内容
+注意：本文档中将相关标题使用样式重命名为“一、二、三级标题”，并使用了多级列表格式，请直接使用，这样各章节会自动编制序号；正文使用“正文内容”样式。样式对字体、字号、行距都有设定，所以请只选用模板中自定义的样式，而不是自定义字体与字号。Word排版会自动调整字符间距，所以请不要手动增加任何不必要的空格和空行。图、表的名称从现在开始要求提供其相应的英文名称。 HYPERLINK  \l "其他格式修改要求详细说明：" 正文中其他内容的格式要求可参考后面的说明。
+一级标题
+正文内容
+二级标题
+正文内容
+二级标题
+正文内容
+二级标题
+三级标题
+三级标题
+一级标题
+一级标题
+结语
+结语是对论文研究内容的总结，不要与实验的结果及分析混淆，也不与摘要、引言过于重复雷同。结语中一般指出本文解决的理论和实际问题，所得到的研究结果和规律性的结论；指出本文研究有无局限和不足，以及暂时难以解决的问题；并指出进一步的研究方向，以便他人在此基础上作进一步的研究工作。
+参考文献   
+请使用模板的“文献列表”样式，自动编号，具体要求请见HYPERLINK  \l "附录2（参考文献格式国标要求）："附录2的最新国标示例说明。
+★基金、作者简介的英文(格式如样例)。
+1. 作者信息的英文译文仅需包括姓名、出生年、职称、学历和主要研究方向。注意作者的数目和顺序中英文应保持一致。2. 基金项目的英文译文请尽量用全称，并核实其正确拼写方式。
+样例如下：
+国家863计划项目(12345678)；国家973计划项目(87654321)；国家自然科学基金资助项目(22345678，23456789)；中央高校基本科研业务费专项资金(20150906)。
+张珊珊(1967-)，女，广东广州人，教授，博士，CCF会员，主要研究方向：粗糙集、区间集、智能信息处理、Web智能、数据挖掘；李四(1990-)，男，湖南长沙人，硕士研究生，主要研究方向：粗糙集、粒计算、机器学习、数据挖掘、知识技术、认知计算；……
+
+This work is partially supported by the National High Technology Research and Development Program (863 Program) of China (12345678), the National Basic Research Program (973 Program) of China (87654321), the National Natural Science Foundation of China (22345678, 23456789), the Fundamental Research Funds for the Central University (20150906).
+
+ZHANG Shanshan, born in 1967, Ph. D., professor. Her research interests include rough set, interval set, intelligent information processing, Web intelligence, data mining.
+LI Si, born in 1990, M. S. candidate. His research interests include rough set, granular computing, machine learning, data mining, knowledge technology, cognitive computing. 
+……
+
+★模板使用说明：
+因为本文档设置了页边距等，方便所投稿件样式统一，以便后续处理，所以请直接将您的稿件内容粘贴到本文档中调整，并按要求使用相应的“一、二、三级标题，文题，单位，作者名，正文”等样式即可，该样式即规定了其字体字号。新投稿不要有修订痕迹。简单地讲，就是把文章复制到本模板，用作者文章内容替换本模板内容。本文档使用的均是常用的Word格式，如有不清楚的可以上网查阅相关资料了解。
+本文档有大量的“批注”及说明，主要是方便您理解格式要求。按模板调整完成后注意只保留作者文章的内容，相关的说明示例、批注等请作删除。
+★【必须填写】依次写明所有作者在本文中的工作量：
+第一作者：姓名，主要工作……
+……
+最后一位作者：姓名，主要工作……
+★如果是退修的稿件，请附上详细的修改说明:
+原退修意见1：
+作者修改所在章节：
+修改理由：
+……
+★本文矩阵、矢量/向量等变量符号说明（投稿时须附上相应内容）：
+矩阵、矢量也是变量，正文用Times New Rome字体斜体加粗表示，其他变量用常规斜体即可，公式编辑器设置见图中示例；没有矩阵、矢量变量的填写“无”。需要注意：尽量不要使用同一字母的普通斜体及加粗斜体来表示不同变量，非常容易混淆；更不能错误地使用同一变量字母来表示不同含义的变量。
+变量符号
+含义
+备注
+A
+说明其在本文中表示的含义
+矩阵
+B
+说明其在本文中表示的含义
+矢量
+
+
+★研究背景、基金项目介绍（投稿时须附上相应内容）：
+【请提供与本文内容直接相关的工作背景、本文基金项目等的简要说明与介绍，不是指整个行业的研究背景，而是介绍作者写作本文内容涉及的具体应用技术背景等，所有基金依次填写以下表格内容】
+第一项基金项目（多个基金依次在后面列出）
+项目种类
+必填
+项目编号
+必填
+项目名称
+必填
+项目主持人
+必填
+项目起止时间
+必填
+项目主要研究内容
+必填
+本文内容与项目研究的关系
+必填
+各作者在项目中承担的工作内容
+文章中作者署名排序
+姓名
+在项目承担人中的排名
+在项目中承担的工作内容
+第1作者
+必填
+如3（必填）
+必填
+第2作者
+必填
+
+必填
+第3作者
+必填
+
+必填
+第4作者
+必填
+
+必填
+第5作者
+必填
+
+必填
+
+★文后参考文献说明:
+从2014年第1期起我刊正刊将同时列出中文参考文献的英文，注意这些英文内容都应该是由原文献提供的，如无提供，请注意正确翻译；且所有文献必须要有引用内容所在页码；注意引用国内外相关领域较新、质量较高的文献；参考文献按在正文中出现的先后次序列于文后，文章中对文献引用一般在相应位置以上标或直接写明文献序号的形式表示，如：“文献[1]提出了……，……。其中XX算法[2]和YY算法[3]的效果较为理想。”
+国家标准对参考文献的详细格式要求及说明见 HYPERLINK  \l "附录2（参考文献格式国标要求）：" 附录2。
+★作者简介要素说明：
+基金项目：如国家自然科学基金资助项目（******）；国家863计划项目（*****）；广东省自然科学基金资助项目（*****）。
+第1作者(出生年-)，性别，籍贯，职称，学历，是否CCF会员，主要研究方向：*****、*****；其他作者需全部依次列出。
+本文有任何疑问请联系作者：      ，手机号是：     ，邮箱是         。
+★其他格式修改要求详细说明：
+★定理、定义、引理、性质、推论、公式、图片、表格分别按全文的自然顺序编号。如： 
+定理1，定理2……
+定义1，定义2……
+结论1，结论2……
+图1，图2，……所有图必须要有图题，图中的子图(a)(b)……等也必须标注图题。除彩色图像处理外，不使用彩色区分（目前是黑白印刷）；文章中所有插图请用矢量图格式，即能够编辑图中的文字与线条(.emf,.wmf)。图请随文，不要将图或图序、图题放到文本框、表格中，图形格式采用“嵌入型”。
+图片通过任何方式都不能转成矢量图，即最初导出结果图时就应该选择矢量图的格式。矢量图中的文字应该保持为可编辑文本，如果转为曲线就无法处理了。
+Matlab等软件可以导出.emf或.wmf格式矢量图，部分软件能导出.svg格式矢量图，有时这些格式仍可能有无法使用的情况，所以软件如可导出多种矢量图格式时，请同时提供，方便后期处理。
+普通流程图请使用简单框架图，不要加底色、灰度或阴影等效果；实验结果的曲线图、柱状图可保持彩色，但请理解期刊目前只有黑白印刷；曲线多的时候尽量都用实线，不要使用三维图，方便后期调整。
+Word制作的图提供Word文档，Visio或PPT制作的则提供相应的Visio与PPT文档（不要把Visio、PPT图插入Word）。
+Excel图表需提供相应的excel数据表格并在表格中生成相应的图，注意图表中的所有线条只能用0.25磅。
+图像处理等的结果图则用清晰的屏幕拷贝图。
+
+
+三种网络的消息交付率比较
+Comparison of message delivery rates of three network
+
+表1，表2，……所有表格必须要有表题，项目栏必须写明该栏的名称，即要能反映表身中该栏信息的特征或属性；表格必须由Word自带表格工具编辑，不绘制成图；按三线表的样式来排，但在word文档中为使项目更清晰，请显示所有的表格框线。举例如表1、表2所示。
+实验中使用的UCI数据集
+UCI dataset used in the experiment
+数据集名称
+类数
+实例数
+维数
+bupa
+2
+345
+6
+seeds
+3
+210
+7
+ecoli8
+8
+336
+7
+yeast
+10
+1484
+8
+vehicle
+4
+846
+18
+glass
+7
+214
+39
+
+各分类算法的单样本识别率与网络训练时间对比
+Comparison of single-sample recognition rate and network training time for each classification algorithm
+算法
+不同人数测试的识别率/%
+网络训练时间/s
+10100300466ELM9046.6741.9637.9918.96PNN10093.0086.6578.0730.24FA10093.3391.2987.1524.88
+注意：图、表中的字号不小于小5号，打印后要能清晰阅读，图、表过大时使用通栏排版，不要压缩字号或图本身，或是排版太过紧密影响阅读。
+
+所有公式只能使用公式编辑器编辑，不能处理成图片。
+
+公式示例：
+ EMBED Equation.DSMT4  	(1)
+ EMBED Equation.DSMT4  	(2)
+ EMBED Equation.DSMT4   	(3)
+★常见错别字(括号中为错别字)：
+阈值(阀值、域值)	作为(做为)
+图像(图象)	像素(象素)
+蒙特卡罗(模特卡罗)   	欧几里得(欧几里德)	
+噪声(噪音)	拓扑(拓朴)
+几率(机率)   	密钥(秘钥)
+影像(影象)	当作(当做)
+称作(称做)	叫作(叫做)
+模板(模版)	折中(折衷)
+尽可能(近可能)       	登录(登陆)
+迭代(叠代)           	其他(其它)
+账号(帐号) 	傅里叶(傅立叶)
+连接(连结)	联结(联接)
+欧氏距离(欧式距离)
+邻域、邻近(领域、临域、临近)	
+注意区别“的、地、得”的使用。
+★以下词在文章中一般选用前者：
+实验(试验)			反映(反应，指化学反应等)	
+考察(考查)			节点(结点)
+一些规范的单位表示：
+Mb/s, Kb/s, MB/s, KB/s，使用时请严格区别比特b与字节B；注意k(×103)、K(×1024)、M(×106)、G(×109)不是单位，不能单独使用，也不能用3k表示3000。
+长度单位：m, km, 
+时间：s, min, h, a(年)
+★部分常见出版社所在城市举例如下，可参考：
+New York: ACM,
+Boston: Addison-Wesley Professional,
+Washington, DC: AMIA Publications,
+Arlington: AUAI Press,
+Berlin: Springer, 或 Cham: Springer （以网站提供为准）
+Nottingham, UK: BMVA Press,
+Cambridge, UK: Cambridge University Press,
+Cambridge, MA: MIT Press,
+Boca Raton, FL: CRC Press,
+London: dblp Computer Science Bibliography, 
+San Jose, CA: EDA Consortium,
+New York: Elsevier Science Inc.,
+Singapore: IACSIT Press,
+New York: IEEE Communications Society,
+Washington, DC: IEEE Computer Society,
+Piscataway, NJ: IEEE,
+Amsterdam: IOS Press,
+Hoboken, NJ: John Wiley & Sons,
+Hingham, MA: Kluwer Academic Publishers,
+New York: McGraw-Hill Higher Education, 
+San Francisco, CA: Morgan Kaufmann Publishers Inc.,
+New York: Oxford University Press,
+Upper Saddle River, NJ: Prentice-Hall,
+Princeton, NJ: Princeton University Press,
+London: Routledge,
+Philadelphia, PA: SIAM,
+Bellingham, WA: SPIE,
+Berkeley, CA: USENIX Association,
+River Edge, NJ: World Scientific Publishing Co., Inc.,
+★缩略语规范表示示例：
+★全文缩略语规范表示示例,必须全文检查修改：
+
+在中文摘要中：支持向量机(SVM)
+在英文摘要中：Support Vector Machine (SVM)
+在正文中第一次出现：支持向量机(Support Vector Machine, SVM)，后面再次提及时可直接用缩写，注意表示上尽量一致
+
+全文检查修改，如无常用中文名称则只补充英文全称；两者都没有则说明一下。
+★百分比与百分点
+在中英文摘要、图形与表格以及实验结果分析中，关于百分比和百分点的表达，存在以下认识误区，需要作者注意：
+
+A算法的成功率为50%，B算法的成功率为75%。那么在表述时，需要注意。
+a)用百分点来表达。可用“与A算法相比，B算法的成功率提升了25个百分点”来表示，即计算公式为75%-50%=25%，在表述时，应该是表述为提升了25个百分点。
+b)用百分比来表达。可用“与A算法相比，B算法的成功率提升了50%”来表示，即计算公式为(75%-50%)/50%=25%/50%=50%，在表述时，应该是表述为提升了50%。
+
+★附录1(摘要示例)：
+针对上行链路多基站协作通信系统中联合处理功耗过高的问题，提出了一种基于小区间干扰抑制的上行多基站协作能效算法(ICIR-UMBCEEA)。首先，通过解码参考信号(DMRS)序列得到等效噪声和协作多点(CoMP)估计信道，推导出CoMP信道的干扰抑制合并(IRC)滤波矩阵；其次，建立等效干扰模型，利用IRC滤波矩阵得到了小区间平均干扰；最后，计算出各小区用户对非CoMP集合小区的干扰程度，针对强干扰用户作出联合处理。理论分析和链路仿真表明，与上行协作多基站最优注水功率控制算法(UMBCA-OWFC)相比，ICIR-UMBCEEA的用户归一化平均干扰在中心用户和边缘用户处的下降幅度分别为19.2%和24.5%；而ICIR-UMBCEEA的能量利用效率在中心用户和边缘用户处分别提高了25.48%和18.03%；ICIR-UMBCEEA所消耗的能量更小，其中心用户的吞吐量更高，而边缘用户的吞吐量则与UMBCA-OWFC相差不大。实验结果表明，ICIR-UMBCEEA在实际工程中能够有效提高系统的能量效率。
+Since the energy consumption of joint processing in uplink multi-base cooperative communication system is excessively high, an Inter-Cell Interference Rejection based Uplink Multi-Base Cooperative Energy Efficiency Algorithm (ICIR-UMBCEEA) was proposed. Firstly, equivalent noise and Coordinated Multi-Point (CoMP) estimated channel were gotten by DeModulation Reference Signal (DMRS) sequence, and the Interference Rejecting Combining (IRC) filtering matrix of CoMP channel was deduced; Secondly, an equivalent interference model was established and the average inter-cell interference was obtained by using IRC filtering matrix; Finally, interference level of user in each cell to non-CoMP set was calculated, and a joint processing against strong interference users was made. In the comparison experiments with Uplink Multi-Base Cooperative Algorithm of Optimal Water Filling Control (UMBCA-OWFC), the normalized average interference of ICIR-UMBCEEA decreased by 19.2% in center users and 24.5% in edge users, and the energy efficiency of it increased by 25.48% in center users and 18.03% in edge users; ICIR-UMBCEEA had less energy consumption, and had higher throughput in center users and not much difference in edge users. The theoretical analysis and simulation results show that ICIR-UMBCEEA can effectively improve the energy efficiency of communication system in engineering.
+
+为解决基于帕累托(Pareto)支配解排序的多目标进化算法高时间复杂度问题，依据非支配解排序潜在特性，介绍了一种快速的非支配解排序方法，每次只处理当前种群中最高等级个体，且在分配等级的同时，能选择个体进入下一代，下一代被选足时即结束程序，减少了排序处理个体的数量，大幅度降低时间复杂度；另外，给出一种均匀的拥挤距离计算方法；最后，将快速非支配解排序和均匀拥挤距离计算与微分进化算法结合，提出基于非支配解排序的快速多目标微分进化算法(FMODE)。采用标准多目标优化问题ZDTl～ZDT4和ZDT6进行仿真实验：当种群个体较多(大于500)时，FMODE所用时间远小于NSGAⅡ；FMODE的总体性能上均优于经典的NSGAⅡ、SPEAⅡ和DEMO；在FMODE框架内，采用均匀拥挤距离在性能上也明显优于经典拥挤计算方法；并通过实验确定了FMODE算法的参数。实验结果表明FMODE能够减少计算等级时的处理时间，并在收敛性和多样性指标上明显优于对比算法。
+Concerning the high time-complexity of multi-objective evolutionary algorithm based on Pareto dominated solution sorting, considering the potential features of non-dominated solution sorting, a fast sorting method which only handles individuals with the highest rank in current population was introduced. The individuals could be chosen into the next generation during the sorting. The algorithm was terminated when the population of next generation was selected enough, which reduced the number of individuals for sorting process and the time complexity. In addition, a method of uniform crowding distance calculation was given. Finally, a Fast Multi-Objective Differential Evolution (FMODE) algorithm was proposed which incorporated the introduced sorting method and uniform crowding distance into Differential Evolution (DE). Simulation experiments were conducted on the standard multi-objective optimization problems including ZDTl~ZDT4 and ZDT6. The time consumption of FMODE was far less than NSGAⅡ in large size of population, and its overall performance was much better than the classic NSGAⅡ, SPEAⅡ and DEMO. Moreover, the uniform crowding distance method provided better performance than classic crowding distance in framework of FMODE. The parameters of FMODE were also obtained by experiments. The simulation results show that the proposed algorithm has lower time complexity of calculating level, and better performance in convergence and diversity.★附录2(参考文献格式国标要求)：
+以下要点及参考文献类型示例参考最新国标GB/T 7714—2025《信息与文献 参考文献著录规则》。
+一、核心变化
+1.文献类型新增和更改：类型新增“预印本”(PP)、“数据集”(DS)等，“EB”代表的类型更改为“网站、网页”。
+2.作者姓名：用汉语拼音著录个人责任者，姓应全部著录，首字母应大写，名宜用全称；用西文著录个人责任者，姓应全部著录，首字母应大写，名可缩写为首字母，如用首字母无法识别该人名时，可著录全名。
+示例1： Li Jiangning
+示例2： Einstein A
+示例3： Williams-Ellis A
+示例4： De Morgan A
+示例5： Godard J-L
+示例6： Peebles P Z Jr.
+
+二、我刊正刊的非英文文献，先列原文种后附英文（示例源自标准P32）【增刊录用稿件的非英文文献不附相应英文】
+[1] 王利平,王福新,刘洪.过冷大水滴环境粒径分布模拟方法研究进展[J]. 航空学报,2024 , 45(增刊1):730570.（Wang Liping, Wang Fuxin, Liu Hong. Research progress on simulation methods of drop diameter distribution in supercooled large drop icing conditions[J]. Acta Aeronautica et Astronautica Sinica, 2024, 45(Sl): 730570.）
+
+三、文献类型及标准示例（源自标准附录B）
+1.图书（标识M）【版本为第2版及以上须注明】
+[1] 张伯伟.全唐五代诗格汇考[M].南京：江苏古籍出版社,2002: 288.
+[2] 扬奎斯特,萨金特.递归宏观经济理论[M].杨斌,王忠玉,陈彦斌,等,译. 2版.北京：中国人民大学出版社,2010: 798.
+[3] Peebles P Z Jr. Probability, random variables, and random signal principles [M]. 4th ed. New York: McGraw-Hill, 2001.
+2.图书中的析出文献（标识M）【版本为第2版及以上须注明】
+[1] 程根伟. 1998年长江洪水的成因与减灾对策[M]//许厚泽,赵其国.长江流域洪涝灾害与科技对策.北京：科学出版社,1999: 32-36.
+[2] 马克思.政治经济学批判[M]//马克思,恩格斯.马克思恩格斯全集：第35卷. 2版.北京：人民出版社,2013: 302.
+[3] Weinstein L, Swartz M N. Pathogenic properties of invading microorganisms [M]// Sodeman W A Jr, Sodeman W A. Pathologic physiology: mechanisms of disease. 5th ed. Philadelphia: Saunders, 1974: 457-472.
+3.连续出版物中的析出文献（标识J）【[J/OL]的年卷期、版次标识与页码等有则必备（没有则忽略）】
+[1] 于潇,刘义,柴跃廷,等.互联网药品可信交易环境中主体资质审核备案模式[J].清华大学学报(自然科学版), 2012, 52(11): 1518-1523.
+[2] Myburg A A, Grattapaglia D, Tuskan G A, et al. The genome of Eucalyptus grandis [J/OL]. Nature, 2014, 510: 356-362. https://www.nature.com/articles/nature13308.pdf. DOI:10.1038/nature13308.
+[3] 张群,程志宝,石志飞.惯性增强动力吸振器－浮置板轨道低频减振性能研究[J/OL]. 铁道学报, 2024-05-09. http://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html.【知网首发文章需注明首发日期】
+4.会议录（标识C）
+[1] 李妍,王莹.医疗机构保洁人员“一前五后”手卫生干预效果研究[C]//中华预防医学会医院感染控制分会第31次全国医院感染学术年会,2022: 2.
+[2] 牛志明,Swingland I R,雷光春.综合湿地管理：综合湿地管理国际研讨会论文集[C].北京：海洋出版社,2012.
+[3] Yu Yang, Pan Erting, Wang Xinya, et al. Unmixing before fusion: a generalized paradigm for multi-source-based hyperspectral image synthesis [C/OL]// CVPR, 2024: 4. https://openaccess.thecvf.com/content/CVPR2024/html/ Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html.
+5.学位论文（标识D）
+[1] 王琦.融合星载GNSS-R和SAR数据的高时空分辨率土壤湿度反演方法研究[D].武汉：武汉大学,2022: 87.
+[2] 金燕萍.社交媒体时代的虚假信息研究[D/OL].温州：温州大学,2020: 16. https://d.wanfangdata.com.cn/thesis/D02216281.
+[3] Cairns B R. Infrared spectroscopic studies of solid oxygen [D]. Berkeley: University of California, Berkeley, 1965: 15.
+6.报告（标识R）
+[1] 中国互联网络信息中心.第29次中国互联网络发展状况统计报告[R/OL]. 2012-01-16. https://www.cnnic.net.cn/NMediaFile/old_attach/P020120612484958777344.pdf.
+[2] 中国信息通信研究院,中国电信股份有限公司研究院,中国移动通信研究院,等.电信业发展白皮书: 2023:新时代高质量发展探索[R/OL]. 2023-12-28. http://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326615399026294.pdf.
+[3] Calkin D E, Ager A A, Thompson M P, et al. A comparative risk assessment framework for wildland fire management: the 2010 cohesive strategy science report: RMRS-GTR-262 [R/OL]. 2011: 8-9. https://www.fs.usda.gov/rm/pubs/rmrs_gtr262.pdf.
+7.标准（标识S）
+[1] GB/T 3792-2021信息与文献资源描述[S].
+[2] NB/T 10386-2020水电工程水温实时监测系统技术规范[S].
+[3] ISO 21378: 2019 Audit data collection [S].
+8.专利（标识P）【须注明公告（公开）日期】
+[1] 邓一刚.全智能节电器: CN200610171314.3 [P]. 2008-01-16: 8-9.
+[2] 李华,王昊,康佐.一种拼接式桥梁模型: CN202222658126.0 [P/OL]. 2023-01-03. https://patentscope2.wipo.int/search/en/detail.jsf?docId=CN390029302&_cid=JPL-MAYLIPS-04922-1.
+[3] Trisco leap Pty Ltd. Storage and delivery system: AU2022228203A [P/OL]. 2022-10-06. https://worldwide.espacenet.com/patent/search/family/061561249/publication/AU2022228203A1?q=AU2022228203A.
+9.网站/网页（标识EB/OL）【[EB/OL]的创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）】
+[1] 中国国家博物馆[EB/OL]. [2025-05-06]. https://www.chnmuseum.cn/.
+[2] 高等教育文献保障系统.馆际互借与文献传递服务[EB/OL]. [2025-06-21]. http://home.calis.edu.cn/pages/list.html?id=410le184-7f64-4798-a5e1-8e37aa6994fc.
+[3] 许振超：“好好干,当一个好工人”[EB/OL]. (2025-02-17) [2025-06-22]. http://cpc.people.com.cn/n1/2025/0217/c443712-40419790.html.
+10.档案（标识A）
+[1] 李鸿章.奏请上海道库洋务外销要款无款可筹仍拨药厘接济事: 04-01-35-0399-039 [A].北京：中国第一历史档案馆,1887(光绪十三年三月十三日).
+[2] 湖北省建设厅.湖北省建设厅关于检发实业部农工矿业团体登记规则的布告、训令及湖北省政府的训令: LS031-001-0001-001 [A/OL].武汉：湖北省档案馆,1931-11-07. https://www.hbda.gov.cn/pdf/LS031-001-0001-001.PDF.
+[3] Fizwilliam H. [Letter to Bess of Hardwick][A/OL]. 1570-07-28. https://www.bessofhardwick.org/letter.jsp?letter=25.
+11.地图（标识CM）
+[1] 胡健民.东南极拉斯曼丘陵地区地质图1:25000 [CM].北京：科学出版社,2021. 128 cm×84 cm.
+[2] 刘祥沈.沈阳市政区图1:170000 [CM].武汉：武汉大学出版社,2016. 138 cm×96 cm.
+[3] 国家测绘地理信息局.一带一路经济走廊及其途经城市分布地势图[CM/OL]. http://ydyl.china.com.cn/2016-10/27/content_39582227.htm.
+12.数据集（标识DS）【[DS/OL]的创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）】
+[1] 周壮,李盛阳,吴薇,等.天宫二号遥感图像自然景物分类科学数据[DS/OL]. V1.0.国家基础学科公共科学数据中心(2023-09-10) [2025-07-15]. https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf.
+[2] 黄土高原科学数据中心(西北农林科技大学水土保持研究所).青海省县域教育、卫生发展指标(2001-2022年)[DS/OL].国家地球系统科学数据中心-黄土高原分中心(2024-12-25) [2025-07-10]. https://loess.geodata.cn/data/datadetails.html?dataguid=58691800703558. DOI:10.12041/geodata.58691800703558.ver1.db.
+[3] IHME. Global burden of disease study 2019 (GBD 2019) data resources [DS/OL]. Global Health Data Exchange (2021) [2025-07-15]. https://ghdx.healthdata.org/gbd-2019.
+13.预印本（标识PP）【创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）。版本为第2版及以上须注明】 【发布超过1年的预印本文献应核实是否有正式发表的版本（推荐用更严谨、准确的正式发表版）】
+[1] Jenkins S D, Ruostekoski J. Controlled manipulation of light by cooperative response of atoms in an optical lattice [PP/OL]. V2. arXiv (2012-03-18) [2020-06-24]. https://arxiv.org/abs/1112.6136.
+[2] 方向明,曹迎杰.元宇宙在图书馆的应用：理论研究与实践进展[PP/OL]. ChinaXiv (2023-03-03) [2024-09-30]. http://www.chinaxiv.org/abs/202303.00020.
+[3] 肖玲,张雪,王永.数据要素的统计测算方法探究[PP/OL]. PSSXiv (2024-07-02) [2024-09-30]. https://zsyyb.cn/abs/202408.01096.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PAGE   \* MERGEFORMAT2	计算机应用	
+
+	计算机应用	PAGE   \* MERGEFORMAT7
+
+
+
+
+
+Journal of Computer Applications	ISSN 1001-9081	
+计算机应用	CODEN JYIIDU	http://www.joca.cn
+
+
+
+收稿日期: 20yy-mm-dd;	修回日期:20yy-mm-dd;	录用日期: yyyy-mm-dd。
+基金项目:
+ HYPERLINK  \l "作者简介要素说明：" 作者简介: 第1作者(出生年—)，性别，籍贯，职称，学历，是否CCF会员，主要研究方向：*****、*****；第2作者(出生年—)，性别，籍贯，职称，学历，是否CCF会员，主要研究方向：******、******；……。所有作者按署名顺序依次列出。
+
+
+
+
+
+
+
+
+请先阅读“ HYPERLINK  \l "模板使用说明：" 模板使用说明”；
+不能修改模板中固定样式、不得删除或修改第一页页眉和DOI这一行的内容；有疑问可咨询028-85224283-806
+【文题样式】一般不超过20个汉字,建议不用标点及不常见缩略语，不用副标题
+投稿成功后作者署名、单位顺序、基金等信息不得随意更改，请务必确认好后投稿
+【作者名样式】以数字上标标明作者所属单位,只有一个单位时不标；以上标*标明通信作者并提供其联系email
+【单位样式】单位顺序以作者署名为序依次给出，即列完第一作者所属单位后再列第二作者所署单位，依此类推 
+【单位样式】提供通信作者的联系邮箱;在排版时为了沟通文章修改,需要留一个“联系人”的邮箱与手机号,可以与 “通信作者”不一致
+【摘要关键词样式】注意摘要的“四要素”要求
+【摘要关键词样式】
+【文题样式】英文与中文对应该内容使用相同样式,不再标注; 注意中英文内容的一致性
+【作者名样式】举例如:HU Dan(胡丹),XIA Zhaohui (夏朝晖)
+【单位样式】不使用缩略语，必须是正式对外的名称，署名前最好到单位相关中英文网站作核实
+【一级标题样式】引言均以“0”作为序号，所有标题必须使用模板定义的标题样式
+标题不与文题简单重复,要明确,与章节内容相符;不超过14个汉字
+【正文样式】
+【二级标题样式】
+【三级标题样式】，还有下级的标题时依次使用1)2)3)…①②③…(a)(b)(c)等
+先利用“文献列表”样式设置相应字体字号等，然后全选中使用“编号”功能，不手动编号
+须提供正确的基金编号，如因涉密等原因而不能提供编号请附上说明
+所有作者都要提供简介
+具体到城市
+非职务
+硕士/博士在读分别标为：硕士研究生/博士研究生，已经毕业分别标为：硕士/博士；博士后只标明博士；
+是则必须标明会员号，不是则直接略过不写
+主要研究方向不要写成“计算机应用”，这个范围太大了，具体的列出主要的几个就可以，每个方向之间用顿号（、）隔开
+方便联系稿件疑问，可以不是本文的“通信作者”
+【定理 、定义、引理】用黑体粗体；【结论、推理、命题、证明】等词用楷体粗体，其内容表述仍采用正文内容格式
+图序与图题，子图(a)、(b)、(c)等也需要标上图题
+图、表名称使用【图表名称】样式
+图、表名称需提供相应的英文
+
+图、表名称使用【图表名称】样式
+图、表名称需提供相应的英文
+表格中同一列数据表示同一参数的值（注意不是同一行表示同一参数），要求精度一致
+注意同一列参数的单位均在项目栏以“/单位”形式表示
+求和∑、求积∏符号的变量范围表示放在符号上、下方，不以上、下标表示
+按以上界面设置后，对A直接选择“向量矩阵”样式，即会以 加粗斜体 表示
+分子分母较简单（只有一项）的分式采用简单横排即可；但注意排版方式不要引起歧义
+摘要以主题概念不遗漏为原则，中文摘要字数为200~300字，英文摘要为100~150 words；
+英文摘要非常推荐使用“Google翻译”
+
+所针对的研究目的、问题要明确具体，不用类似“所存在不足、缺陷”的描述，过于模糊笼统；
+
+用重要的事实开头，突出论文新的信息，摘要第一句不要简单重复文章题目；
+
+对方法的介绍要清晰明了，不简单地用类似“提出了**算法”一句带过；
+
+叙述要完整，清楚，简明扼要，逻辑性要强，结构完整，删去背景与过去的研究信息，不应包含作者将来的计划，杜绝文学性修饰与无用的叙述。
+请注意文章中对比了什么算法就只说明是与该对比算法相比有何结果、结论，一般不使用“其他算法、现有算法、类似算法”之类的泛指描述；
+
+结果数据是从文章实验部分提炼的，所以不要出现以下情形：多个参数、性能实验但摘要只随意列举其一；数据应与实验部分的陈述一致，不应该出现没有的或是不一样的数据；
+
+对比实验数据量大时，全部展示太过冗长繁锁，请注意对实验结果的总结阐述，而不是完全罗列数据。
+对比实验数据量大时，全部展示太过冗长繁锁，请注意对实验结果的总结阐述，而不是完全罗列数据。
+
+您的稿件编号：（新投稿无编号时暂不作填写）
+本稿件需要修改时请联系 作者： 
+手机号： 					邮箱：
+请务必确认好作者、单位、基金等相关信息，投稿成功后不得随意修改
+
+
+

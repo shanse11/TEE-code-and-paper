@@ -1,0 +1,22 @@
+[G] bounded-task-rollup interactive r0: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup interactive r1: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup interactive r2: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-no-recovery r0: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-no-recovery r1: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-no-recovery r2: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-with-recovery r0: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-with-recovery r1: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup fault-with-recovery r2: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup direct-no-response r0: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup direct-no-response r1: n=10 correct=10 incorrect=0 unresolved=0
+[G] bounded-task-rollup direct-no-response r2: n=10 correct=10 incorrect=0 unresolved=0
+[G] mechanism-baseline interactive r0: n=10 correct=10 incorrect=0 unresolved=0
+[G] mechanism-baseline interactive r1: n=10 correct=10 incorrect=0 unresolved=0
+[G] mechanism-baseline interactive r2: n=10 correct=10 incorrect=0 unresolved=0
+[G] mechanism-baseline fault-no-recovery r0: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism-baseline fault-no-recovery r1: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism-baseline fault-no-recovery r2: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism-baseline direct-no-response r0: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism-baseline direct-no-response r1: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism-baseline direct-no-response r2: n=10 correct=0 incorrect=10 unresolved=0
+[G] mechanism raw: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageG_20260916T185200Z/hardhat_run/stageG/raw/mechanism

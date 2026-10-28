@@ -1,0 +1,46 @@
+# 阶段 E 实际复现命令（均已在本机执行验证）
+
+# 工作区：/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup
+
+# 0) 快速验证真实 KZG 链路（非模拟）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+node -e "
+const bc=require('./revision/blobcodec'); const kzg=require('./revision/kzg');
+kzg.loadSetup();
+const b=bc.makeBatch({taskCount:1, payloadKiB:1});
+const blob=bc.frameToBlob(b.frame);
+const c=kzg.blobToCommitment(blob); const p=kzg.computeProof(blob,c);
+console.log('verify=', kzg.verifyProof(blob,c,p), 'versionedHash=', kzg.versionedHash(c));
+console.log('roundtrip=', bc.parseFrame(bc.blobToFrame(blob)).payloadHash===b.payloadHash);
+"
+# 预期：verify=true，roundtrip=true
+
+# 1) 语法检查
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node --check evm/revision/stageE_binding.js
+node --check evm/revision/stageE_local.test.js
+
+# 2) E-local 测试（容量边界/可逆性/真实KZG/单向承诺/M1/篡改拒绝/trusted setup）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageE_20260916T181622Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/stageE_local.test.js
+# 结果：7 passing / 0 failing；19 个 case 登记（verified=5, blocked=14）
+# 产物：hardhat_run/stageE/{case_matrix.json, trusted_setup.json}
+
+# 3) 冻结 E 阶段测量版本
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageE_20260916T181622Z/stageE_freeze" \
+  --run-id stageE-freeze-20260916T181622Z
+# 结果：ready
+
+# ---------------------------------------------------------------
+# 以下为公网部分，本轮未执行（缺 RPC / 测试币 / 广播授权）：
+#   - type-3 发布与链上确认（E02）
+#   - 独立取回（E03）
+#   - DA 披露与罚没结算（E09–E12、E15）
+# 需要用户先提供：目标网络与 chainId、钱包公开地址、交易与 Blob 数量、
+# 费用上限、最大重试数、测试币余额，并取得明确批准。
+# 未取得批准前不做任何广播，不以本地/离线结果冒充公网取回。
+# ---------------------------------------------------------------

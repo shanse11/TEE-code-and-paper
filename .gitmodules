@@ -1,0 +1,6 @@
+[submodule "outputs/stageG_20260916T185200Z/official/bold"]
+	path = outputs/stageG_20260916T185200Z/official/bold
+	url = https://github.com/OffchainLabs/bold.git
+[submodule "tee/attested_instance/third_party/secp256k1"]
+	path = tee/attested_instance/third_party/secp256k1
+	url = https://github.com/bitcoin-core/secp256k1.git

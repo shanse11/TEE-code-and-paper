@@ -1,0 +1,35 @@
+# 阶段 B 实际复现命令（均已在本机执行验证，非虚构）
+# 工作区：/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup
+# 说明：hardhat 二进制在本机报 permission denied，故统一用 node 直接调用 CLI 入口，
+#       这与 security.test.js 头部注释记载的运行方式一致。
+
+# 0) 前置：REVISION_RUN 必须是绝对路径（hardhat.config.js 与测试文件均强制校验）
+
+# 1) B2 before 基线：既有安全回归（未修改任何文件，先跑再谈修复）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageB_20260916T171758Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/security.test.js
+# 实际结果：Compiled 8 Solidity files successfully；23 passing，0 failed
+# 产物：outputs/stageB_20260916T171758Z/hardhat_run/security/security_report.json
+
+# 2) B 阶段补充测试（资金闭环 + B01/B04/B05/B06/B10/B11/B12/B13/B14 补齐）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageB_20260916T171758Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/stageB_closure.test.js
+# 实际结果：9 passing，0 failed
+# 产物：outputs/stageB_20260916T171758Z/hardhat_run/stageB/case_matrix.json
+
+# 3) 冻结 B 阶段测量版本（重新生成 source/config 哈希，不沿用 A 旧哈希）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageB_20260916T171758Z/stageB_freeze" \
+  --run-id stageB-freeze-20260916T171758Z
+# 实际结果：ready（status=ready）
+# 产物：outputs/stageB_20260916T171758Z/stageB_freeze/manifest/{run_manifest.json,config.resolved.json,source_files.sha256,environment_public.json,dependencies.json,git_status.txt,git_diff_stat.txt}
+
+# 4) 一键重跑 B 全套（1+2 合并）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="<替换为新的绝对路径>" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js \
+  revision/security.test.js revision/stageB_closure.test.js

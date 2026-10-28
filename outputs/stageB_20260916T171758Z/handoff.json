@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageB.handoff.v1",
+  "stage": "B",
+  "stageName": "本地功能、安全与资金闭环",
+  "status": "completed",
+  "statusReason": "本阶段适用的安全与资金断言全部通过；未修改合约（0 变更）；可归责违规均有资金分配与提现证据；未发现可盗取资金或重复结算缺陷；C 所需状态/权限/接口已公开。DA 强绑定与真实 TEE 不在 B 范围，已显式标注 deferred，不冒充已验证能力。",
+
+  "parent": {
+    "parentRunId": "stageA-freeze-20260916T162724Z",
+    "parentManifestPath": "outputs/stageA_20260916T162724Z/stageA_freeze/manifest/run_manifest.json",
+    "parentSourceTreeSha256": "7998677f3f19f1433d3f3a92c8698ef8b27a10ab924f8d6561786e982089f126",
+    "parentConfigSha256": "3c8fe631e98dbf0a3cda7c1d18233ed3f6255c121d68dc60617eeea6c784a4b4",
+    "parentSelectionBasis": "按总控第 2 节重新读取实际文件确认；该 run 为工作区中用户上一轮确认的 A 冻结清单，非按目录名猜测。"
+  },
+
+  "thisRun": {
+    "runId": "stageB-freeze-20260916T171758Z",
+    "manifestPath": "outputs/stageB_20260916T171758Z/stageB_freeze/manifest/run_manifest.json",
+    "hardhatRunDir": "outputs/stageB_20260916T171758Z/hardhat_run",
+    "sourceTreeSha256": "fb2eb8e5e79ab1fa621a447e9989c95dbf48130bc0ee26cade7bfc5269d2e213",
+    "configSha256": "0d5d86dd89f8b5e38346cc2feb3104c25721a0bc69a7932b7da3969d9566b381",
+    "configSha256DiffersFromParent": true,
+    "configSha256Note": "配置语义未变；差异来自 --run-id 覆盖 config.runId，以及 build.nodeVersion/pythonVersion 由运行时写入。",
+    "gitHead": "615bb3e9f1ae3b88b87f488decc61854cd555e16",
+    "gitBranch": "main",
+    "gitDirty": true,
+    "gitDirtyNote": "工作区含既有未跟踪成果（含本阶段新增测试文件）。未 reset/clean，未 commit/push。"
+  },
+
+  "authorityInventory": {
+    "contractUnderTest": "evm/contracts/BoundedTaskRollup.sol",
+    "programModel": "至多 128 步确定性重算（MAX_STEPS=128）；traceRoot 为有序向量承诺 keccak256(abi.encode(bytes32[]))，明确不是 Merkle 根，也不是单步证明。",
+    "legacyContract": "evm/contracts/HybridTEERollup.sol（仅用于旧反例对照，不混入新结果）",
+    "controlledBackends": [
+      { "contract": "MockTEEVerifier.sol", "role": "受控模拟后端", "realCapability": false, "note": "仅 ecrecover 普通签名校验，不含 Quote/TCB/collateral" },
+      { "contract": "MockDARegistry.sol", "role": "受控模拟后端", "realCapability": false, "note": "无访问控制，任意地址可 setAvailability；不能代表 DA 罚没已实现" }
+    ],
+    "externalFunctions": [
+      "getTask(bytes32)", "taskDigest(TaskInput)", "compute(bytes32,uint16)", "submit(TaskInput,bytes) payable",
+      "normalTransitions(uint16)", "openChallenge(bytes32) payable", "respond(bytes32,bytes32[])", "advance(bytes32)",
+      "recover(bytes32)", "replay(bytes32)", "adjudicate(bytes32)", "settle(bytes32)", "terminate(bytes32)",
+      "finalize(bytes32)", "withdraw(address)"
+    ],
+    "interfaceNote": "实际方法名为 openChallenge，不是 challenge；settle 要求 phase==VERIFIED。所有 case 均由实际接口生成，未臆造方法。",
+    "ledgerVariables": ["claimable(address)", "locked", "totalClaimable", "totalDeposited", "totalWithdrawn", "totalBurned"],
+    "trustAssumptions": [
+      "本地 Hardhat 31337/Cancun，in-process automining，无真实共识最终性",
+      "TEE 为 simulated-only；DA 为 local-mock-or-offline-only；Blob 为 offline-only"
+    ]
+  },
+
+  "contractChanges": [],
+  "contractChangesNote": "本阶段未修改任何合约。既有回归 23/23 全绿，未发现需要修复的缺陷，因此无最小修复、无经济/timeout 规则变更。",
+
+  "newFiles": [
+    { "path": "evm/revision/stageB_closure.test.js", "purpose": "B 阶段补充测试：资金闭环对账、B01/B04/B05/B06/B10/B11/B12/B13/B14 补齐，并生成机器可读 case_matrix.json" },
+    { "path": "outputs/stageB_20260916T171758Z/handoff.json", "purpose": "本阶段交接契约" },
+    { "path": "outputs/stageB_20260916T171758Z/report_zh.md", "purpose": "本阶段中文报告" },
+    { "path": "outputs/stageB_20260916T171758Z/commands.txt", "purpose": "实际验证过的复现命令" }
+  ],
+
+  "testResults": {
+    "beforeBaseline": {
+      "suite": "evm/revision/security.test.js",
+      "description": "既有安全回归（B2 before 基线）",
+      "total": 23,
+      "passed": 23,
+      "failed": 0,
+      "evidence": "outputs/stageB_20260916T171758Z/hardhat_run/security/security_report.json"
+    },
+    "afterStageB": {
+      "suite": "evm/revision/stageB_closure.test.js",
+      "description": "B 阶段新增补充测试",
+      "total": 9,
+      "passed": 9,
+      "failed": 0,
+      "evidence": "outputs/stageB_20260916T171758Z/hardhat_run/stageB/case_matrix.json"
+    },
+    "combinedAssertionCount": 32,
+    "contractsCompiled": 8,
+    "caseCoverage": {
+      "B01": { "source": "stageB_closure (新增)", "result": "accepted", "note": "完整账本：初态/终态、每笔账本、实际支付、无重复支付" },
+      "B02": { "source": "security.test.js describe 4", "result": "rejected", "note": "跨 deployment 重放被拒；digest 绑定 chainid+address" },
+      "B03": { "source": "security.test.js describe 1", "result": "rejected", "note": "非 submitter respond 被拒(submitter only)" },
+      "B04": { "source": "stageB_closure (新增) + security.test.js describe 3", "result": "rejected+accepted", "note": "篡改 output/traceRoot/短 trace 分别被独立计算反证或提交前拒绝" },
+      "B05": { "source": "stageB_closure (新增)", "result": "rejected+accepted", "note": "未 VERIFIED 的 settle 被拒；adjudicate 客观裁决，挑战者不能自封赢家" },
+      "B06": { "source": "stageB_closure (新增)", "result": "rejected+accepted", "note": "openChallenge 用 <=deadline；finalize 用严格 >deadline；已用 evm_setNextBlockTimestamp 精确控制边界" },
+      "B07": { "source": "security.test.js describe 10", "result": "rejected", "note": "重复 settle/finalize/withdraw 均 revert" },
+      "B08": { "source": "security.test.js describe 4 + 8", "result": "rejected", "note": "已终局任务旧证据重放不重开、不回滚" },
+      "B09": { "source": "security.test.js describe 12", "result": "rejected+accepted", "note": "拒收 recipient 与重入 recipient 均安全，无重入收益" },
+      "B10": { "source": "stageB_closure (新增)", "result": "accepted", "note": "3+ 任务并行，每任务抵押独立，全局两层守恒" },
+      "B11": { "source": "stageB_closure (新增)", "result": "rejected+accepted", "note": "自挑战被拒；Sybil 仅自有地址间转移，净收益=对手押金，非经济惩罚" },
+      "B12": { "source": "stageB_closure (新增) + security.test.js describe 5", "result": "rejected+accepted", "note": "steps=0/129 拒绝，1/128 可提交；MAX_STEPS 从实现读取(128)" },
+      "B13": { "source": "stageB_closure (新增)", "result": "rejected", "note": "legacy R1–R5 在新入口均不复现；R5 罚没真实 burn" },
+      "B14": { "source": "stageB_closure (新增)", "result": "deferred_to_E / deferred_to_D", "note": "Mock DA/TEE 边界已记录，不冒充真实能力" }
+    }
+  },
+
+  "fundingClosure": {
+    "accountingIdentities": [
+      "balance == locked + totalClaimable（资产 = 未结算锁定 + 可提取负债）",
+      "balance == totalDeposited - totalWithdrawn - totalBurned（累计入金 - 累计外付 - 累计销毁）",
+      "totalClaimable <= balance（内部负债不超过可用资产；正常 fixture 精确相等）"
+    ],
+    "conclusion": "在所有 B 阶段场景（提交/挑战/裁决/销毁/提现/多任务并行）下，上述三条恒等式均成立；单任务抵押未被其他任务扣除或重复使用；slash 后受益人实际 withdraw 才算支付完成。",
+    "bigIntNote": "所有金额以 BigInt 计算并序列化为十进制字符串，未使用 JS 浮点。",
+    "externalEoaNote": "EOA 余额断言已扣除实际交易 gas；押金退款与罚没赔付属价值转移，不计为系统资源费用。"
+  },
+
+  "blockedAndDeferred": [
+    { "item": "DA 强绑定与可归责罚没", "status": "deferred_to_E", "reason": "尚无协议内 DA 义务；MockDARegistry 无访问控制，不能当 DA 罚没已实现" },
+    { "item": "真实 TEE 远程证明", "status": "deferred_to_D", "reason": "MockTEEVerifier 仅为 ECDSA 签名校验，不含 Quote/TCB/collateral" },
+    { "item": "Merkle 单步证明 / 通用 VM", "status": "not_applicable", "reason": "当前为 128 步向量重算，未设置虚假区间缩小 pass" }
+  ],
+
+  "nextStageConditions": {
+    "C": {
+      "ready": true,
+      "required": [
+        "Phase 枚举与转换语义已公开（NONE/SUBMITTED/OPEN/RESPONDED/LOCATING/READY/VERIFIED/SETTLED）",
+        "recover 语义已确认：仅 ++recoveries 与 _touch(timeoutAt)，不改变 challenger/收益权/phase",
+        "adjudicate 兜底已确认：任何人可绕过定位确定性重算结算（不得关闭以制造恢复必要性）",
+        "terminate 已确认：超时仍按计算结果判责，不是仅因离线惩罚",
+        "maxRecoveries 上限=2（constructor 约束），absoluteDeadline 一次确定且不因 recover 更新"
+      ]
+    },
+    "D": { "ready": false, "reason": "需要真实 SGX/TDX 硬件或已授权远端；当前仅 simulated-only" },
+    "E": { "ready": false, "reason": "需要公网 RPC/测试币/广播授权；当前仅 offline-only" }
+  }
+}

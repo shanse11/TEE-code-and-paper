@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageI.e4.v1",
+  "rows": [
+    {
+      "environment": "Aliyun ecs.g7t.large, real SGX (stage H run)",
+      "item": "enclave call, 4 / 128 steps, incl. report generation",
+      "value": "0.057 ms / 0.497 ms",
+      "source": "outputs/stageH_20261017T104800Z/report_zh.md, section 1"
+    },
+    {
+      "environment": "Aliyun ecs.g7t.large, real SGX (stage H run)",
+      "item": "quote generation wall clock (two bound quotes)",
+      "value": "0.99 s / 1.30 s",
+      "source": "outputs/stageH_20261017T104800Z/report_zh.md, section 1"
+    },
+    {
+      "environment": "Sepolia live state, eth_call (no broadcast)",
+      "item": "Automata verifyAndAttestOnChain estimateGas, 4 real quotes",
+      "value": "5121432 / 5121420 / 5121432 / 5121408",
+      "source": "e1_dcap.json partA_liveEthCall"
+    },
+    {
+      "environment": "Sepolia fork at block 11935048",
+      "item": "Automata direct call / registerInstance via adapter (strict policy)",
+      "value": "5022660 / 5057631 gas, tcbStatus 5, action LONG",
+      "source": "e1_dcap.json partB"
+    },
+    {
+      "environment": "local Hardhat, replay verifier",
+      "item": "hybrid normal path, 64 steps: protocol time to finality / total task gas",
+      "value": "602 s / 313081 gas",
+      "source": "e2/e2_summary.json"
+    },
+    {
+      "environment": "local Hardhat",
+      "item": "recomputeFast control, 64 steps: protocol time to finality / total task gas",
+      "value": "14 s / 334577 gas",
+      "source": "e2/e2_summary.json"
+    },
+    {
+      "environment": "local Hardhat, stage H link",
+      "item": "settling the real SGX traces (adjudicate, 4 / 128 steps)",
+      "value": "94836 / 166840 gas",
+      "source": "outputs/stageH_20261017T104800Z/tee_link.json"
+    }
+  ],
+  "notGenerated": [
+    "No instance-key quote from tee/attested_instance: the SGX host closed SSH during key exchange on 2026-10-17.",
+    "No broadcast-to-inclusion wall clock on Sepolia: no funded key was used in this run."
+  ]
+}

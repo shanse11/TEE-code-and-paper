@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageC.invariants.v1",
+  "generatedAtUtc": "2026-09-16T17:46:32.601Z",
+  "invariants": [
+    {
+      "id": "INV1",
+      "statement": "absoluteDeadline 在 openChallenge 时一次确定，不因 recover / 重复证据 / 无效调用更新"
+    },
+    {
+      "id": "INV2",
+      "statement": "recoveries 单调不减且有界（<= maxRecoveries）"
+    },
+    {
+      "id": "INV3",
+      "statement": "终局不可回滚：phase 不回退，SETTLED 后不重开、不二次支付"
+    },
+    {
+      "id": "INV4",
+      "statement": "资金守恒：balance == locked + totalClaimable"
+    },
+    {
+      "id": "INV5",
+      "statement": "recover 不改变 phase"
+    },
+    {
+      "id": "INV6",
+      "statement": "恢复操作不改变争议事实：initial/steps/output/traceRoot/submitter/challenger"
+    },
+    {
+      "id": "INV7",
+      "statement": "同一任务仅一次总账收口：不双支付、不双罚"
+    }
+  ],
+  "checks": [
+    {
+      "label": "C01",
+      "snapshot": {
+        "phase": 3,
+        "phaseName": "RESPONDED",
+        "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "challenger": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "challengeDeadline": 1789580893,
+        "absoluteDeadline": 1789580874,
+        "timeoutAt": 1789580806,
+        "recoveries": 0,
+        "left": 0,
+        "right": 4,
+        "round": 0,
+        "firstMismatch": 4,
+        "verdict": 0,
+        "initial": "0x7d5aef7038a5e3e27c478cb530924dfdf3fb9ebf3c8444610a41efc88c621a50",
+        "steps": 4,
+        "output": "0xf9a4ceaa27c11e7507de4a1d4a482b243ae54aedc50aa451eded5428d10742ae",
+        "traceRoot": "0x1c322de10ab2b5bdafd1de6c5f0da021516049dc35dabf4f392eec6cd62a65db"
+      },
+      "violations": []
+    },
+    {
+      "label": "C02",
+      "snapshot": {
+        "phase": 7,
+        "phaseName": "SETTLED",
+        "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "challenger": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "challengeDeadline": 1789580898,
+        "absoluteDeadline": 1789580879,
+        "timeoutAt": 1789580821,
+        "recoveries": 1,
+        "left": 0,
+        "right": 4,
+        "round": 0,
+        "firstMismatch": 0,
+        "verdict": 0,
+        "initial": "0xffdb477dc397de9dea67f7c24969cb1ce8d3dc4f4fb69a29a94fa81398c94e36",
+        "steps": 4,
+        "output": "0xf0a86feef710f229f1cb9a5d4bbe539029f4ad8bda60c726ebe38f4158558b38",
+        "traceRoot": "0x8bbcfe962a392b59c10778af088ee12b1f8882928ec415da61510f579b4953c3"
+      },
+      "violations": []
+    },
+    {
+      "label": "C03",
+      "snapshot": {
+        "phase": 7,
+        "phaseName": "SETTLED",
+        "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "challenger": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "challengeDeadline": 1789580915,
+        "absoluteDeadline": 1789580896,
+        "timeoutAt": 1789580826,
+        "recoveries": 0,
+        "left": 0,
+        "right": 4,
+        "round": 0,
+        "firstMismatch": 0,
+        "verdict": 0,
+        "initial": "0x09cffbd023b9926b96982c8bb0742119e3894ee8b55abd5c7d3ed9cd8b73dd9b",
+        "steps": 4,
+        "output": "0x9ad0759a3928421d56153d70f1a094c9f2ae490f443644b1e766651e329be8ca",
+        "traceRoot": "0x52776b1fdd7ea2cf99c3faf178b2212c620d0ff0cb815b6848f4f6436b8ed883"
+      },
+      "violations": []
+    },
+    {
+      "label": "C04",
+      "snapshot": {
+        "phase": 7,
+        "phaseName": "SETTLED",
+        "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "challenger": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "challengeDeadline": 1789581131,
+        "absoluteDeadline": 1789581112,
+        "timeoutAt": 1789581066,
+        "recoveries": 2,
+        "left": 0,
+        "right": 4,
+        "round": 0,
+        "firstMismatch": 0,
+        "verdict": 0,
+        "initial": "0x133bd593fdbbfe7c6aebb2594bef37f3ee821cb19cc601ca72796f637730b63e",
+        "steps": 4,
+        "output": "0xf2167c8bbc003c33c0b8974747a97b3d9bf24bf440d5c0a93b8265581dfa2b5f",
+        "traceRoot": "0x536cc32aad71ebabcc7210d951848c5a815ed3a49edcfff5d30145ee27527e44"
+      },
+      "violations": []
+    },
+    {
+      "label": "C05",
+      "snapshot": {
+        "phase": 2,
+        "phaseName": "OPEN",
+        "submitter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "challenger": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "challengeDeadline": 1789581471,
+        "absoluteDeadline": 1789581452,
+        "timeoutAt": 1789581406,
+        "recoveries": 2,
+        "left": 0,
+        "right": 4,
+        "round": 0,
+        "firstMismatch": 0,
+        "verdict": 0,
+        "initial": "0x7afbbf4012e0c8e327f553e73b67be90dede952dffb818f2eab3a9c271a42c85",
+        "steps": 4,
+        "output": "0x9628e430b19f2a7eed67c6cb20ded0723a1ee558fbcba96c35e667edd128e54a",
+        "traceRoot": "0x9d241106b0bb6913ff289e0ca5ce14e1f3998b93a950fcc145e7b9f40c8f5024"
+      },
+      "violations": []
+    }
+  ],
+  "violated": []
+}

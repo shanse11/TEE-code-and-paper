@@ -1,0 +1,37 @@
+[performance] matrix c=1 p=1KiB b=1 complete
+[performance] matrix c=1 p=1KiB b=8 complete
+[performance] matrix c=1 p=1KiB b=32 complete
+[performance] matrix c=1 p=8KiB b=1 complete
+[performance] matrix c=1 p=8KiB b=8 complete
+[performance] matrix c=1 p=8KiB b=32 complete
+[performance] matrix c=1 p=32KiB b=1 complete
+[performance] matrix c=1 p=32KiB b=8 complete
+[performance] matrix c=1 p=32KiB b=32 complete
+[performance] matrix c=4 p=1KiB b=1 complete
+[performance] matrix c=4 p=1KiB b=8 complete
+[performance] matrix c=4 p=1KiB b=32 complete
+[performance] matrix c=4 p=8KiB b=1 complete
+[performance] matrix c=4 p=8KiB b=8 complete
+[performance] matrix c=4 p=8KiB b=32 complete
+[performance] matrix c=4 p=32KiB b=1 complete
+[performance] matrix c=4 p=32KiB b=8 complete
+[performance] matrix c=4 p=32KiB b=32 complete
+[performance] matrix c=16 p=1KiB b=1 complete
+[performance] matrix c=16 p=1KiB b=8 complete
+[performance] matrix c=16 p=1KiB b=32 complete
+[performance] matrix c=16 p=8KiB b=1 complete
+[performance] matrix c=16 p=8KiB b=8 complete
+[performance] matrix c=16 p=8KiB b=32 complete
+[performance] matrix c=16 p=32KiB b=1 complete
+[performance] matrix c=16 p=32KiB b=8 complete
+[performance] matrix c=16 p=32KiB b=32 complete
+[performance] calldata 1024 bytes complete
+[performance] calldata 8192 bytes complete
+[performance] calldata 32768 bytes complete
+[performance] calldata 8192 bytes complete
+[performance] calldata 65536 bytes complete
+[performance] calldata 262144 bytes complete
+[performance] calldata 32768 bytes complete
+[performance] calldata 262144 bytes complete
+[performance] calldata 1048576 bytes complete
+[performance] passed 27 matrix cells, 9 calldata cells, 48 recovery cells

@@ -1,0 +1,5 @@
+
+> evm@1.0.0 test
+> hardhat test
+
+sh: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm/node_modules/.bin/hardhat: Permission denied

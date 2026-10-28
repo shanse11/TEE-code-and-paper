@@ -1,0 +1,17 @@
+{
+  "status": "confirmed",
+  "txHash": "0x3ad90ecfdf5930c1bf611223af76196e54fbc74af0f9c9924de9dc523681d340",
+  "anchorId": 1,
+  "blockNumber": 11932953,
+  "blockTimestamp": 1792224804,
+  "beaconSlot": 11374267,
+  "blobVersionedHashes": [
+    "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493"
+  ],
+  "payloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+  "taskCount": 8,
+  "target": "8_8KiB",
+  "contract": "0x083e9280AC8b5933060C55Dd189A52A3981248c9",
+  "blobIndex": 0,
+  "gasUsed": 692029
+}

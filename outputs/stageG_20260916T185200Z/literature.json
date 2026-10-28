@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.literature.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "layer": "L3 文献定量表",
+  "provenanceRule": "全部条目标 literature_reported，**不是本机实测**；保留原始环境、网络、任务模型、指标定义、样本量/未报告、数字、单位、章节/表号。来自图的估读值须注明；原文不报的字段为 null + not_reported，不从别处猜测。不可比数值保留原始语境，不拼成统一胜负排名表。",
+
+  "entries": [
+    {
+      "target": "TEEROLLUP",
+      "version": "arXiv:2409.14647v3",
+      "environment": {
+        "platform": "阿里云 ECS（SGX g7t.2xlarge / TDX 8i.2xlarge / CSV g7h.2xlarge，均 8vCPU）",
+        "network": "LAN RTT 0.5±0.03 ms；WAN RTT 25±0.1 ms",
+        "chain": "Ethereum Sepolia 测试网（原型）",
+        "implementation": "Golang + Solidity 0.8.0",
+        "teeRatio": "SGX:TDX:CSV = 1:2:2",
+        "locator": "Sec. VI-A；Table III"
+      },
+      "taskModel": "链下 TEE 内执行的转账/状态更新交易；batch 500/1000/1500/2000；sequencer 5/10/15/20",
+      "metrics": [
+        { "metric": "throughput", "value": "≈28 KTPS", "unit": "TPS", "condition": "5 sequencers, batch=2000, LAN", "locator": "Sec. VI-C", "sampleSize": "not_reported", "layer": "literature_reported" },
+        { "metric": "latency (peak)", "value": "119", "unit": "ms", "condition": "5 sequencers, batch=2000, LAN", "locator": "Sec. VI-C", "sampleSize": "not_reported", "layer": "literature_reported" },
+        { "metric": "off-chain throughput", "value": ">5000", "unit": "TPS", "condition": "Sec. VI-D 表述", "locator": "Sec. VI-D", "sampleSize": "not_reported", "layer": "literature_reported" },
+        { "metric": "WAN throughput change", "value": "-15.74", "unit": "%", "condition": "20 sequencers, WAN vs LAN", "locator": "Sec. VI-C", "sampleSize": "not_reported", "layer": "literature_reported" },
+        { "metric": "WAN latency change", "value": "+20.17", "unit": "%", "condition": "20 sequencers, WAN vs LAN", "locator": "Sec. VI-C", "sampleSize": "not_reported", "layer": "literature_reported" },
+        { "metric": "on-chain verification cost reduction", "value": "≈86", "unit": "%", "baseline": "StarkNet (ZK-rollup)", "condition": "batch=2000；0.043 USD → 0.006 USD", "locator": "Sec. VI-D / Abstract", "layer": "literature_reported", "comparability": "not_directly_comparable_to_op_or_arbitrum" },
+        { "metric": "challenge waiting τ", "value": "several hours", "unit": "hours (qualitative)", "locator": "Sec. IV-E", "layer": "literature_reported", "note": "原文无精确数字" },
+        { "metric": "withdrawal delay (normal)", "value": "a few minutes", "unit": "minutes (qualitative)", "locator": "Abstract", "layer": "literature_reported" }
+      ],
+      "gasTable": {
+        "locator": "Table IV Protocol Execution Cost",
+        "priceBasis": "ETH/USD=3376.77, gas price=19.26 Gwei, 2025-01-01",
+        "rows": [
+          { "method": "Deposit", "gas": 48551, "usd": 3.16 },
+          { "method": "UpdateState", "gas": 156263, "usd": 10.16 },
+          { "method": "StartChallenge", "gas": 47118, "usd": 3.06 },
+          { "method": "ResolveChallenge", "gas": 146618, "usd": 9.53 },
+          { "method": "SettleRollup", "gas": 29078, "usd": 1.89 },
+          { "method": "SettleWithdraw", "gas": 124511, "usd": 8.10 },
+          { "method": "Simple ETH transfer", "gas": 21000, "usd": 1.37 }
+        ],
+        "amortizedPerTx": { "gas": 78, "usd": 0.005, "condition": "amortized over 2000 transactions", "locator": "Sec. VI-B" },
+        "avgPerTx": { "usd": 0.006, "condition": "batch=2000", "locator": "Sec. VI-D" }
+      },
+      "figureReadouts": "Fig. 3 曲线数值未在正文以数字列出，本轮**未做图估读**；不填估读值",
+      "notReported": ["样本量/重复次数", "p95/p99 尾延迟", "失败率与删失", "DA 披露的实际字节数与成本", "保证金/质押的绝对面额"]
+    },
+
+    {
+      "target": "BOLD",
+      "version": "arXiv:2404.10491v1",
+      "environment": {
+        "platform": "not_reported（理论协议论文；本轮检索章节未给出实验环境）",
+        "network": "L1 抽象（举例以太坊）",
+        "chain": "not_reported"
+      },
+      "taskModel": "断言（assertion）级别的状态转换争议；参与者 N 腐败 / M 诚实",
+      "metrics": [
+        { "metric": "termination bound", "value": "2·(Cmax + D)", "unit": "time", "condition": "Cmax ≈ 1 week（审查预算保守估计），D = several hours（无审查名义延迟）", "locator": "Sec. 2.2.1 / 2.1.1", "layer": "literature_reported" },
+        { "metric": "corrupt/honest cost ratio", "value": "10", "unit": "ratio", "condition": "可选取现实参数使腐败方聚合的质押+L1 gas 成本为诚实方的 10 倍", "locator": "Sec. 2.2.3", "layer": "literature_reported", "comparability": "not_directly_comparable（腐/诚成本比，不是跨协议领先百分比）" },
+        { "metric": "honest stakes required", "value": "1", "unit": "staked assertion (aggregate)", "condition": "BoLD vs Arbitrum Classic 的 M 次", "locator": "Sec. 2.2.1 / 2.1.2", "layer": "literature_reported" },
+        { "metric": "on-chain gas", "value": null, "unit": null, "locator": "Sec. 6（目录含 Gas costs，但检索章节未展开数值）", "layer": "not_reported_in_retrieved_sections" },
+        { "metric": "stake denomination (ETH/USD)", "value": null, "unit": null, "layer": "not_reported" }
+      ],
+      "notReported": ["具体 gas 数值", "具体质押面额", "实验环境与样本量", "DA 载体与披露义务细节", "提款/终局端点定义与数值"]
+    },
+
+    {
+      "target": "OPTIMISM_FDG",
+      "version": "specs.optimism.io FDG (访问 2026-09-16) + FaultDisputeGame.sol @ c4a68ab",
+      "environment": {
+        "platform": "spec 不绑定环境；生产取值由部署决定",
+        "network": "L1 + OP Stack L2"
+      },
+      "taskModel": "output root 与执行轨迹的二分争议；Game Tree 深度 MAX_GAME_DEPTH，分层深度 SPLIT_DEPTH",
+      "metrics": [
+        { "metric": "MAX_GAME_DEPTH", "value": null, "unit": "depth levels", "locator": "FaultDisputeGame.sol:128（immutable，部署时设定）", "layer": "not_verified", "note": "spec 与源码均不给生产取值" },
+        { "metric": "SPLIT_DEPTH", "value": null, "unit": "depth levels", "locator": "FaultDisputeGame.sol:132", "layer": "not_verified" },
+        { "metric": "MAX_CLOCK_DURATION", "value": null, "unit": "Duration (seconds)", "locator": "FaultDisputeGame.sol:135", "layer": "not_verified" },
+        { "metric": "CLOCK_EXTENSION", "value": null, "unit": "Duration (seconds)", "locator": "FaultDisputeGame.sol:139", "layer": "not_verified" },
+        { "metric": "clock extension rules", "value": "CLOCK_EXTENSION（标准）/ ×2（SPLIT_DEPTH-1）/ + oracle().challengePeriod()（MAX_GAME_DEPTH-1）", "unit": "rule", "locator": "move() 内分支", "layer": "source_verified", "note": "这是**机制规则**（源码核实），不是数值" },
+        { "metric": "challengePeriod (oracle)", "value": null, "unit": "seconds", "layer": "not_verified", "note": "常见部署约 7 天属部署配置/第三方分析，本轮未核实，不填" },
+        { "metric": "interaction rounds (worst case)", "value": "SPLIT_DEPTH + (MAX_GAME_DEPTH - SPLIT_DEPTH) 层 move + 1 次 step", "unit": "layers", "layer": "source_verified（结构），数值 not_verified" }
+      ],
+      "notReported": ["生产部署参数取值", "bond 的绝对金额", "实际 gas 消耗", "样本量（spec 非实验文档）"]
+    }
+  ],
+
+  "crossLayerProhibition": "实测（本轮 raw/mechanism、F raw）／文献（本表）／modelled（固定价格重价、Blob 填充阶梯）三层**不得合并生成统一百分比或统一排名表**"
+}

@@ -1,0 +1,15 @@
+{
+  "source": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/submission_format_20260916_153212_borderless/Hybrid_TEE_Rollup_计算机应用_投稿待确认版_无页面边框.docx",
+  "output": "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/submission_format_20260916_163153_english_bio/Hybrid_TEE_Rollup_计算机应用_投稿待确认版_英文作者简介.docx",
+  "source_sha256": "5e69532c2ed5c7c52460b7180135ca5e8e0abe7c92883a127f409d199244f7c6",
+  "output_sha256": "71e557bd601e504270eb00b3388b5e58e28417682918835bc108d22e87cc8df8",
+  "english_bio": "YANG Fan, born in 2003, M. S. candidate. His research interests include blockchain systems and interoperability, TEE-based privacy computing, Layer 2/Rollup scaling and security, and decentralized finance and transaction fairness.",
+  "english_bio_count": 1,
+  "remaining_contact_lines": [],
+  "body_paragraph_sequence_exact_except_author_block": true,
+  "section_properties_identical": true,
+  "non_document_parts_identical": true,
+  "non_document_differences": [],
+  "page_border_count": 0,
+  "pass": true
+}

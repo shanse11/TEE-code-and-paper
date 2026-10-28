@@ -1,0 +1,64 @@
+{
+  "id": "CE-08",
+  "title": "recoverChallenge 刷新超时实现无限延期",
+  "category": "R4-recoverChallenge-延时延期",
+  "vulnerability": "recoverChallenge 内部 _touchSession 刷新 timeoutAt, 反复恢复可在每次超时后重置计时器, 使挑战永远无法被 finalize/resolve 超时处理",
+  "reproduced": true,
+  "note": "连续 4 轮超时后 recover, 每轮均把 timeoutAt 后移并重置计时器, 挑战可被无限期拖延",
+  "error": null,
+  "statusBefore": {
+    "timeoutAt": "1789122747"
+  },
+  "statusAfter": {
+    "timeoutAt": "1789122763",
+    "timeline": [
+      {
+        "round": 1,
+        "timeoutAtBefore": "1789122747",
+        "timeoutAtAfter": "1789122751",
+        "recoveryCount": "1"
+      },
+      {
+        "round": 2,
+        "timeoutAtBefore": "1789122751",
+        "timeoutAtAfter": "1789122755",
+        "recoveryCount": "2"
+      },
+      {
+        "round": 3,
+        "timeoutAtBefore": "1789122755",
+        "timeoutAtAfter": "1789122759",
+        "recoveryCount": "3"
+      },
+      {
+        "round": 4,
+        "timeoutAtBefore": "1789122759",
+        "timeoutAtAfter": "1789122763",
+        "recoveryCount": "4"
+      }
+    ]
+  },
+  "receipt": null,
+  "gas": null,
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999967992495316384433",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999997692178002916401",
+      "responder": "9999999933907031978770",
+      "attacker": "9999998812336582694372",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999967579857629879433",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999997408376126007599",
+      "responder": "9999999868014343693252",
+      "attacker": "9999998488977248937932",
+      "submitter": "10000000000000000000000"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

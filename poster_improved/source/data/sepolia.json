@@ -1,0 +1,31 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "deployedAtBlock": 10825904,
+  "deployedAtTimestamp": 1778403696,
+  "deployer": "0x517652941fd04dAA9A9D4dC52f38B7d23CDE1307",
+  "teeSignerAddress": "0x517652941fd04dAA9A9D4dC52f38B7d23CDE1307",
+  "parameters": {
+    "disputeWindowSeconds": 60,
+    "challengeTimeoutSeconds": 2,
+    "maxBisectionRounds": 16
+  },
+  "contracts": {
+    "verifier": "0xC42CB0Cf0D112Bd59E0f212F2DB2002ca50a8b6A",
+    "daRegistry": "0xc42C64a7De05bf3ad4f1c75CbD8E0506F7De99Ff",
+    "rollup": "0xB9B72f10bB8aBC1ed090f1B0443Fe57189c497Fd"
+  },
+  "constructorArgs": {
+    "MockTEEVerifier": [
+      "0x517652941fd04dAA9A9D4dC52f38B7d23CDE1307"
+    ],
+    "MockDARegistry": [],
+    "HybridTEERollup": [
+      "0xC42CB0Cf0D112Bd59E0f212F2DB2002ca50a8b6A",
+      "0xc42C64a7De05bf3ad4f1c75CbD8E0506F7De99Ff",
+      60,
+      2,
+      16
+    ]
+  }
+}

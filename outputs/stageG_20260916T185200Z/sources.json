@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.sources.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "accessDate": "2026-09-16",
+  "accessMethod": "公开来源只读访问（WebFetch / curl / git clone --depth 1）；未执行任何远程安装脚本，未请求付费资源",
+  "note": "所有条目均记录：题名、作者/组织、URL、版本/commit、发布日期、访问时间、页码/章节/表号、原始单位、威胁模型。网络不可达或未找到标 blocked / not_verified，不凭训练知识补数值。",
+
+  "targets": [
+    {
+      "id": "TEEROLLUP",
+      "name": "TeeRollup: Efficient Rollup Design Using Heterogeneous TEE",
+      "authors": "Xiaoqing Wen, Quanbi Feng, Hanzheng Lyu, Jianyu Niu, Yinqian Zhang, Chen Feng",
+      "affiliations": "Blockchain@UBC / UBC Okanagan; SUSTech (RITAS & CSE)",
+      "kind": "academic_paper",
+      "versions": [
+        { "version": "v1", "date": "2024-09-23T01:15:03Z", "url": "https://arxiv.org/abs/2409.14647v1" },
+        { "version": "v2", "date": "2025-01-04T08:23:22Z", "url": "https://arxiv.org/abs/2409.14647v2" },
+        { "version": "v3", "date": "2025-11-30T14:06:21Z", "url": "https://arxiv.org/abs/2409.14647v3", "isLatest": true }
+      ],
+      "venue": "arXiv cs.CR; DOI 10.48550/arXiv.2409.14647",
+      "journalVersion": {
+        "title": "TeeRollup: Efficient Rollup Design Using Heterogeneous TEE",
+        "publisher": "IEEE Computer Society (IEEE TC)",
+        "url": "https://www.computer.org/csdl/journal/tc/5555/01/11119315/28ZsBrMeD3W",
+        "status": "found_in_search_index_only",
+        "note": "本轮仅通过检索命中，未逐页抓取；页码/卷期未核实"
+      },
+      "pinnedVersionForComparison": "v3",
+      "accessStatus": "fetched",
+      "artifact": {
+        "officialRepository": "not_found",
+        "status": "blocked",
+        "note": "公开检索未找到 TeeRollup 官方实现仓库或 artifact；论文称原型用 Golang + Solidity 0.8.0 部署在 Sepolia，但未给出仓库 URL。不得凭此推断实现细节。"
+      },
+      "threatModel": {
+        "quote": "We assume all sequencers can be malicious by controlling the host of TEEs with at most f sequencers' TEEs are compromised at any time. ... The parameter f can be determined by the rollup service provider.",
+        "locator": "Sec. III-A System Model (v3 HTML)",
+        "staticCorruption": {
+          "quote": "We assume static corruption by the adversary, where a fixed fraction of all sequencers' TEEs is compromised.",
+          "locator": "Sec. III-B Threat Model, Case 4 (v3 HTML)"
+        },
+        "cases": "Case 1 诚实+未破；Case 2 诚实+已破；Case 3 恶意+未破（可操控 I/O，导致可用性丧失）；Case 4 恶意+已破（无完整性/机密性保证）"
+      },
+      "quantitative": {
+        "setup": {
+          "quote": "We deployed our evaluation on up to 20 nodes, with the distribution of SGX, TDX, and CSV distributed in a ratio of 1:2:2. ... For WAN experiments, the inter-node Round-Trip Time (RTT) is about 25 ± 0.1ms. For LAN experiments, the inter-node RTT is about 0.5 ± 0.03ms.",
+          "locator": "Sec. VI-A (v3 HTML); Table III System Parameters",
+          "values": {
+            "sequencers": [5, 10, 15, 20],
+            "batchSize": [500, 1000, 1500, 2000],
+            "sgxNodes": [1, 2, 3, 4],
+            "tdxNodes": [2, 4, 6, 8],
+            "csvNodes": [2, 4, 6, 8],
+            "hardware": "SGX: Aliyun ECS g7t.2xlarge 8vCPU (Intel Xeon); TDX: Aliyun 8i.2xlarge 8vCPU (Intel Xeon); CSV: Aliyun g7h.2xlarge 8vCPU (Hygon C86-3G 7390)",
+            "network": "LAN RTT 0.5±0.03 ms / WAN RTT 25±0.1 ms"
+          }
+        },
+        "throughput": {
+          "locator": "Sec. VI-C / VI-D (v3 HTML)",
+          "values": [
+            { "metric": "throughput", "value": "≈28 KTPS", "condition": "5 sequencers, batch=2000, LAN", "unit": "TPS", "sourceLayer": "literature_reported" },
+            { "metric": "latency peak", "value": "119 ms", "condition": "5 sequencers, batch=2000, LAN", "unit": "ms", "sourceLayer": "literature_reported" },
+            { "metric": "off-chain throughput", "value": ">5000 TPS", "condition": "Sec. VI-D", "unit": "TPS", "sourceLayer": "literature_reported" },
+            { "metric": "WAN degradation", "value": "-15.74% throughput / +20.17% latency", "condition": "20 sequencers, WAN vs LAN", "unit": "percent_change", "sourceLayer": "literature_reported" }
+          ]
+        },
+        "gasTable": {
+          "locator": "Table IV Protocol Execution Cost (v3 HTML)",
+          "priceBasis": "ETH/USD = 3376.77, gas price = 19.26 Gwei (2025-01-01)",
+          "rows": [
+            { "method": "Deposit", "gas": 48551, "usd": 3.16 },
+            { "method": "UpdateState", "gas": 156263, "usd": 10.16 },
+            { "method": "StartChallenge", "gas": 47118, "usd": 3.06 },
+            { "method": "ResolveChallenge", "gas": 146618, "usd": 9.53 },
+            { "method": "SettleRollup", "gas": 29078, "usd": 1.89 },
+            { "method": "SettleWithdraw", "gas": 124511, "usd": 8.10 },
+            { "method": "Simple ETH transfer", "gas": 21000, "usd": 1.37 }
+          ],
+          "perTxAmortized": { "value": "78 gas (0.005 USD)", "condition": "amortized over 2000 transactions", "locator": "Sec. VI-B" },
+          "avgFee": { "value": "0.006 USD per transaction", "condition": "batch size 2000", "locator": "Sec. VI-D", "baseline": "StarkNet 0.043 USD" },
+          "sourceLayer": "literature_reported"
+        },
+        "reduction86": {
+          "quote": "the average transaction fee for TeeRollup is 0.006 USD per transaction with a batch size of 2000 (matching that of StarkNet), representing an 86% reduction compared to StarkNet.",
+          "locator": "Sec. VI-D (v3 HTML)",
+          "baseline": "StarkNet (ZK-rollup)，不是 Optimism / Arbitrum",
+          "comparability": "not_directly_comparable_to_op_or_arbitrum"
+        },
+        "challengeTau": {
+          "quote": "τ is set to a duration of several hours.",
+          "locator": "Sec. IV-E Challenge Mechanism (v3 HTML)",
+          "unit": "hours (表述为 several hours，无精确数字)"
+        }
+      },
+      "versionDiscrepancy": {
+        "issue": "不同版本的实验平台与容挫表述不一致",
+        "v3": "SGX:TDX:CSV = 1:2:2，部署于阿里云 ECS（Sec. VI-A / Table III）；f 由服务商设定（Sec. III-A）",
+        "earlyVersionText": "早期版本文本称「since many TEE platforms like Intel TDX and ARM CCA currently are not yet supported by off-the-shelf CPUs, we use AMD SEV as the TEE platform in our experiments」，并称可容忍至多半数 TEE 被攻破",
+        "handling": "本轮比较固定为 **v3**；不得把 v1 的『半数容挫/AMD SEV』与 v3 的『f 可配置/SGX:TDX:CSV』拼成同一个对手"
+      }
+    },
+
+    {
+      "id": "BOLD",
+      "name": "BoLD: Fast and Cheap Dispute Resolution",
+      "authors": "Mario M. Alvarez, Henry Arneson, Ben Berger, Lee Bousfield, Chris Buckland, Yafah Edelman, Edward W. Felten, Daniel Goldman, Raul Jordan, Mahimna Kelkar, Akaki Mamageishvili, Harry Ng, Aman Sanghi, Victor Shoup, Terence Tsao",
+      "organization": "Offchain Labs / Arbitrum",
+      "kind": "academic_paper + official_repository",
+      "versions": [{ "version": "v1", "date": "2024-04-16T11:57:36Z", "url": "https://arxiv.org/abs/2404.10491v1", "isLatest": true }],
+      "venue": "arXiv cs.CR, cs.DC; DOI 10.48550/arXiv.2404.10491",
+      "accessStatus": "fetched",
+      "officialRepository": {
+        "url": "https://github.com/OffchainLabs/bold",
+        "commit": "30e78f67f40eacaab13577e507bab6025df843d6",
+        "cloneDepth": 1,
+        "clonedAtUtc": "2026-09-16T18:52:00Z",
+        "license": "Business Source License 1.1（非完全开源；有使用限制）",
+        "language": "Go",
+        "goVersion": "go 1.24.5 (go.mod)",
+        "sizeOnDisk": "18 MB (shallow clone)",
+        "solidityInRepo": "none（contracts/ 目录为空；链上 Rollup 合约在 Arbitrum Nitro 仓库，本轮未克隆）",
+        "testDirs": ["testing/endtoend", "testing/integration", "testing/casttest", "challenge-manager"],
+        "status": "cloned_not_executed",
+        "notExecutedReason": "本机无 Go 工具链（go: command not found），无法运行官方 Go 测试；安装 Go/Foundry 属重量级依赖安装，本轮未获授权"
+      },
+      "quantitative": {
+        "termination": {
+          "quote": "this protocol will terminate within two challenge periods, that is, within time 2⋅(Cmax+D)",
+          "locator": "Sec. 2.2.1 Trustless cooperation",
+          "values": { "Cmax": "≈ 1 week（L1 审查预算的保守估计）", "D": "several hours（无审查的名义延迟）" },
+          "unit": "time",
+          "sourceLayer": "literature_reported"
+        },
+        "costRatio": {
+          "quote": "it is possible to choose quite realistic parameters that guarantee that the corrupt parties must (in aggregate) expend 10 times as much in staking and L1 gas costs than the honest parties (in aggregate)",
+          "locator": "Sec. 2.2.3 Multi-level refinement",
+          "unit": "ratio (corrupt/honest aggregate cost)",
+          "comparability": "not_directly_comparable（分母为腐/诚成本比，不是跨协议领先百分比）"
+        },
+        "staking": {
+          "quote": "The honest parties in aggregate need to make just one staked assertion.",
+          "locator": "Sec. 2.2.1（对比 Arbitrum Classic 需 M 次质押）",
+          "sourceLayer": "literature_reported"
+        },
+        "honestAssumption": {
+          "quote": "at least one honest party participates in the dispute resolution protocol.",
+          "locator": "Sec. 1 Introduction",
+          "corruptTolerance": "腐败方数量 N 无上限；只要存在至少一个诚实方且 L1 满足安全/活性"
+        },
+        "gasNumbers": {
+          "status": "not_reported_in_retrieved_sections",
+          "note": "检索到的章节未给出具体 gas 数值，仅有比例性描述（如 L1 gas ∝ NA）。不得从别处猜测。"
+        }
+      },
+      "clockDefinition": {
+        "quote": "two 'chess clock' timers are used. These clocks are initialized to some amount of time called the challenge period. ... The challenge period must be large enough to allow an honest party to make all of their moves and to account for censorship. ... the challenge period should be set to (at least) Cmax+D",
+        "locator": "Sec. 2.1.1 The two-party challenge subprotocol"
+      }
+    },
+
+    {
+      "id": "OPTIMISM_FDG",
+      "name": "Optimism Fault Dispute Game (FDG)",
+      "organization": "OP Labs / Ethereum Optimism",
+      "kind": "official_specification + official_contract_source",
+      "spec": {
+        "url": "https://specs.optimism.io/fault-proof/stage-one/fault-dispute-game.html",
+        "accessedAtUtc": "2026-09-16T18:47:00Z",
+        "accessStatus": "fetched",
+        "note": "spec 给出**参数名**与机制定义，具体**数值**由部署时的 immutable args 决定，spec 本身不给生产取值"
+      },
+      "officialSource": {
+        "repo": "https://github.com/ethereum-optimism/optimism",
+        "commit": "c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af",
+        "commitDate": "2026-09-16T17:40:01Z",
+        "branch": "develop",
+        "file": "packages/contracts-bedrock/src/dispute/FaultDisputeGame.sol",
+        "fetchedAtUtc": "2026-09-16T18:53:00Z",
+        "license": "MIT (SPDX-License-Identifier: MIT)",
+        "pragma": "solidity 0.8.15",
+        "accessStatus": "fetched_raw_file",
+        "localCopy": "official/optimism_src/FaultDisputeGame.sol"
+      },
+      "verifiedSourceFacts": [
+        { "item": "MAX_GAME_DEPTH", "kind": "immutable (clones-with-immutable-args)", "locator": "FaultDisputeGame.sol:128" },
+        { "item": "SPLIT_DEPTH", "kind": "immutable", "locator": "FaultDisputeGame.sol:132" },
+        { "item": "MAX_CLOCK_DURATION", "kind": "immutable, type Duration", "locator": "FaultDisputeGame.sol:135" },
+        { "item": "CLOCK_EXTENSION", "kind": "immutable, type Duration", "locator": "FaultDisputeGame.sol:139" },
+        { "item": "时钟继承", "quote": "Compute the duration of the next clock ... by adding the duration of the grandparent claim to the difference between the current block timestamp and the parent's clock timestamp.", "locator": "move() FaultDisputeGame.sol:~482 (getChallengerDuration)" },
+        { "item": "时钟到期拒绝", "quote": "if (nextDuration.raw() == MAX_CLOCK_DURATION.raw()) revert ClockTimeExceeded();", "locator": "move() FaultDisputeGame.sol" },
+        { "item": "时钟延期规则（标准/预执行轨迹根/预单步）", "quote": "MAX_GAME_DEPTH-1: CLOCK_EXTENSION + oracle().challengePeriod(); SPLIT_DEPTH-1: CLOCK_EXTENSION * 2; 否则 CLOCK_EXTENSION", "locator": "move() FaultDisputeGame.sol" },
+        { "item": "单步执行", "locator": "step() FaultDisputeGame.sol:362" },
+        { "item": "本地数据预映像", "locator": "addLocalData() FaultDisputeGame.sol:581" },
+        { "item": "结算", "locator": "resolve() :709 / resolveClaim() :735 / claimCredit() :984" },
+        { "item": "L2 区块号挑战", "locator": "challengeRootL2Block / l2BlockNumberChallenged（move() 内不变式）" }
+      ],
+      "thirdPartyContinuation": {
+        "status": "supported_with_source",
+        "evidence": "时钟继承 + CLOCK_EXTENSION 机制明确允许第三方在继承他人时钟时获得延期；spec 说明该延期正是为了『combat the situation where a challenger must inherit a malicious party's clock when countering a freeloader claim, in order to preserve incentive compatibility for the honest party』",
+        "locator": "spec §Game Clock；FaultDisputeGame.sol move()",
+        "implication": "本方案**不得**宣称『第三方接续/争议图动态参与』为首创；这已是 OP FDG 的既有机制"
+      },
+      "deploymentValues": {
+        "status": "not_verified",
+        "note": "MAX_GAME_DEPTH / SPLIT_DEPTH / MAX_CLOCK_DURATION / CLOCK_EXTENSION 的生产取值需按具体链查询部署参数或官方部署配置；本轮未查询，不填数值"
+      }
+    }
+  ],
+
+  "auxiliaryReferences": [
+    { "id": "opML", "status": "not_fetched_this_round", "note": "G 提示词列为可补就近引用，非必须完整复现的三主目标；本轮未扩大到无界文献综述" },
+    { "id": "DynamicFraudProof", "status": "not_fetched_this_round" },
+    { "id": "LazyLedger", "status": "not_fetched_this_round" },
+    { "id": "EIP-4844", "url": "https://eips.ethereum.org/EIPS/eip-4844", "status": "not_reverified_this_round", "note": "见于既有项目材料 citations_zh.md，本轮未重新回源；blob 相关数值以 E 阶段真实 codec 为准" }
+  ],
+
+  "existingProjectMaterialsCheck": {
+    "file": "revision_runs/20260911T095029Z/audit/citations_zh.md",
+    "verified": [
+      "TeeRollup arXiv:2409.14647 v3 ✓（版本日期与 v3 HTML 一致）",
+      "BoLD arXiv:2404.10491 v1 ✓",
+      "Optimism FDG spec URL ✓"
+    ],
+    "file2": "revision_runs/20260911T095029Z/external_research/comparison_report_zh.md",
+    "verified2": [
+      "TeeRollup 86% 的基线是 StarkNet（$0.043 → $0.006）✓ 与 v3 Sec. VI-D 一致",
+      "Table IV gas 与汇率（ETH/USD 3376.77、19.26 Gwei、2025-01-01）✓ 与 v3 Table IV 一致",
+      "28 KTPS / 119 ms ✓；τ = several hours ✓",
+      "BoLD 终止 2·(Cmax+D)、Cmax≈1 周、D 数小时 ✓；10× 腐/诚成本比 ✓；诚实方 1 次质押 ✓；未给具体 ETH/USD 保证金 ✓",
+      "『不可折算成统一领先百分比』的判断 ✓ 与 G4/G5 要求一致"
+    ],
+    "gapsFound": [
+      "既有材料未记录 TeeRollup **无公开仓库/artifact** 这一事实 —— 本轮补记（artifact=not_found/blocked）",
+      "既有材料未记录 TeeRollup 早期版本与 v3 在实验平台/容挫表述上的差异 —— 本轮补记（versionDiscrepancy）",
+      "既有材料称 OP FDG『部署预设不可变』并列出参数名 ✓，但未区分 spec 参数名与生产取值 —— 本轮补记为 not_verified"
+    ]
+  }
+}

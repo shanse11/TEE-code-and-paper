@@ -1,0 +1,39 @@
+{
+  "seed": 659918,
+  "requested": 1000,
+  "completed": 1000,
+  "operations": 27296,
+  "successes": 4590,
+  "reverts": 22706,
+  "revertStateChecks": 22706,
+  "pass": true,
+  "maxRecoveries": [
+    0,
+    1,
+    2
+  ],
+  "steps": [
+    4,
+    16,
+    64,
+    128
+  ],
+  "operationCounts": {
+    "submit": 3124,
+    "terminate": 2223,
+    "settle": 2155,
+    "adjudicate": 2178,
+    "replay": 2280,
+    "respond": 2326,
+    "advance": 2582,
+    "recover": 2394,
+    "withdraw": 2854,
+    "finalize": 2146,
+    "challenge": 3034
+  },
+  "startedAt": "2026-09-16T17:51:40.278Z",
+  "evidenceLayer": "local_evm",
+  "model": "independent acceptance predicate, transition and escrow accounting after every operation",
+  "seedLabel": "0xa11ce",
+  "finishedAt": "2026-09-16T17:53:00.618Z"
+}

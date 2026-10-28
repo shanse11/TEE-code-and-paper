@@ -1,0 +1,272 @@
+[000] p <DOI> DRAW CMT CMTREF TAB | doi:10.11772/j.issn.1001-9081.yyyymmnnnn3810-668020您的稿件编号：（新投稿无编号时暂不作填
+[001] p <Heading> CMT CMTREF | 文  题
+[002] p <Style19> CMT CMTREF | 第1作者1,2，第2作者1*，第3作者2
+[003] p <Style15> CMT CMTREF | (1.一级单位全称 二级单位全称，省 城市(或直辖市，省会城市可不写省) 邮编；
+[004] p <Style15>  | 2.一级单位全称 二级单位全称，省 城市(或直辖市，省会城市可不写省) 邮编)
+[005] p <Style15> CMT CMTREF | (*通信作者电子邮箱**********@*****)
+[006] p <Style21> CMT CMTREF | 摘要用于提示研究对象、目的、课题的基本观点、成果及意义，要求简明精当、忠于原文、突出特色，摘要应具有独立性，即不阅读论文全文，便能获得文中必
+[007] p <Style26>  | 摘要的构成要素（摘录自GB/T6447—2025）
+[008] p <Normal>  | 1、目的：提供研究、研制、调查等的前提、目的和任务,所涉及的主题范围等信息。
+[009] p <Normal>  | 2、方法：提供所用的原理、理论、条件、对象、材料、工艺、结构、手段、装备、程序等信息。
+[010] p <Normal>  | 3、结果：提供实验或试验的、研究的结果,获取的数据,被确定的关系,观察的结果,得到的效果、性能参数等信息。
+[011] p <Normal>  | 4、结论：提供结果的分析、研究、比较、评价、应用,对目的进行回应,提出问题、今后的课题、假设、启发、建议、预测、展望等信息。
+[012] p <2> CMT CMTREF | 5个中文关键词，用“；”间隔  (关键词是为了文献标引和检索的需要而从论文中选取的词或词组，一般从题名、摘要、正文中抽出若干个能表达全文内容
+[013] p <3> TAB | 必须填写中图分类号【查询网址可参考https://www.clcindex.com/category/TP18/】　　文献标志码: A
+[014] p <Heading> CMT CMTREF | Title
+[015] p <Style19> CMT CMTREF | NAME Name1,2, NAME Name1*, NAME Name2
+[016] p <Style15> CMT CMTREF | (1.College of ****, University, City Province Zip Code, China;
+[017] p <Style15>  | 2.College of ****, University, City Province Zip Code, China)
+[018] p <4>  | 与中文的内容一致，中英文摘要不应有较大偏差或完全不相符，也不要因为拘泥于中英文内容一致而写成中式英语，导致缺少主语或语法有严重错误。注意时态
+[019] p <51>  | keyword; keyword; keyword; keyword; keyword (除TCP，IP等行业通用的专有名词外，均为小写形式
+[020] p <Style9>  | 
+[021] p <-> SECTPR(cols=1,L=1191,R=907) | 
+[022] p <Style23> CMT CMTREF TAB | 引言
+[023] p <Normal>  | 具体要求请参考以下网址：
+[024] p <Normal>  | https://www.joca.cn/CN/column/column15.shtml
+[025] p <Normal>  | 有“引言”须从0开始编号，无“引言”从1开始编号。引言一般简略介绍一些问题的背景、相关的工作、问题和解决思路、本文的工作等，较长的引言也请注
+[026] p <Style23> CMT CMTREF | 一级标题
+[027] p <Normal> CMT CMTREF | 正文内容
+[028] p <Normal>  | 注意：本文档中将相关标题使用样式重命名为“一、二、三级标题”，并使用了多级列表格式，请直接使用，这样各章节会自动编制序号；正文使用“正文内容
+[029] p <Style23>  | 一级标题
+[030] p <Normal>  | 正文内容
+[031] p <Style17> CMT CMTREF | 二级标题
+[032] p <Normal>  | 正文内容
+[033] p <Style17>  | 二级标题
+[034] p <Normal>  | 正文内容
+[035] p <Style17>  | 二级标题
+[036] p <Style16> CMT CMTREF | 三级标题
+[037] p <Style16>  | 三级标题
+[038] p <Style23>  | 一级标题
+[039] p <Style23>  | 一级标题
+[040] p <Style23>  | 结语
+[041] p <Normal>  | 结语是对论文研究内容的总结，不要与实验的结果及分析混淆，也不与摘要、引言过于重复雷同。结语中一般指出本文解决的理论和实际问题，所得到的研究结
+[042] p <62> CMT CMTREF | 参考文献   
+[043] p <Normal>  | 请使用模板的“文献列表”样式，自动编号，具体要求请见附录2的最新国标示例说明。
+[044] p <Heading>  | ★基金、作者简介的英文(格式如样例)。
+[045] p <Style29>  | 1. 作者信息的英文译文仅需包括姓名、出生年、职称、学历和主要研究方向。注意作者的数目和顺序中英文应保持一致。2. 基金项目的英文译文请尽量
+[046] p <Style29>  | 样例如下：
+[047] p <Style29>  | 国家863计划项目(12345678)；国家973计划项目(87654321)；国家自然科学基金资助项目(22345678，23456789
+[048] p <Style29>  | 张珊珊(1967-)，女，广东广州人，教授，博士，CCF会员，主要研究方向：粗糙集、区间集、智能信息处理、Web智能、数据挖掘；李四(199
+[049] p <Style29>  | 
+[050] p <Style29>  | This work is partially supported by the National High Technology Resea
+[051] p <Style29>  | 
+[052] p <Style29>  | ZHANG Shanshan, born in 1967, Ph. D., professor. Her research interest
+[053] p <Style29>  | LI Si, born in 1990, M. S. candidate. His research interests include r
+[054] p <Style29>  | ……
+[055] p <-> SECTPR(cols=2,L=1902,R=1334) | 
+[056] p <Style29>  | 
+[057] p <Heading>  | ★模板使用说明：
+[058] p <Normal>  | 因为本文档设置了页边距等，方便所投稿件样式统一，以便后续处理，所以请直接将您的稿件内容粘贴到本文档中调整，并按要求使用相应的“一、二、三级标
+[059] p <Normal>  | 本文档有大量的“批注”及说明，主要是方便您理解格式要求。按模板调整完成后注意只保留作者文章的内容，相关的说明示例、批注等请作删除。
+[060] p <Heading>  | ★【必须填写】依次写明所有作者在本文中的工作量：
+[061] p <Normal>  | 第一作者：姓名，主要工作……
+[062] p <Normal>  | ……
+[063] p <Normal>  | 最后一位作者：姓名，主要工作……
+[064] p <Normal>  | ★如果是退修的稿件，请附上详细的修改说明:
+[065] p <Normal>  | 原退修意见1：
+[066] p <Normal>  | 作者修改所在章节：
+[067] p <Normal>  | 修改理由：
+[068] p <Normal>  | ……
+[069] p <Heading>  | ★本文矩阵、矢量/向量等变量符号说明（投稿时须附上相应内容）：
+[070] p <Normal>  | 矩阵、矢量也是变量，正文用Times New Rome字体斜体加粗表示，其他变量用常规斜体即可，公式编辑器设置见图中示例；没有矩阵、矢量变量
+[---] TBL rows=3 | 变量符号含义备注
+[071] p <Normal> DRAW | 
+[072] p <Normal>  | 
+[073] p <Heading>  | ★研究背景、基金项目介绍（投稿时须附上相应内容）：
+[074] p <Normal>  | 【请提供与本文内容直接相关的工作背景、本文基金项目等的简要说明与介绍，不是指整个行业的研究背景，而是介绍作者写作本文内容涉及的具体应用技术背
+[---] TBL rows=15 | 第一项基金项目（多个基金依次在后面列出）
+[075] p <Normal>  | 
+[076] p <-> SECTPR(cols=1,L=1902,R=1334) | 
+[077] p <Heading>  | ★文后参考文献说明:
+[078] p <Normal>  | 从2014年第1期起我刊正刊将同时列出中文参考文献的英文，注意这些英文内容都应该是由原文献提供的，如无提供，请注意正确翻译；且所有文献必须要
+[079] p <Normal>  | 国家标准对参考文献的详细格式要求及说明见附录2。
+[080] p <Heading>  | ★作者简介要素说明：
+[081] p <Normal> CMT CMTREF | 基金项目：如国家自然科学基金资助项目（******）；国家863计划项目（*****）；广东省自然科学基金资助项目（*****）。
+[082] p <Normal> CMT CMTREF | 第1作者(出生年-)，性别，籍贯，职称，学历，是否CCF会员，主要研究方向：*****、*****；其他作者需全部依次列出。
+[083] p <Normal> CMT CMTREF | 本文有任何疑问请联系作者：      ，手机号是：     ，邮箱是         。
+[084] p <Heading>  | ★其他格式修改要求详细说明：
+[085] p <Normal>  | ★定理、定义、引理、性质、推论、公式、图片、表格分别按全文的自然顺序编号。如： 
+[086] p <Style27> CMT CMTREF | 定理1，定理2……
+[087] p <Style27>  | 定义1，定义2……
+[088] p <Style28>  | 结论1，结论2……
+[089] p <Normal>  | 图1，图2，……所有图必须要有图题，图中的子图(a)(b)……等也必须标注图题。除彩色图像处理外，不使用彩色区分（目前是黑白印刷）；文章中所
+[090] p <Normal>  | 图片通过任何方式都不能转成矢量图，即最初导出结果图时就应该选择矢量图的格式。矢量图中的文字应该保持为可编辑文本，如果转为曲线就无法处理了。
+[091] p <Normal>  | Matlab等软件可以导出.emf或.wmf格式矢量图，部分软件能导出.svg格式矢量图，有时这些格式仍可能有无法使用的情况，所以软件如可导
+[092] p <Normal>  | 普通流程图请使用简单框架图，不要加底色、灰度或阴影等效果；实验结果的曲线图、柱状图可保持彩色，但请理解期刊目前只有黑白印刷；曲线多的时候尽量
+[093] p <Normal>  | Word制作的图提供Word文档，Visio或PPT制作的则提供相应的Visio与PPT文档（不要把Visio、PPT图插入Word）。
+[094] p <Normal>  | Excel图表需提供相应的excel数据表格并在表格中生成相应的图，注意图表中的所有线条只能用0.25磅。
+[095] p <Normal>  | 图像处理等的结果图则用清晰的屏幕拷贝图。
+[096] p <Normal>  | 
+[097] p <-> SECTPR(cols=2,L=1902,R=1334) | 
+[098] p <Normal> DRAW CMT CMTREF TAB | 
+[099] p <Style26> CMT CMTREF | 三种网络的消息交付率比较
+[100] p <Style26>  | Comparison of message delivery rates of three network
+[101] p <-> SECTPR(cols=1,L=1902,R=1334) | 
+[102] p <Normal> TAB | 
+[103] p <Normal> TAB | 表1，表2，……所有表格必须要有表题，项目栏必须写明该栏的名称，即要能反映表身中该栏信息的特征或属性；表格必须由Word自带表格工具编辑，不
+[104] p <Style26> CMT CMTREF | 实验中使用的UCI数据集
+[105] p <Style26>  | UCI dataset used in the experiment
+[---] TBL rows=7 | 数据集名称类数实例数维数
+[106] p <Style9>  | 
+[107] p <Style26>  | 各分类算法的单样本识别率与网络训练时间对比
+[108] p <Style26>  | Comparison of single-sample recognition rate and network training time
+[---] TBL rows=5 | 算法不同人数测试的识别率/%网络训练时间/s
+[109] p <Style9>  | 
+[110] p <Normal>  | 注意：图、表中的字号不小于小5号，打印后要能清晰阅读，图、表过大时使用通栏排版，不要压缩字号或图本身，或是排版太过紧密影响阅读。
+[111] p <Normal>  | 
+[112] p <Normal>  | 所有公式只能使用公式编辑器编辑，不能处理成图片。
+[113] p <Normal>  | 
+[114] p <Normal> TAB | 公式示例：
+[115] p <Normal> CMT CMTREF TAB | \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(1)
+[116] p <Normal> CMT CMTREF TAB | \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(2)
+[117] p <Normal> CMTREF TAB | \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n (3)
+[118] p <Heading>  | ★常见错别字(括号中为错别字)：
+[119] p <Normal> TAB | 阈值(阀值、域值)作为(做为)
+[120] p <Normal> TAB | 图像(图象)像素(象素)
+[121] p <Normal> TAB | 蒙特卡罗(模特卡罗)   欧几里得(欧几里德)
+[122] p <Normal> TAB | 噪声(噪音)拓扑(拓朴)
+[123] p <Normal> TAB | 几率(机率)   密钥(秘钥)
+[124] p <Normal> TAB | 影像(影象)当作(当做)
+[125] p <Normal> TAB | 称作(称做)叫作(叫做)
+[126] p <Normal> TAB | 模板(模版)折中(折衷)
+[127] p <Normal> TAB | 尽可能(近可能)       登录(登陆)
+[128] p <Normal> TAB | 迭代(叠代)           其他(其它)
+[129] p <Normal> TAB | 账号(帐号) 傅里叶(傅立叶)
+[130] p <Normal> TAB | 连接(连结)联结(联接)
+[131] p <Normal> TAB | 欧氏距离(欧式距离)
+[132] p <Normal> TAB | 邻域、邻近(领域、临域、临近)
+[133] p <Normal> TAB | 注意区别“的、地、得”的使用。
+[134] p <Normal>  | ★以下词在文章中一般选用前者：
+[135] p <Normal> TAB | 实验(试验)反映(反应，指化学反应等)
+[136] p <Normal> TAB | 考察(考查)节点(结点)
+[137] p <Heading>  | 一些规范的单位表示：
+[138] p <Normal>  | Mb/s, Kb/s, MB/s, KB/s，使用时请严格区别比特b与字节B；注意k(×103)、K(×1024)、M(×106)、G(×1
+[139] p <Normal>  | 长度单位：m, km, 
+[140] p <Normal>  | 时间：s, min, h, a(年)
+[141] p <Heading>  | ★部分常见出版社所在城市举例如下，可参考：
+[142] p <Normal>  | New York: ACM,
+[143] p <Normal>  | Boston: Addison-Wesley Professional,
+[144] p <Normal>  | Washington, DC: AMIA Publications,
+[145] p <Normal>  | Arlington: AUAI Press,
+[146] p <Normal>  | Berlin: Springer, 或 Cham: Springer （以网站提供为准）
+[147] p <Normal>  | Nottingham, UK: BMVA Press,
+[148] p <Normal>  | Cambridge, UK: Cambridge University Press,
+[149] p <Normal>  | Cambridge, MA: MIT Press,
+[150] p <Normal>  | Boca Raton, FL: CRC Press,
+[151] p <Normal>  | London: dblp Computer Science Bibliography, 
+[152] p <Normal>  | San Jose, CA: EDA Consortium,
+[153] p <Normal>  | New York: Elsevier Science Inc.,
+[154] p <Normal>  | Singapore: IACSIT Press,
+[155] p <Normal>  | New York: IEEE Communications Society,
+[156] p <Normal>  | Washington, DC: IEEE Computer Society,
+[157] p <Normal>  | Piscataway, NJ: IEEE,
+[158] p <Normal>  | Amsterdam: IOS Press,
+[159] p <Normal>  | Hoboken, NJ: John Wiley & Sons,
+[160] p <Normal>  | Hingham, MA: Kluwer Academic Publishers,
+[161] p <Normal>  | New York: McGraw-Hill Higher Education, 
+[162] p <Normal>  | San Francisco, CA: Morgan Kaufmann Publishers Inc.,
+[163] p <Normal>  | New York: Oxford University Press,
+[164] p <Normal>  | Upper Saddle River, NJ: Prentice-Hall,
+[165] p <Normal>  | Princeton, NJ: Princeton University Press,
+[166] p <Normal>  | London: Routledge,
+[167] p <Normal>  | Philadelphia, PA: SIAM,
+[168] p <Normal>  | Bellingham, WA: SPIE,
+[169] p <Normal>  | Berkeley, CA: USENIX Association,
+[170] p <Normal>  | River Edge, NJ: World Scientific Publishing Co., Inc.,
+[171] p <Heading>  | ★缩略语规范表示示例：
+[172] p <Normal>  | ★全文缩略语规范表示示例,必须全文检查修改：
+[173] p <Normal>  | 
+[174] p <Normal>  | 在中文摘要中：支持向量机(SVM)
+[175] p <Normal>  | 在英文摘要中：Support Vector Machine (SVM)
+[176] p <Normal>  | 在正文中第一次出现：支持向量机(Support Vector Machine, SVM)，后面再次提及时可直接用缩写，注意表示上尽量一致
+[177] p <Normal>  | 
+[178] p <Normal>  | 全文检查修改，如无常用中文名称则只补充英文全称；两者都没有则说明一下。
+[179] p <Heading>  | ★百分比与百分点
+[180] p <Normal>  | 在中英文摘要、图形与表格以及实验结果分析中，关于百分比和百分点的表达，存在以下认识误区，需要作者注意：
+[181] p <Normal>  | 
+[182] p <Normal>  | A算法的成功率为50%，B算法的成功率为75%。那么在表述时，需要注意。
+[183] p <Normal>  | a)用百分点来表达。可用“与A算法相比，B算法的成功率提升了25个百分点”来表示，即计算公式为75%-50%=25%，在表述时，应该是表述为
+[184] p <Normal>  | b)用百分比来表达。可用“与A算法相比，B算法的成功率提升了50%”来表示，即计算公式为(75%-50%)/50%=25%/50%=50%，
+[185] p <Normal>  | 
+[186] p <-> SECTPR(cols=2,L=1902,R=1334) | 
+[187] p <Heading>  | 
+[188] p <Heading>  | ★附录1(摘要示例)：
+[189] p <-> SECTPR(cols=2,L=1902,R=1334) | 
+[190] p <Normal> CMT CMTREF | 针对上行链路多基站协作通信系统中联合处理功耗过高的问题，提出了一种基于小区间干扰抑制的上行多基站协作能效算法(ICIR-UMBCEEA)。首
+[191] p <Normal>  | Since the energy consumption of joint processing in uplink multi-base 
+[192] p <Normal>  | 
+[193] p <Normal> CMT CMTREF | 为解决基于帕累托(Pareto)支配解排序的多目标进化算法高时间复杂度问题，依据非支配解排序潜在特性，介绍了一种快速的非支配解排序方法，每次
+[194] p <Normal>  | Concerning the high time-complexity of multi-objective evolutionary al
+[195] p <-> SECTPR(cols=1,L=1902,R=1334) | 
+[196] p <Heading>  | ★附录2(参考文献格式国标要求)：
+[197] p <Normal>  | 以下要点及参考文献类型示例参考最新国标GB/T 7714—2025《信息与文献 参考文献著录规则》。
+[198] p <Normal>  | 一、核心变化
+[199] p <Normal>  | 1.文献类型新增和更改：类型新增“预印本”(PP)、“数据集”(DS)等，“EB”代表的类型更改为“网站、网页”。
+[200] p <Normal>  | 2.作者姓名：用汉语拼音著录个人责任者，姓应全部著录，首字母应大写，名宜用全称；用西文著录个人责任者，姓应全部著录，首字母应大写，名可缩写为
+[201] p <Normal>  | 示例1： Li Jiangning
+[202] p <Normal>  | 示例2： Einstein A
+[203] p <Normal>  | 示例3： Williams-Ellis A
+[204] p <Normal>  | 示例4： De Morgan A
+[205] p <Normal>  | 示例5： Godard J-L
+[206] p <Normal>  | 示例6： Peebles P Z Jr.
+[207] p <Normal>  | 
+[208] p <Normal>  | 二、我刊正刊的非英文文献，先列原文种后附英文（示例源自标准P32）【增刊录用稿件的非英文文献不附相应英文】
+[209] p <Normal> TAB | [1] 王利平,王福新,刘洪.过冷大水滴环境粒径分布模拟方法研究进展[J]. 航空学报,2024 , 45(增刊1):730570.（Wan
+[210] p <Normal> TAB | 
+[211] p <Normal>  | 三、文献类型及标准示例（源自标准附录B）
+[212] p <Heading>  | 1.图书（标识M）【版本为第2版及以上须注明】
+[213] p <Normal> TAB | [1] 张伯伟.全唐五代诗格汇考[M].南京：江苏古籍出版社,2002: 288.
+[214] p <Normal> TAB | [2] 扬奎斯特,萨金特.递归宏观经济理论[M].杨斌,王忠玉,陈彦斌,等,译. 2版.北京：中国人民大学出版社,2010: 798.
+[215] p <Normal> TAB | [3] Peebles P Z Jr. Probability, random variables, and random signal p
+[216] p <Heading>  | 2.图书中的析出文献（标识M）【版本为第2版及以上须注明】
+[217] p <Normal> TAB | [1] 程根伟. 1998年长江洪水的成因与减灾对策[M]//许厚泽,赵其国.长江流域洪涝灾害与科技对策.北京：科学出版社,1999: 32
+[218] p <Normal> TAB | [2] 马克思.政治经济学批判[M]//马克思,恩格斯.马克思恩格斯全集：第35卷. 2版.北京：人民出版社,2013: 302.
+[219] p <Normal> TAB | [3] Weinstein L, Swartz M N. Pathogenic properties of invading microor
+[220] p <Heading>  | 3.连续出版物中的析出文献（标识J）【[J/OL]的年卷期、版次标识与页码等有则必备（没有则忽略）】
+[221] p <Normal> TAB | [1] 于潇,刘义,柴跃廷,等.互联网药品可信交易环境中主体资质审核备案模式[J].清华大学学报(自然科学版), 2012, 52(11):
+[222] p <Normal> TAB | [2] Myburg A A, Grattapaglia D, Tuskan G A, et al. The genome of Eucal
+[223] p <Normal> TAB | [3] 张群,程志宝,石志飞.惯性增强动力吸振器－浮置板轨道低频减振性能研究[J/OL]. 铁道学报, 2024-05-09. http:/
+[224] p <Heading>  | 4.会议录（标识C）
+[225] p <Normal> TAB | [1] 李妍,王莹.医疗机构保洁人员“一前五后”手卫生干预效果研究[C]//中华预防医学会医院感染控制分会第31次全国医院感染学术年会,20
+[226] p <Normal> TAB | [2] 牛志明,Swingland I R,雷光春.综合湿地管理：综合湿地管理国际研讨会论文集[C].北京：海洋出版社,2012.
+[227] p <Normal> TAB | [3] Yu Yang, Pan Erting, Wang Xinya, et al. Unmixing before fusion: a 
+[228] p <Heading>  | 5.学位论文（标识D）
+[229] p <Normal> TAB | [1] 王琦.融合星载GNSS-R和SAR数据的高时空分辨率土壤湿度反演方法研究[D].武汉：武汉大学,2022: 87.
+[230] p <Normal> TAB | [2] 金燕萍.社交媒体时代的虚假信息研究[D/OL].温州：温州大学,2020: 16. https://d.wanfangdata.co
+[231] p <Normal> TAB | [3] Cairns B R. Infrared spectroscopic studies of solid oxygen [D]. Be
+[232] p <Heading>  | 6.报告（标识R）
+[233] p <Normal> TAB | [1] 中国互联网络信息中心.第29次中国互联网络发展状况统计报告[R/OL]. 2012-01-16. https://www.cnnic
+[234] p <Normal> TAB | [2] 中国信息通信研究院,中国电信股份有限公司研究院,中国移动通信研究院,等.电信业发展白皮书: 2023:新时代高质量发展探索[R/OL
+[235] p <Normal> TAB | [3] Calkin D E, Ager A A, Thompson M P, et al. A comparative risk asse
+[236] p <Heading>  | 7.标准（标识S）
+[237] p <Normal> TAB | [1] GB/T 3792-2021信息与文献资源描述[S].
+[238] p <Normal> TAB | [2] NB/T 10386-2020水电工程水温实时监测系统技术规范[S].
+[239] p <Normal> TAB | [3] ISO 21378: 2019 Audit data collection [S].
+[240] p <Heading>  | 8.专利（标识P）【须注明公告（公开）日期】
+[241] p <Normal> TAB | [1] 邓一刚.全智能节电器: CN200610171314.3 [P]. 2008-01-16: 8-9.
+[242] p <Normal> TAB | [2] 李华,王昊,康佐.一种拼接式桥梁模型: CN202222658126.0 [P/OL]. 2023-01-03. https://p
+[243] p <Normal> TAB | [3] Trisco leap Pty Ltd. Storage and delivery system: AU2022228203A [P
+[244] p <Heading>  | 9.网站/网页（标识EB/OL）【[EB/OL]的创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）】
+[245] p <Normal> TAB | [1] 中国国家博物馆[EB/OL]. [2025-05-06]. https://www.chnmuseum.cn/.
+[246] p <Normal> TAB | [2] 高等教育文献保障系统.馆际互借与文献传递服务[EB/OL]. [2025-06-21]. http://home.calis.edu
+[247] p <Normal> TAB | [3] 许振超：“好好干,当一个好工人”[EB/OL]. (2025-02-17) [2025-06-22]. http://cpc.peo
+[248] p <Heading>  | 10.档案（标识A）
+[249] p <Normal> TAB | [1] 李鸿章.奏请上海道库洋务外销要款无款可筹仍拨药厘接济事: 04-01-35-0399-039 [A].北京：中国第一历史档案馆,18
+[250] p <Normal> TAB | [2] 湖北省建设厅.湖北省建设厅关于检发实业部农工矿业团体登记规则的布告、训令及湖北省政府的训令: LS031-001-0001-001 
+[251] p <Normal> TAB | [3] Fizwilliam H. [Letter to Bess of Hardwick][A/OL]. 1570-07-28. http
+[252] p <Heading>  | 11.地图（标识CM）
+[253] p <Normal> TAB | [1] 胡健民.东南极拉斯曼丘陵地区地质图1:25000 [CM].北京：科学出版社,2021. 128 cm×84 cm.
+[254] p <Normal> TAB | [2] 刘祥沈.沈阳市政区图1:170000 [CM].武汉：武汉大学出版社,2016. 138 cm×96 cm.
+[255] p <Normal> TAB | [3] 国家测绘地理信息局.一带一路经济走廊及其途经城市分布地势图[CM/OL]. http://ydyl.china.com.cn/201
+[256] p <Heading>  | 12.数据集（标识DS）【[DS/OL]的创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）】
+[257] p <Normal> TAB | [1] 周壮,李盛阳,吴薇,等.天宫二号遥感图像自然景物分类科学数据[DS/OL]. V1.0.国家基础学科公共科学数据中心(2023-09
+[258] p <Normal> TAB | [2] 黄土高原科学数据中心(西北农林科技大学水土保持研究所).青海省县域教育、卫生发展指标(2001-2022年)[DS/OL].国家地球
+[259] p <Normal> TAB | [3] IHME. Global burden of disease study 2019 (GBD 2019) data resource
+[260] p <Heading>  | 13.预印本（标识PP）【创建或修改日期有则必备（用圆括号），引用日期必备（用方括号）。版本为第2版及以上须注明】 【发布超过1年的预印本文
+[261] p <Normal>  | [1] Jenkins S D, Ruostekoski J. Controlled manipulation of light by co
+[262] p <Normal>  | [2] 方向明,曹迎杰.元宇宙在图书馆的应用：理论研究与实践进展[PP/OL]. ChinaXiv (2023-03-03) [2024-0
+[263] p <Normal>  | [3] 肖玲,张雪,王永.数据要素的统计测算方法探究[PP/OL]. PSSXiv (2024-07-02) [2024-09-30]. h
+[264] p <Normal>  | 
+[265] p <-> SECTPR(cols=1,L=1902,R=1334) | 
+[266] p <Normal>  | 
+[===] FINAL sectPr cols=2 L=1902 R=1334

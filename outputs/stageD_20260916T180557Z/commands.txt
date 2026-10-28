@@ -1,0 +1,33 @@
+# 阶段 D 实际复现命令（均已在本机执行验证）
+
+# 工作区：/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup
+
+# 0) 硬件探测（确认无 SGX/TDX，这是 D-quote 及以上 blocked 的依据）
+sysctl -n machdep.cpu.brand_string; uname -m
+ls -la /dev/sgx* /dev/tdx* 2>/dev/null || echo "无 SGX/TDX 设备节点"
+# 实测：Apple M5 / arm64；/dev/sgx*、/dev/tdx* 均不存在
+
+# 1) 语法检查
+node --check evm/revision/tee_attestation.js
+node --check evm/revision/stageD_attestation.test.js
+
+# 2) D-local 测试（后端隔离 / fail-closed / 绑定编码 / 策略评估 / D01–D12 登记）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageD_20260916T180557Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/stageD_attestation.test.js
+# 结果：8 passing / 0 failing；12 个 case 登记（verified=5, partial=1, blocked=6）
+# 产物：hardhat_run/stageD/case_matrix.json
+
+# 3) 冻结 D 阶段测量版本
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageD_20260916T180557Z/stageD_freeze" \
+  --run-id stageD-freeze-20260916T180557Z
+# 结果：ready
+
+# ---------------------------------------------------------------
+# 以下为「远端真实 Quote 采集」，本机无法执行（无 SGX/TDX 硬件）
+# 详见 outputs/stageD_20260916T180557Z/REMOTE_QUOTE_RUNBOOK.md
+# 注意：具体命令与参数必须按 Intel 官方文档和所用库版本核对，不凭记忆杜撰。
+# ---------------------------------------------------------------

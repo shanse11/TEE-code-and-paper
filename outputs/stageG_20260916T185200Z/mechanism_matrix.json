@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.mechanism_matrix.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "marks": {
+    "supported": "有来源支持",
+    "supported_with_source": "有来源支持且给出具体定位（文件:行 / 章节 / 表号）",
+    "not_supported_with_source": "有来源说明其不支持（不是『没找到』）",
+    "not_verified": "未找到材料或未核实 —— 不得填『不支持』",
+    "not_applicable": "该方案不存在此维度"
+  },
+  "versionPins": {
+    "ours": "BoundedTaskRollup.sol @ stageF-freeze-20260916T184017Z (sourceTreeSha256 ab26edb7…)",
+    "TEEROLLUP": "arXiv:2409.14647v3",
+    "BOLD": "arXiv:2404.10491v1 + OffchainLabs/bold@30e78f67",
+    "OPTIMISM_FDG": "specs.optimism.io FDG spec (访问 2026-09-16) + FaultDisputeGame.sol @ ethereum-optimism/optimism c4a68ab"
+  },
+
+  "rows": [
+    {
+      "system": "本项目 BoundedTaskRollup（本轮实测对象）",
+      "computationModel": {
+        "value": "有界 hash 链任务：MAX_STEPS=128；traceRoot = keccak256(abi.encode(bytes32[]))，是有序向量承诺，不是 Merkle 根、不是单步证明",
+        "mark": "supported_with_source",
+        "locator": "BoundedTaskRollup.sol:33 (MAX_STEPS), compute() 注释"
+      },
+      "executionTrust": {
+        "value": "当前实现不依赖 TEE：链上确定性重算（adjudicate）为正确性根基；TEE/签名仅用于 D 阶段的应用执行层（本轮 D 为 blocked，故本表不含 TEE 信任）",
+        "mark": "supported",
+        "locator": "BoundedTaskRollup.sol adjudicate()；D 阶段 handoff"
+      },
+      "da": {
+        "value": "链上只承诺 dataHash（32 字节固定）；真实 DA 载体（Blob）属 E 阶段，公网发布与独立取回本轮 blocked",
+        "mark": "supported",
+        "locator": "E 阶段 handoff（partial）；F comparability_contract.trustAndBilling"
+      },
+      "normalSubmissionCost": {
+        "value": "submit gas（实测，baseline b8-p8-c4-s64 三 run 合计 159,763,008 gas，本地）；无链下证明成本（无 TEE/ZK）",
+        "mark": "supported_with_source",
+        "locator": "outputs/stageF_20260916T184017Z/hardhat_run/stageF/summary/cell_summary.json"
+      },
+      "disputeAndContinuation": {
+        "trigger": "openChallenge（任何人，非提交方，付 bond）",
+        "eligibility": "openChallenge 无许可；advance/replay/settle/recover **无调用者限制**",
+        "continuation": "respond（仅提交方，可选）→ advance*（任何人）→ replay → settle；或任何人直接 adjudicate 兜底",
+        "timeout": "challengeWindow（提交后挑战窗口）、stepTimeout（每步）、absoluteDeadline = challenge 时刻 + (normalTransitions + maxRecoveries) × stepTimeout；recover 可最多 2 次续期",
+        "mark": "supported_with_source",
+        "locator": "BoundedTaskRollup.sol: openChallenge / advance / recover / adjudicate / _touch"
+      },
+      "evidenceAndFinalJudgement": {
+        "value": "证据：完整 trace（可选 respond）或无需证据（adjudicate 直接重算 ≤128 步）；最坏交互 = ceil(log2(steps+1)) 次 advance；链上最终裁决 = _verify 重算比对 output 与 traceRoot",
+        "mark": "supported_with_source",
+        "locator": "respond() / advance() / _verify()"
+      },
+      "endpointDefinitions": {
+        "submitConfirmed": "submit 落块",
+        "appAvailable": "乐观可用（本轮定义为提交确认即刻）",
+        "challengeClosed": "challengeDeadline 过后无人挑战，或已进入裁决",
+        "finalSettlement": "SETTLED 事件（verdict + winner + amount）",
+        "withdrawal": "withdraw() 实际转账成功",
+        "mark": "supported_with_source",
+        "locator": "F comparability_contract.endpointDefinitions"
+      },
+      "recoveryAndPenalty": {
+        "value": "recover() 仅递增 recoveries 并 _touch(timeoutAt)，**不改变** challenger/phase；终止假设：adjudicate 在任何时刻（含双方离线、任何期限之后）可用且确定性可重算；经济处罚 = 败方 bond 归胜方（verdict≠0 时挑战方获 2×bond）",
+        "mark": "supported_with_source",
+        "locator": "recover() / adjudicate() / _settle()；C 阶段 C02/C03 标 limited"
+      },
+      "evidenceLevel": "本轮实测（F/G raw）+ 源码定位"
+    },
+
+    {
+      "system": "TeeRollup（TEEROLLUP，arXiv v3）",
+      "computationModel": {
+        "value": "链下在 TEE 内执行交易，链上只验证 TEE 签名与 state（Merkle root 形式的状态摘要）；不是有界步数模型",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. V-A Overview（TSC 记录 state 而非完整 metadata）；Fig. 1"
+      },
+      "executionTrust": {
+        "value": "异构 TEE 委员会（SGX/TDX/CSV = 1:2:2），状态转换需 quorum certificate（f+1 个 TEE 签名）；容忍至多 f 个 TEE 同时受损，f 由服务商设定；静态腐化假设",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. III-A / III-B；Sec. VI-A"
+      },
+      "da": {
+        "value": "DAP（Data Availability Providers）链下存储 metadata；有 collateral scheme 与 laziness penalty game 约束 DAP",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. I / Sec. V（DAP 与 laziness penalty）"
+      },
+      "normalSubmissionCost": {
+        "value": "Table IV：UpdateState 156,263 gas（10.16 USD，按 19.26 Gwei / ETH 3376.77 USD，2025-01-01）；摊销后 78 gas（0.005 USD）/笔；平均 0.006 USD/笔（batch=2000）",
+        "mark": "supported_with_source",
+        "locator": "v3 Table IV；Sec. VI-B / VI-D",
+        "sourceLayer": "literature_reported"
+      },
+      "disputeAndContinuation": {
+        "trigger": "客户端交易未被及时处理时向 TSC 发起 challenge",
+        "eligibility": "客户端（用户）发起",
+        "continuation": "challenge 后 TEE 在下一 batch 执行该交易并投票；若 τ 内未响应则客户端可直接从 TSC 退款",
+        "timeout": "τ = several hours（无精确数字）",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. IV-E Challenge Mechanism；Algorithm 1 (T_w)"
+      },
+      "evidenceAndFinalJudgement": {
+        "value": "证据为 TEE 签名/QC；链上最终裁决为 TSC 验证 QC 与状态摘要，不是二分交互、不是单步证明",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. IV / V"
+      },
+      "endpointDefinitions": {
+        "submitConfirmed": "TSC 记录 state",
+        "appAvailable": "TEE 签名即 finalize（正常路径）",
+        "challengeClosed": "τ 到期或 challenge 被处理",
+        "finalSettlement": "SettleRollup（29,078 gas）",
+        "withdrawal": "SettleWithdraw（124,511 gas）；正常情况仅需一次 transfer，78 gas",
+        "mark": "supported_with_source",
+        "locator": "v3 Table IV；Sec. VI-B",
+        "note": "与本项目端点语义不同（TEE 签名即 finalize vs 欺诈证明挑战窗口），不可计算『快 N 倍』"
+      },
+      "recoveryAndPenalty": {
+        "value": "TEE 不可用时的 redeemability：challenge 机制保证用户可取回；DAP 有 collateral 与 laziness penalty",
+        "mark": "supported_with_source",
+        "locator": "v3 Sec. I / IV-E / V",
+        "terminationAssumption": "依赖 TEE 在 τ 内响应，否则走退款路径"
+      },
+      "artifact": { "status": "not_found", "note": "无公开仓库" },
+      "evidenceLevel": "文献（v3）+ 无官方 artifact"
+    },
+
+    {
+      "system": "Arbitrum BoLD",
+      "computationModel": {
+        "value": "通用 EVM / WAVM 状态转换断言；争议在动态协议图（多层级）上二分到单步",
+        "mark": "supported_with_source",
+        "locator": "v1 Sec. 2.2 / 2.2.3 multi-level refinement"
+      },
+      "executionTrust": {
+        "value": "不依赖 TEE；至少 1 个诚实方参与；腐败方数量无上限（可任意协调）；L1 提供安全与活性",
+        "mark": "supported_with_source",
+        "locator": "v1 Sec. 1；Sec. 3 Formal attack model"
+      },
+      "da": {
+        "value": "not_verified（本轮检索章节未给出 DA 载体与披露义务的具体说明）",
+        "mark": "not_verified"
+      },
+      "normalSubmissionCost": {
+        "value": "论文未给具体 gas 数值；仅比例性描述（L1 gas ∝ NA，NA 为腐败方断言数）。摘要称『without a significant increase in onchain computation costs and with reduced staking costs』",
+        "mark": "supported_with_source",
+        "locator": "v1 Abstract；Sec. 2.2.1",
+        "sourceLayer": "literature_reported"
+      },
+      "disputeAndContinuation": {
+        "trigger": "对断言发起挑战（challenge subprotocol）",
+        "eligibility": "无许可；诚实方聚合只需 1 次质押断言（v1 Sec. 2.2.1）",
+        "continuation": "多层协议图 + 本地计时器；任意方均可继续参与，诚实方无需相互通信协调",
+        "timeout": "challenge period ≥ Cmax + D；Cmax ≈ 1 周，D = 数小时；终止上界 2·(Cmax+D)",
+        "mark": "supported_with_source",
+        "locator": "v1 Sec. 2.1.1 / 2.2.1 / 2.2.3"
+      },
+      "evidenceAndFinalJudgement": {
+        "value": "单步证明（one-step proof）；最坏交互受协议图层级约束；终止时间 2 个挑战期（与参与方数量无关）",
+        "mark": "supported_with_source",
+        "locator": "v1 Sec. 2.2.3"
+      },
+      "endpointDefinitions": {
+        "value": "not_verified（本轮检索章节未给出提款/终局的明确端点定义与数值）",
+        "mark": "not_verified"
+      },
+      "recoveryAndPenalty": {
+        "value": "腐败方聚合成本可达诚实方 10 倍（质押 + L1 gas）；成本最终偿还诚实方、没收腐败方",
+        "mark": "supported_with_source",
+        "locator": "v1 Sec. 2.2.3",
+        "terminationAssumption": "至少一个诚实方参与 + L1 活性"
+      },
+      "evidenceLevel": "文献（v1）+ 官方仓库已克隆但**未执行**（无 Go 工具链）"
+    },
+
+    {
+      "system": "Optimism Fault Dispute Game",
+      "computationModel": {
+        "value": "FPVM（Cannon，原 MIPS；现支持多 VM）执行轨迹；Game Tree 二分：SPLIT_DEPTH 以上为 output root 二分，以下为执行轨迹二分，MAX_GAME_DEPTH 处为单指令步",
+        "mark": "supported_with_source",
+        "locator": "spec §Game Tree / §Subgame；FaultDisputeGame.sol:128/132"
+      },
+      "executionTrust": {
+        "value": "不依赖 TEE；无许可挑战者 + 至少一个诚实挑战者；L1 最终性",
+        "mark": "supported_with_source",
+        "locator": "spec §Overview / §Team Dynamics"
+      },
+      "da": {
+        "value": "PreimageOracle：大预映像需链上分步提交（addLocalData），进入 challenge period 后可被单步争议；本地数据由挑战者从区块体重建 Merkle 树验证",
+        "mark": "supported_with_source",
+        "locator": "spec §PreimageOracle Interaction；FaultDisputeGame.sol:581 addLocalData()"
+      },
+      "normalSubmissionCost": {
+        "value": "spec 不给数值；合约中 bond 由 getRequiredBond(position) 决定（按位置递增），参数由部署确定",
+        "mark": "not_verified",
+        "note": "生产 gas/bond 数值须查部署配置；本轮未查，不填"
+      },
+      "disputeAndContinuation": {
+        "trigger": "attack / defend 对既有 claim 发起 move",
+        "eligibility": "无许可；需按位置付 bond（getRequiredBond）",
+        "continuation": "**已具备第三方接续**：claim 继承祖父 claim 的时钟（getChallengerDuration）；若继承后剩余时间少于 CLOCK_EXTENSION，则补足到 CLOCK_EXTENSION（普通）、CLOCK_EXTENSION×2（SPLIT_DEPTH-1，留时间给链下 FPVM 生成轨迹）、CLOCK_EXTENSION + oracle().challengePeriod()（MAX_GAME_DEPTH-1，含 LPP 挑战期）",
+        "timeout": "时钟累计达 MAX_CLOCK_DURATION 则 revert ClockTimeExceeded；L2 区块号挑战另有 challengeRootL2Block",
+        "mark": "supported_with_source",
+        "locator": "FaultDisputeGame.sol move()（时钟继承与延期分支）；spec §Game Clock / §Freeloader Claims",
+        "criticalNote": "**本方案不得宣称『第三方接续/争议动态参与』为首创 —— OP FDG 已有该机制**"
+      },
+      "evidenceAndFinalJudgement": {
+        "value": "证据：output root 承诺 / 执行轨迹承诺 / 单指令步的 stateData + Merkle proof；最坏交互 = SPLIT_DEPTH + (MAX_GAME_DEPTH - SPLIT_DEPTH) 层；链上最终裁决 = step() 调用 FPVM 执行单条指令",
+        "mark": "supported_with_source",
+        "locator": "spec §Step；FaultDisputeGame.sol:362 step()"
+      },
+      "endpointDefinitions": {
+        "submitConfirmed": "claim 写入 DAG",
+        "appAvailable": "not_verified（spec 未给出『应用可用』的明确端点）",
+        "challengeClosed": "子博弈时钟耗尽且子博弈已结算",
+        "finalSettlement": "resolve() → GameStatus；再等 OptimismPortal 的 disputeGameFinalityDelaySeconds 才能 finalize",
+        "withdrawal": "finalize 后经 claimCredit() 分配 bond；bridge 提款另有流程",
+        "mark": "supported_with_source",
+        "locator": "FaultDisputeGame.sol:709 resolve() / :735 resolveClaim() / :984 claimCredit()；spec §Resolution / §Finalization"
+      },
+      "recoveryAndPenalty": {
+        "value": "无独立『恢复』原语；靠时钟继承 + CLOCK_EXTENSION 保证继承他人时钟的诚实方仍有时间行动（spec 明示为对抗 freeloader claim 导致的激励不相容）；bond 归游戏胜方",
+        "mark": "supported_with_source",
+        "locator": "spec §Game Clock；§Bond Incentives（spec 指向但未逐节抓取）",
+        "terminationAssumption": "至少一个诚实参与者 + L1 活性 + 部署时设定的时钟参数"
+      },
+      "evidenceLevel": "官方 spec + 官方合约源码（已下载并逐行定位），**未执行**"
+    }
+  ],
+
+  "testableQuestions": [
+    "固定争议事实（同一 trace、同一步的错误位置）下，各方接续状态是什么？",
+    "期限上界分别是多少（本方案 absoluteDeadline vs BoLD 2·(Cmax+D) vs FDG MAX_CLOCK_DURATION），攻击者延长终止的成本是多少？",
+    "恢复者/接续者需要哪些数据与权限（本方案：无需任何权限，adjudicate 可无须 trace；FDG：需 bond 与正确的 claim；BoLD：需质押）？",
+    "增加多少提交/存储/证明开销（本方案 recover 一次 +97 万 gas 量级；FDG 每次 move 需 bond）？",
+    "在哪种故障分布下受益（提交方离线？挑战方离线？双方离线？审查？）"
+  ]
+}

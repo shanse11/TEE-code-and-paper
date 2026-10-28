@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageH.tee-link.v1",
+  "cases": [
+    {
+      "steps": 4,
+      "output": "0x862427608dc6509b5f38b65b20692ab8fcd2ac9ef8863ad3bffb7b7815a6869f",
+      "traceRoot": "0xcb6fca045a084d3526f97568d8ef6a525f80575fe29dcf75240ba6dd7fd60328",
+      "reportData": "0xd7ddfc6038ebeb13597cc2700d8d22e166e39ee40f1cb8f2fb4def600bb74eea",
+      "quoteFile": "quote_steps4.dat",
+      "verdict": 0,
+      "phase": "SETTLED",
+      "gas": {
+        "submit": "256195",
+        "openChallenge": "67604",
+        "adjudicate": "94836",
+        "withdraw": "68216"
+      },
+      "note": "real SGX execution produced this trace; DCAP result remains 0xA003 so the quote was not accepted as UpToDate. Settlement is local EVM and does not verify the quote on-chain."
+    },
+    {
+      "steps": 128,
+      "output": "0xb6bfac2e7c36a5ff8c4e3372c7fa883aa60d6daf40870813379d1047d83453ef",
+      "traceRoot": "0x0c5c188fa757ccd047d0a8a3ffbd8cd9fb8a2dd14ca1d2e3a2ba39be1b447c74",
+      "reportData": "0xdd38eea6ecebcbf06e52a265792e3567acadbf98d5f9d00025d5740f64e796e5",
+      "quoteFile": "quote_steps128.dat",
+      "verdict": 0,
+      "phase": "SETTLED",
+      "gas": {
+        "submit": "239095",
+        "openChallenge": "68539",
+        "adjudicate": "166840",
+        "withdraw": "54536"
+      },
+      "note": "real SGX execution produced this trace; DCAP result remains 0xA003 so the quote was not accepted as UpToDate. Settlement is local EVM and does not verify the quote on-chain."
+    }
+  ]
+}

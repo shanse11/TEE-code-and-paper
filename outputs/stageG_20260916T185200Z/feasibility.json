@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.feasibility.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "purpose": "G2/L2 官方实现或 artifact 可复现性清单（提示词 §G3 L2）",
+  "localEnvironment": {
+    "os": "macOS (darwin)",
+    "arch": "arm64 (Apple M5)",
+    "node": "v22.22.2",
+    "go": "not installed",
+    "forge": "not installed",
+    "docker": "not verified this round",
+    "sgxOrTdxDevice": "none（无 /dev/sgx*、/dev/tdx*）"
+  },
+  "authorizationScope": "本轮仅做公开来源只读访问与仓库克隆；未执行远程安装脚本、未安装重量级工具链、未请求付费资源、未做公网交易",
+
+  "items": [
+    {
+      "target": "TEEROLLUP",
+      "officialUrl": "not_found",
+      "commit": null,
+      "license": "not_verified",
+      "dependencies": "论文称 Golang + Solidity 0.8.0 + Sepolia 测试网；无仓库故无法枚举",
+      "hardware": "论文实验用阿里云 ECS（SGX g7t / TDX 8i / CSV g7h），本地无对应 TEE 硬件",
+      "needsFullRollupNode": "unknown（无仓库）",
+      "isolatedDisputeContractRunnable": "not_verified（无合约源码）",
+      "vmOrProofArtifact": "not_verified",
+      "offlineLocalFeasibility": "blocked",
+      "resourceCost": "unknown",
+      "gaps": [
+        "无公开仓库或 artifact —— 无法复现",
+        "论文原型部署在 Sepolia，本轮无广播授权与测试币",
+        "实验依赖异构 TEE 硬件（SGX/TDX/CSV），本机均不具备"
+      ],
+      "status": "blocked",
+      "layer": "G-official"
+    },
+    {
+      "target": "BOLD",
+      "officialUrl": "https://github.com/OffchainLabs/bold",
+      "commit": "30e78f67f40eacaab13577e507bab6025df843d6",
+      "cloneDepth": 1,
+      "cloneSize": "18 MB",
+      "license": "Business Source License 1.1（非完全开源，含使用限制）",
+      "dependencies": {
+        "goVersion": "go 1.24.5",
+        "keyModules": ["github.com/ethereum/go-ethereum v1.13.15", "github.com/mattn/go-sqlite3 v1.14.6 (cgo)", "github.com/gorilla/mux v1.8.0", "github.com/jmoiron/sqlx v1.3.5", "github.com/stretchr/testify v1.10.0"],
+        "buildSystem": "bazel (BUILD.bazel / MODULE.bazel) + go",
+        "containers": "containers/ 目录（devnet 相关）"
+      },
+      "hardware": "通用 x86/arm64（无 TEE 要求）",
+      "needsFullRollupNode": "端到端需要（testing/endtoend + containers）；challenge-manager 相关单测可能可用 mocks 独立运行（未验证）",
+      "isolatedDisputeContractRunnable": false,
+      "note": "仓库内无 Solidity（contracts/ 为空；链上 Rollup 合约在 Arbitrum Nitro 仓库）",
+      "vmOrProofArtifact": "WAVM/单步证明由 Nitro 侧提供，不在本仓库",
+      "offlineLocalFeasibility": "blocked（缺 Go 工具链）",
+      "resourceCost": "克隆 18 MB；构建需下载 Go 模块与 bazel 依赖（量级未知）",
+      "gaps": [
+        "本机无 Go 工具链（go: command not found）",
+        "安装 Go 1.24.5 + bazel 属重量级依赖，本轮未获授权",
+        "端到端还需本地 devnet（containers/）与 Nitro 链上合约",
+        "BSL 1.1 许可限制需法务确认后再用于对比发布"
+      ],
+      "status": "blocked",
+      "layer": "G-official",
+      "runbookWhenToolchainAvailable": [
+        "go version  # 需 >= 1.24.5",
+        "cd <run>/official/bold",
+        "go build ./...",
+        "go test ./challenge-manager/... -run <Test> -count=1 -v   # 先跑隔离组件测试",
+        "如需端到端：按 containers/ 与 testing/endtoend 的官方说明起本地 devnet（须另行评估资源与授权）",
+        "所有产物须落回本 run 的 raw/official/ 并保留退出码与原始输出"
+      ]
+    },
+    {
+      "target": "OPTIMISM_FDG",
+      "officialUrl": "https://github.com/ethereum-optimism/optimism",
+      "commit": "c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af",
+      "commitDate": "2026-09-16T17:40:01Z",
+      "fetchedFiles": ["packages/contracts-bedrock/src/dispute/FaultDisputeGame.sol"],
+      "license": "MIT",
+      "dependencies": {
+        "solidity": "0.8.15（pragma）",
+        "libraries": ["@openzeppelin/contracts", "@solady", "clones-with-immutable-args"],
+        "testRunner": "foundry (forge) —— contracts-bedrock 的官方测试框架",
+        "proofProgram": "op-program / cannon（FPVM），构建需 Go/Rust 工具链"
+      },
+      "hardware": "通用",
+      "needsFullRollupNode": "否（FaultDisputeGame.sol 可孤立做组件测试）；但真实单步证明需 op-program 预状态与 VM artifact",
+      "isolatedDisputeContractRunnable": true,
+      "isolatedRunnableNote": "合约层面可孤立测试，但**需要 foundry**；本轮未安装",
+      "vmOrProofArtifact": "Cannon/op-program（本轮未获取）",
+      "offlineLocalFeasibility": "blocked（缺 foundry）",
+      "resourceCost": "单文件抓取 < 100 KB；完整仓库 + foundry + op-program 构建量级较大",
+      "gaps": [
+        "本机无 forge/foundry",
+        "安装 foundry 通常需执行远程安装脚本（foundryup），本轮明确不执行未经检查的远程安装脚本",
+        "真实单步证明需 op-program 与预状态生成，需 Go/Rust 工具链"
+      ],
+      "status": "blocked",
+      "layer": "G-official",
+      "whatWasAchieved": "已下载官方 FaultDisputeGame.sol 并逐行定位关键机制（时钟继承/延期/单步/结算），作为**源码级证据**填入 mechanism_matrix；这不是运行，不能标『已复现』",
+      "runbookWhenToolchainAvailable": [
+        "curl -L https://foundry.paradigm.xyz | bash   # 属远程安装脚本，须先单独取得用户授权并审阅",
+        "foundryup",
+        "git clone https://github.com/ethereum-optimism/optimism && cd optimism && git checkout c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af",
+        "cd packages/contracts-bedrock && forge build",
+        "forge test --match-path 'src/dispute/FaultDisputeGame.t.sol' -vvv   # 官方组件 fixture",
+        "结果须落回 raw/official/ 并保留退出码；仅跑单元 fixture 须标 component benchmark，不代表整条 Rollup TPS"
+      ]
+    }
+  ],
+
+  "summary": {
+    "officialRunnableAchieved": false,
+    "gOfficialStatus": "blocked",
+    "reason": "三个目标中：TeeRollup 无公开仓库；BoLD 需 Go 1.24.5 + bazel（本机无 Go）；Optimism FDG 需 foundry（本机无，且安装需执行远程脚本）。本轮均未取得安装重量级工具链的授权。",
+    "whatIsStillDelivered": [
+      "Optimism FDG 的**源码级**机制证据（已逐行定位，非运行）",
+      "BoLD 官方仓库的依赖/许可/测试入口清单（已克隆，非运行）",
+      "L1 同模型机制微基准（本方案 vs mechanism baseline，已实测）",
+      "L3 文献定量表（含原始环境与单位）"
+    ],
+    "notClaimed": "未声称复现任何官方实现；未以简化自写程序贴官方名称；未把本轮机制基线称为 Arbitrum/Optimism/TeeRollup"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "delivery_pdf": "Hybrid_TEE_Rollup_计算机应用_投稿待确认版.pdf",
+  "renderer": "WPS 文字 PDF 导出（macOS）",
+  "pages": 8,
+  "inspection": "逐页查看 150 dpi PNG，并用 8 页联系表复核整体分页",
+  "checks": {
+    "text_formula_table_clipping_or_overlap": "pass",
+    "font_garbled_or_subscript_damage": "pass",
+    "image_clarity_ratio_and_column_bounds": "pass",
+    "heading_caption_and_table_pagination": "pass",
+    "header_footer_first_page_and_blank_pages": "pass"
+  },
+  "notes": [
+    "第 8 页为参考文献续页和原稿已有联系人信息，留白较多但不是异常空白页。",
+    "另用 LibreOfficeDev 26.8 的文档渲染脚本作辅助兼容性检查；其中文字体替代与分页不同，因此交付 PDF 以 WPS 导出结果为准。",
+    "未在 Microsoft Word 中检查显示效果。"
+  ]
+}

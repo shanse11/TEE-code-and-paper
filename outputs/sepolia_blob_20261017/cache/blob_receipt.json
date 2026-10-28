@@ -1,0 +1,12 @@
+{
+  "txHash": "0x3ad90ecfdf5930c1bf611223af76196e54fbc74af0f9c9924de9dc523681d340",
+  "blockNumber": 11932953,
+  "status": 1,
+  "gasUsed": "692029",
+  "effectiveGasPrice": "16",
+  "executionFee": "11072464",
+  "blobGasUsed": "131072",
+  "blobGasPrice": "1",
+  "blobFee": "131072",
+  "computedAt": "2026-10-17T08:15:05.860Z"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "fetched_and_matched",
+  "blockId": "11374267",
+  "blockIdSource": "publish.beaconSlot",
+  "beaconHost": "sepolia.blobs.pinax.network",
+  "retrievedAt": "2026-10-17T08:14:46.734Z",
+  "blobBytes": 131072,
+  "recomputedPayloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+  "onChainPayloadHash": "0xfceefa8dd818691b3ca45ed14cd3f0a076f1e773669773dda277384738015fa7",
+  "onChainTaskCount": 8,
+  "decodedTaskCount": 8,
+  "payloadHashMatch": true,
+  "taskCountMatch": true
+}

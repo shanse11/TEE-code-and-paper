@@ -1,0 +1,389 @@
+{
+  "arms": [
+    {
+      "armId": "recovery-interactive",
+      "nIndependentRuns": 1,
+      "batches": 2,
+      "finalizedTasks": 2,
+      "meanTotalLatencyMs": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 10.5,
+        "min": 10.5,
+        "max": 10.5,
+        "quantiles": {
+          "0.5": 10.5,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "meanFinalizedTasksPerSecond": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 55.55555555555556,
+        "min": 55.55555555555556,
+        "max": 55.55555555555556,
+        "quantiles": {
+          "0.5": 55.55555555555556,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "gasTotals": {
+        "submitGas": "477852",
+        "challengeGas": "136616",
+        "adjudicateGas": "1004484",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "totalFeeWei": "0",
+      "recovery": {
+        "faultInjectedBatches": 0,
+        "recoverCalledBatches": 0,
+        "recoverSucceededBatches": 0,
+        "interactiveContinuationSucceededBatches": 2,
+        "fallbackUsedBatches": 0,
+        "batches": 2
+      },
+      "censorAware": {
+        "attemptCount": 3,
+        "successCount": 3,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 3,
+          "inputCount": 3,
+          "droppedNonFinite": 0,
+          "mean": 12,
+          "min": 10,
+          "max": 15,
+          "quantiles": {
+            "0.5": 11,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=3 < 20"
+          }
+        },
+        "warning": null
+      }
+    },
+    {
+      "armId": "no-recovery-with-fault-fallback",
+      "nIndependentRuns": 1,
+      "batches": 2,
+      "finalizedTasks": 2,
+      "meanTotalLatencyMs": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 7.5,
+        "min": 7.5,
+        "max": 7.5,
+        "quantiles": {
+          "0.5": 7.5,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "meanFinalizedTasksPerSecond": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 83.33333333333333,
+        "min": 83.33333333333333,
+        "max": 83.33333333333333,
+        "quantiles": {
+          "0.5": 83.33333333333333,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "gasTotals": {
+        "submitGas": "477814",
+        "challengeGas": "136616",
+        "adjudicateGas": "533804",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "totalFeeWei": "0",
+      "recovery": {
+        "faultInjectedBatches": 2,
+        "recoverCalledBatches": 0,
+        "recoverSucceededBatches": 0,
+        "interactiveContinuationSucceededBatches": 0,
+        "fallbackUsedBatches": 2,
+        "batches": 2
+      },
+      "censorAware": {
+        "attemptCount": 3,
+        "successCount": 3,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 3,
+          "inputCount": 3,
+          "droppedNonFinite": 0,
+          "mean": 7.666666666666667,
+          "min": 7,
+          "max": 8,
+          "quantiles": {
+            "0.5": 8,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=3 < 20"
+          }
+        },
+        "warning": null
+      }
+    },
+    {
+      "armId": "direct-fallback",
+      "nIndependentRuns": 1,
+      "batches": 2,
+      "finalizedTasks": 2,
+      "meanTotalLatencyMs": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 6,
+        "min": 6,
+        "max": 6,
+        "quantiles": {
+          "0.5": 6,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "meanFinalizedTasksPerSecond": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 111.11111111111111,
+        "min": 111.11111111111111,
+        "max": 111.11111111111111,
+        "quantiles": {
+          "0.5": 111.11111111111111,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "gasTotals": {
+        "submitGas": "477864",
+        "challengeGas": "136616",
+        "adjudicateGas": "254432",
+        "recoverGas": "0",
+        "withdrawGas": "109002"
+      },
+      "totalFeeWei": "0",
+      "recovery": {
+        "faultInjectedBatches": 0,
+        "recoverCalledBatches": 0,
+        "recoverSucceededBatches": 0,
+        "interactiveContinuationSucceededBatches": 0,
+        "fallbackUsedBatches": 2,
+        "batches": 2
+      },
+      "censorAware": {
+        "attemptCount": 3,
+        "successCount": 3,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 3,
+          "inputCount": 3,
+          "droppedNonFinite": 0,
+          "mean": 6,
+          "min": 6,
+          "max": 6,
+          "quantiles": {
+            "0.5": 6,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=3 < 20"
+          }
+        },
+        "warning": null
+      }
+    },
+    {
+      "armId": "recovery-under-fault",
+      "nIndependentRuns": 1,
+      "batches": 2,
+      "finalizedTasks": 2,
+      "meanTotalLatencyMs": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 11,
+        "min": 11,
+        "max": 11,
+        "quantiles": {
+          "0.5": 11,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "meanFinalizedTasksPerSecond": {
+        "n": 1,
+        "inputCount": 1,
+        "droppedNonFinite": 0,
+        "mean": 60.6060606060606,
+        "min": 60.6060606060606,
+        "max": 60.6060606060606,
+        "quantiles": {
+          "0.5": 60.6060606060606,
+          "0.95": null
+        },
+        "method": "nearest-rank on sorted samples",
+        "omitted": {
+          "0.95": "insufficient_n_for_p95: n=1 < 20"
+        }
+      },
+      "gasTotals": {
+        "submitGas": "477828",
+        "challengeGas": "136604",
+        "adjudicateGas": "1004400",
+        "recoverGas": "64700",
+        "withdrawGas": "109002"
+      },
+      "totalFeeWei": "0",
+      "recovery": {
+        "faultInjectedBatches": 2,
+        "recoverCalledBatches": 2,
+        "recoverSucceededBatches": 2,
+        "interactiveContinuationSucceededBatches": 2,
+        "fallbackUsedBatches": 0,
+        "batches": 2
+      },
+      "censorAware": {
+        "attemptCount": 3,
+        "successCount": 3,
+        "failureCount": 0,
+        "censoredCount": 0,
+        "successRate": {
+          "value": 1,
+          "unit": "success_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "censoredRate": {
+          "value": 0,
+          "unit": "censored_per_attempt",
+          "denominator": 3,
+          "reason": null
+        },
+        "latencyConditionalOnSuccessMs": {
+          "n": 3,
+          "inputCount": 3,
+          "droppedNonFinite": 0,
+          "mean": 11,
+          "min": 11,
+          "max": 11,
+          "quantiles": {
+            "0.5": 11,
+            "0.95": null
+          },
+          "method": "nearest-rank on sorted samples",
+          "omitted": {
+            "0.95": "insufficient_n_for_p95: n=3 < 20"
+          }
+        },
+        "warning": null
+      }
+    }
+  ],
+  "paired": [
+    {
+      "armA": "recovery-under-fault",
+      "armB": "no-recovery-with-fault-fallback",
+      "metric": "latencyTotalMs",
+      "nClusters": 1,
+      "meanDiff": -3.5,
+      "ci": null,
+      "reason": "insufficient_clusters_for_bootstrap_ci: need >= 3 independent clusters"
+    },
+    {
+      "armA": "recovery-interactive",
+      "armB": "direct-fallback",
+      "metric": "latencyTotalMs",
+      "nClusters": 1,
+      "meanDiff": -4.5,
+      "ci": null,
+      "reason": "insufficient_clusters_for_bootstrap_ci: need >= 3 independent clusters"
+    },
+    {
+      "armA": "recovery-under-fault",
+      "armB": "direct-fallback",
+      "metric": "latencyTotalMs",
+      "nClusters": 1,
+      "meanDiff": -5,
+      "ci": null,
+      "reason": "insufficient_clusters_for_bootstrap_ci: need >= 3 independent clusters"
+    }
+  ]
+}

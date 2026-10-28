@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageF.design.v1",
+  "createdAtUtc": "2026-09-16T18:46:26.151Z",
+  "smoke": false,
+  "plan": "先冻结设计再执行；单变量筛查 -> 预设交叉；不观察初步结果后删格子",
+  "baseline": {
+    "batchSize": 8,
+    "payloadKiBPerTask": 8,
+    "configuredConcurrency": 4,
+    "steps": 64
+  },
+  "screening": [
+    {
+      "axis": "batchSize",
+      "values": [
+        1,
+        8,
+        32
+      ]
+    },
+    {
+      "axis": "configuredConcurrency",
+      "values": [
+        1,
+        4,
+        16
+      ]
+    },
+    {
+      "axis": "payloadKiBPerTask",
+      "values": [
+        1,
+        8,
+        32
+      ]
+    },
+    {
+      "axis": "steps",
+      "values": [
+        1,
+        64,
+        128
+      ]
+    }
+  ],
+  "forcedCells": [
+    {
+      "batchSize": 1,
+      "payloadKiBPerTask": 8,
+      "configuredConcurrency": 1,
+      "steps": 64
+    },
+    {
+      "batchSize": 1,
+      "payloadKiBPerTask": 8,
+      "configuredConcurrency": 4,
+      "steps": 64
+    },
+    {
+      "batchSize": 1,
+      "payloadKiBPerTask": 8,
+      "configuredConcurrency": 16,
+      "steps": 64
+    }
+  ],
+  "crossCells": [
+    {
+      "batchSize": 32,
+      "payloadKiBPerTask": 32,
+      "configuredConcurrency": 16,
+      "steps": 128,
+      "tag": "heavy-corner"
+    },
+    {
+      "batchSize": 1,
+      "payloadKiBPerTask": 1,
+      "configuredConcurrency": 1,
+      "steps": 1,
+      "tag": "light-corner"
+    }
+  ],
+  "matrixProtocol": {
+    "warmupBatches": 2,
+    "measureBatches": 10,
+    "independentRuns": 3,
+    "note": "每格每 run 固定预热 5 批 + 稳态 30 批；预热记录但不参与稳态统计（推荐起点，非尾部充分）"
+  },
+  "loadModel": {
+    "model": "closed-loop",
+    "note": "固定批数、批完成才补新批；不能宣称无限到达压力下的容量，不忽略排队等待"
+  },
+  "challengeWindow": 100000,
+  "challengeWindowNote": "部署参数（链上秒）。主矩阵冻结值 100；Hardhat 每块 +1s 链钟且 automining 串行，高负载下 openChallenge 可能越过该窗口（见 attribution 运行）",
+  "onlyCells": [
+    "b32-p8-c4-s64",
+    "b8-p8-c16-s64",
+    "b32-p32-c16-s128"
+  ],
+  "boundary": {
+    "stepsReject": [
+      0,
+      129
+    ],
+    "note": "MAX_STEPS=128；steps=0 与 steps=129 必须被 submit 拒绝（不缩小 payload、不截断）"
+  },
+  "ablation": {
+    "protocol": {
+      "warmupBatches": 2,
+      "measureBatches": 10,
+      "independentRuns": 3
+    },
+    "reason": "故障注入需全局时间推进（evm_increaseTime），强制串行；故每臂 3×(2 预热+10 稳态) 批",
+    "arms": [
+      {
+        "id": "recovery-interactive",
+        "faultInjected": false,
+        "useRecover": false,
+        "note": "提交方在线，交互定位 respond->advance*->replay->settle"
+      },
+      {
+        "id": "no-recovery-with-fault-fallback",
+        "faultInjected": true,
+        "useRecover": false,
+        "note": "提交方超时离线，不调用 recover，第三方只能走 adjudicate 兜底（不关闭兜底）"
+      },
+      {
+        "id": "direct-fallback",
+        "faultInjected": false,
+        "useRecover": false,
+        "direct": true,
+        "note": "不 respond，直接 adjudicate 重算兜底"
+      },
+      {
+        "id": "recovery-under-fault",
+        "faultInjected": true,
+        "useRecover": true,
+        "note": "提交方超时离线，观察者 recover 后第三方续推 advance*->replay->settle"
+      }
+    ],
+    "workload": {
+      "batchSize": 1,
+      "payloadKiBPerTask": 1,
+      "configuredConcurrency": 1,
+      "steps": 64
+    }
+  },
+  "nonceAndSigners": {
+    "availableAccounts": 40,
+    "poolStart": 1,
+    "poolSize": 39,
+    "allocation": "第 i 批使用 signers[(slot+2i) % poolSize] 作为 submitter、下一个作为 challenger",
+    "recovererRole": "由 challenger 承担（合约未限制 recover/advance/replay/settle 调用者）；引入第三个独立 EOA 会在 concurrency=16 时需要 48 个无冲突账户 > 可用 39 个，从而改变系统条件",
+    "note": "使用多个 EOA 会改变系统条件，故显式报告：nonce 分配策略固定、signer 数量固定（每批 2 个）、重试规则固定"
+  },
+  "retry": {
+    "maxAttempts": 3,
+    "backoffMs": 20,
+    "note": "重试次数固定；失败与重试均保留，重试成本计入总额子集"
+  },
+  "timeouts": {
+    "batchTimeoutMs": 120000,
+    "note": "单批超时记右删失(censored)，不删除、不只对成功求平均"
+  },
+  "application": {
+    "name": "bounded-keccak-chain-accumulator",
+    "deterministic": true,
+    "maxSteps": 128,
+    "note": "落在实际有界模型内的可复现确定性应用样例；属合成微基准，不是真实 DApp 业务负载"
+  },
+  "payloadIsNominal": true,
+  "payloadIsNominalReason": "有界模型 dataHash 固定 32 字节，计算只处理 hash 链；payloadKiBPerTask 不改变链上数据大小，属名义/DA 填充参数",
+  "environment": "hardhat in-process automining, cancun, blockGasLimit=60000000, initialBaseFeePerGas=1 gwei；不能证明共识吞吐",
+  "statistics": {
+    "note": "raw 落盘后由 stageF_aggregate.js 单独聚合；3 个独立 run 时 CI 不稳，不报 p99、不伪造大样本",
+    "clusterUnit": "independent run / batch（批内任务不是独立样本）",
+    "quantiles": [
+      0.5,
+      0.95
+    ],
+    "quantileMethod": "nearest-rank on sorted samples",
+    "seed": 20260917
+  }
+}

@@ -1,0 +1,55 @@
+Compiled 8 Solidity files successfully (evm target: cancun).
+[F] boundary steps=0: rejected=true
+[F] boundary steps=129: rejected=true
+[F] b1-p8-c4-s64 r0: batches=30 peak=4 mean=3.83 finalized=30 totalFeeWei=14146204805684785
+[F] b1-p8-c4-s64 r1: batches=30 peak=4 mean=3.83 finalized=30 totalFeeWei=14050925112407400
+[F] b1-p8-c4-s64 r2: batches=30 peak=4 mean=3.83 finalized=30 totalFeeWei=14052898112423184
+[F] b8-p8-c4-s64 r0: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95415972763327776
+[F] b8-p8-c4-s64 r1: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95415199763321592
+[F] b8-p8-c4-s64 r2: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95433023763464184
+[F] b32-p8-c4-s64 r0: batches=30 peak=4 mean=3.83 finalized=28 totalFeeWei=62112915496903320
+[F] b32-p8-c4-s64 r1: batches=30 peak=4 mean=3.83 finalized=32 totalFeeWei=48403154387225232
+[F] b32-p8-c4-s64 r2: batches=30 peak=4 mean=3.83 finalized=33 totalFeeWei=48586854388694832
+[F] b8-p8-c1-s64 r0: batches=30 peak=1 mean=1.00 finalized=240 totalFeeWei=95766683766133464
+[F] b8-p8-c1-s64 r1: batches=30 peak=1 mean=1.00 finalized=240 totalFeeWei=95767186766137488
+[F] b8-p8-c1-s64 r2: batches=30 peak=1 mean=1.00 finalized=240 totalFeeWei=95766868766134944
+[F] b8-p8-c16-s64 r0: batches=30 peak=16 mean=12.57 finalized=24 totalFeeWei=9542663076341304
+[F] b8-p8-c16-s64 r1: batches=30 peak=16 mean=12.57 finalized=24 totalFeeWei=9542455076339640
+[F] b8-p8-c16-s64 r2: batches=30 peak=16 mean=12.57 finalized=24 totalFeeWei=9542528076340224
+[F] b8-p1-c4-s64 r0: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95425291763402328
+[F] b8-p1-c4-s64 r1: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95373824762990592
+[F] b8-p1-c4-s64 r2: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95374187762993496
+[F] b8-p32-c4-s64 r0: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95425076763400608
+[F] b8-p32-c4-s64 r1: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95442071763536568
+[F] b8-p32-c4-s64 r2: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=95391302763130416
+[F] b8-p8-c4-s1 r0: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=86408303691266424
+[F] b8-p8-c4-s1 r1: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=86391249691129992
+[F] b8-p8-c4-s1 r2: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=86425123691400984
+[F] b8-p8-c4-s128 r0: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=104416520835332160
+[F] b8-p8-c4-s128 r1: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=104433959835471672
+[F] b8-p8-c4-s128 r2: batches=30 peak=4 mean=3.83 finalized=240 totalFeeWei=104417599835340792
+[F] b1-p8-c1-s64 r0: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=14299255114394040
+[F] b1-p8-c1-s64 r1: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=14299264114394112
+[F] b1-p8-c1-s64 r2: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=14299323114394584
+[F] b1-p8-c16-s64 r0: batches=30 peak=16 mean=12.57 finalized=30 totalFeeWei=13820553110564424
+[F] b1-p8-c16-s64 r1: batches=30 peak=16 mean=12.57 finalized=30 totalFeeWei=13820410110563280
+[F] b1-p8-c16-s64 r2: batches=30 peak=16 mean=12.57 finalized=30 totalFeeWei=13820474110563792
+[F] b32-p32-c16-s128 r0: batches=30 peak=16 mean=12.57 finalized=96 totalFeeWei=41077889328623112
+[F] b32-p32-c16-s128 r1: batches=30 peak=16 mean=12.57 finalized=96 totalFeeWei=41077621328620968
+[F] b32-p32-c16-s128 r2: batches=30 peak=16 mean=12.57 finalized=96 totalFeeWei=41077346328618768
+[F] b1-p1-c1-s1 r0: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=13174198105393584
+[F] b1-p1-c1-s1 r1: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=13174376105395008
+[F] b1-p1-c1-s1 r2: batches=30 peak=1 mean=1.00 finalized=30 totalFeeWei=13174319105394552
+[F] ablation recovery-interactive r0: batches=10
+[F] ablation recovery-interactive r1: batches=10
+[F] ablation recovery-interactive r2: batches=10
+[F] ablation no-recovery-with-fault-fallback r0: batches=10
+[F] ablation no-recovery-with-fault-fallback r1: batches=10
+[F] ablation no-recovery-with-fault-fallback r2: batches=10
+[F] ablation direct-fallback r0: batches=10
+[F] ablation direct-fallback r1: batches=10
+[F] ablation direct-fallback r2: batches=10
+[F] ablation recovery-under-fault r0: batches=10
+[F] ablation recovery-under-fault r1: batches=10
+[F] ablation recovery-under-fault r2: batches=10
+[F] 完成，raw: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/hardhat_run/stageF/raw

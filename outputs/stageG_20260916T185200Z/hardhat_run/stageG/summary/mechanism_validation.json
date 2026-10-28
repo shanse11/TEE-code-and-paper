@@ -1,0 +1,15 @@
+{
+  "records": 252,
+  "measuredRecords": 210,
+  "warmupRecords": 42,
+  "duplicateSampleIds": 0,
+  "outcomeDistribution": {
+    "correct": 150,
+    "incorrect": 60
+  },
+  "gasTotalsMatchPerRunSum": true,
+  "exclusions": {
+    "policy": "warmup 记录但不参与稳态统计；无按结果筛选剔除",
+    "excluded": 0
+  }
+}

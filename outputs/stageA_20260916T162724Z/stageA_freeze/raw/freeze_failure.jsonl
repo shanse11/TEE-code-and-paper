@@ -1,0 +1,1 @@
+{"createdAtUtc":"2026-09-16T16:28:52.361Z","failure":{"code":"FREEZE_FAILED","message":"run 目录已存在且非空；仅 --resume 可显式允许继续"},"schemaVersion":"hybrid-tee-rollup.stageA.v1","status":"fail"}

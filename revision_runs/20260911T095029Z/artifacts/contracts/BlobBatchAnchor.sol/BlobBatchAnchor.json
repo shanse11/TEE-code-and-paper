@@ -1,0 +1,286 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "BlobBatchAnchor",
+  "sourceName": "contracts/BlobBatchAnchor.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "blobVersionedHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "BlobHashReused",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "BlobhashEmpty",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PayloadAlreadyAnchored",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "taskCount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "blobIndex",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "blobVersionedHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "submitter",
+          "type": "address"
+        }
+      ],
+      "name": "BlobBatchAnchored",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "taskCount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "submitter",
+          "type": "address"
+        }
+      ],
+      "name": "CalldataBatchAnchored",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "taskCount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blobIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "anchorBlobBatch",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "taskCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "anchorCalldataBatch",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "taskCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "anchorCalldataPayload",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAnchor",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "payloadHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "taskCount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "blobVersionedHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "blockNumber",
+              "type": "uint64"
+            },
+            {
+              "internalType": "address",
+              "name": "submitter",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct BlobBatchAnchor.Anchor",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "bh",
+          "type": "bytes32"
+        }
+      ],
+      "name": "isBlobHashUsed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextAnchorId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "payloadHashToAnchor",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523460195760015f55610554908161001e8239f35b5f80fdfe60806040526004361015610011575f80fd5b5f3560e01c80634c7df18f1461032b5780635703b4ab146101bb5780635f77287714610108578063639a1ce7146100df578063aee885bc146100c3578063b57a2670146100995763dfb4cd0714610066575f80fd5b34610095576020366003190112610095576004355f526002602052602060ff60405f2054166040519015158152f35b5f80fd5b34610095576020366003190112610095576004355f526003602052602060405f2054604051908152f35b34610095575f3660031901126100955760205f54604051908152f35b3461009557604036600319011261009557602061010060243560043561042b565b604051908152f35b346100955760403660031901126100955760043567ffffffffffffffff811161009557366023820112156100955780600401359067ffffffffffffffff821161009557366024838301011161009557604051601f8301601f19908116603f011681019167ffffffffffffffff8311828410176101a7575f602080956101009560405280855280602483870195018537840101526024359151902061042b565b634e487b7160e01b5f52604160045260245ffd5b34610095576060366003190112610095576004356044356024358149801561031c57805f52600260205260ff60405f20541661030a57835f52600360205260405f20546102f75760a06020947fb81b5cbdb55cd155b1f82d50fdaa642489996b9c369b5b12c1c29c730709d9ec925f5495869561023787610409565b5f556102416103e9565b84815289810182815267ffffffffffffffff600360408401938785526060810194834316865260808201943386528d5f528f6001905260405f209251835551600183015551600282015501925116825491600160401b600160e01b03905160401b169163ffffffff60e01b1617179055825f526002895260405f20600160ff19825416179055835f52600389528660405f20556040519384528884015260408301526060820152336080820152a2604051908152f35b83631203356560e21b5f5260045260245ffd5b630e4a868960e21b5f5260045260245ffd5b639400eb4f60e01b5f5260045ffd5b34610095576020366003190112610095575f60806103476103e9565b82815282602082015282604082015282606082015201526004355f52600160205260a060405f206103766103e9565b9067ffffffffffffffff815492838152600183015492602082019384526003600282015491604084019283520154936080606084019385871685520194600180891b039060401c16855260405195865251602086015251604085015251166060830152600180841b039051166080820152f35b6040519060a0820182811067ffffffffffffffff8211176101a757604052565b5f1981146104175760010190565b634e487b7160e01b5f52601160045260245ffd5b90815f52600360205260405f205461050b577fc8651ec31dd85272dae1c015c0c17de7fa803ed9b0823d5c041c904d086fb0b060605f5493849361046e85610409565b5f556104786103e9565b8281526020810182815267ffffffffffffffff600360408401935f855287810194834316865260808201943386528b5f52600160205260405f209251835551600183015551600282015501925116825491600160401b600160e01b03905160401b169163ffffffff60e01b1617179055815f5260036020528460405f20556040519182526020820152336040820152a290565b50631203356560e21b5f5260045260245ffdfea26469706673582212208f7e449579c2b0ce5e0e4dce02ab366de105a5724c162eea0db758aa8dd4157b64736f6c634300081a0033",
+  "deployedBytecode": "0x60806040526004361015610011575f80fd5b5f3560e01c80634c7df18f1461032b5780635703b4ab146101bb5780635f77287714610108578063639a1ce7146100df578063aee885bc146100c3578063b57a2670146100995763dfb4cd0714610066575f80fd5b34610095576020366003190112610095576004355f526002602052602060ff60405f2054166040519015158152f35b5f80fd5b34610095576020366003190112610095576004355f526003602052602060405f2054604051908152f35b34610095575f3660031901126100955760205f54604051908152f35b3461009557604036600319011261009557602061010060243560043561042b565b604051908152f35b346100955760403660031901126100955760043567ffffffffffffffff811161009557366023820112156100955780600401359067ffffffffffffffff821161009557366024838301011161009557604051601f8301601f19908116603f011681019167ffffffffffffffff8311828410176101a7575f602080956101009560405280855280602483870195018537840101526024359151902061042b565b634e487b7160e01b5f52604160045260245ffd5b34610095576060366003190112610095576004356044356024358149801561031c57805f52600260205260ff60405f20541661030a57835f52600360205260405f20546102f75760a06020947fb81b5cbdb55cd155b1f82d50fdaa642489996b9c369b5b12c1c29c730709d9ec925f5495869561023787610409565b5f556102416103e9565b84815289810182815267ffffffffffffffff600360408401938785526060810194834316865260808201943386528d5f528f6001905260405f209251835551600183015551600282015501925116825491600160401b600160e01b03905160401b169163ffffffff60e01b1617179055825f526002895260405f20600160ff19825416179055835f52600389528660405f20556040519384528884015260408301526060820152336080820152a2604051908152f35b83631203356560e21b5f5260045260245ffd5b630e4a868960e21b5f5260045260245ffd5b639400eb4f60e01b5f5260045ffd5b34610095576020366003190112610095575f60806103476103e9565b82815282602082015282604082015282606082015201526004355f52600160205260a060405f206103766103e9565b9067ffffffffffffffff815492838152600183015492602082019384526003600282015491604084019283520154936080606084019385871685520194600180891b039060401c16855260405195865251602086015251604085015251166060830152600180841b039051166080820152f35b6040519060a0820182811067ffffffffffffffff8211176101a757604052565b5f1981146104175760010190565b634e487b7160e01b5f52601160045260245ffd5b90815f52600360205260405f205461050b577fc8651ec31dd85272dae1c015c0c17de7fa803ed9b0823d5c041c904d086fb0b060605f5493849361046e85610409565b5f556104786103e9565b8281526020810182815267ffffffffffffffff600360408401935f855287810194834316865260808201943386528b5f52600160205260405f209251835551600183015551600282015501925116825491600160401b600160e01b03905160401b169163ffffffff60e01b1617179055815f5260036020528460405f20556040519182526020820152336040820152a290565b50631203356560e21b5f5260045260245ffdfea26469706673582212208f7e449579c2b0ce5e0e4dce02ab366de105a5724c162eea0db758aa8dd4157b64736f6c634300081a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

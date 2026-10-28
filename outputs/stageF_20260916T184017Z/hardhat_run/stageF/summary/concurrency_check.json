@@ -1,0 +1,58 @@
+{
+  "purpose": "F3 要求：batchSize=1 时 concurrency=1/4/16 三组必须保留差异；若实际低于目标需解释而非改配置数字",
+  "rows": [
+    {
+      "cellId": "b1-p8-c1-s64",
+      "configured": 1,
+      "inflightPeakPerRun": [
+        1,
+        1,
+        1
+      ],
+      "inflightMeanPerRun": [
+        1,
+        1,
+        1
+      ],
+      "meanBatchesPerSecond": 121.78664296764426,
+      "meanFinalizedTasksPerSecond": 121.78664296764426,
+      "meanQueueWaitMs": 119.65714285714284
+    },
+    {
+      "cellId": "b1-p8-c4-s64",
+      "configured": 4,
+      "inflightPeakPerRun": [
+        4,
+        4,
+        4
+      ],
+      "inflightMeanPerRun": [
+        3.8285714285714287,
+        3.8285714285714287,
+        3.8285714285714287
+      ],
+      "meanBatchesPerSecond": 144.62770542625353,
+      "meanFinalizedTasksPerSecond": 144.62770542625353,
+      "meanQueueWaitMs": 101.31428571428573
+    },
+    {
+      "cellId": "b1-p8-c16-s64",
+      "configured": 16,
+      "inflightPeakPerRun": [
+        16,
+        16,
+        16
+      ],
+      "inflightMeanPerRun": [
+        12.571428571428571,
+        12.571428571428571,
+        12.571428571428571
+      ],
+      "meanBatchesPerSecond": 117.18645339334994,
+      "meanFinalizedTasksPerSecond": 117.18645339334994,
+      "meanQueueWaitMs": 114.05714285714286
+    }
+  ],
+  "explanation": "Hardhat in-process automining 将交易串行写入区块，因此客户端在途批次可重叠但区块产出不并行；若 peak 低于 configured，常见原因为批生命周期过短（任务瞬时完成）或串行挖矿，而非配置被折叠。",
+  "minFoldedCheck": "runPool 使用 limit=configuredConcurrency（未使用 min(batchSize, concurrency)）"
+}

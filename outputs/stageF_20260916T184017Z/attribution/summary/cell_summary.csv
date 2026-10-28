@@ -1,0 +1,4 @@
+cellId,kind,axis,batchSize,payloadKiB,concurrency,steps,nRuns,meanFinalizedTps,meanTotalLatencyMs,meanInflightPeak,finalizedTasks,totalFeeWei,feePerFinalizedTask,failureRate,submittedTasks,unfinalizedTasks,taskFinalizationRate,failedBatches,censoredBatches,retryCount
+b32-p8-c4-s64,screening,batchSize,32,8,4,64,3,156.93185595481998,603.8666666666667,4,960,375193610720465141,390826677833817,0,960,0,1,0,0,0
+b8-p8-c16-s64,screening,configuredConcurrency,8,8,16,64,3,154.0430998833685,318.6666666666667,12,240,95239391761915128,396830799007979,0,240,0,1,0,0,0
+b32-p32-c16-s128,cross,heavy-corner,32,32,16,128,3,87.07412975960817,2050.9666666666667,12,960,410594266284754104,427702360713285,0,960,0,1,0,0,0

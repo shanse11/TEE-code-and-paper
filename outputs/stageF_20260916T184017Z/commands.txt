@@ -1,0 +1,88 @@
+# 阶段 F 实际复现命令（均已在本机执行验证）
+
+# 工作区：/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup
+
+# 0) 语法检查
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node --check evm/revision/stageF_stats.js
+node --check evm/revision/stageF_stats.test.js
+node --check evm/revision/stageF_perf.js
+node --check evm/revision/stageF_aggregate.js
+
+# 1) 统计代码 fixture 测试（12 项：已知分位数/分母0/全失败/右删失/重复task/超大wei/缺费用/跨窗口/批内相关/nonce重试/固定seed）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js revision/stageF_stats.test.js
+# 结果：12 passing / 0 failing
+
+# 2) 小规模并发冒烟（与足量测量分开；仅验证正确性，不用于结论）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T183431Z/hardhat_run" \
+  STAGEF_SMOKE=1 F_RUN_ID=stageF-smoke \
+  node ./node_modules/hardhat/internal/cli/cli.js run --config revision/hardhat.config.js revision/stageF_perf.js
+# 结果：13 格 × 1 run 全部跑通；4 个消融臂行为符合设计
+
+# 3) 冻结 F 测量版本（代码/参数确定后再测）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/stageF_freeze" \
+  --run-id stageF-freeze-20260916T184017Z
+# 结果：ready；sourceTreeSha256=ab26edb78bb1a6be50ceb6261e69de523eeda0b725bd66f02be477273480377b
+#       configSha256=d12d58ce77d720ebc352f9e72a0fa0d2654f37d28456615a34aa43d6e1c297e7
+
+# 4) 正式全量测量（13 格 × 3 run × (5 预热 + 30 稳态) + 4 消融臂 × 3 run × (2 + 10)）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/hardhat_run" \
+  F_RUN_ID=stageF-local \
+  node ./node_modules/hardhat/internal/cli/cli.js run --config revision/hardhat.config.js revision/stageF_perf.js
+# 日志：outputs/stageF_20260916T184017Z/stageF_freeze/logs/perf_run.log
+# 产物：hardhat_run/stageF/raw/{batch_records.jsonl, window_records.jsonl, boundary_records.json}
+#       hardhat_run/stageF/design.frozen.json
+
+# 5) 从 raw 重建汇总与图表（不依赖测量进程）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/stageF_aggregate.js \
+  "outputs/stageF_20260916T184017Z/hardhat_run/stageF"
+# 产物：summary/{cell_summary.json|csv, ablation_summary.json|csv, concurrency_check.json,
+#               boundary_summary.json, blob_fill_ladder.json|csv, data_dictionary.json, validation.json}
+#       figures/{fig_param_scaling, fig_stage_latency, fig_recovery, fig_gas_fee,
+#                fig_blob_fill_ladder, fig_ablation}.svg
+
+# 6) 挑战窗口归因验证（仪器/部署参数假象确认；新增旋钮后重新冻结）
+#    目的：确认 b32/b8-c16 三格的失败是 challengeWindow=100 链秒被越过（revert 'window'），
+#          而非协议吞吐上限。仅改部署参数，不改协议机制。
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup"
+node evm/revision/freeze_experiment.js \
+  --config evm/revision/config/stageA.local.json \
+  --run-dir "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_attrib_20260916T184609Z/stageF_attrib_freeze" \
+  --run-id stageF-attrib-20260916T184609Z
+# sourceTreeSha256=d7752e7e7874829943bba41b3c0686bad414612e7266df4435670849a08290c0
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_attrib_20260916T184609Z/hardhat_run" \
+  F_RUN_ID=stageF-attribution F_CHALLENGE_WINDOW=100000 \
+  F_ONLY_CELLS="b32-p8-c4-s64,b8-p8-c16-s64,b32-p32-c16-s128" \
+  F_WARMUP=2 F_MEASURE=10 F_RUNS=3 \
+  node ./node_modules/hardhat/internal/cli/cli.js run --config revision/hardhat.config.js revision/stageF_perf.js
+node evm/revision/stageF_aggregate.js "outputs/stageF_attrib_20260916T184609Z/hardhat_run/stageF"
+# 结果：三格 taskFinalizationRate 0.032/0.100/0.100 -> 1.0/1.0/1.0，
+#       finalized tasks/s = 156.93 / 154.04 / 87.07
+
+# 7) 旧 schema 回归（A 扩展不失效；B/C 复跑）
+cd "/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/evm"
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js \
+  revision/stageA_config.test.js revision/stageA_record.test.js
+# 结果：21 个 node:test 子测试全部 ok
+REVISION_RUN="/Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_20260916T184017Z/hardhat_run" \
+  node ./node_modules/hardhat/internal/cli/cli.js test --config revision/hardhat.config.js \
+  revision/stageB_closure.test.js revision/stageC_recovery.test.js
+# 结果：26 passing（B 9 + C 17）
+
+# ---------------------------------------------------------------
+# 未执行（前置 blocked，不以本地结果冒充）：
+#   - F-TEE：需 D 阶段真实 TEE 应用执行验收（本机无 SGX/TDX 设备、无远程 Quote）
+#   - F-Blob：需 E 阶段公网 Blob 发布与独立取回验收（缺 RPC/测试币/广播授权）
+#   - F-full：需同一任务真实后端联调
+# 未部署主网、未广播、未付费、未 commit/push。
+# ---------------------------------------------------------------

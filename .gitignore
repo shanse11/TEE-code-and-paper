@@ -1,0 +1,17 @@
+# Python bytecode and macOS Finder metadata
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Microsoft Office temporary lock files
+~$*.docx
+
+# Local assistant working state
+.workbuddy/
+
+# Local secrets. Never commit Sepolia keys.
+.env
+evm/.env
+
+# External installer downloaded for document rendering
+/outputs/template_alignment/work/LibreOffice_26.2.6_MacOS_aarch64.dmg

@@ -1,0 +1,11 @@
+[random] 100/1000 sequences, 2751 calls, 2264 unchanged-state reverts
+[random] 200/1000 sequences, 5481 calls, 4529 unchanged-state reverts
+[random] 300/1000 sequences, 8216 calls, 6796 unchanged-state reverts
+[random] 400/1000 sequences, 10964 calls, 9066 unchanged-state reverts
+[random] 500/1000 sequences, 13710 calls, 11328 unchanged-state reverts
+[random] 600/1000 sequences, 16441 calls, 13596 unchanged-state reverts
+[random] 700/1000 sequences, 19196 calls, 15874 unchanged-state reverts
+[random] 800/1000 sequences, 21941 calls, 18143 unchanged-state reverts
+[random] 900/1000 sequences, 24672 calls, 20415 unchanged-state reverts
+[random] 1000/1000 sequences, 27401 calls, 22686 unchanged-state reverts
+{"seed":1592598566,"requested":1000,"completed":1000,"operations":27401,"successes":4715,"reverts":22686,"revertStateChecks":22686,"pass":true,"maxRecoveries":[0,1,2],"steps":[4,16,64,128],"operationCounts":{"submit":3202,"recover":2339,"adjudicate":2195,"respond":2289,"replay":2280,"terminate":2171,"withdraw":2871,"advance":2662,"challenge":3017,"settle":2140,"finalize":2235},"startedAt":"2026-09-11T11:37:33.947Z","evidenceLayer":"local_evm","model":"independent acceptance predicate, transition and escrow accounting after every operation","finishedAt":"2026-09-11T11:39:09.483Z"}

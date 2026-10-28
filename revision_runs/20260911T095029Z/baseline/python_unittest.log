@@ -1,0 +1,20 @@
+test_attestation_round_trip (test_demo.RollupDemoTests.test_attestation_round_trip) ... ok
+test_bisection_replay_flow_marks_tampered_step (test_demo.RollupDemoTests.test_bisection_replay_flow_marks_tampered_step) ... ok
+test_challenge_recover_restores_timed_out_session (test_demo.RollupDemoTests.test_challenge_recover_restores_timed_out_session) ... ok
+test_challenge_slashes_tampered_transaction (test_demo.RollupDemoTests.test_challenge_slashes_tampered_transaction) ... ok
+test_corrupt_da_proof_is_reported_invalid (test_demo.RollupDemoTests.test_corrupt_da_proof_is_reported_invalid) ... ok
+test_da_field_proof_is_available_for_submitted_payload (test_demo.RollupDemoTests.test_da_field_proof_is_available_for_submitted_payload) ... ok
+test_da_merkle_proof_round_trip (test_demo.RollupDemoTests.test_da_merkle_proof_round_trip) ... ok
+test_estimate_cost_reports_reduction (test_demo.RollupDemoTests.test_estimate_cost_reports_reduction) ... ok
+test_estimate_strategy_costs_reports_gas_drop (test_demo.RollupDemoTests.test_estimate_strategy_costs_reports_gas_drop) ... ok
+test_finalize_marks_expired_transaction (test_demo.RollupDemoTests.test_finalize_marks_expired_transaction) ... ok
+test_forced_spot_check_detects_tampering (test_demo.RollupDemoTests.test_forced_spot_check_detects_tampering) ... ok
+test_missing_da_entry_is_reported_as_unavailable (test_demo.RollupDemoTests.test_missing_da_entry_is_reported_as_unavailable) ... ok
+test_plain_challenge_without_recover_fails_after_timeout (test_demo.RollupDemoTests.test_plain_challenge_without_recover_fails_after_timeout) ... ok
+test_submit_and_verify_valid_transaction (test_demo.RollupDemoTests.test_submit_and_verify_valid_transaction) ... ok
+test_trace_length_mismatch_is_detected_by_replay (test_demo.RollupDemoTests.test_trace_length_mismatch_is_detected_by_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.714s
+
+OK

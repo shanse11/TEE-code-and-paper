@@ -1,0 +1,198 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MockDARegistry",
+  "sourceName": "contracts/MockDARegistry.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "available",
+          "type": "bool"
+        }
+      ],
+      "name": "DAAvailabilityUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "merkleRoot",
+          "type": "bytes32"
+        }
+      ],
+      "name": "DAMerkleRootUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "merkleRoot",
+          "type": "bytes32"
+        }
+      ],
+      "name": "DARecordRegistered",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRecord",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "available",
+              "type": "bool"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "payloadHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "merkleRoot",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "updatedAt",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MockDARegistry.DARecord",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        }
+      ],
+      "name": "isAvailable",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "payloadHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "merkleRoot",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registerRecord",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bool",
+          "name": "available",
+          "type": "bool"
+        }
+      ],
+      "name": "setAvailability",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "pointer",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "merkleRoot",
+          "type": "bytes32"
+        }
+      ],
+      "name": "updateMerkleRoot",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60808060405234601557610469908161001a8239f35b5f80fdfe6080806040526004361015610012575f80fd5b5f3560e01c9081630fa954ee1461027b57508063213681cd146101b757806389b6f02714610168578063af887905146100f15763b4e83e8614610053575f80fd5b346100ed5760403660031901126100ed57600435602435801515908181036100ed577f6c38eb9b420db826030841a417dc1148550f18b505a5fd757354bffd5b91c7c4916100d5602092855f525f84526100b360ff60405f2054166103f6565b855f525f845260405f209061ff00825491151560081b169061ff001916179055565b835f525f825242600360405f200155604051908152a2005b5f80fd5b346100ed5760403660031901126100ed576004357f165bc9bf1a4c99326b2ad0d867c5f0a0d5f293d0e6cc0d22185aed451accec1f6020602435835f525f825261014160ff60405f2054166103f6565b835f525f825280600260405f200155835f525f825242600360405f200155604051908152a2005b346100ed5760203660031901126100ed57600435805f525f60205260ff60405f2054168061019e575b6020906040519015158152f35b505f525f602052602060ff60405f205460081c16610191565b346100ed5760203660031901126100ed576004355f60806101d66103c2565b8281528260208201528260408201528260608201520152805f525f60205261020460ff60405f2054166103f6565b5f525f60205260a060405f206102186103c2565b81549160ff831615159283835260ff602084019160081c1615158152600182015490604084019182526080600360028501549460608701958652015494019384526040519485525115156020850152516040840152516060830152516080820152f35b346100ed5760603660031901126100ed57600435906024359060443590831561038e5750825f525f60205260ff60405f205416610359577fd751612f15304abadf986a47483b2ea8d4336936349382a3ed10f03972095c53916040916102df6103c2565b6001815260036020820160018152858301858152606084019085825261033c60808601934285528b5f525f602052895f209651151560ff80198954169116178755511515869061ff00825491151560081b169061ff001916179055565b5160018501555160028401555191015582519182526020820152a2005b60405162461bcd60e51b815260206004820152600d60248201526c7265636f72642065786973747360981b6044820152606490fd5b62461bcd60e51b815260206004820152600f60248201526e34b73b30b634b2103837b4b73a32b960891b6044820152606490fd5b6040519060a0820182811067ffffffffffffffff8211176103e257604052565b634e487b7160e01b5f52604160045260245ffd5b156103fd57565b60405162461bcd60e51b815260206004820152600e60248201526d7265636f7264206d697373696e6760901b6044820152606490fdfea264697066735822122080d781400e73c7531fff0978e3ae37872248a2b29e02e0b12950feb306b9445764736f6c634300081a0033",
+  "deployedBytecode": "0x6080806040526004361015610012575f80fd5b5f3560e01c9081630fa954ee1461027b57508063213681cd146101b757806389b6f02714610168578063af887905146100f15763b4e83e8614610053575f80fd5b346100ed5760403660031901126100ed57600435602435801515908181036100ed577f6c38eb9b420db826030841a417dc1148550f18b505a5fd757354bffd5b91c7c4916100d5602092855f525f84526100b360ff60405f2054166103f6565b855f525f845260405f209061ff00825491151560081b169061ff001916179055565b835f525f825242600360405f200155604051908152a2005b5f80fd5b346100ed5760403660031901126100ed576004357f165bc9bf1a4c99326b2ad0d867c5f0a0d5f293d0e6cc0d22185aed451accec1f6020602435835f525f825261014160ff60405f2054166103f6565b835f525f825280600260405f200155835f525f825242600360405f200155604051908152a2005b346100ed5760203660031901126100ed57600435805f525f60205260ff60405f2054168061019e575b6020906040519015158152f35b505f525f602052602060ff60405f205460081c16610191565b346100ed5760203660031901126100ed576004355f60806101d66103c2565b8281528260208201528260408201528260608201520152805f525f60205261020460ff60405f2054166103f6565b5f525f60205260a060405f206102186103c2565b81549160ff831615159283835260ff602084019160081c1615158152600182015490604084019182526080600360028501549460608701958652015494019384526040519485525115156020850152516040840152516060830152516080820152f35b346100ed5760603660031901126100ed57600435906024359060443590831561038e5750825f525f60205260ff60405f205416610359577fd751612f15304abadf986a47483b2ea8d4336936349382a3ed10f03972095c53916040916102df6103c2565b6001815260036020820160018152858301858152606084019085825261033c60808601934285528b5f525f602052895f209651151560ff80198954169116178755511515869061ff00825491151560081b169061ff001916179055565b5160018501555160028401555191015582519182526020820152a2005b60405162461bcd60e51b815260206004820152600d60248201526c7265636f72642065786973747360981b6044820152606490fd5b62461bcd60e51b815260206004820152600f60248201526e34b73b30b634b2103837b4b73a32b960891b6044820152606490fd5b6040519060a0820182811067ffffffffffffffff8211176103e257604052565b634e487b7160e01b5f52604160045260245ffd5b156103fd57565b60405162461bcd60e51b815260206004820152600e60248201526d7265636f7264206d697373696e6760901b6044820152606490fdfea264697066735822122080d781400e73c7531fff0978e3ae37872248a2b29e02e0b12950feb306b9445764736f6c634300081a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

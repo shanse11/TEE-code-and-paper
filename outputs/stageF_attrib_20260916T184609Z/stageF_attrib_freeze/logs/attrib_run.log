@@ -1,0 +1,25 @@
+Compiled 8 Solidity files successfully (evm target: cancun).
+[F] boundary steps=0: rejected=true
+[F] boundary steps=129: rejected=true
+[F] b32-p8-c4-s64 r0: batches=10 peak=4 mean=3.50 finalized=320 totalFeeWei=125370483721880141
+[F] b32-p8-c4-s64 r1: batches=10 peak=4 mean=3.50 finalized=320 totalFeeWei=124911134999289072
+[F] b32-p8-c4-s64 r2: batches=10 peak=4 mean=3.50 finalized=320 totalFeeWei=124911991999295928
+[F] b8-p8-c16-s64 r0: batches=10 peak=12 mean=6.50 finalized=80 totalFeeWei=31746537253972296
+[F] b8-p8-c16-s64 r1: batches=10 peak=12 mean=6.50 finalized=80 totalFeeWei=31746710253973680
+[F] b8-p8-c16-s64 r2: batches=10 peak=12 mean=6.50 finalized=80 totalFeeWei=31746144253969152
+[F] b32-p32-c16-s128 r0: batches=10 peak=12 mean=6.50 finalized=320 totalFeeWei=136864590094916712
+[F] b32-p32-c16-s128 r1: batches=10 peak=12 mean=6.50 finalized=320 totalFeeWei=136864971094919760
+[F] b32-p32-c16-s128 r2: batches=10 peak=12 mean=6.50 finalized=320 totalFeeWei=136864705094917632
+[F] ablation recovery-interactive r0: batches=10
+[F] ablation recovery-interactive r1: batches=10
+[F] ablation recovery-interactive r2: batches=10
+[F] ablation no-recovery-with-fault-fallback r0: batches=10
+[F] ablation no-recovery-with-fault-fallback r1: batches=10
+[F] ablation no-recovery-with-fault-fallback r2: batches=10
+[F] ablation direct-fallback r0: batches=10
+[F] ablation direct-fallback r1: batches=10
+[F] ablation direct-fallback r2: batches=10
+[F] ablation recovery-under-fault r0: batches=10
+[F] ablation recovery-under-fault r1: batches=10
+[F] ablation recovery-under-fault r2: batches=10
+[F] 完成，raw: /Users/shanse/Documents/ChatGPT/Hybrid TEE-Rollup/outputs/stageF_attrib_20260916T184609Z/hardhat_run/stageF/raw

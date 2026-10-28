@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageF.comparability_contract.v1",
+  "createdAtUtc": "2026-09-16T18:40:17Z",
+  "purpose": "供 G 阶段引用：规定本方案哪些指标可与第三方（TeeRollup / Arbitrum BoLD / Optimism FDG）比较、以什么口径比较、哪些不可比。",
+  "frozenRun": {
+    "stage": "F",
+    "runId": "stageF-local",
+    "freezeRunId": "stageF-freeze-20260916T184017Z",
+    "sourceTreeSha256": "ab26edb78bb1a6be50ceb6261e69de523eeda0b725bd66f02be477273480377b",
+    "configSha256": "d12d58ce77d720ebc352f9e72a0fa0d2654f37d28456615a34aa43d6e1c297e7",
+    "attributionRunId": "stageF-attrib-20260916T184609Z",
+    "attributionSourceTreeSha256": "d7752e7e7874829943bba41b3c0686bad414612e7266df4435670849a08290c0",
+    "attributionConfigSha256": "d9a3083d93e230705a204e77df37989113d37beed5274878cdb9a75cbd35a42e"
+  },
+
+  "endpointDefinitions": {
+    "submitConfirmed": "submit 交易被打包确认（endpoints.submittedConfirmedAtUtc）；本地 automining 无共识确认语义",
+    "optimisticAvailable": "乐观可用 = 提交确认即刻（endpoints.optimisticAvailableAtUtc）；与欺诈证明系统的『应用可用』语义不同，不可直接比",
+    "protocolFinal": "协议终局 = settle/adjudicate 落块（endpoints.protocolFinalAtUtc / protocolFinalMonoNs）",
+    "withdrawable": "可提现 = claimable > 0（endpoints.withdrawableAtUtc）",
+    "actuallyWithdrawn": "实际提现 = withdraw 交易确认（endpoints.withdrawnAtUtc）",
+    "consensusFinality": {
+      "measured": false,
+      "reason": "Hardhat in-process automining 不产生共识最终性；本阶段不报告最终性延迟"
+    }
+  },
+
+  "measurementModel": {
+    "clock": "单机 process.hrtime.bigint() 单调时钟（字符串 ns）+ UTC 关联；链 timestamp 为链时钟，不用于墙钟结论",
+    "loadModel": "closed-loop（固定批数，批完成才补新批）",
+    "concurrencyUnit": "inflight_batches；未使用 min(batchSize, concurrency) 折叠",
+    "chainEnvironment": "Hardhat in-process automining, hardfork=cancun, chainId=31337, blockGasLimit=60000000, initialBaseFeePerGas=1 gwei",
+    "gasPrice": "交易回执实际 gasPrice（约 1.5–1.6 gwei，随块浮动），feeSource=local-gas-only",
+    "chainClockArtifact": "Hardhat 每块链钟 +1 秒且 automining 串行；固定 challengeWindow=100（链秒）在高 batchSize×concurrency 下会被越过，导致 openChallenge 以 revert 'window' 失败。已用 challengeWindow=100000 的归因运行确认这是仪器/部署参数假象，非协议吞吐上限。"
+  },
+
+  "dataScale": {
+    "batchSize": [1, 8, 32],
+    "payloadKiBPerTask": [1, 8, 32],
+    "configuredConcurrency": [1, 4, 16],
+    "steps": [1, 64, 128],
+    "maxSteps": 128,
+    "application": "bounded-keccak-chain-accumulator（确定性合成微基准，不是真实 DApp 业务负载）",
+    "payloadIsNominal": true,
+    "payloadIsNominalReason": "有界模型 dataHash 固定 32 字节，计算只处理 hash 链；payloadKiBPerTask 不改变链上数据大小，属名义/DA 填充参数，不得据此声称高频 DApp 通用 TPS",
+    "independentRuns": 3,
+    "warmupBatches": 5,
+    "measureBatches": 30,
+    "ablationProtocol": { "warmupBatches": 2, "measureBatches": 10, "independentRuns": 3, "reason": "故障注入需全局时间推进，强制串行" }
+  },
+
+  "trustAndBilling": {
+    "teeBackend": "none（本地运行不含 TEE；D 阶段真实 Quote 为 blocked）",
+    "daCarrier": "本地 calldata/内存；真实 Blob 发布与独立取回在 E 阶段为 blocked",
+    "feeScope": "本地 gas × 回执 gasPrice；不含 blobGas、不含真实法币、不含云/硬件成本",
+    "valueTransferSeparate": true,
+    "valueTransferNote": "押金 bondPaid / 退款 withdrawn / 罚没 slashed / 销毁 burned 单列，不与 gas 费用总额相加；TEE/DA/云的 ¥ 费用与链上 wei 分账，不合并"
+  },
+
+  "comparableMetrics": [
+    {
+      "metric": "submitGas / challengeGas / adjudicateGas / withdrawGas",
+      "unit": "gas（整数，十进制字符串）",
+      "comparable": "partially_comparable",
+      "reason": "可与对方同阶段 gas 数量级对照，但对方数字多为文献/官方部署值，环境、编译器、优化器、状态布局不同；不得换算成统一领先百分比"
+    },
+    {
+      "metric": "交互轮数（advance 次数 / L1 交易数）",
+      "unit": "计数（须先冻结定义：逻辑交互轮 / 单方 move / L1 交易数 / DAG edge 是不同计数）",
+      "comparable": "comparable_in_L1_only",
+      "reason": "仅在本项目 L1 机制微基准内可比；不得把二分理论 log 值与官方完整交易数直接相除"
+    },
+    {
+      "metric": "恢复能力（交互续推成功比例 / 兜底使用比例 / 未终止比例）",
+      "unit": "比例 + 分母",
+      "comparable": "partially_comparable",
+      "reason": "须按 C 阶段故障模型对齐（谁失联、在哪一步、第三方证据、能否接管、最大恢复次数、资金结果）；不能用单一 yes/no 排名"
+    },
+    {
+      "metric": "批内本地分段延迟（encode/sign/submit/adjudicate/withdraw）",
+      "unit": "毫秒（批级均值）",
+      "comparable": "not_directly_comparable",
+      "reason": "含本地客户端开销与 automining；对方多为端到端或生产环境数字"
+    },
+    {
+      "metric": "challengeWindow / 争议期",
+      "unit": "秒（链时钟）",
+      "comparable": "not_directly_comparable",
+      "reason": "本项目为自定义短参数 devnet，必须与规范/生产部署参数上界分表，不得据此宣称『比对方快 N 倍』"
+    }
+  ],
+
+  "notMeasured": [
+    { "item": "真实货币费用（法币/主网 wei）", "status": "blocked", "reason": "未广播、未付费；本地 gas 不能外推" },
+    { "item": "blobGas / blob 交易实付费", "status": "blocked", "reason": "E 阶段公网发布 blocked；blob 填充阶梯为 codec 计算值，非链上实测" },
+    { "item": "TEE 执行/证明时间", "status": "blocked", "reason": "D 阶段真实 TEE blocked；本地无 TEE 后端" },
+    { "item": "共识最终性吞吐 / p99 尾延迟", "status": "blocked", "reason": "Hardhat automining 无共识；3 个独立 run 不足以估计尾部" },
+    { "item": "公网到达压力下的容量", "status": "blocked", "reason": "负载模型为 closed-loop，不能宣称无限到达压力下的容量" }
+  ],
+
+  "statisticalRulesForG": {
+    "clusterUnit": "independent run / window（批内任务不是独立样本，禁止用批内任务数伪造大样本）",
+    "quantileMethod": "nearest-rank；n<20 不报 p95，n<100 不报 p99",
+    "ci": "3 个独立 run 时不给 bootstrap CI，只报描述性差异",
+    "censoring": "失败/右删失必须保留并报告成功率与分母；不得只对比成功样本延迟",
+    "percentages": "跨层（实测 / 文献 / modelled）不得合并生成统一百分比"
+  }
+}

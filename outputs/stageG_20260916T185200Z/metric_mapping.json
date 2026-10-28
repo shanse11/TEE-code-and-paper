@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.stageG.metric_mapping.v1",
+  "createdAtUtc": "2026-09-16T18:52:00Z",
+  "purpose": "§G4 四类主比较指标的**定义冻结**与字段映射；不同单位的行不得自动合并",
+
+  "submissionCost": {
+    "definition": "同一任务群在同一测量窗口内的成本，按不重叠 primitive 费用项计，再按阶段标签归因",
+    "components": [
+      { "key": "normalSubmitGas", "unit": "gas", "ours": "batch_records.gas.submitGas（实测，本地）", "denominators": ["perFinalizedTask", "perAcceptedTask", "perBatch"] },
+      { "key": "daGasOrBytes", "unit": "gas / bytes", "ours": "null（E 公网 Blob blocked）", "reason": "未取得真实 blobGas 字段，不填 0" },
+      { "key": "verificationGas", "unit": "gas", "ours": "gas.adjudicateGas 或 gas.resolveGas（取决于 arm）" },
+      { "key": "offchainProveOrTeeTime", "unit": "ms", "ours": "null（D 真实 TEE blocked）" },
+      { "key": "monetaryFee", "unit": "wei / fiat", "ours": "null（本地 gas only，feeSource=local-gas-only）" }
+    ],
+    "denominatorRule": "批 / task / transaction 三种分母**不混用**；共享固定成本的分配规则在所有方案中必须一致（本轮：总成本 ÷ finalizedTasks、÷ acceptedTasks、÷ batches 三种分别列出）",
+    "comparability": "partially_comparable",
+    "crossLayerRule": "A/Hardhat 只有 gas，不能与第三方生产美元账单直接算领先比例；固定价格重价属 modelled scenario，须单列"
+  },
+
+  "challengeRounds": {
+    "definition": "先冻结定义，下列四种计数**互不等价**，不得混用或相除",
+    "counters": [
+      { "key": "logicalInteractionRounds", "definition": "二分定位的逻辑轮数 = ceil(log2(steps+1))", "ours_64steps": 7, "ours_128steps": 8, "measurable": true },
+      { "key": "singlePartyMoves", "definition": "单方主动发起的 move 次数（本方案 advance 调用次数）", "ours": "counts.interactiveMoves（实测）", "measurable": true },
+      { "key": "l1TxCount", "definition": "链上交易总数", "ours": "batch_records.txCount（实测）", "measurable": true },
+      { "key": "dagEdges", "definition": "争议图 DAG 的边数", "ours": "not_applicable（本方案为线性任务，无 DAG）", "measurable": false }
+    ],
+    "prohibition": "不得把二分理论 log 值与完整官方交易数直接相除得出『每轮成本』之类结论",
+    "noChallengePath": "无挑战正常路径单列（本方案：submit → finalize after challengeWindow）"
+  },
+
+  "recoveryCapability": {
+    "definition": "复用 C 阶段故障模型字段",
+    "fields": [
+      "whoIsOffline（提交方 / 挑战方 / 双方 / 观察者）",
+      "atWhichStep（提交后 / respond 后 / 二分中 / 定位后）",
+      "thirdPartyEvidence（第三方能取得何种证据：本方案 = 无需任何证据，adjudicate 可重算）",
+      "canTakeOver（能否接管推进）",
+      "retainedState（保留何种状态）",
+      "maxRecoveries（最大恢复次数）",
+      "maxDelay（最大延迟上界）",
+      "lastResponsibleParty",
+      "fundingOutcome（押金/罚没/退款）"
+    ],
+    "prohibition": "不得把本方案『超时终止』与对方『无需接管自动继续』用单一 yes/no 排名",
+    "oursMeasured": {
+      "interactiveContinuationRate_withRecover": "30/30",
+      "interactiveContinuationRate_withoutRecover_afterTimeout": "0/30（回退到 adjudicate 兜底，仍 100% 正确终局）",
+      "correctFinalityRate_allArms": "30/30 per arm",
+      "source": "outputs/stageG_20260916T185200Z/hardhat_run/stageG/summary/mechanism_summary.json"
+    }
+  },
+
+  "settlementLatency": {
+    "definition": "六个端点分别报告，不合并为单一『最终性』",
+    "endpoints": [
+      "submissionIncluded（提交纳入）",
+      "appAvailable（应用可用）",
+      "challengeWindowClose（挑战窗口关闭）",
+      "disputeResolution（争议解决）",
+      "protocolFinality（协议终局）",
+      "bridgeWithdrawalAvailable（提款可用）"
+    ],
+    "ours": {
+      "submissionIncluded": "实测（本地 automining，无共识语义）",
+      "appAvailable": "定义为提交确认即刻（optimistic），与欺诈证明系统语义不同",
+      "challengeWindowClose": "部署参数 challengeWindow（本轮主矩阵 100 链秒；G 微基准 100000 链秒）",
+      "disputeResolution": "实测批级分段耗时（ms）",
+      "protocolFinality": "本地无共识最终性 → 不报告",
+      "bridgeWithdrawalAvailable": "实测 withdraw 端点"
+    },
+    "prohibition": "自定义较短测试窗口只证明流程，不能和对方生产挑战期比『快 N 倍』；短参数 devnet 与规范/部署参数上界**分表**"
+  },
+
+  "supplementary": {
+    "throughput": "仅在同一工作负载与同一计时口径下计算差异；混合环境仅描述",
+    "tailLatency": "3 个独立 run 不报 p99；样本不足不报分位",
+    "securityAssumptions": "另设一栏，不以单一性能指标证明整体更优"
+  }
+}

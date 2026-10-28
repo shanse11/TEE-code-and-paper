@@ -1,0 +1,79 @@
+{
+  "id": "CE-01",
+  "title": "respondChallenge 任意人可劫持 responder 角色",
+  "category": "R1-respondChallenge-任意人",
+  "vulnerability": "respondChallenge 无 access control, 任意地址都能成为 session.responder 并改写 evidence.mismatchBits",
+  "reproduced": true,
+  "note": "无关第三方 attacker 以任意人身份调用 respondChallenge, 成功将 session.responder 设为自身并改写 mismatchBits",
+  "error": null,
+  "statusBefore": {
+    "exists": true,
+    "status": "OPEN",
+    "challenger": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "responder": "0x0000000000000000000000000000000000000000",
+    "operator": "0x0000000000000000000000000000000000000000",
+    "arbitrator": "0x0000000000000000000000000000000000000000",
+    "challengeSuccess": false,
+    "resolutionBits": "0",
+    "recoveryCount": "0",
+    "replayExecuted": false,
+    "replayPassed": false,
+    "timeoutAt": "1789122671"
+  },
+  "statusAfter": {
+    "exists": true,
+    "status": "RESPONDED",
+    "challenger": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+    "responder": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "operator": "0x0000000000000000000000000000000000000000",
+    "arbitrator": "0x0000000000000000000000000000000000000000",
+    "challengeSuccess": false,
+    "resolutionBits": "0",
+    "recoveryCount": "0",
+    "replayExecuted": false,
+    "replayPassed": false,
+    "timeoutAt": "1789122672"
+  },
+  "receipt": {
+    "status": 1,
+    "from": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+    "to": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "blockNumber": 7,
+    "gasUsed": "65886",
+    "effectiveGasPrice": "1399910046",
+    "cumulativeGasUsed": "65886",
+    "logs": 1
+  },
+  "gas": {
+    "gasUsed": "65886",
+    "effectiveGasPrice": "1399910046",
+    "gasCost": "92234473290756"
+  },
+  "balances": {
+    "rollupBefore": "0",
+    "rollupAfter": "0",
+    "before": {
+      "deployer": "9999994629790377931828",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "10000000000000000000000",
+      "responder": "10000000000000000000000",
+      "attacker": "10000000000000000000000",
+      "submitter": "10000000000000000000000"
+    },
+    "after": {
+      "deployer": "9999993993890692439982",
+      "teeSigner": "10000000000000000000000",
+      "challenger": "9999999586712217717376",
+      "responder": "10000000000000000000000",
+      "attacker": "9999999907765526709244",
+      "submitter": "10000000000000000000000"
+    },
+    "gasAdjustedActor": {
+      "role": "attacker",
+      "rawAfter": "9999999907765526709244",
+      "gasCost": "92234473290756",
+      "adjustedAfter": "10000000000000000000000"
+    }
+  },
+  "actor": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+}

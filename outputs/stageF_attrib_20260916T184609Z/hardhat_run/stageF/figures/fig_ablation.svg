@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 700 420" font-family="Helvetica,Arial,sans-serif">
+<rect width="700" height="420" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="bold" fill="#111827">图6 消融：四类裁决/恢复策略的批总延迟（3 个独立 run 均值）</text>
+<text x="20" y="44" font-size="11" fill="#6b7280">单位：毫秒；未关闭 adjudicate 兜底，不伪造“无恢复必失败”</text>
+<line x1="70" y1="70" x2="70" y2="330" stroke="#374151" stroke-width="1.5"/>
+<line x1="70" y1="330" x2="620" y2="330" stroke="#374151" stroke-width="1.5"/>
+<text x="345" y="364" font-size="11" fill="#374151" text-anchor="middle">消融策略</text>
+<text x="36" y="200" font-size="11" fill="#374151" text-anchor="middle" transform="rotate(-90 36 200)">批总延迟均值（毫秒）</text><rect x="97.5" y="70" width="82.5" height="260" fill="#334155"/><text x="138.75" y="66" font-size="9" fill="#111827" text-anchor="middle">12.00</text><text x="138.75" y="344" font-size="9" fill="#374151" text-anchor="middle">recovery-interactive</text><rect x="235" y="158.11111111111111" width="82.5" height="171.88888888888889" fill="#334155"/><text x="276.25" y="154.11111111111111" font-size="9" fill="#111827" text-anchor="middle">7.93</text><text x="276.25" y="344" font-size="9" fill="#374151" text-anchor="middle">no-recovery-with-fault-fallback</text><rect x="372.5" y="188.44444444444443" width="82.5" height="141.55555555555557" fill="#334155"/><text x="413.75" y="184.44444444444443" font-size="9" fill="#111827" text-anchor="middle">6.53</text><text x="413.75" y="344" font-size="9" fill="#374151" text-anchor="middle">direct-fallback</text><rect x="510" y="70" width="82.5" height="260" fill="#334155"/><text x="551.25" y="66" font-size="9" fill="#111827" text-anchor="middle">12.00</text><text x="551.25" y="344" font-size="9" fill="#374151" text-anchor="middle">recovery-under-fault</text>
+</svg>

@@ -1,0 +1,14 @@
+cellId,kind,axis,batchSize,payloadKiB,concurrency,steps,nRuns,meanFinalizedTps,meanTotalLatencyMs,meanInflightPeak,finalizedTasks,totalFeeWei,feePerFinalizedTask,failedBatches,censoredBatches,retryCount
+b1-p8-c4-s64,screening,batchSize,1,8,4,64,1,71.42857142857143,19,3,2,0,0,0,0,0
+b8-p8-c4-s64,screening,batchSize,8,8,4,64,1,115.94202898550724,90,3,16,0,0,0,0,0
+b32-p8-c4-s64,screening,batchSize,32,8,4,64,1,126.48221343873517,316,3,64,0,0,0,0,0
+b8-p8-c1-s64,screening,configuredConcurrency,8,8,1,64,1,121.2121212121212,44,1,16,0,0,0,0,0
+b8-p8-c16-s64,screening,configuredConcurrency,8,8,16,64,1,130.08130081300814,78.5,3,16,0,0,0,0,0
+b8-p1-c4-s64,screening,payloadKiBPerTask,8,1,4,64,1,129.03225806451613,79,3,16,0,0,0,0,0
+b8-p32-c4-s64,screening,payloadKiBPerTask,8,32,4,64,1,129.03225806451613,78,3,16,0,0,0,0,0
+b8-p8-c4-s1,screening,steps,8,8,4,1,1,457.1428571428571,32,3,16,0,0,0,0,0
+b8-p8-c4-s128,screening,steps,8,8,4,128,1,73.05936073059361,131.5,3,16,0,0,0,0,0
+b1-p8-c1-s64,forced,batchSize=1×concurrency,1,8,1,64,1,105.26315789473685,6,1,2,0,0,0,0,0
+b1-p8-c16-s64,forced,batchSize=1×concurrency,1,8,16,64,1,111.11111111111111,12,3,2,0,0,0,0,0
+b32-p32-c16-s128,cross,heavy-corner,32,32,16,128,1,70.02188183807439,533,3,64,0,0,0,0,0
+b1-p1-c1-s1,cross,light-corner,1,1,1,1,1,285.7142857142857,2.5,1,2,0,0,0,0,0

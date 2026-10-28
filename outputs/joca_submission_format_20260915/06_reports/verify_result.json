@@ -1,0 +1,115 @@
+{
+ "source_paras": 147,
+ "source_tables": 6,
+ "out_paras": 173,
+ "out_tables": 2,
+ "tables_src": 2,
+ "tables_out": 2,
+ "table_cell_diff": [],
+ "unmatched_source_paras": [],
+ "formula_records": [
+  {
+   "src_idx": 48,
+   "src": "挑战会话定义为：cs = (id, s, F, T)。",
+   "out_text_part": "挑战会话定义为：。",
+   "out_math": "cs = (id, s, F, T)"
+  },
+  {
+   "src_idx": 51,
+   "src": "挑战状态机定义为：M = (S, E, δ)。",
+   "out_text_part": "挑战状态机定义为：。",
+   "out_math": "M = (S, E, δ)"
+  },
+  {
+   "src_idx": 52,
+   "src": "其中，S 为状态集合；E 为事件集合；δ: S × E → S 为状态转移函数。",
+   "out_text_part": "其中，S 为状态集合；E 为事件集合； 为状态转移函数。",
+   "out_math": "δ: S × E → S"
+  },
+  {
+   "src_idx": 54,
+   "src": "恢复函数定义为：Recover(cs) = cs'。",
+   "out_text_part": "恢复函数定义为：。",
+   "out_math": "Recover(cs) = cs'"
+  },
+  {
+   "src_idx": 55,
+   "src": "恢复仅改变活性相关状态，不改变挑战事实，即满足：F(cs) = F(Recover(cs))。",
+   "out_text_part": "恢复仅改变活性相关状态，不改变挑战事实，即满足：。",
+   "out_math": "F(cs) = F( Recover(cs) )"
+  },
+  {
+   "src_idx": 94,
+   "src": "模型表达为 C_total = C_commit + C_DA + p_challenge × C_challenge。其中 C_commit 表示链上紧凑提交或完整负载提交成本，C_DA 表示不同 DA 路径下的数据成本，C_challenge 表示争议发生时挑战、恢复、重放和结算成本，p_challenge 表示争议发生概率。批处理后单笔摊销成本记为 C_amortized = C_total / batch_size。",
+   "out_text_part": "模型表达为 。其中 C_commit 表示链上紧凑提交或完整负载提交成本，C_DA 表示不同 DA 路径下的数据成本，C_challenge 表示争议发生时挑战、恢复、重放和结算成本，p_challenge 表示争议发生概率。批处理后单笔摊销成本记为 。",
+   "out_math": "Ctotal = Ccommit + CDA + pchallenge × CchallengeCamortized = Ctotal / batchsize"
+  },
+  {
+   "src_idx": 98,
+   "src": "C_total = C_commit + C_DA + p_challenge × C_challenge （1）",
+   "out_text_part": "（1）",
+   "out_math": "Ctotal = Ccommit + CDA + pchallenge × Cchallenge"
+  },
+  {
+   "src_idx": 99,
+   "src": "C_amortized = C_total / batch_size （2）",
+   "out_text_part": "（2）",
+   "out_math": "Camortized = Ctotal / batchsize"
+  }
+ ],
+ "style_usage": {
+  "DOI": 1,
+  "Heading": 3,
+  "Style19": 2,
+  "Style15": 2,
+  "Style21": 1,
+  "2": 1,
+  "3": 1,
+  "4": 1,
+  "51": 1,
+  "Style9": 3,
+  "Style23": 11,
+  "null": 102,
+  "Style26": 12,
+  "Style17": 12,
+  "Style16": 4,
+  "Style27": 3,
+  "62": 1,
+  "Style29": 12
+ },
+ "math_paras": 8,
+ "math_total": 9,
+ "image_paras": [
+  34,
+  64,
+  112,
+  118
+ ],
+ "section_breaks": [
+  11,
+  33,
+  36,
+  63,
+  66,
+  111,
+  114,
+  117,
+  120,
+  128,
+  131,
+  133,
+  136,
+  160
+ ],
+ "has_comments": false,
+ "has_revision": false,
+ "header_refs": 3,
+ "footer_refs": 3,
+ "doi_line": true,
+ "media": [
+  "word/media/image1.svg",
+  "word/media/image2.svg",
+  "word/media/image3.svg",
+  "word/media/image4.svg"
+ ]
+}

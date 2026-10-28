@@ -1,0 +1,14 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "contract": "BlobBatchAnchor",
+  "address": "0x083e9280AC8b5933060C55Dd189A52A3981248c9",
+  "deployer": "0xdcC6310Ab8D4621626b945119c2784a1Ae582F10",
+  "tx": "0xa25dee1791922d3eca03d22b5a93f3900e1ddcbc4cc3115688098424f6f08165",
+  "blockNumber": 11932904,
+  "status": 1,
+  "gasUsed": "2427166",
+  "codeBytes": 1364,
+  "compiler": "0.8.26",
+  "evmVersion": "cancun"
+}

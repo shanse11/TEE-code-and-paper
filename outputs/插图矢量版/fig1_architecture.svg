@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="428.112pt" height="334.56096pt" viewBox="0 0 428.112 334.56096" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-12T16:01:14.079867</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 334.56096 
+L 428.112 334.56096 
+L 428.112 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 10.795104 103.49568 
+L 94.140576 103.49568 
+Q 99.24336 103.49568 99.24336 98.392896 
+L 99.24336 23.552064 
+Q 99.24336 18.44928 94.140576 18.44928 
+L 10.795104 18.44928 
+Q 5.69232 18.44928 5.69232 23.552064 
+L 5.69232 98.392896 
+Q 5.69232 103.49568 10.795104 103.49568 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 146.869344 112.00032 
+L 255.728736 112.00032 
+Q 260.83152 112.00032 260.83152 106.897536 
+L 260.83152 15.047424 
+Q 260.83152 9.94464 255.728736 9.94464 
+L 146.869344 9.94464 
+Q 141.76656 9.94464 141.76656 15.047424 
+L 141.76656 106.897536 
+Q 141.76656 112.00032 146.869344 112.00032 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 308.457504 112.00032 
+L 413.064576 112.00032 
+Q 418.16736 112.00032 418.16736 106.897536 
+L 418.16736 15.047424 
+Q 418.16736 9.94464 413.064576 9.94464 
+L 308.457504 9.94464 
+Q 303.35472 9.94464 303.35472 15.047424 
+L 303.35472 106.897536 
+Q 303.35472 112.00032 308.457504 112.00032 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 146.869344 239.56992 
+L 255.728736 239.56992 
+Q 260.83152 239.56992 260.83152 234.467136 
+L 260.83152 142.617024 
+Q 260.83152 137.51424 255.728736 137.51424 
+L 146.869344 137.51424 
+Q 141.76656 137.51424 141.76656 142.617024 
+L 141.76656 234.467136 
+Q 141.76656 239.56992 146.869344 239.56992 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 308.457504 239.56992 
+L 413.064576 239.56992 
+Q 418.16736 239.56992 418.16736 234.467136 
+L 418.16736 142.617024 
+Q 418.16736 137.51424 413.064576 137.51424 
+L 308.457504 137.51424 
+Q 303.35472 137.51424 303.35472 142.617024 
+L 303.35472 234.467136 
+Q 303.35472 239.56992 308.457504 239.56992 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 100.093824 307.60704 
+L 234.467136 307.60704 
+Q 239.56992 307.60704 239.56992 302.504256 
+L 239.56992 287.195904 
+Q 239.56992 282.09312 234.467136 282.09312 
+L 100.093824 282.09312 
+Q 94.99104 282.09312 94.99104 287.195904 
+L 94.99104 302.504256 
+Q 94.99104 307.60704 100.093824 307.60704 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 257.429664 307.60704 
+L 417.316896 307.60704 
+Q 422.41968 307.60704 422.41968 302.504256 
+L 422.41968 287.195904 
+Q 422.41968 282.09312 417.316896 282.09312 
+L 257.429664 282.09312 
+Q 252.32688 282.09312 252.32688 287.195904 
+L 252.32688 302.504256 
+Q 252.32688 307.60704 257.429664 307.60704 
+z
+" clip-path="url(#p8e05bfd5d6)" style="fill: #ffffff; stroke: #1f2937; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="52.46784" y="57.061238" transform="rotate(-0 52.46784 57.061238)">高频 DApp 请求</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="52.46784" y="69.717072" transform="rotate(-0 52.46784 69.717072)">prompt / input</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="50.441938" transform="rotate(-0 201.29904 50.441938)">链下执行层（TEE）</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="63.125976" transform="rotate(-0 201.29904 63.125976)">Simulated TEE</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="76.308168" transform="rotate(-0 201.29904 76.308168)">response + attestation</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="50.412993" transform="rotate(-0 360.76104 50.412993)">链上提交层</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="63.125976" transform="rotate(-0 360.76104 63.125976)">HybridTEERollup</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="76.308168" transform="rotate(-0 360.76104 76.308168)">compact commit</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="177.992242" transform="rotate(-0 201.29904 177.992242)">数据可用性层</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="190.695576" transform="rotate(-0 201.29904 190.695576)">mock / verifiable DA</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="201.29904" y="203.877768" transform="rotate(-0 201.29904 203.877768)">payload + Merkle proof</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="178.082788" transform="rotate(-0 360.76104 178.082788)">验证与仲裁层</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="190.695576" transform="rotate(-0 360.76104 190.695576)">open·respond·step</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="360.76104" y="203.877768" transform="rotate(-0 360.76104 203.877768)">recover·replay·resolve</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 99.24336 60.97248 
+Q 120.50496 60.97248 140.648526 60.97248 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 137.048526 59.17248 
+L 140.648526 60.97248 
+L 137.048526 62.77248 
+z
+" style="stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="120.50496" y="57.422146" transform="rotate(-0 120.50496 57.422146)">请求序列</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 260.83152 60.97248 
+Q 282.09312 60.97248 302.236686 60.97248 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 298.636686 59.17248 
+L 302.236686 60.97248 
+L 298.636686 62.77248 
+z
+" style="stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="282.09312" y="57.319881" transform="rotate(-0 282.09312 57.319881)">紧凑提交</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 201.29904 112.00032 
+Q 201.29904 124.75728 201.29904 136.396206 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 203.09904 132.796206 
+L 201.29904 136.396206 
+L 199.49904 132.796206 
+z
+" style="stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: start" x="207.252288" y="127.176294" transform="rotate(-0 207.252288 127.176294)">负载与证明</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 360.76104 112.00032 
+Q 360.76104 124.75728 360.76104 136.396206 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 362.56104 132.796206 
+L 360.76104 136.396206 
+L 358.96104 132.796206 
+z
+" style="stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: start" x="366.714288" y="127.172309" transform="rotate(-0 366.714288 127.172309)">挑战 / 恢复</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 303.35472 188.54208 
+Q 282.09312 188.54208 261.949554 188.54208 
+" style="fill: none; stroke-dasharray: 4,2; stroke-dashoffset: 0; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 265.549554 190.34208 
+L 261.949554 188.54208 
+L 265.549554 186.74208 
+z
+" style="stroke-dasharray: 4,2; stroke-dashoffset: 0; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="282.09312" y="176.502039" transform="rotate(-0 282.09312 176.502039)">取回证据</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="167.28048" y="297.529934" transform="rotate(-0 167.28048 297.529934)">正常路径：低延迟、低链上开销</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="337.37328" y="297.529934" transform="rotate(-0 337.37328 297.529934)">异常路径：挑战 → 恢复 → 重放 → 结算</text>
+   </g>
+   <g id="patch_14">
+    <path d="M 201.29904 239.56992 
+Q 201.29904 260.83152 201.29904 281.086889 
+" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 203.09904 277.486889 
+L 201.29904 281.086889 
+L 199.49904 277.486889 
+z
+" style="fill: #333333; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 360.76104 239.56992 
+Q 360.76104 260.83152 360.76104 281.086889 
+" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 362.56104 277.486889 
+L 360.76104 281.086889 
+L 358.96104 277.486889 
+z
+" style="fill: #333333; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Songti SC'; text-anchor: middle" x="214.056" y="329.317148" transform="rotate(-0 214.056 329.317148)">紧凑提交绑定：状态根 / 输出哈希 / 证明哈希 / DA 指针 / DA 根</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8e05bfd5d6">
+   <rect x="1.44" y="1.44" width="425.232" height="331.68096"/>
+  </clipPath>
+ </defs>
+</svg>

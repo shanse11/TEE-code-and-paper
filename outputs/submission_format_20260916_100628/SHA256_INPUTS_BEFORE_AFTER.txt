@@ -1,0 +1,15 @@
+《计算机应用》投稿排版输入哈希复核
+核验时间：2026-09-16（Asia/Shanghai）
+
+原始输入与开始时备份哈希一致；完成后重新计算原始输入哈希，结果如下。
+
+c0be58f8954b3578aeea32b6b96bce54a30cd00e36a4675c80173e63287fbfc4  Hybrid_TEE_Rollup修改版.docx
+ea305883ad80b38404a9c016c3959551d5dd21f3b2c4916e786fd433b9486f89  投稿模版.doc
+af05af342c9b01a2f471250762c649f3ed5726457e3c451220789b627815a3f8  投稿信息登记表.xlsx
+9791d4904e5f5d75caf5bc35c8f720ecddc8b8366f1600b76e0c8acab9fcf9cb  面向具身智能的视觉-语言-动作模型动作表征和生成策略综述.pdf
+68fab8a6ec3277ebb76909f5960a34636569a145bcf80fe97ddf9a541e145fa2  fig1_architecture.svg
+b3acc7031b610aa3366f2e127a09a14d2f6729fe137ea67e5a2ce9ce23816e93  fig2_challenge_flow.svg
+e818a74e1150f25af397e2b4898126671c06221d4e3b1b4b736488ba30f7ac99  fig3_byte_size.svg
+174a9f92feb8d7402c500d04ff929a473a6b52f6e74b8ad06605b44f76377be6  fig4_da_cost.svg
+
+结论：以上输入文件完成前后 SHA-256 未变化。

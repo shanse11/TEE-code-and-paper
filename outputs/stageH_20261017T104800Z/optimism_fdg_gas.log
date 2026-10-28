@@ -1,0 +1,824 @@
+Compiling 48 files with Solc 0.8.15
+Compiling 139 files with Solc 0.8.25
+Compiling 217 files with Solc 0.8.15
+Compiling 19 files with Solc 0.8.19
+Compiling 202 files with Solc 0.8.15
+Solc 0.8.19 finished in 844.59ms
+Solc 0.8.15 finished in 1.98s
+Solc 0.8.25 finished in 2.04s
+Solc 0.8.15 finished in 9.75s
+Solc 0.8.15 finished in 48.98s
+Compiler run successful!
+
+Ran 1 test for test/dispute/FaultDisputeGame.t.sol:FaultDisputeGame_Step_Test
+[PASS] test_stepAttackDummyClaim_defendTrueClaimInTheMiddle_succeeds() (gas: 2778766)
+Logs:
+  Setup: L1 setup start!
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Setup: L1 setup done!
+  Setup: L2 setup start!
+  Setup: L2 setup done!
+  Setup: creating L1 deployments
+  Deploying a fresh OP Stack including SuperchainConfig
+  start of L1 Deploy!
+  Setting up Superchain
+  Saving SuperchainProxyAdmin: 0x069c15C0996D635a293cEe606Fa958e2cfDA0dB4
+  Saving SuperchainConfigProxy: 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Saving SuperchainConfigImpl: 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Running chain assertions on the SuperchainConfig proxy at 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Running chain assertions on the SuperchainConfig implementation at 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Deploying implementations
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Saving MipsSingleton: 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Saving OPContractsManagerV2: 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Saving DelayedWETHImpl: 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Saving PreimageOracle: 0x1E1d73536A081Ef2F355d29794547a9770Aeb1E0
+  Saving PermissionedDisputeGame: 0xe1dFFCBE4e22B813F26d2106D943C102e7cAb87e
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OPContractsManager at 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Deploying OP Chain
+  Saving ProxyAdmin: 0x510a96F28763B39cAC68D8636a60128f8fF86286
+  Saving AddressManager: 0x83892D532b243848F5538fD176aB39d5457d85a3
+  Saving L1ERC721BridgeProxy: 0x8E060906D12f0248f4Ded89c26CFC75A01E6fB83
+  Saving SystemConfigProxy: 0x63A91b5eC0608302f0502caDf1278C611e8C0bfa
+  Saving OptimismMintableERC20FactoryProxy: 0xa239747aa21aB2D5357873CfADf36e058F5d585C
+  Saving L1StandardBridgeProxy: 0x5cBA323F93ee14a6b8877AF7C31aBE3E869642f6
+  Saving L1CrossDomainMessengerProxy: 0x1950Ad266aC4545dD47B504245eFb3D00d68dAa9
+  Saving ETHLockboxProxy: 0xFD1d0Fe3e98c3d85Dac340B46bB5908508A2866D
+  Saving DisputeGameFactoryProxy: 0x49b1387687b3F21Ba3F8E07a7DF04642d1aE4690
+  Saving PermissionedDelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving DelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving AnchorStateRegistryProxy: 0xebF2634aad6efa8f03FB4Dfd2dAC8fBE0e5dfb51
+  Saving OptimismPortalProxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  Saving OptimismPortal2Proxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  set up op chain!
+  Setup: completed L1 deployment, registering addresses now
+  Setup: registered L1 deployments
+  Setup: creating L2 genesis with fork unknown
+  Setting MultiCall3 preinstall code at: 0xcA11bde05977b3631167028862bE2a173976CA11
+  Setting Create2Deployer preinstall code at: 0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2
+  Setting Safe_v130 preinstall code at: 0x69f4D1788e39c87893C980c06EdF4b7f686e2938
+  Setting SafeL2_v130 preinstall code at: 0xfb1bffC9d739B8D520DaF37dF666da4C687191EA
+  Setting MultiSendCallOnly_v130 preinstall code at: 0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B
+  Setting SafeSingletonFactory preinstall code at: 0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7
+  Setting DeterministicDeploymentProxy preinstall code at: 0x4e59b44847b379578588920cA78FbF26c0B4956C
+  Setting MultiSend_v130 preinstall code at: 0x998739BFdAAdde7C933B942a68053933098f9EDa
+  Setting Permit2 preinstall code at: 0x000000000022D473030F116dDEE9F6B43aC78BA3
+  Setting SenderCreator_v060 preinstall code at: 0x7fc98430eAEdbb6070B35B39D798725049088348
+  Setting EntryPoint_v060 preinstall code at: 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789
+  Setting SenderCreator_v070 preinstall code at: 0xEFC2c1444eBCC4Db75e7613d20C6a62fF67A167C
+  Setting EntryPoint_v070 preinstall code at: 0x0000000071727De22E5E9d8BAf0edAc6f37da032
+  Setting BeaconBlockRoots preinstall code at: 0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+  Setting HistoryStorage preinstall code at: 0x0000F90827F1C53a10cb7A02335B175320002935
+  Setting CreateX preinstall code at: 0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed
+  Setup: completed L2 genesis
+  CommonTest: SetUp complete!
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.18s (1.99ms CPU time)
+
+Ran 1 test for test/dispute/FaultDisputeGame.t.sol:FaultDisputeGame_Resolve_Test
+[PASS] test_resolve_stepReached_succeeds() (gas: 3731850)
+Logs:
+  Setup: L1 setup start!
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Setup: L1 setup done!
+  Setup: L2 setup start!
+  Setup: L2 setup done!
+  Setup: creating L1 deployments
+  Deploying a fresh OP Stack including SuperchainConfig
+  start of L1 Deploy!
+  Setting up Superchain
+  Saving SuperchainProxyAdmin: 0x069c15C0996D635a293cEe606Fa958e2cfDA0dB4
+  Saving SuperchainConfigProxy: 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Saving SuperchainConfigImpl: 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Running chain assertions on the SuperchainConfig proxy at 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Running chain assertions on the SuperchainConfig implementation at 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Deploying implementations
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Saving MipsSingleton: 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Saving OPContractsManagerV2: 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Saving DelayedWETHImpl: 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Saving PreimageOracle: 0x1E1d73536A081Ef2F355d29794547a9770Aeb1E0
+  Saving PermissionedDisputeGame: 0xe1dFFCBE4e22B813F26d2106D943C102e7cAb87e
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OPContractsManager at 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Deploying OP Chain
+  Saving ProxyAdmin: 0x510a96F28763B39cAC68D8636a60128f8fF86286
+  Saving AddressManager: 0x83892D532b243848F5538fD176aB39d5457d85a3
+  Saving L1ERC721BridgeProxy: 0x8E060906D12f0248f4Ded89c26CFC75A01E6fB83
+  Saving SystemConfigProxy: 0x63A91b5eC0608302f0502caDf1278C611e8C0bfa
+  Saving OptimismMintableERC20FactoryProxy: 0xa239747aa21aB2D5357873CfADf36e058F5d585C
+  Saving L1StandardBridgeProxy: 0x5cBA323F93ee14a6b8877AF7C31aBE3E869642f6
+  Saving L1CrossDomainMessengerProxy: 0x1950Ad266aC4545dD47B504245eFb3D00d68dAa9
+  Saving ETHLockboxProxy: 0xFD1d0Fe3e98c3d85Dac340B46bB5908508A2866D
+  Saving DisputeGameFactoryProxy: 0x49b1387687b3F21Ba3F8E07a7DF04642d1aE4690
+  Saving PermissionedDelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving DelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving AnchorStateRegistryProxy: 0xebF2634aad6efa8f03FB4Dfd2dAC8fBE0e5dfb51
+  Saving OptimismPortalProxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  Saving OptimismPortal2Proxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  set up op chain!
+  Setup: completed L1 deployment, registering addresses now
+  Setup: registered L1 deployments
+  Setup: creating L2 genesis with fork unknown
+  Setting MultiCall3 preinstall code at: 0xcA11bde05977b3631167028862bE2a173976CA11
+  Setting Create2Deployer preinstall code at: 0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2
+  Setting Safe_v130 preinstall code at: 0x69f4D1788e39c87893C980c06EdF4b7f686e2938
+  Setting SafeL2_v130 preinstall code at: 0xfb1bffC9d739B8D520DaF37dF666da4C687191EA
+  Setting MultiSendCallOnly_v130 preinstall code at: 0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B
+  Setting SafeSingletonFactory preinstall code at: 0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7
+  Setting DeterministicDeploymentProxy preinstall code at: 0x4e59b44847b379578588920cA78FbF26c0B4956C
+  Setting MultiSend_v130 preinstall code at: 0x998739BFdAAdde7C933B942a68053933098f9EDa
+  Setting Permit2 preinstall code at: 0x000000000022D473030F116dDEE9F6B43aC78BA3
+  Setting SenderCreator_v060 preinstall code at: 0x7fc98430eAEdbb6070B35B39D798725049088348
+  Setting EntryPoint_v060 preinstall code at: 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789
+  Setting SenderCreator_v070 preinstall code at: 0xEFC2c1444eBCC4Db75e7613d20C6a62fF67A167C
+  Setting EntryPoint_v070 preinstall code at: 0x0000000071727De22E5E9d8BAf0edAc6f37da032
+  Setting BeaconBlockRoots preinstall code at: 0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+  Setting HistoryStorage preinstall code at: 0x0000F90827F1C53a10cb7A02335B175320002935
+  Setting CreateX preinstall code at: 0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed
+  Setup: completed L2 genesis
+  CommonTest: SetUp complete!
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.19s (2.27ms CPU time)
+
+Ran 1 test for test/dispute/FaultDisputeGame.t.sol:FaultDisputeGame_Move_Test
+[PASS] test_move_simpleAttack_succeeds() (gas: 365885)
+Logs:
+  Setup: L1 setup start!
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Writing artifact to /private/tmp/optimism-c4a68ab/packages/contracts-bedrock/deployments/31337-deploy.json
+  Connected to network with chainid 31337
+  Commit hash:  (c4a68ab07a7c6ad51042f1b33d5faf4f4596f3af
+  DeployConfig: using hardcoded defaults (no config file)
+  Setup: DEV_FEATURE__SUPER_ROOT_GAMES_MIGRATION is enabled
+  Setup: L1 setup done!
+  Setup: L2 setup start!
+  Setup: L2 setup done!
+  Setup: creating L1 deployments
+  Deploying a fresh OP Stack including SuperchainConfig
+  start of L1 Deploy!
+  Setting up Superchain
+  Saving SuperchainProxyAdmin: 0x069c15C0996D635a293cEe606Fa958e2cfDA0dB4
+  Saving SuperchainConfigProxy: 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Saving SuperchainConfigImpl: 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Running chain assertions on the SuperchainConfig proxy at 0xF755cdf5B60E82954915A6eD9d89b00edEA4a411
+  Running chain assertions on the SuperchainConfig implementation at 0xA303a644cfbC0c34f6a9dBEaFdebA4C967EA01e7
+  Deploying implementations
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Saving MipsSingleton: 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Saving OPContractsManagerV2: 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Saving DelayedWETHImpl: 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Saving PreimageOracle: 0x1E1d73536A081Ef2F355d29794547a9770Aeb1E0
+  Saving PermissionedDisputeGame: 0xe1dFFCBE4e22B813F26d2106D943C102e7cAb87e
+  Running chain assertions on the L1CrossDomainMessenger implementation at 0x59D497530b00062f40950ba8EaB88868bf7F86f0
+  Running chain assertions on the L1StandardBridge implementation at 0xB37a11AadF167B2F0b8dD85372De4bC66CD4A891
+  Running chain assertions on the L1ERC721Bridge implementation at 0x9F164f1d02A81e06D639E55F65a87f0070E3Cb2e
+  Running chain assertions on the OptimismPortal2 implementation at 0x231D660273eF08D001bCBe4e92534e16f51Ee87B
+  Running chain assertions on the ETHLockbox implementation at 0xDF75E6b07E98873E36BA5c05508F80c1454e0aFe
+  Running chain assertions on the OptimismMintableERC20Factory implementation at 0xaAbEA75Da509fA518Fd8a91Eae4BE5813B829b12
+  Running chain assertions on the DisputeGameFactory implementation at 0x72B971717E088B59F26d4236BE222ADB6ACD393b
+  Running chain assertions on the DelayedWETH implementation at 0xF024e96317907C3b8d8CB346B9FD9034c8640e15
+  Running chain assertions on the MIPS at 0xaCc005DCd857B401e4732E6F7837135A22825cfA
+  Running chain assertions on the OPContractsManager at 0xf274E714992fd7c763132516fc84fF7942F80a5e
+  Running chain assertions on the SystemConfig impl at 0xD761cB04b1426170e977C529D066Df0447C09d39
+  Deploying OP Chain
+  Saving ProxyAdmin: 0x510a96F28763B39cAC68D8636a60128f8fF86286
+  Saving AddressManager: 0x83892D532b243848F5538fD176aB39d5457d85a3
+  Saving L1ERC721BridgeProxy: 0x8E060906D12f0248f4Ded89c26CFC75A01E6fB83
+  Saving SystemConfigProxy: 0x63A91b5eC0608302f0502caDf1278C611e8C0bfa
+  Saving OptimismMintableERC20FactoryProxy: 0xa239747aa21aB2D5357873CfADf36e058F5d585C
+  Saving L1StandardBridgeProxy: 0x5cBA323F93ee14a6b8877AF7C31aBE3E869642f6
+  Saving L1CrossDomainMessengerProxy: 0x1950Ad266aC4545dD47B504245eFb3D00d68dAa9
+  Saving ETHLockboxProxy: 0xFD1d0Fe3e98c3d85Dac340B46bB5908508A2866D
+  Saving DisputeGameFactoryProxy: 0x49b1387687b3F21Ba3F8E07a7DF04642d1aE4690
+  Saving PermissionedDelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving DelayedWETHProxy: 0x28591069B7A26b752D8eb91396e796dd8Bd03731
+  Saving AnchorStateRegistryProxy: 0xebF2634aad6efa8f03FB4Dfd2dAC8fBE0e5dfb51
+  Saving OptimismPortalProxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  Saving OptimismPortal2Proxy: 0x6C5B73aA6a8009e49aCa3FD8BAd01F2f73d212d1
+  set up op chain!
+  Setup: completed L1 deployment, registering addresses now
+  Setup: registered L1 deployments
+  Setup: creating L2 genesis with fork unknown
+  Setting MultiCall3 preinstall code at: 0xcA11bde05977b3631167028862bE2a173976CA11
+  Setting Create2Deployer preinstall code at: 0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2
+  Setting Safe_v130 preinstall code at: 0x69f4D1788e39c87893C980c06EdF4b7f686e2938
+  Setting SafeL2_v130 preinstall code at: 0xfb1bffC9d739B8D520DaF37dF666da4C687191EA
+  Setting MultiSendCallOnly_v130 preinstall code at: 0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B
+  Setting SafeSingletonFactory preinstall code at: 0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7
+  Setting DeterministicDeploymentProxy preinstall code at: 0x4e59b44847b379578588920cA78FbF26c0B4956C
+  Setting MultiSend_v130 preinstall code at: 0x998739BFdAAdde7C933B942a68053933098f9EDa
+  Setting Permit2 preinstall code at: 0x000000000022D473030F116dDEE9F6B43aC78BA3
+  Setting SenderCreator_v060 preinstall code at: 0x7fc98430eAEdbb6070B35B39D798725049088348
+  Setting EntryPoint_v060 preinstall code at: 0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789
+  Setting SenderCreator_v070 preinstall code at: 0xEFC2c1444eBCC4Db75e7613d20C6a62fF67A167C
+  Setting EntryPoint_v070 preinstall code at: 0x0000000071727De22E5E9d8BAf0edAc6f37da032
+  Setting BeaconBlockRoots preinstall code at: 0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+  Setting HistoryStorage preinstall code at: 0x0000F90827F1C53a10cb7A02335B175320002935
+  Setting CreateX preinstall code at: 0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed
+  Setup: completed L2 genesis
+  CommonTest: SetUp complete!
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.19s (2.26ms CPU time)
+
+╭-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------╮
+| lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol:ERC20.dispute Contract |                 |      |        |      |         |
++======================================================================================================================================+
+| Deployment Cost                                                                   | Deployment Size |      |        |      |         |
+|-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| 691543                                                                            | 3654            |      |        |      |         |
+|-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                                                   |                 |      |        |      |         |
+|-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                                                     | Min             | Avg  | Median | Max  | # Calls |
+|-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| name                                                                              | 3220            | 3220 | 3220   | 3220 | 9       |
+|-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| symbol                                                                            | 3263            | 3263 | 3263   | 3263 | 9       |
+╰-----------------------------------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭-------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/L1/ETHLockbox.sol:ETHLockbox Contract |                 |       |        |       |         |
++================================================================================================+
+| Deployment Cost                           | Deployment Size |       |        |       |         |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                         | 5267            |       |        |       |         |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                           |                 |       |        |       |         |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                             | Min             | Avg   | Median | Max   | # Calls |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| authorizedPortals                         | 526             | 1526  | 1526   | 2526  | 6       |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| guardian                                  | 1616            | 8949  | 12616  | 12616 | 9       |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                | 74170           | 74170 | 74170  | 74170 | 3       |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| lockETH                                   | 1814            | 1814  | 1814   | 1814  | 3       |
+|-------------------------------------------+-----------------+-------+--------+-------+---------|
+| superchainConfig                          | 336             | 1336  | 1336   | 2336  | 6       |
+╰-------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭-------------------------------------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/L1/L1CrossDomainMessenger.sol:L1CrossDomainMessenger Contract |                 |        |        |        |         |
++==========================================================================================================================+
+| Deployment Cost                                                   | Deployment Size |        |        |        |         |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| 0                                                                 | 9895            |        |        |        |         |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+|                                                                   |                 |        |        |        |         |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                                                     | Min             | Avg    | Median | Max    | # Calls |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| OTHER_MESSENGER                                                   | 396             | 1396   | 1396   | 2396   | 6       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| PORTAL                                                            | 387             | 1387   | 1387   | 2387   | 6       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| initialize                                                        | 114732          | 114732 | 114732 | 114732 | 3       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| otherMessenger                                                    | 357             | 357    | 357    | 357    | 6       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| portal                                                            | 381             | 381    | 381    | 381    | 6       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| proxyAdmin                                                        | 4884            | 4884   | 4884   | 4884   | 6       |
+|-------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| systemConfig                                                      | 403             | 1403   | 1403   | 2403   | 6       |
+╰-------------------------------------------------------------------+-----------------+--------+--------+--------+---------╯
+
+╭---------------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/L1/L1ERC721Bridge.sol:L1ERC721Bridge Contract |                 |       |        |       |         |
++========================================================================================================+
+| Deployment Cost                                   | Deployment Size |       |        |       |         |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                                 | 6447            |       |        |       |         |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                                   |                 |       |        |       |         |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                                     | Min             | Avg   | Median | Max   | # Calls |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| MESSENGER                                         | 318             | 1318  | 1318   | 2318  | 6       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| OTHER_BRIDGE                                      | 385             | 1385  | 1385   | 2385  | 6       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                        | 88964           | 88964 | 88964  | 88964 | 3       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| messenger                                         | 325             | 325   | 325    | 325   | 6       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| otherBridge                                       | 368             | 368   | 368    | 368   | 6       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| proxyAdmin                                        | 4839            | 4839  | 4839   | 4839  | 6       |
+|---------------------------------------------------+-----------------+-------+--------+-------+---------|
+| systemConfig                                      | 326             | 1326  | 1326   | 2326  | 6       |
+╰---------------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭-------------------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/L1/L1StandardBridge.sol:L1StandardBridge Contract |                 |       |        |       |         |
++============================================================================================================+
+| Deployment Cost                                       | Deployment Size |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                                     | 12888           |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                                       |                 |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                                         | Min             | Avg   | Median | Max   | # Calls |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| MESSENGER                                             | 341             | 1341  | 1341   | 2341  | 6       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| OTHER_BRIDGE                                          | 364             | 1364  | 1364   | 2364  | 6       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                            | 88942           | 88942 | 88942  | 88942 | 3       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| messenger                                             | 370             | 370   | 370    | 370   | 6       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| otherBridge                                           | 368             | 368   | 368    | 368   | 6       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| systemConfig                                          | 370             | 1370  | 1370   | 2370  | 6       |
+╰-------------------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭-----------------------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/L1/OptimismPortal2.sol:OptimismPortal2 Contract |                 |        |        |        |         |
++============================================================================================================+
+| Deployment Cost                                     | Deployment Size |        |        |        |         |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| 0                                                   | 23416           |        |        |        |         |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+|                                                     |                 |        |        |        |         |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                                       | Min             | Avg    | Median | Max    | # Calls |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| anchorStateRegistry                                 | 371             | 1371   | 1371   | 2371   | 6       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| ethLockbox                                          | 415             | 1415   | 1415   | 2415   | 6       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| initialize                                          | 139058          | 139058 | 139058 | 139058 | 3       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| l2Sender                                            | 416             | 1416   | 1416   | 2416   | 6       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| migrateLiquidity                                    | 10966           | 10966  | 10966  | 10966  | 3       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| proxyAdminOwner                                     | 1268            | 1268   | 1268   | 1268   | 3       |
+|-----------------------------------------------------+-----------------+--------+--------+--------+---------|
+| systemConfig                                        | 373             | 773    | 373    | 2373   | 15      |
+╰-----------------------------------------------------+-----------------+--------+--------+--------+---------╯
+
+╭-------------------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/L1/SuperchainConfig.sol:SuperchainConfig Contract |                 |       |        |       |         |
++============================================================================================================+
+| Deployment Cost                                       | Deployment Size |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                                     | 3456            |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                                       |                 |       |        |       |         |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                                         | Min             | Avg   | Median | Max   | # Calls |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| guardian                                              | 391             | 1191  | 391    | 2391  | 30      |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initVersion                                           | 206             | 206   | 206    | 206   | 6       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                            | 26840           | 26840 | 26840  | 26840 | 3       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| paused                                                | 2630            | 2630  | 2630   | 2630  | 3       |
+|-------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| version                                               | 625             | 625   | 625    | 625   | 6       |
+╰-------------------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭-----------------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/L1/SystemConfig.sol:SystemConfig Contract |                 |        |        |        |         |
++======================================================================================================+
+| Deployment Cost                               | Deployment Size |        |        |        |         |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| 0                                             | 12764           |        |        |        |         |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+|                                               |                 |        |        |        |         |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                                 | Min             | Avg    | Median | Max    | # Calls |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| basefeeScalar                                 | 458             | 1458   | 1458   | 2458   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| batcherHash                                   | 373             | 1373   | 1373   | 2373   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| blobbasefeeScalar                             | 435             | 435    | 435    | 435    | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| gasLimit                                      | 446             | 446    | 446    | 446    | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| guardian                                      | 12683           | 12683  | 12683  | 12683  | 3       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| initialize                                    | 397667          | 397667 | 397667 | 397667 | 3       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| isFeatureEnabled                              | 562             | 1762   | 2562   | 2562   | 15      |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| l1CrossDomainMessenger                        | 493             | 1493   | 1493   | 2493   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| l1ERC721Bridge                                | 492             | 1492   | 1492   | 2492   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| l1StandardBridge                              | 495             | 1495   | 1495   | 2495   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| optimismMintableERC20Factory                  | 493             | 1493   | 1493   | 2493   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| optimismPortal                                | 472             | 1472   | 1472   | 2472   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| overhead                                      | 397             | 1397   | 1397   | 2397   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| owner                                         | 420             | 1420   | 1420   | 2420   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| resourceConfig                                | 941             | 1941   | 1941   | 2941   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| scalar                                        | 395             | 1395   | 1395   | 2395   | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| setFeature                                    | 27480           | 27480  | 27480  | 27480  | 3       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| startBlock                                    | 451             | 451    | 451    | 451    | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| superchainConfig                              | 404             | 404    | 404    | 404    | 6       |
+|-----------------------------------------------+-----------------+--------+--------+--------+---------|
+| unsafeBlockSigner                             | 474             | 1474   | 1474   | 2474   | 6       |
+╰-----------------------------------------------+-----------------+--------+--------+--------+---------╯
+
+╭----------------------------------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/L1/opcm/OPContractsManagerContainer.sol:OPContractsManagerContainer Contract |                 |      |        |      |         |
++=====================================================================================================================================+
+| Deployment Cost                                                                  | Deployment Size |      |        |      |         |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                                                | 3617            |      |        |      |         |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                                                  |                 |      |        |      |         |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                                                    | Min             | Avg  | Median | Max  | # Calls |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| blueprints                                                                       | 1194            | 1194 | 1194   | 1194 | 39      |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| devFeatureBitmap                                                                 | 162             | 162  | 162    | 162  | 30      |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| implementations                                                                  | 3837            | 3837 | 3837   | 3837 | 72      |
+|----------------------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| isDevFeatureEnabled                                                              | 407             | 407  | 407    | 407  | 3       |
+╰----------------------------------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/L1/opcm/OPContractsManagerUtils.sol:OPContractsManagerUtils Contract |                 |        |        |        |         |
++=================================================================================================================================+
+| Deployment Cost                                                          | Deployment Size |        |        |        |         |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| 0                                                                        | 14837           |        |        |        |         |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+|                                                                          |                 |        |        |        |         |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                                                            | Min             | Avg    | Median | Max    | # Calls |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| computeSalt                                                              | 2045            | 2045   | 2045   | 2045   | 9       |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| contractsContainer                                                       | 283             | 283    | 283    | 283    | 21      |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| getGameImpl                                                              | 7913            | 7913   | 7913   | 7913   | 3       |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| loadOrDeployProxy                                                        | 306135          | 482054 | 490884 | 596222 | 27      |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| makeGameArgs                                                             | 9883            | 9883   | 9883   | 9883   | 3       |
+|--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| upgrade                                                                  | 114374          | 186420 | 159525 | 470718 | 30      |
+╰--------------------------------------------------------------------------+-----------------+--------+--------+--------+---------╯
+
+╭--------------------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/L1/opcm/OPContractsManagerV2.sol:OPContractsManagerV2 Contract |                 |      |        |      |         |
++=======================================================================================================================+
+| Deployment Cost                                                    | Deployment Size |      |        |      |         |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                                  | 24889           |      |        |      |         |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                                    |                 |      |        |      |         |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                                      | Min             | Avg  | Median | Max  | # Calls |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| blueprints                                                         | 3410            | 3410 | 3410   | 3410 | 3       |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| implementations                                                    | 9250            | 9250 | 9250   | 9250 | 3       |
+|--------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| version                                                            | 570             | 570  | 570    | 570  | 3       |
+╰--------------------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭-----------------------------------------------------------+-----------------+---------+---------+---------+---------╮
+| src/L2/L2ContractsManager.sol:L2ContractsManager Contract |                 |         |         |         |         |
++=====================================================================================================================+
+| Deployment Cost                                           | Deployment Size |         |         |         |         |
+|-----------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| 0                                                         | 31892           |         |         |         |         |
+|-----------------------------------------------------------+-----------------+---------+---------+---------+---------|
+|                                                           |                 |         |         |         |         |
+|-----------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| Function Name                                             | Min             | Avg     | Median  | Max     | # Calls |
+|-----------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| deploy                                                    | 1514293         | 1514293 | 1514293 | 1514293 | 3       |
+╰-----------------------------------------------------------+-----------------+---------+---------+---------+---------╯
+
+╭---------------------------------------+-----------------+-----+--------+-----+---------╮
+| src/cannon/MIPS64.sol:MIPS64 Contract |                 |     |        |     |         |
++========================================================================================+
+| Deployment Cost                       | Deployment Size |     |        |     |         |
+|---------------------------------------+-----------------+-----+--------+-----+---------|
+| 0                                     | 21743           |     |        |     |         |
+|---------------------------------------+-----------------+-----+--------+-----+---------|
+|                                       |                 |     |        |     |         |
+|---------------------------------------+-----------------+-----+--------+-----+---------|
+| Function Name                         | Min             | Avg | Median | Max | # Calls |
+|---------------------------------------+-----------------+-----+--------+-----+---------|
+| oracle                                | 205             | 205 | 205    | 205 | 6       |
+╰---------------------------------------+-----------------+-----+--------+-----+---------╯
+
+╭-------------------------------------------------------+-----------------+-----+--------+-----+---------╮
+| src/cannon/PreimageOracle.sol:PreimageOracle Contract |                 |     |        |     |         |
++========================================================================================================+
+| Deployment Cost                                       | Deployment Size |     |        |     |         |
+|-------------------------------------------------------+-----------------+-----+--------+-----+---------|
+| 3468619                                               | 14892           |     |        |     |         |
+|-------------------------------------------------------+-----------------+-----+--------+-----+---------|
+|                                                       |                 |     |        |     |         |
+|-------------------------------------------------------+-----------------+-----+--------+-----+---------|
+| Function Name                                         | Min             | Avg | Median | Max | # Calls |
+|-------------------------------------------------------+-----------------+-----+--------+-----+---------|
+| challengePeriod                                       | 258             | 258 | 258    | 258 | 8       |
+╰-------------------------------------------------------+-----------------+-----+--------+-----+---------╯
+
+╭------------------------------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/dispute/AnchorStateRegistry.sol:AnchorStateRegistry Contract |                 |       |        |       |         |
++=======================================================================================================================+
+| Deployment Cost                                                  | Deployment Size |       |        |       |         |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                                                | 7694            |       |        |       |         |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                                                  |                 |       |        |       |         |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                                                    | Min             | Avg   | Median | Max   | # Calls |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| getAnchorRoot                                                    | 6664            | 6664  | 6664   | 6664  | 6       |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| getStartingAnchorRoot                                            | 589             | 2589  | 2589   | 4589  | 6       |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                                       | 93830           | 93830 | 93830  | 93830 | 3       |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| respectedGameType                                                | 425             | 1925  | 2425   | 2425  | 12      |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| retirementTimestamp                                              | 2392            | 2392  | 2392   | 2392  | 3       |
+|------------------------------------------------------------------+-----------------+-------+--------+-------+---------|
+| setRespectedGameType                                             | 4385            | 18651 | 24385  | 27185 | 9       |
+╰------------------------------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭--------------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/dispute/DelayedWETH.sol:DelayedWETH Contract |                 |       |        |       |         |
++=======================================================================================================+
+| Deployment Cost                                  | Deployment Size |       |        |       |         |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+| 0                                                | 6293            |       |        |       |         |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+|                                                  |                 |       |        |       |         |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                                    | Min             | Avg   | Median | Max   | # Calls |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+| delay                                            | 259             | 259   | 259    | 259   | 6       |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+| deposit                                          | 6765            | 9330  | 6765   | 23865 | 20      |
+|--------------------------------------------------+-----------------+-------+--------+-------+---------|
+| initialize                                       | 44440           | 44440 | 44440  | 44440 | 3       |
+╰--------------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+╭----------------------------------------------------------------+-----------------+--------+--------+--------+---------╮
+| src/dispute/DisputeGameFactory.sol:DisputeGameFactory Contract |                 |        |        |        |         |
++=======================================================================================================================+
+| Deployment Cost                                                | Deployment Size |        |        |        |         |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| 0                                                              | 8293            |        |        |        |         |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+|                                                                |                 |        |        |        |         |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| Function Name                                                  | Min             | Avg    | Median | Max    | # Calls |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| create                                                         | 488767          | 488767 | 488767 | 488767 | 3       |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| gameImpls                                                      | 580             | 1580   | 1580   | 2580   | 6       |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| initBonds                                                      | 2596            | 2596   | 2596   | 2596   | 3       |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| initialize                                                     | 48117           | 48117  | 48117  | 48117  | 3       |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| owner                                                          | 363             | 1963   | 2363   | 2363   | 15      |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| setImplementation                                              | 9161            | 47822  | 9161   | 140777 | 27      |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| setInitBond                                                    | 4318            | 9184   | 4318   | 26218  | 27      |
+|----------------------------------------------------------------+-----------------+--------+--------+--------+---------|
+| transferOwnership                                              | 2355            | 4755   | 4755   | 7155   | 6       |
+╰----------------------------------------------------------------+-----------------+--------+--------+--------+---------╯
+
+╭-------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/legacy/AddressManager.sol:AddressManager Contract |                 |      |        |      |         |
++==========================================================================================================+
+| Deployment Cost                                       | Deployment Size |      |        |      |         |
+|-------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                     | 1645            |      |        |      |         |
+|-------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                       |                 |      |        |      |         |
+|-------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                         | Min             | Avg  | Median | Max  | # Calls |
+|-------------------------------------------------------+-----------------+------+--------+------+---------|
+| getAddress                                            | 1213            | 1784 | 1213   | 3213 | 21      |
+|-------------------------------------------------------+-----------------+------+--------+------+---------|
+| owner                                                 | 307             | 307  | 307    | 307  | 3       |
+╰-------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭-------------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/legacy/L1ChugSplashProxy.sol:L1ChugSplashProxy Contract |                 |      |        |      |         |
++================================================================================================================+
+| Deployment Cost                                             | Deployment Size |      |        |      |         |
+|-------------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                           | 2660            |      |        |      |         |
+|-------------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                             |                 |      |        |      |         |
+|-------------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                               | Min             | Avg  | Median | Max  | # Calls |
+|-------------------------------------------------------------+-----------------+------+--------+------+---------|
+| fallback                                                    | 2198            | 3572 | 3947   | 4198 | 12      |
+|-------------------------------------------------------------+-----------------+------+--------+------+---------|
+| getImplementation                                           | 2521            | 2521 | 2521   | 2521 | 3       |
+╰-------------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭---------------------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/legacy/ResolvedDelegateProxy.sol:ResolvedDelegateProxy Contract |                 |      |        |      |         |
++========================================================================================================================+
+| Deployment Cost                                                     | Deployment Size |      |        |      |         |
+|---------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                                   | 1648            |      |        |      |         |
+|---------------------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                                     |                 |      |        |      |         |
+|---------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                                       | Min             | Avg  | Median | Max  | # Calls |
+|---------------------------------------------------------------------+-----------------+------+--------+------+---------|
+| fallback                                                            | 3076            | 4393 | 4711   | 5076 | 12      |
+╰---------------------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------╮
+| src/universal/OptimismMintableERC20Factory.sol:OptimismMintableERC20Factory Contract |                 |         |         |         |         |
++================================================================================================================================================+
+| Deployment Cost                                                                      | Deployment Size |         |         |         |         |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| 0                                                                                    | 12142           |         |         |         |         |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+|                                                                                      |                 |         |         |         |         |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| Function Name                                                                        | Min             | Avg     | Median  | Max     | # Calls |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| BRIDGE                                                                               | 362             | 1362    | 1362    | 2362    | 6       |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| bridge                                                                               | 346             | 346     | 346     | 346     | 6       |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| createStandardL2Token                                                                | 1559875         | 1559875 | 1559875 | 1559875 | 3       |
+|--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------|
+| initialize                                                                           | 44653           | 44653   | 44653   | 44653   | 3       |
+╰--------------------------------------------------------------------------------------+-----------------+---------+---------+---------+---------╯
+
+╭----------------------------------------+-----------------+-------+--------+---------+---------╮
+| src/universal/Proxy.sol:Proxy Contract |                 |       |        |         |         |
++===============================================================================================+
+| Deployment Cost                        | Deployment Size |       |        |         |         |
+|----------------------------------------+-----------------+-------+--------+---------+---------|
+| 0                                      | 2367            |       |        |         |         |
+|----------------------------------------+-----------------+-------+--------+---------+---------|
+|                                        |                 |       |        |         |         |
+|----------------------------------------+-----------------+-------+--------+---------+---------|
+| Function Name                          | Min             | Avg   | Median | Max     | # Calls |
+|----------------------------------------+-----------------+-------+--------+---------+---------|
+| fallback                               | 668             | 35222 | 2918   | 1587202 | 252     |
+|----------------------------------------+-----------------+-------+--------+---------+---------|
+| implementation                         | 2489            | 2489  | 2489   | 2489    | 24      |
+╰----------------------------------------+-----------------+-------+--------+---------+---------╯
+
+╭--------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/universal/ProxyAdmin.sol:ProxyAdmin Contract |                 |      |        |      |         |
++=====================================================================================================+
+| Deployment Cost                                  | Deployment Size |      |        |      |         |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                | 6783            |      |        |      |         |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                  |                 |      |        |      |         |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                    | Min             | Avg  | Median | Max  | # Calls |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+| getProxyImplementation                           | 3619            | 5289 | 5538   | 5538 | 30      |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+| isUpgrading                                      | 347             | 347  | 347    | 347  | 18      |
+|--------------------------------------------------+-----------------+------+--------+------+---------|
+| owner                                            | 363             | 863  | 363    | 2363 | 24      |
+╰--------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭--------------------------------------------------------+-----------------+------+--------+------+---------╮
+| src/universal/StorageSetter.sol:StorageSetter Contract |                 |      |        |      |         |
++===========================================================================================================+
+| Deployment Cost                                        | Deployment Size |      |        |      |         |
+|--------------------------------------------------------+-----------------+------+--------+------+---------|
+| 0                                                      | 1162            |      |        |      |         |
+|--------------------------------------------------------+-----------------+------+--------+------+---------|
+|                                                        |                 |      |        |      |         |
+|--------------------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                          | Min             | Avg  | Median | Max  | # Calls |
+|--------------------------------------------------------+-----------------+------+--------+------+---------|
+| getBytes32                                             | 432             | 1765 | 2432   | 2432 | 90      |
+|--------------------------------------------------------+-----------------+------+--------+------+---------|
+| setBytes32                                             | 358             | 358  | 358    | 358  | 30      |
+╰--------------------------------------------------------+-----------------+------+--------+------+---------╯
+
+╭-----------------------------------------------+-----------------+------+--------+------+---------╮
+| test/mocks/AlphabetVM.sol:AlphabetVM Contract |                 |      |        |      |         |
++==================================================================================================+
+| Deployment Cost                               | Deployment Size |      |        |      |         |
+|-----------------------------------------------+-----------------+------+--------+------+---------|
+| 360424                                        | 1554            |      |        |      |         |
+|-----------------------------------------------+-----------------+------+--------+------+---------|
+|                                               |                 |      |        |      |         |
+|-----------------------------------------------+-----------------+------+--------+------+---------|
+| Function Name                                 | Min             | Avg  | Median | Max  | # Calls |
+|-----------------------------------------------+-----------------+------+--------+------+---------|
+| oracle                                        | 280             | 1613 | 2280   | 2280 | 9       |
+╰-----------------------------------------------+-----------------+------+--------+------+---------╯
+
+
+Ran 3 test suites in 4.21s (12.56s CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)
+EXIT:0
