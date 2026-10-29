@@ -239,3 +239,107 @@ Hybrid_TEE_Rollup_JOCA投稿稿_证据回填_20261029.docx
 **适用文件**: `Hybrid_TEE_Rollup_JOCA投稿稿_通读润色_20261029.docx`  
 **生成时间**: 2026-10-29  
 **执行**: 建议人工精确编辑，或使用 python-docx 脚本逐段落插入
+
+---
+
+## 补充更新（2026-10-29 第二轮证据）
+
+### 新增证据 A: Sepolia 公网 DA 罚没闭环
+
+**证据文件**: `outputs/sepolia_blob_closed_loop_20261029/result.json`
+
+**关键数据**（诚实标注边界）:
+- Signer: `0x7bB71A7Ef8C395823b3D6977Ba82178E98017c30`
+- Rollup: `0x05BB0B9D1E480DF2d079c4a50e3BCF637c653a80`
+- slashDa tx: `0x7ed68fedffdd1806e9662f2d1e08ecfea2de376efa98fe874aef4d370af65db2`
+- slashDa gas: **165386**
+- totalBurned: **0.01 ETH** (10000000000000000 wei)
+- challengeWindow: **45s**
+- closedLoopClaimed: **true**
+
+**边界声明**（必须明确）:
+- ✅ **已验证**: Preimage disclosure 闭环（bindDa → 超时 → slashDa）
+- ❌ **未实现**: EIP-4844 point evaluation proof（0x0a 预编译未调用）
+- ⚠️ **测试参数**: Bond 0.01 ETH（生产需 1 ETH），challenge window 45s（生产需更长）
+- ⚠️ **非生产环境**: 小押金快窗口，仅证明机制可行
+
+**插入位置**（§5）:
+在现有"公网 Blob 验证"段落后，新增段落：
+
+```
+Sepolia 公网 DA 罚没闭环：在 Sepolia 成功部署 BoundedTaskRollup（0x05BB0B9D1E480DF2d079c4a50e3BCF637c653a80），使用测试参数（bond 0.01 ETH，challenge window 45s）验证 DA 罚没闭环。slashDa 交易 0x7ed68fedffdd1806e9662f2d1e08ecfea2de376efa98fe874aef4d370af65db2，gas 消耗 165386，成功 burn 0.01 ETH（totalBurned 验证通过）。边界：验证的是原像披露超时罚没机制，非 EIP-4844 点值证明；测试参数（0.01 ETH / 45s）用于快速验证，生产部署需 1 ETH bond 和更长窗口（≥10分钟）。
+```
+
+**更新 §6.1**:
+将"Sepolia 公网 challenge/settlement 需部署合约和多方参与账户（约 2 ETH）"改为：
+```
+Sepolia 公网 DA 罚没闭环已在测试参数下验证（bond 0.01 ETH，tx 0x7ed6...5db2），证明机制可行。生产部署需 1 ETH bond、更长 challenge window（≥10分钟）和多方参与。
+```
+
+---
+
+### 新增证据 B: Release Enclave + DCAP Quote (OUT_OF_DATE_CONFIG)
+
+**证据文件**: `outputs/stageH_release_20261029/`
+- `report_zh.md`: 详细报告
+- `instance.json`: 环境信息
+- `tee_link.json`: Quote 验证
+- `tasks.json`: Enclave 任务
+
+**关键数据**（诚实标注边界）:
+- 主机: **47.95.228.60**（阿里云 ecs.g7t.large）
+- SDK: **2.19**, DCAP: **1.16**
+- MRENCLAVE: `0x1f2467e1215fd488345bbd059c8711aadfdfe7a73a529d02bc76dc9b9ab6b05f`
+- Quote SHA256: `0037575150daacacb26e3d28f664daf195aa609d0bd712e6a6fe8e45add85646`
+- sgx_qv_verify_quote ret: **0x0**（成功）
+- Result: **0xA003**（`OUT_OF_DATE_CONFIG_NEEDED`）
+- Quote 生成时间: ~**852 ms**
+- DisableDebug: **1**（release 模式）
+
+**边界声明**（必须明确）:
+- ✅ **已实现**: Release Enclave（非 debug，DisableDebug=1）
+- ✅ **已实现**: DCAP Quote 生成和本地验证（ret=0x0）
+- ❌ **非 UpToDate TCB**: Result `0xA003` = OUT_OF_DATE_CONFIG_NEEDED（与 10-17 StageH 一致）
+- ❌ **非链上验证**: 验证在本地进行，未接入链上罚没路径
+- ⚠️ **生产环境需要**: Result `0x0` (UpToDate) 或 `0x1` (SW_HARDENING_NEEDED)
+
+**插入位置**（§5）:
+在现有"Automata DCAP 验证"段落后，新增段落：
+
+```
+Release Enclave DCAP 验证：在阿里云新 SGX 实例（47.95.228.60, ecs.g7t.large）上部署 release Enclave（DisableDebug=1，MRENCLAVE 0x1f2467e1215fd488345bbd059c8711aadfdfe7a73a529d02bc76dc9b9ab6b05f），生成 DCAP Quote（SHA256 003757...85646）并本地验证。sgx_qv_verify_quote 返回 0x0（成功），result 0xA003（OUT_OF_DATE_CONFIG_NEEDED），语义与 10-17 StageH TCB Status 5 一致。Quote 生成耗时约 852 ms。边界：result 0xA003 表示平台配置过时但功能正常，生产环境需 0x0（UpToDate）或 0x1（SW_HARDENING_NEEDED）；验证在本地进行，未接入链上自主 DCAP 或罚没路径。
+```
+
+**更新 §6.1**:
+将"生产 DCAP 需 release Enclave + UpToDate TCB"改为：
+```
+生产 DCAP 边界：已完成 release Enclave（DisableDebug=1）和 DCAP Quote 验证（ret=0x0），但 result 0xA003（OUT_OF_DATE_CONFIG_NEEDED）不适合生产，需 0x0（UpToDate）或 0x1（SW_HARDENING_NEEDED）。此外，验证在本地进行（sgx_qv_verify_quote），未集成链上自主 DCAP 验证或接入罚没路径。
+```
+
+---
+
+### 仍然 Blocked 的实验（必须明确）
+
+**更新 remaining_experiments_checklist.md**，添加"已部分完成"栏：
+
+#### 已部分完成（测试参数/环境）
+1. **Sepolia DA 罚没闭环**: 
+   - ✅ 已完成: 测试参数（0.01 ETH / 45s）
+   - ❌ 仍缺失: 生产参数（1 ETH / ≥10分钟）+ 多方参与压力测试
+
+2. **Release Enclave + DCAP**:
+   - ✅ 已完成: Release 编译（DisableDebug=1）+ Quote 验证（ret=0x0）
+   - ❌ 仍缺失: UpToDate TCB（0x0/0x1，非 0xA003）+ 链上自主验证
+
+#### 完全 Blocked（技术或资源限制）
+1. **链上自主 DCAP 验证**: Automata 合约可用但未接入罚没路径
+2. **生产 1 ETH 长窗口**: 需大量资金和长时间跨度实验
+3. **真实 type-3 Blob point-eval**: 需 0x0a 预编译集成（当前仅 preimage disclosure）
+
+---
+
+**更新原则**（再次强调）:
+1. **诚实标注边界**: 测试参数 ≠ 生产参数，OUT_OF_DATE ≠ UpToDate
+2. **不夸大成果**: 0.01 ETH ≠ 1 ETH，45s ≠ 10分钟，本地验证 ≠ 链上验证
+3. **明确仍缺失**: 点值证明、链上 DCAP、生产 TCB
+

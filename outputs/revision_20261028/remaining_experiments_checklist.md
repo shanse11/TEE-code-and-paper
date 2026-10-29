@@ -254,3 +254,217 @@ node evm/revision/sepolia_stress_test.js --challenges 100
 **文档版本**: v1.0  
 **生成工具**: Cursor Cloud Agent (bc-929a7da6)  
 **联系**: 需用户提供云资源后继续实验 B/C/D
+
+---
+
+## 🔄 补充更新（2026-10-29 第二轮证据）
+
+### 已部分完成实验
+
+#### E1. Sepolia 公网 DA 罚没闭环（测试参数）
+
+**状态**: ✅ 已完成（测试环境），⚠️ 生产参数待验证
+
+**已完成部分**:
+- 部署: BoundedTaskRollup (`0x05BB0B9D1E480DF2d079c4a50e3BCF637c653a80`)
+- Bond: 0.01 ETH（测试）
+- Challenge window: 45s（快速验证）
+- slashDa tx: `0x7ed68fedffdd1806e9662f2d1e08ecfea2de376efa98fe874aef4d370af65db2`
+- Gas: 165386
+- Burned: 0.01 ETH ✅
+- closedLoopClaimed: true
+
+**仍缺失部分**:
+- 生产 bond: 1 ETH（当前仅 0.01 ETH）
+- 生产 challenge window: ≥10分钟（当前仅 45s）
+- 多方参与压力测试
+- EIP-4844 点值证明集成（当前仅 preimage disclosure）
+
+**边界说明**:
+```
+✅ 证明机制可行: Sepolia 公网成功 burn 0.01 ETH
+❌ 非生产参数: 0.01 ETH ≠ 1 ETH, 45s ≠ 10分钟
+❌ 非点值证明: 验证 keccak256(payload), 非 0x0a 预编译
+```
+
+**执行步骤**（生产部署）:
+```bash
+# 1. 准备生产参数
+export BOND=1000000000000000000  # 1 ETH
+export CHALLENGE_WINDOW=600       # 10分钟
+
+# 2. 重新部署或更新参数
+# （需 ~2 ETH: 1 ETH submitter bond + 1 ETH challenger bond + gas）
+
+# 3. 运行长时间测试
+node evm/revision/sepolia_production_test.js --duration 24h
+```
+
+**证据文件**: `outputs/sepolia_blob_closed_loop_20261029/result.json`
+
+---
+
+#### E2. Release Enclave + DCAP Quote（OUT_OF_DATE_CONFIG）
+
+**状态**: ✅ 已完成（Release模式），⚠️ UpToDate TCB待完成
+
+**已完成部分**:
+- Enclave 模式: Release（DisableDebug=1） ✅
+- MRENCLAVE: `0x1f2467e1215fd488345bbd059c8711aadfdfe7a73a529d02bc76dc9b9ab6b05f`
+- DCAP Quote: 生成成功，SHA256 `003757...85646`
+- 本地验证: sgx_qv_verify_quote ret=0x0 ✅
+- Result: **0xA003**（OUT_OF_DATE_CONFIG_NEEDED）
+- 主机: 阿里云 47.95.228.60（ecs.g7t.large）
+- SDK: 2.19, DCAP: 1.16
+- Quote 生成: ~852 ms
+
+**仍缺失部分**:
+- UpToDate TCB: Result 0x0/0x1（当前 0xA003）
+  - 需要: BIOS/固件更新 或 Intel TCB 评估更新
+- 链上自主 DCAP: 验证在本地，未接入链上罚没
+- 生产 PCS: 当前连接测试环境
+
+**边界说明**:
+```
+✅ Release Enclave: DisableDebug=1, 非 debug 模式
+✅ Quote 验证通过: ret=0x0 (成功)
+❌ 非 UpToDate TCB: 0xA003 ≠ 0x0/0x1
+❌ 非链上验证: 本地 sgx_qv_verify_quote, 未广播上链
+```
+
+**执行步骤**（UpToDate TCB）:
+```bash
+# 1. 更新 BIOS/固件（需阿里云支持）
+# 或等待 Intel 更新 TCB 评估
+
+# 2. 重新验证
+./verify_quote.sh quote_release.dat
+
+# 3. 期望结果
+# sgx_qv_verify_quote: ret=0x0, result=0x0 (UpToDate)
+```
+
+**证据文件**: `outputs/stageH_release_20261029/`
+
+---
+
+### 仍完全 Blocked 的实验
+
+#### F1. 链上自主 DCAP 验证 + 罚没集成
+
+**阻塞原因**:
+- Automata `verifyAndAttestOnChain` 可用但未接入罚没路径
+- 需实现: `BoundedTaskRollup.verifyAttestation()` 调用 Automata
+- 需设计: 链上验证结果 → slash 决策逻辑
+
+**执行步骤**（待开发）:
+```solidity
+// 需在 BoundedTaskRollup.sol 中添加
+function verifyAttestation(
+    bytes32 taskId,
+    bytes calldata quote,
+    address automataContract
+) external {
+    // 1. 调用 Automata.verifyAndAttestOnChain(quote)
+    // 2. 检查 tcbStatus (只接受 0x0/0x1)
+    // 3. 验证 MRENCLAVE 白名单
+    // 4. 提取 reportData 并匹配 taskId
+    // 5. 如验证失败 → slashSubmitter()
+}
+```
+
+---
+
+#### F2. 生产 1 ETH 长窗口实验
+
+**阻塞原因**:
+- 需 ≥10 ETH 资金（多方参与 × 多轮次）
+- 需长时间跨度（24小时+）验证经济博弈
+- 需多角色（submitter, challenger, observer）协调
+
+**资金需求细分**:
+| 角色 | Bond | Gas | 总需求 |
+|-----|------|-----|-------|
+| Submitter | 1 ETH | 0.05 ETH | 1.05 ETH |
+| Challenger | 1 ETH | 0.05 ETH | 1.05 ETH |
+| Observer | 0 | 0.02 ETH | 0.02 ETH |
+| **每轮总计** | **2 ETH** | **0.12 ETH** | **2.12 ETH** |
+| **10 轮** | **20 ETH** | **1.2 ETH** | **21.2 ETH** |
+
+---
+
+#### F3. 真实 type-3 Blob + EIP-4844 点值证明
+
+**阻塞原因**:
+- 当前仅验证 `keccak256(payload) == dataHash`（preimage disclosure）
+- 需集成 `point_evaluation` 预编译（0x0a）
+- 需实现 KZG proof 生成和链上验证绑定
+
+**执行步骤**（待开发）:
+```solidity
+// 需在 BoundedTaskRollup.sol 中修改
+function fulfillDa(bytes32 id, bytes calldata payload, bytes calldata kzgProof) external {
+    // 当前: require(keccak256(payload) == dataHash)
+    
+    // 新增: 点值证明验证
+    bytes32 versionedHash = daDuties[id].daRef;
+    bytes32 z = /* evaluation point */;
+    bytes32 y = /* evaluation value */;
+    
+    (bool success, ) = address(0x0a).staticcall(
+        abi.encodePacked(versionedHash, z, y, kzgProof)
+    );
+    require(success, "point eval failed");
+    
+    // 然后再验证 payload hash
+    require(keccak256(payload) == dataHash);
+}
+```
+
+---
+
+## 📊 实验完成度总览（更新后）
+
+| 实验类别 | 状态 | 完成度 | 说明 |
+|---------|------|--------|------|
+| 本地 Hardhat DA 闭环 | ✅ | 100% | 3/3测试通过，gas 91266 |
+| Sepolia 小bond DA闭环 | ✅ | 70% | 0.01 ETH/45s 通过，缺生产参数 |
+| Release Enclave + Quote | ✅ | 80% | DisableDebug=1，缺 UpToDate TCB |
+| Sepolia Blob 发布+取回 | ✅ | 100% | tx 0x3ad9...d340, KZG 验证 |
+| Automata 链上 eth_call | ✅ | 100% | TCB 5, gas ~5.1M |
+| 链上自主 DCAP + 罚没 | ❌ | 0% | 需开发集成代码 |
+| 生产 1 ETH 长窗口 | ❌ | 0% | 需 ~21 ETH 资金 |
+| EIP-4844 点值证明 | ❌ | 0% | 需 0x0a 预编译集成 |
+
+---
+
+## 🎯 更新后的论文写入指导
+
+### 摘要
+```
+本文在以下环境完成了验证：
+①本地 Hardhat（DA 闭环，gas 91266）
+②Sepolia 公网（DA 罚没闭环 0.01 ETH / 45s, tx 0x7ed6...5db2；Blob tx 0x3ad9...d340）
+③阿里云 SGX（release Enclave，result 0xA003）
+④Automata 链上 eth_call（TCB 5）
+
+边界：原像披露闭环已验证，缺点值强绑定；
+      测试参数（0.01 ETH）已验证，生产参数（1 ETH）待部署；
+      Release Enclave 已完成，UpToDate TCB（0x0/0x1）待平台更新。
+```
+
+### §5 新增段落（2个）
+1. Sepolia 公网 DA 罚没闭环（0.01 ETH / 45s）
+2. Release Enclave DCAP（0xA003, 852ms）
+
+### §6.1 更新
+- "已部分完成"类别：Sepolia 小bond、Release Enclave
+- "仍 blocked"类别：链上自主 DCAP、生产 1 ETH、点值证明
+
+---
+
+**更新版本**: v2.0  
+**更新时间**: 2026-10-29  
+**新增证据**: 2类（Sepolia小bond + Release Enclave）  
+**诚实边界**: 测试参数 ≠ 生产，OUT_OF_DATE ≠ UpToDate
+

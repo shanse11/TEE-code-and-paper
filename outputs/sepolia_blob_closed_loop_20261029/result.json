@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.sepolia-da-closed-loop.v1",
+  "timestamp": "2026-10-29T05:35:00Z",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "closedLoopClaimed": true,
+  "closedLoopScope": "preimage_disclosure_with_small_bond",
+  "boundary": "NOT EIP-4844 point-eval proof; bond 0.01 ETH (not production 1 ETH)",
+  "signer": "0x7bB71A7Ef8C395823b3D6977Ba82178E98017c30",
+  "rollup": "0x05BB0B9D1E480DF2d079c4a50e3BCF637c653a80",
+  "challengeWindow": "45s",
+  "slashDa": {
+    "tx": "0x7ed68fedffdd1806e9662f2d1e08ecfea2de376efa98fe874aef4d370af65db2",
+    "gas": 165386,
+    "totalBurned": "0.01 ETH",
+    "burnedWei": "10000000000000000",
+    "status": "success"
+  },
+  "verification": {
+    "txExists": true,
+    "fundsBurned": true,
+    "gasConsistency": true
+  },
+  "notes": [
+    "Preimage disclosure closed loop verified on Sepolia with 0.01 ETH bond (test environment)",
+    "NOT EIP-4844 point evaluation proof (0x0a precompile not called)",
+    "Production deployment requires 1 ETH bond and longer challenge window",
+    "This demonstrates the mechanism works on public testnet with reduced parameters"
+  ]
+}
