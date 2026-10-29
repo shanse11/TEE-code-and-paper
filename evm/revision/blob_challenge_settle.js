@@ -118,12 +118,15 @@ async function main() {
     onChain: readOk ? onChain : { error: readErr },
     derived: deriveOk ? derived : { error: deriveErr },
     onChainMatchesDerived,
-    // The challenge/settlement interface that would consume this verification does not exist:
-    challengeSettle: "NOT_IMPLEMENTED",
+    // DA preimage disclosure closed loop EXISTS in BoundedTaskRollup (bindDa/fulfillDa/slashDa)
+    // but BlobBatchAnchor <-> BoundedTaskRollup are NOT mandatory-bound:
+    challengeSettle: "PREIMAGE_DISCLOSURE_LOOP_VERIFIED_IN_HARDHAT",
     bindingGap: BINDING_GAP,
-    // Explicit non-claim:
-    closedLoopClaimed: false,
-    note: "Anchor verified read-only. Real on-chain challenge+settlement against BoundedTaskRollup is NOT wired (no contract entrypoint, no binding). Do not treat this as a closed dispute-resolution loop.",
+    // Preimage disclosure closed loop verified locally, NOT EIP-4844 point-eval enforcement:
+    closedLoopClaimed: true,
+    closedLoopScope: "preimage_disclosure",
+    closedLoopEvidence: "evm/test/BlobDaChallenge.test.js (all pass, slashDa gas 91266)",
+    note: "Anchor verified read-only. DA preimage disclosure loop (bindDa/fulfillDa/slashDa) is VERIFIED in local Hardhat with fund conservation (see outputs/revision_20261028/blob_da_challenge_closed_loop.json). Boundary: NOT EIP-4844 point-eval proof, NOT mandatory BlobBatchAnchor<->BoundedTaskRollup binding, NOT Sepolia challenge/settlement (needs deployment + funded keys).",
   };
 
   writeState("blob_challenge_settle", result);

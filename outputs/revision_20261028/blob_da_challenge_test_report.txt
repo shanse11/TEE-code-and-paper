@@ -1,0 +1,26 @@
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+
+
+  BlobDaChallenge - Preimage Disclosure Closed Loop
+    Path 1: fulfillDa - Preimage Disclosed Successfully
+    ✅ fulfillDa closed loop verified:
+       - fulfillDa gas: 104432
+       - finalize gas: 65406
+       - Claimable: 2.0 ETH
+      ✔ Should allow settle after fulfillDa with fund conservation
+    Path 2: slashDa - Preimage Disclosure Timeout
+    ✅ slashDa closed loop verified:
+       - slashDa gas: 91266
+       - Burned: 1.0 ETH
+       - Fund conservation: Submitter won challenge (2 ETH), lost DA bond (1 ETH burned)
+      ✔ Should slash DA bond after timeout with fund conservation
+    Boundary: No mandatory BlobBatchAnchor <-> BoundedTaskRollup binding
+    ⚠️  Boundary confirmed:
+       - BlobBatchAnchor and BoundedTaskRollup are NOT mandatory-bound
+       - daRef is arbitrary bytes32, not enforced to be a BlobBatchAnchor ID
+       - This test uses anchorCalldataBatch (mock), not real type-3 blob tx
+      ✔ Should document that contracts are NOT cross-wired
+
+
+  3 passing (446ms)
+
