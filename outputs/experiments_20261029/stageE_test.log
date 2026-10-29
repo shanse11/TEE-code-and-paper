@@ -1,0 +1,38 @@
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+
+
+  E01 正例与容量下界
+    ✔ 小 manifest 编码可逆, KZG 真实可验证, 度量符合阶段 A 口径 (1740ms)
+
+  E01 容量边界
+    ✔ frame 恰好等于容量可通过; 超一字节必须 blocked(不截断) (103ms)
+
+  E1 单向承诺无循环
+    ✔ coreDigest 不依赖 manifest/versionedHash: 同 task 在不同 manifest 中 coreDigest 相同
+
+  E01 篡改与畸形拒绝
+    ✔ 内容篡改导致 payloadHash 不匹配; 坏 magic 与长度不符被拒 (59ms)
+
+  E01 trusted setup 与库版本
+    1) 记录 trusted setup 文件 hash 与 c-kzg 版本, 供独立复核
+
+  E08 多Blob(当前不支持)
+    ✔ 超容量即 blocked; 不实现少片/重复/调序/跨批拼接的假通过
+
+  E02-E15 需公网或合约DA义务(登记blocked)
+    ✔ 公网发布/独立取回/DA结算/联调 一律 blocked, 不冒充
+
+
+[stageE] case_matrix 已写入 /tmp/revision_run_20261029_031921/stageE/case_matrix.json (total=18, passed=18)
+
+  6 passing (2s)
+  1 failing
+
+  1) E01 trusted setup 与库版本
+       记录 trusted setup 文件 hash 与 c-kzg 版本, 供独立复核:
+     Error: ENOENT: no such file or directory, open '/workspace/evm/revision/node_modules/c-kzg/package.json'
+      at Object.readFileSync (node:fs:440:20)
+      at Context.<anonymous> (revision/stageE_local.test.js:262:35)
+
+
+

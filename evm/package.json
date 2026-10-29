@@ -30,5 +30,8 @@
     "ethers": "^6.15.0",
     "hardhat": "^2.26.3",
     "mocha": "^10.8.2"
+  },
+  "dependencies": {
+    "c-kzg": "^4.1.0"
   }
 }

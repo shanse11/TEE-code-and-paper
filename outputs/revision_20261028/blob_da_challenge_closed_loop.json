@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.blob-da-challenge.v1",
+  "timestamp": "2026-10-29T05:10:00Z",
+  "test": "evm/test/BlobDaChallenge.test.js",
+  "network": "hardhat",
+  "status": "ALL_PASS",
+  "closedLoopClaimed": true,
+  "closedLoopScope": "preimage_disclosure",
+  "closedLoopBoundary": {
+    "included": [
+      "bindDa: Bind DA reference to task",
+      "fulfillDa: Disclose preimage successfully (dataHash verified)",
+      "slashDa: Slash DA bond on timeout without disclosure",
+      "Fund conservation: Bonds properly accounted and burned",
+      "Settlement integration: DA state cleared before finalize/terminate"
+    ],
+    "excluded": [
+      "EIP-4844 point evaluation proof (0x0a precompile NOT called)",
+      "Mandatory BlobBatchAnchor <-> BoundedTaskRollup binding (contracts NOT cross-wired)",
+      "Real type-3 blob transaction in test (uses anchorCalldataBatch mock)",
+      "Public testnet Blob challenge/settlement (only local Hardhat)"
+    ]
+  },
+  "results": {
+    "path1_fulfillDa": {
+      "scenario": "Preimage disclosed successfully",
+      "status": "PASS",
+      "gas": {
+        "fulfillDa": 104432,
+        "finalize": 65406
+      },
+      "fundsRecovered": "2.0 ETH claimable (original bond + DA bond)"
+    },
+    "path2_slashDa": {
+      "scenario": "Preimage disclosure timeout",
+      "status": "PASS",
+      "gas": {
+        "slashDa": 91266
+      },
+      "fundsBurned": "1.0 ETH",
+      "note": "Submitter won challenge (correct computation) but lost DA bond independently. Demonstrates orthogonal obligations."
+    },
+    "boundary_verification": {
+      "scenario": "Contract binding check",
+      "status": "PASS",
+      "verified": "BlobBatchAnchor and BoundedTaskRollup have NO mandatory binding"
+    }
+  },
+  "evidenceComparison": {
+    "stageC_C12": {
+      "slashDa_gas": 91266,
+      "note": "Exact match with C12 test from outputs/experiments_20261029/stageC/case_matrix.json"
+    },
+    "sepolia_blob_20261017": {
+      "tx": "0x3ad90ecfdf5930c1bf611223af76196e54fbc74af0f9c9924de9dc523681d340",
+      "versionedHash": "0x010a35506f6b45b2d022aac9ecca1c4e2631ca12d6b0c07f6cb3d195c3985493",
+      "slot": 11374267,
+      "note": "Real Sepolia blob publish + retrieve successful. Challenge/settlement on Sepolia requires funded keys and BlobBatchAnchor deployment."
+    }
+  },
+  "nextSteps": {
+    "requireUserResources": [
+      "Deploy BlobBatchAnchor to Sepolia",
+      "Fund Sepolia account for challenge/settlement transactions",
+      "Integrate slashDa into public testnet workflow"
+    ],
+    "optional": [
+      "Implement EIP-4844 point evaluation proof integration (0x0a precompile)",
+      "Add mandatory binding between BlobBatchAnchor and BoundedTaskRollup",
+      "Real type-3 blob transaction in Hardhat (requires blob sidecar support)"
+    ]
+  }
+}

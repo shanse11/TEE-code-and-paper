@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "hybrid-tee-rollup.tee-link.v1",
+  "timestamp": "2026-10-29T05:35:00Z",
+  "quote": {
+    "file": "quote_release_steps4.dat",
+    "sha256": "0037575150daacacb26e3d28f664daf195aa609d0bd712e6a6fe8e45add85646",
+    "publiclyAvailable": false,
+    "reason": "Contains sensitive platform information (FMSPC, TCB info, etc.)"
+  },
+  "verification": {
+    "method": "sgx_qv_verify_quote",
+    "library": "libsgx_dcap_quoteverify",
+    "ret": "0x0",
+    "result": "0xA003",
+    "wallClockMs": 852
+  },
+  "mrenclave": {
+    "value": "0x1f2467e1215fd488345bbd059c8711aadfdfe7a73a529d02bc76dc9b9ab6b05f",
+    "mode": "release",
+    "debugDisabled": true
+  },
+  "tcbStatus": {
+    "code": "0xA003",
+    "name": "OUT_OF_DATE_CONFIG_NEEDED",
+    "production": false,
+    "note": "Same semantics as 2026-10-17 StageH TCB Status 5. Not suitable for production without BIOS/firmware update or Intel TCB evaluation update."
+  }
+}
