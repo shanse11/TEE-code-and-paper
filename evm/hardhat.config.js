@@ -1,6 +1,18 @@
+const path = require("path");
+const { subtask } = require("hardhat/config");
+const { TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS } = require("hardhat/builtin-tasks/task-names");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-ethers");
 require("@nomicfoundation/hardhat-verify");
+
+// Compiled only by evm/revision/hardhat.config.js (solc 0.8.26, Cancun).
+// BlobBatchAnchor is intentionally kept out of this 0.8.24 root config.
+const REVISION_ONLY_SOURCES = new Set(["BlobBatchAnchor.sol", "MechanismBaseline.sol"]);
+
+subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(async (_, __, runSuper) => {
+  const sourcePaths = await runSuper();
+  return sourcePaths.filter((file) => !REVISION_ONLY_SOURCES.has(path.basename(file)));
+});
 
 const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL || "";
 const sepoliaPrivateKey = process.env.SEPOLIA_PRIVATE_KEY || "";
