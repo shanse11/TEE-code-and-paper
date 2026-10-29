@@ -1,0 +1,20 @@
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+
+
+  stageF stats fixtures
+    ✔ F-FIX-01 已知分位数：nearest-rank p50/p95 与手算一致
+    ✔ F-FIX-02 样本量不足：n=5 时 p95 被省略并给出 reason，不伪造
+    ✔ F-FIX-03 分母 0 或 null：rate/costPerDenominator 返回 null+reason，不填 0
+    ✔ F-FIX-04 全失败：成功率 0，条件延迟为 null 且带 warning，不产生可比延迟
+    ✔ F-FIX-05 右删失：成功/失败/删失分别计数，延迟标注为条件于成功
+    ✔ F-FIX-06 重复 task/tx：去重后唯一计数与重复计数分离
+    ✔ F-FIX-07 超大 wei：超过 2^53 仍精确，比较用 BigInt 非字符串
+    ✔ F-FIX-08 缺费用字段：missing 单独计数，不静默按 0
+    ✔ F-FIX-09 跨窗口任务：按 windowId/时间范围归属，越界标记不丢弃
+    ✔ F-FIX-10 批内相关：cluster bootstrap 以独立 run/批为单位；3 run 时不给 CI
+    ✔ F-FIX-11 nonce 重试：attempt>success 时成功率下降，成本按实际 tx 计一次
+    ✔ F-FIX-12 固定 seed 的 cluster bootstrap 可复现
+
+
+  12 passing (7ms)
+

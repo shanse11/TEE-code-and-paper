@@ -1,0 +1,59 @@
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+
+
+  C01 无故障过早recover
+    ✔ 未超时时 recover 被拒, 且不破坏正常任务/不重置期限 (358ms)
+
+  C02 挑战者失联->新观察者
+    ✔ recover 不更换挑战者; 事实延续依赖 adjudicate 兜底(不关闭兜底)
+
+  C03 提交者失联
+    ✔ respond 需 submitter, 失联时只能走 adjudicate/terminate 超时结算, 不假称重新执行成功
+
+  C04 抢先占位后失联
+    ✔ 多次 recover 有界(<=maxRecoveries); 超上限后仍可 terminate 收口
+
+  C05 Sybil 重复recover
+    ✔ 任意多地址都不能突破恢复次数/总期限
+
+  C06 recover 时间边界
+    ✔ timeoutAt 当刻拒绝, +1 允许; absoluteDeadline 当刻拒绝
+
+  C07 recover与terminate竞争
+    ✔ 两种顺序都不出现双赢家/双支付/事实重写
+
+  C08 接近absoluteDeadline
+    ✔ recover 被拒(剩余不足), terminate 出口可用
+
+  C09 maxRecoveries矩阵
+    ✔ 0/1/2 三种上限均正确, 超上限不丢原任务 (42ms)
+
+  C10 重放与错误轨迹
+    ✔ 已终局任务旧证据重放被拒; 跨任务证据不可复用
+
+  C11 串谋抢占
+    ✔ 友好挑战不能阻止第三方 adjudicate 客观裁决; 诚实反证不被永久排除
+
+  C12 DA隐瞒
+    ✔ bindDa 后未披露则罚没；披露原像后才允许结算
+
+  C13 短时阻断与延迟
+    ✔ 窗口内延迟后仍可继续; 超出 absoluteDeadline 则不再保证活性
+
+  C14 崩溃后从链上状态恢复
+    ✔ 新观察者仅凭链上持久化状态即可接续, 不依赖原进程内存
+
+  C15 快照回滚与双签
+    ✔ 本地快照回滚后, 协议层 nonce/taskId 防重放; 不宣称真实硬件防回滚
+
+  C16 L1重组
+    ✔ 本地无真实重组, 标记 not_applicable 并说明
+
+  C17 边界压力与最坏gas
+    ✔ 最大步数与最大证据可处理; 无效交易风暴不改变状态并记录最坏gas (57ms)
+
+
+[stageC] 产物已写入 /tmp/revision_run_20261029_031921/stageC (cases=17, passed=17)
+
+  17 passing (752ms)
+

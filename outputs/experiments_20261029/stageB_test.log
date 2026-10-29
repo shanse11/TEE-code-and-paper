@@ -1,0 +1,35 @@
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+
+
+  B01 正常任务终局及提现(完整账本)
+    ✔ 诚实提交被诚实挑战 -> 提交者胜 -> 实际提现, 无重复支付 (378ms)
+
+  B05 错误证据或自填赢家
+    ✔ 未 VERIFIED 直接 settle 被拒；adjudicate 按确定性重算判责, 挑战者不能自封赢家
+
+  B06 挑战截止前/等于/后一单位
+    ✔ openChallenge: <=deadline 允许, deadline+1 拒绝; finalize: >deadline 才允许 (41ms)
+
+  B10 多任务并行与资金隔离
+    ✔ 3 个任务并存, 每任务抵押独立, 全局两层守恒成立
+
+  B11 自挑战及串谋转移
+    ✔ submitter 不能自挑战; Sybil 串谋只在同一控制人地址间转移押金, 非经济惩罚
+
+  B12 输入上限与边界
+    ✔ steps=0 与 steps>MAX 被拒; steps=1 与 steps=MAX(128) 可提交并正确裁决 (71ms)
+
+  B13 legacy 反例重放到新入口
+    ✔ R1 响应权限 / R2 自填校验值 / R3 自填裁决位 / R4 无限恢复与状态回退 / R5 罚没不扣款 均不复现
+
+  B14 Mock 证明/DA 与未实现接口
+    ✔ MockDARegistry 无权限 setter 不能代表 DA 罚没; MockTEEVerifier 是签名校验而非真实 Quote
+
+  B04 改写输出/轨迹/步数
+    ✔ 篡改 traceRoot 被拒于 respond; 篡改 output 由确定性重算裁决
+
+
+[stageB] case_matrix 已写入 /tmp/revision_run_20261029_031921/stageB/case_matrix.json (total=9, passed=9, failed=0)
+
+  9 passing (618ms)
+
