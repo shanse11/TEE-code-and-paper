@@ -1,0 +1,107 @@
+[
+  {
+    "scenario": "S1",
+    "contract": "BoundedTaskRollup",
+    "attack": "stranger calls recover() early / >maxRecoveries / respond()",
+    "outcome": "DEFENDED",
+    "note": "early=reverted:recovery time; 3rd=reverted:recovery limit; respond=reverted:submitter only; roles & claimable unchanged"
+  },
+  {
+    "scenario": "S1",
+    "contract": "BoundedTaskRollup",
+    "attack": "stranger bindDa/fulfillDa",
+    "outcome": "DEFENDED",
+    "note": "bindDa=reverted:submitter only; fulfillDa=reverted:responder only"
+  },
+  {
+    "scenario": "S1",
+    "contract": "HybridTEERollup",
+    "attack": "stranger opens+resolves challenge with resolutionBits=1 on honest tx",
+    "outcome": "NOT DEFENDED (FINDING-H1)",
+    "note": "resolve=accepted; tx status=3 (3=SLASHED)"
+  },
+  {
+    "scenario": "S1",
+    "contract": "HybridTEERollup+MockDARegistry",
+    "attack": "stranger recoverChallenge; stranger toggles DA availability",
+    "outcome": "NOT DEFENDED (FINDING-H2/H3)",
+    "note": "operator:=stranger; setAvailability=accepted"
+  },
+  {
+    "scenario": "S2",
+    "contract": "BoundedTaskRollup",
+    "attack": "resubmit / move sig to new taskId / cross-contract / cross-chain",
+    "outcome": "DEFENDED",
+    "note": "same=reverted:task id; newId=reverted:signature; otherContract=reverted:signature; digest binds chainid (31337 vs 11155111 digests differ, on-chain digest reproduced)"
+  },
+  {
+    "scenario": "S2",
+    "contract": "HybridTEERollup",
+    "attack": "replay attestation by 3rd party under new txId / other contract",
+    "outcome": "NOT DEFENDED (FINDING-H4)",
+    "note": "newTxId=accepted; otherInstance=accepted; digest lacks chainid/address/txId, nonce not consumed"
+  },
+  {
+    "scenario": "S2",
+    "contract": "MockTEEVerifier",
+    "attack": "malleated signature",
+    "outcome": "NOT DEFENDED (FINDING-H5)",
+    "note": "verifyAttestation(malleated)=true; proofHash differs so 'unique proof' is not unique"
+  },
+  {
+    "scenario": "S3",
+    "contract": "BoundedTaskRollup",
+    "attack": "submitter+sybil challenger collude on wrong output",
+    "outcome": "CORRECTNESS DEFENDED; ECONOMIC NOT",
+    "note": "selfChallenge=reverted:challenger bond; verdict=1 (wrong output flagged by on-chain recompute); sybil claimable=2.0 ETH => colluders net 0 loss (bond returns to sybil). Contract cannot detect sybil identity."
+  },
+  {
+    "scenario": "S3",
+    "contract": "BoundedTaskRollup",
+    "attack": "no-challenge collusion on wrong output",
+    "outcome": "DEFENDED",
+    "note": "totalBurned=1.0 ETH"
+  },
+  {
+    "scenario": "S3",
+    "contract": "BoundedTaskRollup",
+    "attack": "colluding parties stall dispute (steps=128, stepTimeout=10s, maxRecoveries=2)",
+    "outcome": "BOUNDED",
+    "note": "max stall=130s = (normalTransitions(128)=11+2)*10s; terminate after = accepted"
+  },
+  {
+    "scenario": "S3",
+    "contract": "HybridTEERollup",
+    "attack": "colluding challenger resolves own challenge with bits=0",
+    "outcome": "NOT DEFENDED (FINDING-H1)",
+    "note": "status after=1 (1=PENDING, challenge consumed as failure; tx later finalizable)"
+  },
+  {
+    "scenario": "S4",
+    "contract": "BoundedTaskRollup",
+    "attack": "stale version / re-used id",
+    "outcome": "DEFENDED (no TEE state in this contract)",
+    "note": "version0=reverted:task bounds; no cross-task state chain => rollback of an enclave's sealed state is out of scope"
+  },
+  {
+    "scenario": "S4",
+    "contract": "HybridTEERollup",
+    "attack": "re-use old nonce; old/debug MRENCLAVE",
+    "outcome": "NOT DEFENDED (FINDING-H6)",
+    "note": "oldNonce=accepted; foreignMrenclave=accepted"
+  },
+  {
+    "scenario": "S5",
+    "contract": "HybridTEERollup+MockTEEVerifier",
+    "attack": "leaked TEE signing key",
+    "outcome": "NOT DEFENDED (FINDING-H7)",
+    "note": "forgedSubmit=accepted; revocation API present=false; no bond => no slashing bound"
+  },
+  {
+    "scenario": "S5",
+    "contract": "BoundedTaskRollup",
+    "attack": "leaked submitter EOA key",
+    "outcome": "PARTIAL: correctness defended, funds not",
+    "note": "stolen=1.0 ETH (=claimable); forged wrong output burned (totalBurned=1.0); loss bounded by claimable + attacker-posted bonds; no key-rotation API"
+  }
+]

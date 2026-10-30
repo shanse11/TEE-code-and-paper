@@ -1,0 +1,10 @@
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+
+
+  SUPP-B local point-eval DA
+    ✔ raw precompile 0x0a accepts real KZG proof and rejects tampered y (2926ms)
+    ✔ bind -> fulfill(point-eval) and bind -> slash, gas
+
+
+  2 passing (3s)
+

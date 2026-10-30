@@ -1,0 +1,28 @@
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+
+
+  SUPP-A security (专2-2/2-3)
+    S1 recovery-permission abuse
+      ✔ Bounded: stranger recover() only within timeout window, capped, does not move funds/roles (369ms)
+      ✔ Bounded: stranger cannot bindDa/fulfillDa for someone else's task
+      ✔ Hybrid(legacy prototype): ANY address can resolveChallenge with arbitrary bits => slash honest tx (FINDING)
+      ✔ Hybrid: stranger recoverChallenge overwrites session.operator; MockDARegistry.setAvailability unrestricted (FINDING)
+    S2 replay
+      ✔ Bounded: same task+sig resubmit, sig moved to new taskId, sig replayed to another contract instance
+      ✔ Hybrid: same TEE attestation (nonce,sig) replayed under new txId and into a 2nd rollup instance (FINDING) (43ms)
+      ✔ Hybrid: ECDSA malleable (s->n-s) signature accepted by MockTEEVerifier (FINDING)
+    S3 collusion
+      ✔ Bounded: submitter self-challenge blocked; sybil challenger on WRONG output cannot get it accepted
+      ✔ Bounded: colluders stay silent on wrong output -> finalize recomputes and burns bond
+      ✔ Bounded: delay griefing bounded by absoluteDeadline
+      ✔ Hybrid: operator+challenger collusion can slash or clear arbitrarily (resolveChallenge unguarded)
+    S4 TEE rollback / stale attestation
+      ✔ Bounded: stale task (old id) and old TASK_VERSION rejected
+      ✔ Hybrid: old nonce + old (e.g. debug) MRENCLAVE accepted; no nonce registry, no MRENCLAVE allowlist (FINDING)
+    S5 key leakage
+      ✔ Hybrid: leaked TEE key forges arbitrary outputs; signer immutable, no revocation (64ms)
+      ✔ Bounded: leaked submitter key -> can withdraw claimable, but cannot make wrong output pass
+
+
+  15 passing (772ms)
+

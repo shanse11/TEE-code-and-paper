@@ -1,0 +1,25 @@
+Info: ECDSA quote path: /home/htrdeploy/supp_requote_20261030/instance_quote.dat
+
+Trusted quote verification:
+	Info: get target info successfully returned.
+	Info: sgx_qv_set_enclave_load_policy successfully returned.
+	Info: tee_get_quote_supplemental_data_version_and_size successfully returned.
+	Info: latest supplemental data major version: 3, minor version: 1, size: 336
+	Info: App: tee_verify_quote successfully returned.
+	Info: Ecall: Verify QvE report and identity successfully returned.
+	Warning: App: Verification completed with Non-terminal result: a003
+	Info: Supplemental data Major Version: 3
+	Info: Supplemental data Minor Version: 1
+	Info: Advisory ID: INTEL-SA-00657,INTEL-SA-00767,INTEL-SA-01079,INTEL-SA-01103,INTEL-SA-01153,INTEL-SA-00615
+
+===========================================
+
+Untrusted quote verification:
+	Info: tee_get_quote_supplemental_data_version_and_size successfully returned.
+	Info: latest supplemental data major version: 3, minor version: 1, size: 336
+	Info: App: tee_verify_quote successfully returned.
+	Warning: App: Verification completed with Non-terminal result: a003
+	Info: Supplemental data Major Version: 3
+	Info: Supplemental data Minor Version: 1
+	Info: Advisory ID: INTEL-SA-00657,INTEL-SA-00767,INTEL-SA-01079,INTEL-SA-01103,INTEL-SA-01153,INTEL-SA-00615
+
