@@ -1,0 +1,28 @@
+// Sends: (1) type-3 blob tx, (2) tx to 0x0a point-eval precompile, (3) Automata DCAP verifyAndAttestOnChain. Key read from env file, never printed.
+const {ethers}=require('ethers');const fs=require('fs');
+const O='/workspace/TEE-code-and-paper/outputs/experiments_supp_20261030/';
+const p=new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL,11155111,{staticNetwork:true,batchMaxCount:1});
+const pk=fs.readFileSync('/home/box/.secrets/sepolia/private_key.txt','utf8').trim();
+const w=new ethers.Wallet(pk.startsWith('0x')?pk:'0x'+pk,p);
+const fx=JSON.parse(fs.readFileSync(O+'B_point_eval/kzg_fixture.json'));
+(async()=>{const {KZG}=await import('micro-eth-signer/kzg.js');const {trustedSetup}=await import('@paulmillr/trusted-setups/fast-kzg.js');const K=new KZG(trustedSetup);const H=b=>ethers.hexlify(b);
+ const kzg={blobToKzgCommitment:b=>ethers.getBytes(K.blobToKzgCommitment(H(b))),computeBlobKzgProof:(b,c)=>ethers.getBytes(K.computeBlobProof(H(b),H(c)))};
+const res={wallet:w.address,chainId:Number((await p.getNetwork()).chainId),balanceBefore:ethers.formatEther(await p.getBalance(w.address))};
+ const tx={hash:fs.readFileSync('/tmp/blobtx.txt','utf8').split(' ')[0]};let r;for(let i=0;i<60&&!(r=await p.getTransactionReceipt(tx.hash));i++)await new Promise(z=>setTimeout(z,5000));
+ const full=await p.send('eth_getTransactionByHash',[tx.hash]);const rr=await p.send('eth_getTransactionReceipt',[tx.hash]);
+ res.blob={txHash:tx.hash,block:r.blockNumber,status:r.status,gasUsed:r.gasUsed.toString(),blobVersionedHashes:full.blobVersionedHashes,blobGasUsed:BigInt(rr.blobGasUsed).toString(),blobGasPrice:BigInt(rr.blobGasPrice).toString(),fixtureVersionedHash:fx.versionedHash,matchesFixture:full.blobVersionedHashes[0]===fx.versionedHash};
+ const input=ethers.concat([fx.versionedHash,fx.z,fx.y,fx.commitment,fx.proof]);
+ res.pointEval={eth_call:await p.call({to:'0x000000000000000000000000000000000000000a',data:input})};
+ const bad=ethers.concat([fx.versionedHash,fx.z,ethers.zeroPadValue('0x01',32),fx.commitment,fx.proof]);
+ res.pointEval.tamperedYCall=await p.call({to:'0x000000000000000000000000000000000000000a',data:bad}).then(x=>x).catch(e=>'reverted: '+e.shortMessage);
+ const t2=await w.sendTransaction({to:'0x000000000000000000000000000000000000000a',data:input,gasLimit:100000});const r2=await t2.wait();
+ Object.assign(res.pointEval,{txHash:t2.hash,block:r2.blockNumber,status:r2.status,gasUsed:r2.gasUsed.toString(),note:'tx gas = 21000 intrinsic + calldata + 50000 precompile'});
+ const q=fs.readFileSync(O+'sgx_requote/instance_quote.dat');
+ const c=new ethers.Contract('0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10',['function verifyAndAttestOnChain(bytes) payable returns (bool,bytes)','event AttestationSubmitted(bool success,uint8 verifierType,bytes output)'],w);
+ const sc=await c.verifyAndAttestOnChain.staticCall(q);
+ const t3=await c.verifyAndAttestOnChain(q,{gasLimit:6500000});const r3=await t3.wait();
+ const ev=r3.logs.map(l=>{try{return c.interface.parseLog(l)}catch{return null}}).filter(Boolean)[0];
+ res.dcap={contract:'0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10',quoteSha256:require('crypto').createHash('sha256').update(q).digest('hex'),quoteLen:q.length,staticCallSuccess:sc[0],txHash:t3.hash,block:r3.blockNumber,status:r3.status,gasUsed:r3.gasUsed.toString(),event:ev?{success:ev.args[0],verifierType:Number(ev.args[1]),output:ev.args[2]}:null};
+ res.balanceAfter=ethers.formatEther(await p.getBalance(w.address));
+ fs.writeFileSync('/tmp/sepolia_res.json',JSON.stringify(res,null,1));console.log(JSON.stringify(res,null,1));
+})().catch(e=>{console.error('ERR',e.shortMessage||e.message);process.exit(1)});

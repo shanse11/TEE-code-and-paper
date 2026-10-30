@@ -1,0 +1,13 @@
+import {KZG} from 'micro-eth-signer/kzg.js';import {trustedSetup} from '@paulmillr/trusted-setups/fast-peerdas.js';import {ethers} from 'ethers';import fs from 'fs';
+const RPC=process.env.SEPOLIA_RPC_URL;const rpc=async(m,pa)=>{const r=await fetch(RPC,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:m,params:pa})});const t=await r.text();try{return JSON.parse(t)}catch{return {http:r.status,t:t.slice(0,300)}}};
+const K=new KZG(trustedSetup);const H=b=>ethers.hexlify(b);
+const kzg={blobToKzgCommitment:b=>ethers.getBytes(K.blobToKzgCommitment(H(b))),computeBlobKzgProof:(b,c)=>ethers.getBytes(K.computeBlobProof(H(b),H(c)))};
+const pk=fs.readFileSync('/home/box/.secrets/sepolia/private_key.txt','utf8').trim();const w=new ethers.Wallet(pk.startsWith('0x')?pk:'0x'+pk);
+const nonce=parseInt((await rpc('eth_getTransactionCount',[w.address,'pending'])).result);
+const base=BigInt((await rpc('eth_getBlockByNumber',['latest',false])).result.baseFeePerGas);
+const blobB=fs.readFileSync('/workspace/TEE-code-and-paper/outputs/experiments_supp_20261030/B_point_eval/blob.bin');const com=K.blobToKzgCommitment(H(blobB));const vh='0x01'+ethers.sha256(com).slice(4);
+const [cells,proofs]=K.computeCellsAndProofs(H(blobB));console.log('proofs',proofs.length);
+const tx=ethers.Transaction.from({blobVersionedHashes:[vh],type:3,chainId:11155111,nonce,to:w.address,value:0,gasLimit:21000,maxPriorityFeePerGas:1000000000n,maxFeePerGas:base*2n+1000000000n,maxFeePerBlobGas:ethers.parseUnits('5','gwei')});
+const signed=await w.signTransaction(tx);const txHash=ethers.keccak256(signed);const body=ethers.decodeRlp('0x'+signed.slice(4));
+const raw='0x03'+ethers.encodeRlp([body,'0x01',[H(blobB)],[com],proofs]).slice(2);console.log('vh',vh,'txHash',txHash);fs.writeFileSync('/tmp/blobtx.txt',txHash+' '+vh);
+const r=await rpc('eth_sendRawTransaction',[raw]);console.log(JSON.stringify(r).slice(0,400));

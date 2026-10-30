@@ -1,0 +1,45 @@
+{
+ "network": "Ethereum Sepolia (chainId 11155111, post-Osaka/Fusaka)",
+ "wallet": "0x7bB71A7Ef8C395823b3D6977Ba82178E98017c30",
+ "blobTx": {
+  "txHash": "0x450ac7fd5ed7a135318bf6ee22e90741fd2ba6561e0b6b7198338a4deda6a51d",
+  "block": 12025170,
+  "status": 1,
+  "gasUsed": "12000",
+  "blobVersionedHashes": [
+   "0x01eb19ae77f06c15a3fd9227fe83a27f9af234bcf99843dd493c4e3e760592f2"
+  ],
+  "blobGasUsed": "131072",
+  "blobGasPrice": "2",
+  "fixtureVersionedHash": "0x01eb19ae77f06c15a3fd9227fe83a27f9af234bcf99843dd493c4e3e760592f2",
+  "matchesFixture": true,
+  "etherscan": "https://sepolia.etherscan.io/tx/0x450ac7fd5ed7a135318bf6ee22e90741fd2ba6561e0b6b7198338a4deda6a51d",
+  "sidecar": "EIP-7594 wrapper v1 (128 cell proofs); legacy EIP-4844 sidecar rejected by node: \"unexpected eip-4844 sidecar after osaka\""
+ },
+ "pointEval": {
+  "eth_call": "0x000000000000000000000000000000000000000000000000000000000000100073eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001",
+  "tamperedYCall": "reverted: missing revert data",
+  "txHash": "0x4f98c197af818c434b6685ff0634562c38e7a23d05fb1f9ecc97dd7a270967d0",
+  "block": 12025194,
+  "status": 1,
+  "gasUsed": "67700",
+  "note": "tx gas = 21000 intrinsic + calldata + 50000 precompile",
+  "etherscan": "https://sepolia.etherscan.io/tx/0x4f98c197af818c434b6685ff0634562c38e7a23d05fb1f9ecc97dd7a270967d0",
+  "input": "versionedHash||z||y||commitment||proof from B_point_eval/kzg_fixture.json",
+  "outputDecoded": {
+   "FIELD_ELEMENTS_PER_BLOB": 4096,
+   "BLS_MODULUS": "0x73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001"
+  }
+ },
+ "boundaries": [
+  "point-eval tx is a direct call to precompile 0x0a (not via PointEvalDaDuty bind/fulfill contract on Sepolia)",
+  "precompile does not read blob storage; it verifies KZG opening against the versioned hash, which equals the blob tx versioned hash",
+  "tampered y eth_call reverted (precompile failure)"
+ ],
+ "balanceBefore": "0.019164986999569856",
+ "balanceAfter": "0.019164986667700851",
+ "scripts": [
+  "evm/scripts/supp/sepolia_blob_osaka.mjs",
+  "evm/scripts/supp/sepolia_send.js"
+ ]
+}

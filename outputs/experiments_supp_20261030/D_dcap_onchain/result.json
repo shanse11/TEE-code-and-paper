@@ -1,0 +1,33 @@
+{
+ "network": "Ethereum Sepolia",
+ "contract": "0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10",
+ "source": "https://docs.ata.network/tee-overview/tee-verifiers/intel-sgx-tdx-dcap/automata-dcap-attestation/contract-addresses/v1.1.0",
+ "method": "verifyAndAttestOnChain(bytes) — real transaction (not eth_call)",
+ "quoteSha256": "5e6e179f4ec9281d7afb31ee5b314fc0a0c23c47694fbc8328c7744c1b3b3b90",
+ "quoteLen": 4734,
+ "staticCallSuccess": true,
+ "txHash": "0xcdc1cdcc4886996583764ac43d744d9f419cfd9390c6e1a6ee0d829ab95b6fe0",
+ "block": 12025195,
+ "status": 1,
+ "gasUsed": "5037977",
+ "event": {
+  "success": true,
+  "verifierType": 0,
+  "output": "0x000300010500606a0000000e0f100fffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000500000000000000e7000000000000001f2467e1215fd488345bbd059c8711aadfdfe7a73a529d02bc76dc9b9ab6b05f0000000000000000000000000000000000000000000000000000000000000000d87e3c9a3438d8db30dab5f5696fbadddcd83ae99765b036fe1c2680d1b9084e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b41d0cbee8c52672b4db5887ac50c49cb40f99200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+ },
+ "etherscan": "https://sepolia.etherscan.io/tx/0xcdc1cdcc4886996583764ac43d744d9f419cfd9390c6e1a6ee0d829ab95b6fe0",
+ "decoded": {
+  "quoteVersion": 3,
+  "teeType/bodyType": "0x0001 (SGX enclave report)",
+  "tcbStatusEnum": 5,
+  "tcbStatus": "TCB_OUT_OF_DATE_CONFIGURATION_NEEDED (== SGX_QL_QV_RESULT_OUT_OF_DATE_CONFIG_NEEDED 0xA003)",
+  "fmspc": "0x00606a000000",
+  "mrenclave_in_output": false
+ },
+ "tcbEnumSource": "https://github.com/automata-network/automata-on-chain-pccs/blob/main/src/helpers/FmspcTcbHelper.sol",
+ "boundaries": [
+  "success=true means quote signature chain + collateral verified on-chain; TCB is NOT UpToDate (status 5), consistent with local verify 0xA003",
+  "fee bp=0 at time of call",
+  "raw quote .dat not committed"
+ ]
+}
